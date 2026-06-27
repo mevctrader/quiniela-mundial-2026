@@ -261,6 +261,22 @@
       font-weight: 400; letter-spacing: 1px; text-transform: uppercase;
     }
 
+    /* ── DEADLINE BANNER ── */
+    .deadline-banner {
+      background: linear-gradient(135deg,
+        rgba(229,62,62,0.12), rgba(229,62,62,0.06));
+      border: 1px solid rgba(229,62,62,0.35);
+      border-radius: 16px; padding: 18px 28px;
+      display: flex; align-items: center;
+      justify-content: center; gap: 14px;
+      flex-wrap: wrap; text-align: center;
+      max-width: 700px; margin: 0 auto 40px;
+    }
+    .deadline-banner .dl-icon { font-size: 1.6rem; }
+    .deadline-banner .dl-text { font-size: 0.9rem; color: var(--text); }
+    .deadline-banner .dl-text strong { color: var(--accent); font-size: 1rem; }
+    .deadline-banner .dl-sub  { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+
     /* ── CTA FINAL ── */
     .cta-section {
       text-align: center;
@@ -355,7 +371,6 @@
       <div class="stat-label">Rondas</div>
     </div>
     <div class="stat-item">
-      <!-- ✅ FIX — Máximo real según server.js -->
       <div class="stat-num">353</div>
       <div class="stat-label">Pts Máximo</div>
     </div>
@@ -373,7 +388,6 @@
 
   <div class="puntos-grid">
 
-    <!-- ✅ FIX — R32: ganador 3 pts (era 2) -->
     <div class="ronda-card">
       <div class="ronda-header">
         <div class="ronda-name">⚽ Dieciseisavos</div>
@@ -385,7 +399,6 @@
       <div class="pts-max">Máx por partido: <strong>7 pts</strong> · Total ronda: <strong>112 pts</strong></div>
     </div>
 
-    <!-- ✅ FIX — R16: ganador 5 pts (era 3) -->
     <div class="ronda-card">
       <div class="ronda-header">
         <div class="ronda-name">🔥 Octavos de Final</div>
@@ -397,7 +410,6 @@
       <div class="pts-max">Máx por partido: <strong>9 pts</strong> · Total ronda: <strong>72 pts</strong></div>
     </div>
 
-    <!-- ✅ FIX — QF: ganador 8 pts (era 5), marcador 4, penales 2 -->
     <div class="ronda-card">
       <div class="ronda-header">
         <div class="ronda-name">⚡ Cuartos de Final</div>
@@ -409,7 +421,6 @@
       <div class="pts-max">Máx por partido: <strong>14 pts</strong> · Total ronda: <strong>56 pts</strong></div>
     </div>
 
-    <!-- ✅ FIX — SF: ganador 12 pts (era 8), marcador 5, penales 2 -->
     <div class="ronda-card">
       <div class="ronda-header">
         <div class="ronda-name">🏅 Semifinales</div>
@@ -421,7 +432,6 @@
       <div class="pts-max">Máx por partido: <strong>19 pts</strong> · Total ronda: <strong>38 pts</strong></div>
     </div>
 
-    <!-- ✅ FIX — 3P: ganador 8 pts (era 5), marcador 4, penales 2 -->
     <div class="ronda-card">
       <div class="ronda-header">
         <div class="ronda-name">🥉 Tercer Puesto</div>
@@ -433,7 +443,6 @@
       <div class="pts-max">Máx partido: <strong>14 pts</strong></div>
     </div>
 
-    <!-- ✅ FIX — FINAL: ganador 20 pts (era 15), marcador 8, penales 3 -->
     <div class="ronda-card" style="border-color:rgba(240,180,41,0.4)">
       <div class="ronda-header">
         <div class="ronda-name" style="color:var(--gold)">🏆 GRAN FINAL</div>
@@ -473,7 +482,6 @@
     <div style="color:var(--muted);font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">
       Puntuación Máxima Total
     </div>
-    <!-- ✅ FIX — 353 pts reales (era 383) -->
     <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--gold)">
       353 PUNTOS
     </div>
@@ -492,7 +500,8 @@
       <div class="step-icon">📝</div>
       <div class="step-num">PASO 01</div>
       <div class="step-title">Regístrate</div>
-      <div class="step-desc">Completa el formulario, elige tu Balón de Oro y confirma el pago antes del 27 de junio.</div>
+      <!-- ✅ FIX — fecha correcta cierre de registro -->
+      <div class="step-desc">Completa el formulario, elige tu Balón de Oro y confirma el pago antes del <strong style="color:var(--gold)">28 de junio a las 2:59 PM</strong> (hora Caracas).</div>
     </div>
     <div class="step-card">
       <div class="step-icon">🔮</div>
@@ -520,8 +529,27 @@
   <div class="cta-section">
     <h2>¿LISTO PARA COMPETIR?</h2>
     <p>Regístrate antes del cierre y asegura tu lugar en la quiniela más grande del Mundial 2026.</p>
-    <div class="deadline-pill">⏰ Fecha límite: 27 de junio · 23:59 hrs</div>
+
+    <!-- ✅ FIX — fecha y hora correcta -->
+    <div class="deadline-pill">
+      ⏰ Cierre de registro: 28 de junio · 2:59 PM (Caracas UTC-4)
+    </div>
     <br/>
+
+    <!-- ✅ NUEVO — Banner de cuenta regresiva al cierre de registro -->
+    <div class="deadline-banner">
+      <div class="dl-icon">🚨</div>
+      <div>
+        <div class="dl-text">
+          <strong>¡El registro cierra pronto!</strong>
+        </div>
+        <div class="dl-sub">
+          Tiempo restante para registrarse:
+          <span id="reg-countdown" style="color:var(--accent);font-weight:700"></span>
+        </div>
+      </div>
+    </div>
+
     <a href="registro.html" class="btn btn-gold" style="font-size:1rem;padding:16px 36px">
       ⚽ REGISTRARME AHORA
     </a>
@@ -534,13 +562,14 @@
 </footer>
 
 <script>
-  // ✅ FIX — Countdown correcto al primer partido
-  // Sudáfrica vs Canadá — 28 Jun 2026 · 15:00 ET
-  const TARGET = new Date('2026-06-28T15:00:00-04:00');
+  // ══════════════════════════════════════════════
+  // COUNTDOWN — Primer partido: 28 Jun · 15:00 ET
+  // ══════════════════════════════════════════════
+  const TARGET_PARTIDO = new Date('2026-06-28T15:00:00-04:00');
 
-  function tick() {
+  function tickPartido() {
     const now  = new Date();
-    const diff = TARGET - now;
+    const diff = TARGET_PARTIDO - now;
 
     if (diff <= 0) {
       ['cd-d','cd-h','cd-m','cd-s'].forEach(id => {
@@ -562,8 +591,46 @@
     document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
   }
 
-  tick();
-  setInterval(tick, 1000);
+  // ══════════════════════════════════════════════
+  // COUNTDOWN CIERRE DE REGISTRO
+  // 28 Jun 2026 · 14:59 UTC-4 (Caracas)
+  // = 2026-06-28T14:59:00-04:00
+  // ══════════════════════════════════════════════
+  const TARGET_REGISTRO = new Date('2026-06-28T14:59:00-04:00');
+
+  function tickRegistro() {
+    const el   = document.getElementById('reg-countdown');
+    if (!el) return;
+
+    const now  = new Date();
+    const diff = TARGET_REGISTRO - now;
+
+    if (diff <= 0) {
+      el.textContent = '¡Registro cerrado!';
+      // Ocultar botón de registro si ya cerró
+      document.querySelectorAll('a[href="registro.html"]').forEach(btn => {
+        btn.style.opacity = '0.4';
+        btn.style.pointerEvents = 'none';
+        btn.textContent = '🔒 Registro cerrado';
+      });
+      return;
+    }
+
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000)   / 1000);
+
+    if (h > 0) {
+      el.textContent = `${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+    } else {
+      el.textContent = `${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+    }
+  }
+
+  tickPartido();
+  tickRegistro();
+  setInterval(tickPartido,  1000);
+  setInterval(tickRegistro, 1000);
 </script>
 </body>
 </html>
