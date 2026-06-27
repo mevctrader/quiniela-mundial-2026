@@ -16,6 +16,9 @@ const path      = require('path');
 const app  = express();
 const PORT = process.env.PORT || 3000;
 
+// ✅ FIX VERCEL — trust proxy para rate limiter y headers
+app.set('trust proxy', 1);
+
 // ══════════════════════════════════════════════════════════════
 // MODO LOCAL vs PRODUCCIÓN
 // ══════════════════════════════════════════════════════════════
@@ -340,12 +343,26 @@ app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// ✅ FIX — Sin caché para archivos HTML (evita 304 en Vercel)
+app.use((req, res, next) => {
+  if (req.path.endsWith('.html') || req.path === '/') {
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    res.setHeader('Surrogate-Control', 'no-store');
+  }
+  next();
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 500,
-  message: { ok: false, error: 'Demasiadas solicitudes. Intenta más tarde.' }
+  windowMs:          15 * 60 * 1000,
+  max:               500,
+  // ✅ FIX — keyGenerator compatible con trust proxy en Vercel
+  keyGenerator:      (req) => req.ip || req.headers['x-forwarded-for'] || 'unknown',
+  message:           { ok: false, error: 'Demasiadas solicitudes. Intenta más tarde.' }
 });
 app.use('/api/', limiter);
 
@@ -356,15 +373,12 @@ const ADMIN_USER = process.env.ADMIN_USER || 'admin';
 const ADMIN_PASS = process.env.ADMIN_PASS || 'mundial2026';
 
 // ══════════════════════════════════════════════════════════════
-// MIDDLEWARE ADMIN — FIX: acepta headers Y body
+// MIDDLEWARE ADMIN — acepta headers Y body
 // ══════════════════════════════════════════════════════════════
 function authAdmin(req, res, next) {
-  // Acepta credenciales desde headers O desde body
   const u = req.headers['usuario']  || req.body?.usuario  || '';
   const p = req.headers['password'] || req.body?.password || '';
-
   if (u === ADMIN_USER && p === ADMIN_PASS) return next();
-
   res.status(401).json({ ok: false, error: 'No autorizado.' });
 }
 
@@ -382,14 +396,12 @@ app.get('/api/health', (req, res) => {
 });
 
 // ══════════════════════════════════════════════════════════════
-// LOGIN ADMIN — FIX: acepta { usuario, password }
+// LOGIN ADMIN
 // ══════════════════════════════════════════════════════════════
 app.post('/api/admin/login', (req, res) => {
   const { usuario, password } = req.body;
-
   if (!usuario || !password)
     return res.status(400).json({ ok: false, error: 'usuario y password requeridos.' });
-
   if (usuario === ADMIN_USER && password === ADMIN_PASS) {
     res.json({ ok: true, usuario, mensaje: 'Login exitoso.' });
   } else {
@@ -490,6 +502,15 @@ app.post('/api/registro', async (req, res) => {
   if (!metodo_pago)       return res.status(400).json({ ok: false, error: 'Método de pago requerido.' });
   if (!balon_oro?.trim()) return res.status(400).json({ ok: false, error: 'Balón de Oro requerido.' });
 
+  // ✅ FIX — Validar cierre de registro: 28 Jun 2026 · 14:59 UTC-4
+  const CIERRE_REGISTRO = new Date('2026-06-28T14:59:00-04:00');
+  if (new Date() > CIERRE_REGISTRO) {
+    return res.status(403).json({
+      ok:    false,
+      error: 'El período de registro ha cerrado. No se aceptan nuevas inscripciones.'
+    });
+  }
+
   const emailLower = email.toLowerCase().trim();
 
   try {
@@ -561,10 +582,10 @@ app.get('/api/admin/dashboard', authAdmin, async (req, res) => {
   try {
     const parts    = await db.getParticipantes();
     const partidos = await db.getPartidos();
-    const total         = parts.length;
-    const confirmados   = parts.filter(p => p.confirmado).length;
-    const pendPago      = parts.filter(p => !p.confirmado && !p.rechazado).length;
-    const jugados       = partidos.filter(p => p.estado === 'FINALIZADO').length;
+    const total       = parts.length;
+    const confirmados = parts.filter(p => p.confirmado).length;
+    const pendPago    = parts.filter(p => !p.confirmado && !p.rechazado).length;
+    const jugados     = partidos.filter(p => p.estado === 'FINALIZADO').length;
     res.json({ total, confirmados, pendientes_pago: pendPago, jugados, predicciones: 0 });
   } catch(e) {
     res.status(500).json({ ok: false, error: e.message });
@@ -662,11 +683,7 @@ app.post('/api/admin/init', authAdmin, async (req, res) => {
   try {
     if (MODO_LOCAL) {
       DB.partidos = JSON.parse(JSON.stringify(BRACKET_DATOS));
-      return res.json({
-        ok:    true,
-        msg:   'Bracket cargado en memoria',
-        total: BRACKET_DATOS.length
-      });
+      return res.json({ ok: true, msg: 'Bracket cargado en memoria', total: BRACKET_DATOS.length });
     }
     const { error: e1 } = await supabase
       .from('partidos_elim')
@@ -675,19 +692,11 @@ app.post('/api/admin/init', authAdmin, async (req, res) => {
 
     const { error: e2 } = await supabase
       .from('awards_elim')
-      .upsert([{
-        id:      'BALON_ORO',
-        nombre:  'Balón de Oro',
-        puntos:  30,
-        ganador: null
-      }], { onConflict: 'id' });
+      .upsert([{ id: 'BALON_ORO', nombre: 'Balón de Oro', puntos: 30, ganador: null }],
+              { onConflict: 'id' });
     if (e2) throw e2;
 
-    res.json({
-      ok:       true,
-      msg:      'Supabase inicializado correctamente',
-      partidos: BRACKET_DATOS.length
-    });
+    res.json({ ok: true, msg: 'Supabase inicializado correctamente', partidos: BRACKET_DATOS.length });
   } catch(e) {
     res.status(500).json({ ok: false, error: e.message });
   }
@@ -765,9 +774,7 @@ app.get('/api/pdf/:tipo', async (req, res) => {
       doc.fontSize(16).text('🏆 RANKING GENERAL', { underline: true });
       doc.moveDown(0.5);
       ranking.forEach((p, i) => {
-        doc.fontSize(11).text(
-          `${i + 1}. ${p.nombre} (${p.pais}) — ${p.puntos_total || 0} pts`
-        );
+        doc.fontSize(11).text(`${i + 1}. ${p.nombre} (${p.pais}) — ${p.puntos_total || 0} pts`);
       });
     } else if (tipo === 'bracket') {
       const partidos = await db.getPartidos();
@@ -782,17 +789,13 @@ app.get('/api/pdf/:tipo', async (req, res) => {
         doc.moveDown().fontSize(14).text(`── ${nombres[ronda]} ──`, { underline: true });
         ps.forEach(p => {
           const score = p.estado === 'FINALIZADO'
-            ? `${p.goles_local} - ${p.goles_visitante}`
-            : 'vs';
-          doc.fontSize(10).text(
-            `  ${p.id}: ${p.local_nombre} ${score} ${p.visitante_nombre} | ${p.sede}`
-          );
+            ? `${p.goles_local} - ${p.goles_visitante}` : 'vs';
+          doc.fontSize(10).text(`  ${p.id}: ${p.local_nombre} ${score} ${p.visitante_nombre} | ${p.sede}`);
         });
       }
     } else {
       doc.fontSize(12).text(`Tipo de PDF no reconocido: ${tipo}`);
     }
-
     doc.end();
   } catch(e) {
     res.status(500).json({ ok: false, error: e.message });
@@ -818,10 +821,8 @@ async function calcularPuntosPartido(partidoId) {
     let pts = 0;
     if (pred.ganador_pred === partido.ganador_code) {
       pts += ptsRonda.ganador;
-      if (
-        pred.goles_local_pred     === partido.goles_local &&
-        pred.goles_visitante_pred === partido.goles_visitante
-      ) {
+      if (pred.goles_local_pred     === partido.goles_local &&
+          pred.goles_visitante_pred === partido.goles_visitante) {
         pts += ptsRonda.marcador;
       }
       if (partido.fue_a_penales && pred.penales_pred) {
