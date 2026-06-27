@@ -349,8 +349,24 @@ const limiter = rateLimit({
 });
 app.use('/api/', limiter);
 
+// ══════════════════════════════════════════════════════════════
+// CREDENCIALES ADMIN — CON FALLBACK SEGURO
+// ══════════════════════════════════════════════════════════════
 const ADMIN_USER = process.env.ADMIN_USER || 'admin';
 const ADMIN_PASS = process.env.ADMIN_PASS || 'mundial2026';
+
+// ══════════════════════════════════════════════════════════════
+// MIDDLEWARE ADMIN — FIX: acepta headers Y body
+// ══════════════════════════════════════════════════════════════
+function authAdmin(req, res, next) {
+  // Acepta credenciales desde headers O desde body
+  const u = req.headers['usuario']  || req.body?.usuario  || '';
+  const p = req.headers['password'] || req.body?.password || '';
+
+  if (u === ADMIN_USER && p === ADMIN_PASS) return next();
+
+  res.status(401).json({ ok: false, error: 'No autorizado.' });
+}
 
 // ══════════════════════════════════════════════════════════════
 // HEALTH CHECK
@@ -363,6 +379,22 @@ app.get('/api/health', (req, res) => {
     modo:      MODO_LOCAL ? 'local' : 'produccion',
     timestamp: new Date().toISOString()
   });
+});
+
+// ══════════════════════════════════════════════════════════════
+// LOGIN ADMIN — FIX: acepta { usuario, password }
+// ══════════════════════════════════════════════════════════════
+app.post('/api/admin/login', (req, res) => {
+  const { usuario, password } = req.body;
+
+  if (!usuario || !password)
+    return res.status(400).json({ ok: false, error: 'usuario y password requeridos.' });
+
+  if (usuario === ADMIN_USER && password === ADMIN_PASS) {
+    res.json({ ok: true, usuario, mensaje: 'Login exitoso.' });
+  } else {
+    res.status(401).json({ ok: false, error: 'Credenciales incorrectas.' });
+  }
 });
 
 // ══════════════════════════════════════════════════════════════
@@ -522,25 +554,6 @@ app.post('/api/prediccion', async (req, res) => {
 });
 
 // ══════════════════════════════════════════════════════════════
-// MIDDLEWARE ADMIN
-// ══════════════════════════════════════════════════════════════
-function authAdmin(req, res, next) {
-  const u = req.headers['usuario'] || req.body?.usuario;
-  const p = req.headers['password'] || req.body?.password;
-  if (u === ADMIN_USER && p === ADMIN_PASS) return next();
-  res.status(401).json({ ok: false, error: 'No autorizado.' });
-}
-
-app.post('/api/admin/login', (req, res) => {
-  const { usuario, password } = req.body;
-  if (usuario === ADMIN_USER && password === ADMIN_PASS) {
-    res.json({ ok: true, usuario });
-  } else {
-    res.status(401).json({ ok: false, error: 'Credenciales incorrectas.' });
-  }
-});
-
-// ══════════════════════════════════════════════════════════════
 // RUTAS ADMIN
 // ══════════════════════════════════════════════════════════════
 
@@ -596,24 +609,26 @@ app.delete('/api/admin/participante/:id', authAdmin, async (req, res) => {
 
 app.put('/api/admin/partido/:id', authAdmin, async (req, res) => {
   const { id } = req.params;
-  const { estado, goles_local, goles_visitante, fue_a_penales, ganador_code,
-          local_nombre, visitante_nombre, local_code, visitante_code,
-          local_bandera, visitante_bandera, fecha, hora } = req.body;
+  const {
+    estado, goles_local, goles_visitante, fue_a_penales, ganador_code,
+    local_nombre, visitante_nombre, local_code, visitante_code,
+    local_bandera, visitante_bandera, fecha, hora
+  } = req.body;
   try {
     const updates = {};
-    if (estado             !== undefined) updates.estado             = estado;
-    if (goles_local        !== undefined) updates.goles_local        = goles_local;
-    if (goles_visitante    !== undefined) updates.goles_visitante    = goles_visitante;
-    if (fue_a_penales      !== undefined) updates.fue_a_penales      = fue_a_penales;
-    if (ganador_code       !== undefined) updates.ganador_code       = ganador_code;
-    if (local_nombre       !== undefined) updates.local_nombre       = local_nombre;
-    if (visitante_nombre   !== undefined) updates.visitante_nombre   = visitante_nombre;
-    if (local_code         !== undefined) updates.local_code         = local_code;
-    if (visitante_code     !== undefined) updates.visitante_code     = visitante_code;
-    if (local_bandera      !== undefined) updates.local_bandera      = local_bandera;
-    if (visitante_bandera  !== undefined) updates.visitante_bandera  = visitante_bandera;
-    if (fecha              !== undefined) updates.fecha              = fecha;
-    if (hora               !== undefined) updates.hora               = hora;
+    if (estado            !== undefined) updates.estado            = estado;
+    if (goles_local       !== undefined) updates.goles_local       = goles_local;
+    if (goles_visitante   !== undefined) updates.goles_visitante   = goles_visitante;
+    if (fue_a_penales     !== undefined) updates.fue_a_penales     = fue_a_penales;
+    if (ganador_code      !== undefined) updates.ganador_code      = ganador_code;
+    if (local_nombre      !== undefined) updates.local_nombre      = local_nombre;
+    if (visitante_nombre  !== undefined) updates.visitante_nombre  = visitante_nombre;
+    if (local_code        !== undefined) updates.local_code        = local_code;
+    if (visitante_code    !== undefined) updates.visitante_code    = visitante_code;
+    if (local_bandera     !== undefined) updates.local_bandera     = local_bandera;
+    if (visitante_bandera !== undefined) updates.visitante_bandera = visitante_bandera;
+    if (fecha             !== undefined) updates.fecha             = fecha;
+    if (hora              !== undefined) updates.hora              = hora;
 
     await db.updatePartido(id, updates);
 
@@ -627,7 +642,6 @@ app.put('/api/admin/partido/:id', authAdmin, async (req, res) => {
   }
 });
 
-// ✅ FIXEADO — poblar-bracket con UPSERT
 app.post('/api/admin/poblar-bracket', authAdmin, async (req, res) => {
   try {
     if (MODO_LOCAL) {
@@ -644,7 +658,6 @@ app.post('/api/admin/poblar-bracket', authAdmin, async (req, res) => {
   }
 });
 
-// ✅ NUEVO — Inicialización completa Supabase
 app.post('/api/admin/init', authAdmin, async (req, res) => {
   try {
     if (MODO_LOCAL) {
@@ -655,13 +668,11 @@ app.post('/api/admin/init', authAdmin, async (req, res) => {
         total: BRACKET_DATOS.length
       });
     }
-    // Insertar/actualizar todos los partidos
     const { error: e1 } = await supabase
       .from('partidos_elim')
       .upsert(BRACKET_DATOS, { onConflict: 'id' });
     if (e1) throw e1;
 
-    // Insertar/actualizar award Balón de Oro
     const { error: e2 } = await supabase
       .from('awards_elim')
       .upsert([{
@@ -735,7 +746,6 @@ app.post('/api/admin/ranking/actualizar', authAdmin, async (req, res) => {
   }
 });
 
-// ✅ PDF con pdfkit
 app.get('/api/pdf/:tipo', async (req, res) => {
   try {
     const PDFDocument = require('pdfkit');
@@ -747,7 +757,7 @@ app.get('/api/pdf/:tipo', async (req, res) => {
     doc.pipe(res);
 
     doc.fontSize(20).text('⚽ Quiniela Mundial 2026 — Segunda Fase', { align: 'center' });
-    doc.fontSize(12).text(`Creado por Mario Vitale`, { align: 'center' });
+    doc.fontSize(12).text('Creado por Mario Vitale', { align: 'center' });
     doc.moveDown();
 
     if (tipo === 'ranking') {
@@ -762,8 +772,10 @@ app.get('/api/pdf/:tipo', async (req, res) => {
     } else if (tipo === 'bracket') {
       const partidos = await db.getPartidos();
       const rondas   = ['R32', 'R16', 'QF', 'SF', '3P', 'F'];
-      const nombres  = { R32:'Ronda de 32', R16:'Octavos de Final', QF:'Cuartos de Final',
-                         SF:'Semifinales', '3P':'Tercer Puesto', F:'FINAL' };
+      const nombres  = {
+        R32: 'Ronda de 32', R16: 'Octavos de Final', QF: 'Cuartos de Final',
+        SF:  'Semifinales', '3P': 'Tercer Puesto',   F:  'FINAL'
+      };
       for (const ronda of rondas) {
         const ps = partidos.filter(p => p.ronda === ronda);
         if (!ps.length) continue;
@@ -772,7 +784,9 @@ app.get('/api/pdf/:tipo', async (req, res) => {
           const score = p.estado === 'FINALIZADO'
             ? `${p.goles_local} - ${p.goles_visitante}`
             : 'vs';
-          doc.fontSize(10).text(`  ${p.id}: ${p.local_nombre} ${score} ${p.visitante_nombre} | ${p.sede}`);
+          doc.fontSize(10).text(
+            `  ${p.id}: ${p.local_nombre} ${score} ${p.visitante_nombre} | ${p.sede}`
+          );
         });
       }
     } else {
