@@ -33,22 +33,47 @@
     .nav-logo img { height: 32px; }
     .nav-logo span { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 2px; color: var(--gold); }
     .nav-links { display: flex; gap: 6px; }
-    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.82rem; font-weight: 500; padding: 6px 14px; border-radius: 8px; transition: all .2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--border); }
+    .nav-links a {
+      text-decoration: none; color: var(--muted);
+      font-size: 0.82rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 8px; transition: all .2s;
+    }
+    .nav-links a:hover { color: var(--text); background: var(--border); }
+    .nav-links a.active { color: var(--gold); }
     .nav-links a.cta { background: var(--gold); color: #000; font-weight: 700; }
+    .nav-links a.cta:hover { background: var(--gold2); }
 
     /* HEADER */
     .page-header {
       text-align: center; padding: 40px 24px 20px;
-      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(240,180,41,0.1) 0%, transparent 70%);
+      background: radial-gradient(ellipse 70% 50% at 50% 0%,
+        rgba(240,180,41,0.1) 0%, transparent 70%);
     }
-    .page-header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 3px; }
+    .page-header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem; letter-spacing: 3px;
+    }
     .page-header p { color: var(--muted); font-size: 0.88rem; margin-top: 6px; }
+
+    /* STATS BAR */
+    .stats-bar {
+      display: flex; justify-content: center; gap: 0;
+      max-width: 800px; margin: 0 auto 0;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+    }
+    .sbar-item {
+      flex: 1; padding: 14px 12px; text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .sbar-item:last-child { border-right: none; }
+    .sbar-num  { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--gold); }
+    .sbar-lbl  { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
 
     /* TABS */
     .tabs-wrap {
       display: flex; gap: 8px; flex-wrap: wrap;
-      justify-content: center; padding: 20px 24px;
+      justify-content: center; padding: 24px 24px 16px;
       position: sticky; top: 60px; z-index: 50;
       background: rgba(10,14,26,0.95); backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
@@ -58,23 +83,36 @@
       background: var(--card); border: 1px solid var(--border);
       color: var(--muted); font-size: 0.82rem; font-weight: 600;
       cursor: pointer; transition: all .2s; white-space: nowrap;
+      font-family: 'Inter', sans-serif;
     }
-    .tab:hover { color: var(--text); border-color: var(--gold); }
+    .tab:hover  { color: var(--text); border-color: var(--gold); }
     .tab.active { background: var(--gold); color: #000; border-color: var(--gold); }
 
     /* RONDA PANEL */
     .ronda-panel { display: none; padding: 32px 24px; max-width: 1200px; margin: 0 auto; }
     .ronda-panel.active { display: block; }
+
     .ronda-title {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.8rem; letter-spacing: 2px;
-      text-align: center; margin-bottom: 8px;
-      color: var(--gold);
+      text-align: center; margin-bottom: 6px; color: var(--gold);
     }
     .ronda-info {
       text-align: center; color: var(--muted);
-      font-size: 0.82rem; margin-bottom: 28px;
+      font-size: 0.82rem; margin-bottom: 8px;
     }
+    /* ✅ FIX — pts info correctos por ronda */
+    .ronda-pts-bar {
+      display: flex; justify-content: center; gap: 16px;
+      flex-wrap: wrap; margin-bottom: 28px;
+    }
+    .ronda-pts-pill {
+      background: rgba(240,180,41,0.08);
+      border: 1px solid rgba(240,180,41,0.2);
+      border-radius: 50px; padding: 5px 14px;
+      font-size: 0.75rem; color: var(--muted);
+    }
+    .ronda-pts-pill strong { color: var(--gold); }
 
     /* PARTIDOS GRID */
     .partidos-grid {
@@ -85,41 +123,40 @@
 
     /* PARTIDO CARD */
     .partido-card {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: var(--card); border: 1px solid var(--border);
       border-radius: 16px; overflow: hidden;
       transition: border-color .2s, transform .2s;
     }
-    .partido-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .partido-card:hover      { border-color: rgba(240,180,41,0.4); transform: translateY(-2px); }
     .partido-card.finalizado { border-color: rgba(56,161,105,0.3); }
+    .partido-card.en-juego   { border-color: rgba(240,180,41,0.4); }
 
     .partido-header {
-      display: flex; justify-content: space-between;
-      align-items: center; padding: 10px 16px;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 16px;
       background: rgba(255,255,255,0.03);
       border-bottom: 1px solid var(--border);
       font-size: 0.72rem; color: var(--muted);
     }
-    .match-id { font-weight: 700; color: var(--gold); }
+    .match-id   { font-weight: 700; color: var(--gold); }
     .match-sede { text-align: right; }
 
     .partido-body { padding: 16px; }
-
     .equipo-row {
       display: flex; align-items: center;
       gap: 12px; padding: 10px 0;
     }
     .equipo-row:first-child { border-bottom: 1px solid var(--border); }
-    .equipo-flag { font-size: 1.6rem; width: 36px; text-align: center; flex-shrink: 0; }
-    .equipo-info { flex: 1; }
+    .equipo-flag   { font-size: 1.6rem; width: 36px; text-align: center; flex-shrink: 0; }
+    .equipo-info   { flex: 1; }
     .equipo-nombre { font-weight: 600; font-size: 0.9rem; }
     .equipo-origen { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
-    .equipo-score {
+    .equipo-score  {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem; min-width: 32px;
-      text-align: center; color: var(--muted);
+      font-size: 1.8rem; min-width: 32px; text-align: center;
     }
-    .equipo-score.ganador { color: var(--green); }
+    .equipo-score.ganador   { color: var(--green); }
+    .equipo-score.perdedor  { color: var(--muted); }
     .equipo-score.pendiente { color: var(--border); }
 
     .partido-footer {
@@ -134,35 +171,67 @@
       font-weight: 700; font-size: 0.68rem;
       text-transform: uppercase; letter-spacing: 1px;
     }
-    .estado-badge.pendiente { background: rgba(107,122,153,0.15); color: var(--muted); }
-    .estado-badge.en-juego  { background: rgba(240,180,41,0.15); color: var(--gold); }
-    .estado-badge.finalizado { background: rgba(56,161,105,0.15); color: var(--green); }
-    .pts-badge {
-      color: var(--muted); font-size: 0.7rem;
-    }
+    .estado-badge.pendiente  { background: rgba(107,122,153,0.15); color: var(--muted); }
+    .estado-badge.en-juego   { background: rgba(240,180,41,0.15);  color: var(--gold); animation: pulse 1.5s infinite; }
+    .estado-badge.finalizado { background: rgba(56,161,105,0.15);  color: var(--green); }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.5; } }
+
+    .pts-badge { color: var(--muted); font-size: 0.7rem; }
     .pts-badge strong { color: var(--gold); }
 
-    /* BRACKET ÁRBOL — vista desktop R32→F */
-    .bracket-tree-wrap {
-      overflow-x: auto; padding: 20px 0;
+    /* PENALES TAG */
+    .pen-tag {
+      display: inline-block; margin-left: 6px;
+      background: rgba(240,180,41,0.12); color: var(--gold);
+      border-radius: 4px; padding: 1px 6px;
+      font-size: 0.62rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      font-family: 'Inter', sans-serif;
     }
+
+    /* LOADING */
+    .loading-wrap {
+      display: flex; align-items: center; justify-content: center;
+      padding: 60px; gap: 12px; color: var(--muted);
+    }
+    .spinner {
+      width: 24px; height: 24px;
+      border: 3px solid var(--border); border-top-color: var(--gold);
+      border-radius: 50%; animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
     /* LEYENDA */
     .leyenda {
       display: flex; gap: 20px; flex-wrap: wrap;
-      justify-content: center; padding: 16px 24px;
-      border-top: 1px solid var(--border);
-      margin-top: 20px;
+      justify-content: center; padding: 20px 24px 32px;
+      border-top: 1px solid var(--border); margin-top: 8px;
     }
     .ley-item { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--muted); }
-    .ley-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .ley-dot  { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 
+    /* AUTO-REFRESH indicator */
+    .refresh-bar {
+      text-align: center; padding: 8px;
+      font-size: 0.72rem; color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .refresh-bar span { color: var(--gold); }
+
+    /* FOOTER */
     footer {
       border-top: 1px solid var(--border);
       padding: 24px; text-align: center;
-      color: var(--muted); font-size: 0.78rem; margin-top: 40px;
+      color: var(--muted); font-size: 0.78rem;
     }
     footer strong { color: var(--gold); }
+
+    @media(max-width: 600px) {
+      .partidos-grid { grid-template-columns: 1fr; }
+      .nav-links a:not(.cta):not(.active) { display: none; }
+      .stats-bar { flex-wrap: wrap; }
+      .sbar-item { min-width: 80px; }
+    }
   </style>
 </head>
 <body>
@@ -188,14 +257,29 @@
   <p>FIFA World Cup 2026 · Fase Eliminatoria · M73 – M104</p>
 </div>
 
+<!-- STATS BAR -->
+<div style="padding:16px 24px 0">
+  <div class="stats-bar">
+    <div class="sbar-item"><div class="sbar-num">32</div><div class="sbar-lbl">Partidos</div></div>
+    <div class="sbar-item"><div class="sbar-num" id="sb-jugados">0</div><div class="sbar-lbl">Jugados</div></div>
+    <div class="sbar-item"><div class="sbar-num" id="sb-pendientes">32</div><div class="sbar-lbl">Pendientes</div></div>
+    <div class="sbar-item"><div class="sbar-num">19 Jul</div><div class="sbar-lbl">Gran Final</div></div>
+  </div>
+</div>
+
+<!-- AUTO-REFRESH -->
+<div class="refresh-bar">
+  🔄 Actualización automática cada <span>60 seg</span> · Última: <span id="ultima-act">—</span>
+</div>
+
 <!-- TABS -->
 <div class="tabs-wrap">
-  <button class="tab active" onclick="showRonda('r32')">⚽ Dieciseisavos</button>
-  <button class="tab" onclick="showRonda('r16')">🔥 Octavos</button>
-  <button class="tab" onclick="showRonda('qf')">⚡ Cuartos</button>
-  <button class="tab" onclick="showRonda('sf')">🏅 Semis</button>
-  <button class="tab" onclick="showRonda('3p')">🥉 3er Puesto</button>
-  <button class="tab" onclick="showRonda('final')">🏆 Final</button>
+  <button class="tab active" onclick="showRonda('r32',  this)">⚽ Dieciseisavos (16)</button>
+  <button class="tab"        onclick="showRonda('r16',  this)">🔥 Octavos (8)</button>
+  <button class="tab"        onclick="showRonda('qf',   this)">⚡ Cuartos (4)</button>
+  <button class="tab"        onclick="showRonda('sf',   this)">🏅 Semis (2)</button>
+  <button class="tab"        onclick="showRonda('3p',   this)">🥉 3er Puesto</button>
+  <button class="tab"        onclick="showRonda('final',this)">🏆 Final</button>
 </div>
 
 <!-- ══════════════════════════════════════════ -->
@@ -203,8 +287,17 @@
 <!-- ══════════════════════════════════════════ -->
 <div class="ronda-panel active" id="panel-r32">
   <div class="ronda-title">⚽ DIECISEISAVOS DE FINAL</div>
-  <div class="ronda-info">16 partidos · 28 Jun – 2 Jul 2026 · Máx 6 pts por partido</div>
-  <div class="partidos-grid" id="grid-r32"></div>
+  <div class="ronda-info">16 partidos · 28 Jun – 2 Jul 2026</div>
+  <!-- ✅ FIX pts correctos -->
+  <div class="ronda-pts-bar">
+    <div class="ronda-pts-pill">Ganador <strong>3 pts</strong></div>
+    <div class="ronda-pts-pill">Marcador exacto <strong>+3 pts</strong></div>
+    <div class="ronda-pts-pill">Penales <strong>+1 pt</strong></div>
+    <div class="ronda-pts-pill">Máx por partido <strong>7 pts</strong></div>
+  </div>
+  <div class="partidos-grid" id="grid-r32">
+    <div class="loading-wrap"><div class="spinner"></div><span>Cargando...</span></div>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════════════ -->
@@ -212,8 +305,17 @@
 <!-- ══════════════════════════════════════════ -->
 <div class="ronda-panel" id="panel-r16">
   <div class="ronda-title">🔥 OCTAVOS DE FINAL</div>
-  <div class="ronda-info">8 partidos · 5–8 Jul 2026 · Máx 7 pts por partido</div>
-  <div class="partidos-grid" id="grid-r16"></div>
+  <div class="ronda-info">8 partidos · 5–8 Jul 2026</div>
+  <!-- ✅ FIX pts correctos -->
+  <div class="ronda-pts-bar">
+    <div class="ronda-pts-pill">Ganador <strong>5 pts</strong></div>
+    <div class="ronda-pts-pill">Marcador exacto <strong>+3 pts</strong></div>
+    <div class="ronda-pts-pill">Penales <strong>+1 pt</strong></div>
+    <div class="ronda-pts-pill">Máx por partido <strong>9 pts</strong></div>
+  </div>
+  <div class="partidos-grid" id="grid-r16">
+    <div class="loading-wrap"><div class="spinner"></div><span>Cargando...</span></div>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════════════ -->
@@ -221,8 +323,17 @@
 <!-- ══════════════════════════════════════════ -->
 <div class="ronda-panel" id="panel-qf">
   <div class="ronda-title">⚡ CUARTOS DE FINAL</div>
-  <div class="ronda-info">4 partidos · 11–12 Jul 2026 · Máx 9 pts por partido</div>
-  <div class="partidos-grid" id="grid-qf"></div>
+  <div class="ronda-info">4 partidos · 11–12 Jul 2026</div>
+  <!-- ✅ FIX pts correctos -->
+  <div class="ronda-pts-bar">
+    <div class="ronda-pts-pill">Ganador <strong>8 pts</strong></div>
+    <div class="ronda-pts-pill">Marcador exacto <strong>+4 pts</strong></div>
+    <div class="ronda-pts-pill">Penales <strong>+2 pts</strong></div>
+    <div class="ronda-pts-pill">Máx por partido <strong>14 pts</strong></div>
+  </div>
+  <div class="partidos-grid" id="grid-qf">
+    <div class="loading-wrap"><div class="spinner"></div><span>Cargando...</span></div>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════════════ -->
@@ -230,8 +341,17 @@
 <!-- ══════════════════════════════════════════ -->
 <div class="ronda-panel" id="panel-sf">
   <div class="ronda-title">🏅 SEMIFINALES</div>
-  <div class="ronda-info">2 partidos · 15–16 Jul 2026 · Máx 14 pts por partido</div>
-  <div class="partidos-grid" id="grid-sf"></div>
+  <div class="ronda-info">2 partidos · 15–16 Jul 2026</div>
+  <!-- ✅ FIX pts correctos -->
+  <div class="ronda-pts-bar">
+    <div class="ronda-pts-pill">Ganador <strong>12 pts</strong></div>
+    <div class="ronda-pts-pill">Marcador exacto <strong>+5 pts</strong></div>
+    <div class="ronda-pts-pill">Penales <strong>+2 pts</strong></div>
+    <div class="ronda-pts-pill">Máx por partido <strong>19 pts</strong></div>
+  </div>
+  <div class="partidos-grid" id="grid-sf">
+    <div class="loading-wrap"><div class="spinner"></div><span>Cargando...</span></div>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════════════ -->
@@ -239,8 +359,17 @@
 <!-- ══════════════════════════════════════════ -->
 <div class="ronda-panel" id="panel-3p">
   <div class="ronda-title">🥉 TERCER PUESTO</div>
-  <div class="ronda-info">1 partido · 19 Jul 2026 · Máx 9 pts</div>
-  <div class="partidos-grid" id="grid-3p"></div>
+  <div class="ronda-info">1 partido · 19 Jul 2026 · Miami</div>
+  <!-- ✅ FIX pts correctos -->
+  <div class="ronda-pts-bar">
+    <div class="ronda-pts-pill">Ganador <strong>8 pts</strong></div>
+    <div class="ronda-pts-pill">Marcador exacto <strong>+4 pts</strong></div>
+    <div class="ronda-pts-pill">Penales <strong>+2 pts</strong></div>
+    <div class="ronda-pts-pill">Máx por partido <strong>14 pts</strong></div>
+  </div>
+  <div class="partidos-grid" id="grid-3p">
+    <div class="loading-wrap"><div class="spinner"></div><span>Cargando...</span></div>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════════════ -->
@@ -248,8 +377,17 @@
 <!-- ══════════════════════════════════════════ -->
 <div class="ronda-panel" id="panel-final">
   <div class="ronda-title">🏆 GRAN FINAL</div>
-  <div class="ronda-info">MetLife Stadium · New York/New Jersey · 19 Jul 2026 · Máx 24 pts</div>
-  <div class="partidos-grid" id="grid-final"></div>
+  <div class="ronda-info">MetLife Stadium · New York/New Jersey · 19 Jul 2026</div>
+  <!-- ✅ FIX pts correctos -->
+  <div class="ronda-pts-bar">
+    <div class="ronda-pts-pill">Ganador <strong>20 pts</strong></div>
+    <div class="ronda-pts-pill">Marcador exacto <strong>+8 pts</strong></div>
+    <div class="ronda-pts-pill">Penales <strong>+3 pts</strong></div>
+    <div class="ronda-pts-pill">Máx por partido <strong>31 pts</strong></div>
+  </div>
+  <div class="partidos-grid" id="grid-final">
+    <div class="loading-wrap"><div class="spinner"></div><span>Cargando...</span></div>
+  </div>
 </div>
 
 <!-- LEYENDA -->
@@ -257,95 +395,117 @@
   <div class="ley-item"><div class="ley-dot" style="background:var(--muted)"></div> Pendiente</div>
   <div class="ley-item"><div class="ley-dot" style="background:var(--gold)"></div> En Juego</div>
   <div class="ley-item"><div class="ley-dot" style="background:var(--green)"></div> Finalizado</div>
-  <div class="ley-item"><div class="ley-dot" style="background:var(--red)"></div> Eliminado</div>
 </div>
 
 <footer>
   <p>Quiniela Mundial 2026 — Segunda Fase &nbsp;|&nbsp; Creado por <strong>Mario Vitale</strong></p>
+  <p style="margin-top:6px;font-size:0.72rem">28 Jun – 19 Jul 2026 · USA · Canadá · México</p>
 </footer>
 
 <script>
-const API = '';
+// ✅ FIX #1 — URL real autodetectada
+const API = window.location.origin;
 
-// ══════════════════════════════════════════
-// BRACKET OFICIAL FIFA — POSICIONES FIJAS
-// Los equipos se cargan del backend (TBD hasta el 27 Jun)
-// ══════════════════════════════════════════
+// ✅ FIX #2 — pts máximos correctos por ronda
+const PTS_RONDA = {
+  R32:  { ganador: 3,  marcador: 3, penales: 1, max: 7  },
+  R16:  { ganador: 5,  marcador: 3, penales: 1, max: 9  },
+  QF:   { ganador: 8,  marcador: 4, penales: 2, max: 14 },
+  SF:   { ganador: 12, marcador: 5, penales: 2, max: 19 },
+  '3P': { ganador: 8,  marcador: 4, penales: 2, max: 14 },
+  F:    { ganador: 20, marcador: 8, penales: 3, max: 31 }
+};
+
+// ── BRACKET OFICIAL FIFA ──
 const BRACKET = {
   R32: [
-    { id:'M73', local:'2° Grupo A',  visitante:'2° Grupo B',  sede:'Los Ángeles',      pts:6 },
-    { id:'M74', local:'1° Grupo E',  visitante:'Mejor 3° (A/B/C/D/F)', sede:'Boston',  pts:6 },
-    { id:'M75', local:'1° Grupo F',  visitante:'2° Grupo C',  sede:'Monterrey',        pts:6 },
-    { id:'M76', local:'1° Grupo C',  visitante:'2° Grupo F',  sede:'Houston',          pts:6 },
-    { id:'M77', local:'1° Grupo I',  visitante:'Mejor 3° (C/D/F/G/H)', sede:'New York/NJ', pts:6 },
-    { id:'M78', local:'2° Grupo E',  visitante:'2° Grupo I',  sede:'Dallas',           pts:6 },
-    { id:'M79', local:'1° Grupo A',  visitante:'Mejor 3° (C/E/F/H/I)', sede:'Ciudad de México', pts:6 },
-    { id:'M80', local:'1° Grupo L',  visitante:'Mejor 3° (E/H/I/J/K)', sede:'Atlanta', pts:6 },
-    { id:'M81', local:'1° Grupo D',  visitante:'Mejor 3° (B/E/F/I/J)', sede:'San Francisco', pts:6 },
-    { id:'M82', local:'1° Grupo G',  visitante:'Mejor 3° (A/E/H/I/J)', sede:'Seattle', pts:6 },
-    { id:'M83', local:'2° Grupo K',  visitante:'2° Grupo L',  sede:'Toronto',          pts:6 },
-    { id:'M84', local:'1° Grupo H',  visitante:'2° Grupo J',  sede:'Los Ángeles',      pts:6 },
-    { id:'M85', local:'1° Grupo B',  visitante:'Mejor 3° (E/F/G/I/J)', sede:'Vancouver', pts:6 },
-    { id:'M86', local:'1° Grupo J',  visitante:'2° Grupo H',  sede:'Miami',            pts:6 },
-    { id:'M87', local:'1° Grupo K',  visitante:'Mejor 3° (D/E/I/J/L)', sede:'Kansas City', pts:6 },
-    { id:'M88', local:'2° Grupo D',  visitante:'2° Grupo G',  sede:'Dallas',           pts:6 },
+    { id:'M73',  local:'2° Grupo A',    visitante:'2° Grupo B',             sede:'Los Ángeles',      ronda:'R32' },
+    { id:'M74',  local:'1° Grupo E',    visitante:'Mejor 3° (A/B/C/D/F)',   sede:'Boston',           ronda:'R32' },
+    { id:'M75',  local:'1° Grupo F',    visitante:'2° Grupo C',             sede:'Monterrey',        ronda:'R32' },
+    { id:'M76',  local:'1° Grupo C',    visitante:'2° Grupo F',             sede:'Houston',          ronda:'R32' },
+    { id:'M77',  local:'1° Grupo I',    visitante:'Mejor 3° (C/D/F/G/H)',   sede:'New York/NJ',      ronda:'R32' },
+    { id:'M78',  local:'2° Grupo E',    visitante:'2° Grupo I',             sede:'Dallas',           ronda:'R32' },
+    { id:'M79',  local:'1° Grupo A',    visitante:'Mejor 3° (C/E/F/H/I)',   sede:'Ciudad de México', ronda:'R32' },
+    { id:'M80',  local:'1° Grupo L',    visitante:'Mejor 3° (E/H/I/J/K)',   sede:'Atlanta',          ronda:'R32' },
+    { id:'M81',  local:'1° Grupo D',    visitante:'Mejor 3° (B/E/F/I/J)',   sede:'San Francisco',    ronda:'R32' },
+    { id:'M82',  local:'1° Grupo G',    visitante:'Mejor 3° (A/E/H/I/J)',   sede:'Seattle',          ronda:'R32' },
+    { id:'M83',  local:'2° Grupo K',    visitante:'2° Grupo L',             sede:'Toronto',          ronda:'R32' },
+    { id:'M84',  local:'1° Grupo H',    visitante:'2° Grupo J',             sede:'Los Ángeles',      ronda:'R32' },
+    { id:'M85',  local:'1° Grupo B',    visitante:'Mejor 3° (E/F/G/I/J)',   sede:'Vancouver',        ronda:'R32' },
+    { id:'M86',  local:'1° Grupo J',    visitante:'2° Grupo H',             sede:'Miami',            ronda:'R32' },
+    { id:'M87',  local:'1° Grupo K',    visitante:'Mejor 3° (D/E/I/J/L)',   sede:'Kansas City',      ronda:'R32' },
+    { id:'M88',  local:'2° Grupo D',    visitante:'2° Grupo G',             sede:'Dallas',           ronda:'R32' },
   ],
   R16: [
-    { id:'M89', local:'Ganador M74', visitante:'Ganador M77', sede:'Philadelphia',     pts:7 },
-    { id:'M90', local:'Ganador M73', visitante:'Ganador M75', sede:'Houston',          pts:7 },
-    { id:'M91', local:'Ganador M76', visitante:'Ganador M78', sede:'New York/NJ',      pts:7 },
-    { id:'M92', local:'Ganador M79', visitante:'Ganador M80', sede:'Ciudad de México', pts:7 },
-    { id:'M93', local:'Ganador M83', visitante:'Ganador M84', sede:'Dallas',           pts:7 },
-    { id:'M94', local:'Ganador M81', visitante:'Ganador M82', sede:'Seattle',          pts:7 },
-    { id:'M95', local:'Ganador M86', visitante:'Ganador M88', sede:'Atlanta',          pts:7 },
-    { id:'M96', local:'Ganador M85', visitante:'Ganador M87', sede:'Vancouver',        pts:7 },
+    { id:'M89',  local:'Ganador M74',   visitante:'Ganador M77',  sede:'Philadelphia',     ronda:'R16' },
+    { id:'M90',  local:'Ganador M73',   visitante:'Ganador M75',  sede:'Houston',          ronda:'R16' },
+    { id:'M91',  local:'Ganador M76',   visitante:'Ganador M78',  sede:'New York/NJ',      ronda:'R16' },
+    { id:'M92',  local:'Ganador M79',   visitante:'Ganador M80',  sede:'Ciudad de México', ronda:'R16' },
+    { id:'M93',  local:'Ganador M83',   visitante:'Ganador M84',  sede:'Dallas',           ronda:'R16' },
+    { id:'M94',  local:'Ganador M81',   visitante:'Ganador M82',  sede:'Seattle',          ronda:'R16' },
+    { id:'M95',  local:'Ganador M86',   visitante:'Ganador M88',  sede:'Atlanta',          ronda:'R16' },
+    { id:'M96',  local:'Ganador M85',   visitante:'Ganador M87',  sede:'Vancouver',        ronda:'R16' },
   ],
   QF: [
-    { id:'M97',  local:'Ganador M89', visitante:'Ganador M90', sede:'Boston',          pts:9 },
-    { id:'M98',  local:'Ganador M93', visitante:'Ganador M94', sede:'Los Ángeles',     pts:9 },
-    { id:'M99',  local:'Ganador M91', visitante:'Ganador M92', sede:'Miami',           pts:9 },
-    { id:'M100', local:'Ganador M95', visitante:'Ganador M96', sede:'Kansas City',     pts:9 },
+    { id:'M97',  local:'Ganador M89',   visitante:'Ganador M90',  sede:'Boston',           ronda:'QF' },
+    { id:'M98',  local:'Ganador M93',   visitante:'Ganador M94',  sede:'Los Ángeles',      ronda:'QF' },
+    { id:'M99',  local:'Ganador M91',   visitante:'Ganador M92',  sede:'Miami',            ronda:'QF' },
+    { id:'M100', local:'Ganador M95',   visitante:'Ganador M96',  sede:'Kansas City',      ronda:'QF' },
   ],
   SF: [
-    { id:'M101', local:'Ganador M97',  visitante:'Ganador M98',  sede:'Dallas',        pts:14 },
-    { id:'M102', local:'Ganador M99',  visitante:'Ganador M100', sede:'Atlanta',       pts:14 },
+    { id:'M101', local:'Ganador M97',   visitante:'Ganador M98',  sede:'Dallas',           ronda:'SF' },
+    { id:'M102', local:'Ganador M99',   visitante:'Ganador M100', sede:'Atlanta',          ronda:'SF' },
   ],
   '3P': [
-    { id:'M103', local:'Perdedor M101', visitante:'Perdedor M102', sede:'Miami',       pts:9 },
+    { id:'M103', local:'Perdedor M101', visitante:'Perdedor M102', sede:'Miami',           ronda:'3P' },
   ],
   F: [
-    { id:'M104', local:'Ganador M101', visitante:'Ganador M102',
-      sede:'MetLife Stadium · New York/NJ', pts:24 },
+    { id:'M104', local:'Ganador M101',  visitante:'Ganador M102',
+      sede:'MetLife Stadium · New York/NJ',                                                ronda:'F'  },
   ]
 };
 
-// ══════════════════════════════════════════
-// RENDER PARTIDO CARD
-// ══════════════════════════════════════════
-function renderCard(p, data) {
-  // data viene del backend; si no hay, usamos TBD
-  const d = data || {};
-  const localNombre    = d.local_nombre    || p.local;
-  const localFlag      = d.local_bandera   || '🏳';
-  const visitNombre    = d.visitante_nombre || p.visitante;
-  const visitFlag      = d.visitante_bandera || '🏳';
-  const estado         = d.estado          || 'PENDIENTE';
-  const gLocal         = d.goles_local     != null ? d.goles_local     : '–';
-  const gVisit         = d.goles_visitante != null ? d.goles_visitante : '–';
-  const ganador        = d.ganador_code    || null;
-  const localCode      = d.local_code      || '';
-  const visitCode      = d.visitante_code  || '';
-  const penales        = d.fue_a_penales   ? `<span style="color:var(--gold);font-size:0.7rem">(pen)</span>` : '';
+// ── ESTADO ──
+let apiData        = {};   // { M73: {...}, M74: {...} }
+let rondaActiva    = 'r32';
 
-  const localGanador   = estado === 'FINALIZADO' && ganador === localCode;
-  const visitGanador   = estado === 'FINALIZADO' && ganador === visitCode;
+// ══════════════════════════════════════════
+// RENDER CARD
+// ══════════════════════════════════════════
+function renderCard(p) {
+  const d = apiData[p.id] || {};
 
-  const estadoClass = estado === 'FINALIZADO' ? 'finalizado'
-                    : estado === 'EN_JUEGO'   ? 'en-juego'
-                    : 'pendiente';
-  const estadoLabel = estado === 'FINALIZADO' ? '✅ Finalizado'
-                    : estado === 'EN_JUEGO'   ? '🔴 En Juego'
-                    : '⏳ Pendiente';
+  const localNombre = d.local_nombre      || p.local;
+  const visitNombre = d.visitante_nombre  || p.visitante;
+  const localFlag   = d.local_bandera     || '🏳';
+  const visitFlag   = d.visitante_bandera || '🏳';
+  const localCode   = d.local_code        || '';
+  const visitCode   = d.visitante_code    || '';
+  const estado      = d.estado            || 'PENDIENTE';
+  const ganador     = d.ganador_code      || null;
+  const penales     = d.fue_a_penales     || false;
+
+  const gLocal = d.goles_local     != null ? d.goles_local     : '–';
+  const gVisit = d.goles_visitante != null ? d.goles_visitante : '–';
+
+  const localGana  = estado === 'FINALIZADO' && ganador === localCode;
+  const visitGana  = estado === 'FINALIZADO' && ganador === visitCode;
+  const enJuego    = estado === 'EN_JUEGO';
+  const finalizado = estado === 'FINALIZADO';
+
+  const estadoClass = finalizado ? 'finalizado' : enJuego ? 'en-juego' : 'pendiente';
+  const estadoLabel = finalizado ? '✅ Finalizado' : enJuego ? '🔴 En Juego' : '⏳ Pendiente';
+
+  const ptsRonda = PTS_RONDA[p.ronda] || PTS_RONDA['R32'];
+
+  const penalesHtml = penales && finalizado
+    ? `<span class="pen-tag">PEN</span>` : '';
+
+  // Score classes
+  const localScoreClass  = finalizado
+    ? (localGana  ? 'ganador' : 'perdedor') : 'pendiente';
+  const visitScoreClass  = finalizado
+    ? (visitGana  ? 'ganador' : 'perdedor') : 'pendiente';
 
   return `
     <div class="partido-card ${estadoClass}">
@@ -357,74 +517,103 @@ function renderCard(p, data) {
         <div class="equipo-row">
           <div class="equipo-flag">${localFlag}</div>
           <div class="equipo-info">
-            <div class="equipo-nombre" style="${localGanador ? 'color:var(--green)' : ''}">${localNombre}</div>
+            <div class="equipo-nombre" style="${localGana ? 'color:var(--green)' : ''}">${localNombre}</div>
             <div class="equipo-origen">${p.local}</div>
           </div>
-          <div class="equipo-score ${localGanador ? 'ganador' : estado === 'PENDIENTE' ? 'pendiente' : ''}">${gLocal}</div>
+          <div class="equipo-score ${localScoreClass}">${gLocal}</div>
         </div>
         <div class="equipo-row">
           <div class="equipo-flag">${visitFlag}</div>
           <div class="equipo-info">
-            <div class="equipo-nombre" style="${visitGanador ? 'color:var(--green)' : ''}">${visitNombre}</div>
+            <div class="equipo-nombre" style="${visitGana ? 'color:var(--green)' : ''}">${visitNombre}</div>
             <div class="equipo-origen">${p.visitante}</div>
           </div>
-          <div class="equipo-score ${visitGanador ? 'ganador' : estado === 'PENDIENTE' ? 'pendiente' : ''}">${gVisit} ${penales}</div>
+          <div class="equipo-score ${visitScoreClass}">${gVisit} ${penalesHtml}</div>
         </div>
       </div>
       <div class="partido-footer">
         <span class="estado-badge ${estadoClass}">${estadoLabel}</span>
-        <span class="pts-badge">Máx <strong>${p.pts} pts</strong></span>
+        <span class="pts-badge">Máx <strong>${ptsRonda.max} pts</strong></span>
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
 // ══════════════════════════════════════════
 // RENDER RONDA
 // ══════════════════════════════════════════
-function renderRonda(rondaKey, gridId, apiData) {
-  const partidos = BRACKET[rondaKey];
+function renderRonda(rondaKey, gridId) {
   const grid = document.getElementById(gridId);
   if (!grid) return;
-  grid.innerHTML = partidos.map(p => {
-    const data = apiData ? apiData.find(d => d.id === p.id) : null;
-    return renderCard(p, data);
-  }).join('');
+  const lista = BRACKET[rondaKey];
+  if (!lista || !lista.length) {
+    grid.innerHTML = '<p style="color:var(--muted);text-align:center;padding:40px">Sin partidos disponibles.</p>';
+    return;
+  }
+  grid.innerHTML = lista.map(p => renderCard(p)).join('');
 }
 
 // ══════════════════════════════════════════
 // CARGAR DATOS DEL BACKEND
 // ══════════════════════════════════════════
 async function cargarBracket() {
-  let apiData = [];
   try {
-    if (API) {
-      const res = await fetch(`${API}/api/partidos`);
-      apiData = await res.json();
-    }
-  } catch(e) { /* sin backend → TBD */ }
+    const res  = await fetch(`${API}/api/partidos`);
+    const data = await res.json();
 
-  renderRonda('R32',  'grid-r32',   apiData);
-  renderRonda('R16',  'grid-r16',   apiData);
-  renderRonda('QF',   'grid-qf',    apiData);
-  renderRonda('SF',   'grid-sf',    apiData);
-  renderRonda('3P',   'grid-3p',    apiData);
-  renderRonda('F',    'grid-final', apiData);
+    // ✅ FIX #3 — indexar por id para acceso O(1)
+    apiData = {};
+    if (Array.isArray(data)) {
+      data.forEach(p => { apiData[p.id] = p; });
+    }
+
+    // Actualizar stats bar
+    const jugados    = Object.values(apiData).filter(p => p.estado === 'FINALIZADO').length;
+    const pendientes = 32 - jugados;
+    document.getElementById('sb-jugados').textContent    = jugados;
+    document.getElementById('sb-pendientes').textContent = pendientes;
+
+  } catch(e) {
+    // Sin backend → cards con TBD (no error visible al usuario)
+    apiData = {};
+  }
+
+  // Renderizar ronda activa
+  renderTodasLasRondas();
+
+  // Timestamp
+  document.getElementById('ultima-act').textContent =
+    new Date().toLocaleTimeString('es-ES', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+}
+
+// ══════════════════════════════════════════
+// RENDER TODAS LAS RONDAS
+// ══════════════════════════════════════════
+function renderTodasLasRondas() {
+  renderRonda('R32',  'grid-r32');
+  renderRonda('R16',  'grid-r16');
+  renderRonda('QF',   'grid-qf');
+  renderRonda('SF',   'grid-sf');
+  renderRonda('3P',   'grid-3p');
+  renderRonda('F',    'grid-final');
 }
 
 // ══════════════════════════════════════════
 // TABS
 // ══════════════════════════════════════════
-function showRonda(ronda) {
+function showRonda(ronda, el) {
   document.querySelectorAll('.ronda-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById('panel-' + ronda).classList.add('active');
-  event.currentTarget.classList.add('active');
+  if (el) el.classList.add('active');
+  rondaActiva = ronda;
   window.scrollTo({ top: 120, behavior: 'smooth' });
 }
 
-// INIT
+// ══════════════════════════════════════════
+// INIT + AUTO-REFRESH cada 60 seg
+// ══════════════════════════════════════════
 cargarBracket();
+setInterval(cargarBracket, 60000);
 </script>
 </body>
 </html>

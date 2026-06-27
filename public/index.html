@@ -8,16 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --bg:      #0a0e1a;
-      --card:    #111827;
-      --border:  #1e2d40;
-      --gold:    #f0b429;
-      --gold2:   #e07b00;
-      --text:    #f0f4f8;
-      --muted:   #6b7a99;
-      --accent:  #e53e3e;
-      --green:   #38a169;
-      --blue:    #3182ce;
+      --bg:     #0a0e1a;
+      --card:   #111827;
+      --border: #1e2d40;
+      --gold:   #f0b429;
+      --gold2:  #e07b00;
+      --text:   #f0f4f8;
+      --muted:  #6b7a99;
+      --accent: #e53e3e;
+      --green:  #38a169;
+      --blue:   #3182ce;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -45,8 +45,7 @@
     .nav-logo img { height: 32px; }
     .nav-logo span {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.3rem; letter-spacing: 2px;
-      color: var(--gold);
+      font-size: 1.3rem; letter-spacing: 2px; color: var(--gold);
     }
     .nav-links { display: flex; gap: 6px; }
     .nav-links a {
@@ -56,10 +55,7 @@
       transition: all .2s;
     }
     .nav-links a:hover { color: var(--text); background: var(--border); }
-    .nav-links a.cta {
-      background: var(--gold); color: #000;
-      font-weight: 700;
-    }
+    .nav-links a.cta { background: var(--gold); color: #000; font-weight: 700; }
     .nav-links a.cta:hover { background: var(--gold2); }
 
     /* ── HERO ── */
@@ -103,8 +99,7 @@
     }
     .hero-sub {
       font-size: clamp(1rem, 3vw, 1.4rem);
-      color: var(--muted); margin-bottom: 32px;
-      font-weight: 300;
+      color: var(--muted); margin-bottom: 32px; font-weight: 300;
     }
     .hero-sub strong { color: var(--gold); font-weight: 700; }
     .hero-btns {
@@ -116,18 +111,14 @@
       padding: 14px 28px; border-radius: 12px;
       font-weight: 700; font-size: 0.9rem;
       text-decoration: none; cursor: pointer;
-      border: none; transition: all .2s;
-      letter-spacing: 0.5px;
+      border: none; transition: all .2s; letter-spacing: 0.5px;
     }
     .btn-gold {
-      background: linear-gradient(135deg, var(--gold), var(--gold2));
-      color: #000;
+      background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #000;
     }
     .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(240,180,41,0.35); }
     .btn-outline {
-      background: transparent;
-      border: 1.5px solid var(--border);
-      color: var(--text);
+      background: transparent; border: 1.5px solid var(--border); color: var(--text);
     }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
@@ -137,20 +128,17 @@
       flex-wrap: wrap; margin-bottom: 16px;
     }
     .cd-box {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: var(--card); border: 1px solid var(--border);
       border-radius: 14px; padding: 16px 20px;
       text-align: center; min-width: 80px;
     }
     .cd-num {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.4rem; color: var(--gold);
-      line-height: 1;
+      font-size: 2.4rem; color: var(--gold); line-height: 1;
     }
     .cd-label {
       font-size: 0.65rem; color: var(--muted);
-      text-transform: uppercase; letter-spacing: 1.5px;
-      margin-top: 4px;
+      text-transform: uppercase; letter-spacing: 1.5px; margin-top: 4px;
     }
     .cd-title {
       font-size: 0.78rem; color: var(--muted);
@@ -161,8 +149,7 @@
     /* ── STATS BAR ── */
     .stats-bar {
       display: flex; gap: 0; flex-wrap: wrap;
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: var(--card); border: 1px solid var(--border);
       border-radius: 16px; overflow: hidden;
       max-width: 900px; margin: 0 auto 60px;
     }
@@ -178,8 +165,7 @@
     }
     .stat-label {
       font-size: 0.72rem; color: var(--muted);
-      text-transform: uppercase; letter-spacing: 1px;
-      margin-top: 4px;
+      text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;
     }
 
     /* ── SECTIONS ── */
@@ -201,36 +187,31 @@
       gap: 16px;
     }
     .ronda-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px; padding: 20px;
-      transition: border-color .2s;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 20px; transition: border-color .2s;
     }
     .ronda-card:hover { border-color: var(--gold); }
     .ronda-header {
       display: flex; align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
+      justify-content: space-between; margin-bottom: 16px;
     }
     .ronda-name {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.2rem; letter-spacing: 1px;
     }
     .ronda-badge {
-      background: rgba(240,180,41,0.15);
-      color: var(--gold); border-radius: 8px;
-      padding: 4px 10px; font-size: 0.72rem;
-      font-weight: 700;
+      background: rgba(240,180,41,0.15); color: var(--gold);
+      border-radius: 8px; padding: 4px 10px;
+      font-size: 0.72rem; font-weight: 700;
     }
     .pts-row {
       display: flex; justify-content: space-between;
       align-items: center; padding: 8px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.84rem;
+      border-bottom: 1px solid var(--border); font-size: 0.84rem;
     }
     .pts-row:last-child { border-bottom: none; }
     .pts-row .label { color: var(--muted); }
-    .pts-row .val { font-weight: 700; color: var(--text); }
+    .pts-row .val   { font-weight: 700; color: var(--text); }
     .pts-row .val.gold { color: var(--gold); }
     .pts-max {
       margin-top: 12px; text-align: right;
@@ -245,28 +226,21 @@
       gap: 20px;
     }
     .step-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px; padding: 24px;
-      text-align: center;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px; text-align: center;
     }
-    .step-icon { font-size: 2.4rem; margin-bottom: 12px; }
-    .step-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 0.75rem; letter-spacing: 2px;
-      color: var(--gold); margin-bottom: 8px;
-    }
+    .step-icon  { font-size: 2.4rem; margin-bottom: 12px; }
+    .step-num   { font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; letter-spacing: 2px; color: var(--gold); margin-bottom: 8px; }
     .step-title { font-weight: 700; margin-bottom: 8px; }
-    .step-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+    .step-desc  { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
 
-    /* ── AWARD HIGHLIGHT ── */
+    /* ── AWARD ── */
     .award-section {
       background: linear-gradient(135deg,
         rgba(240,180,41,0.08), rgba(224,123,0,0.05));
       border: 1px solid rgba(240,180,41,0.25);
       border-radius: 20px; padding: 40px;
-      display: flex; gap: 24px; align-items: center;
-      flex-wrap: wrap;
+      display: flex; gap: 24px; align-items: center; flex-wrap: wrap;
     }
     .award-icon { font-size: 4rem; flex-shrink: 0; }
     .award-body { flex: 1; min-width: 200px; }
@@ -284,8 +258,7 @@
     .award-pts span {
       display: block; font-family: 'Inter', sans-serif;
       font-size: 0.7rem; color: var(--muted);
-      font-weight: 400; letter-spacing: 1px;
-      text-transform: uppercase;
+      font-weight: 400; letter-spacing: 1px; text-transform: uppercase;
     }
 
     /* ── CTA FINAL ── */
@@ -298,8 +271,7 @@
     }
     .cta-section h2 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.8rem; letter-spacing: 2px;
-      margin-bottom: 12px;
+      font-size: 2.8rem; letter-spacing: 2px; margin-bottom: 12px;
     }
     .cta-section p { color: var(--muted); margin-bottom: 28px; }
     .deadline-pill {
@@ -319,10 +291,11 @@
     }
     footer strong { color: var(--gold); }
 
-    @media(max-width:600px) {
-      .stats-bar { flex-direction: column; }
-      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+    @media(max-width: 600px) {
+      .stats-bar    { flex-direction: column; }
+      .stat-item    { border-right: none; border-bottom: 1px solid var(--border); }
       .award-section { flex-direction: column; text-align: center; }
+      .nav-links a:not(.cta) { display: none; }
     }
   </style>
 </head>
@@ -353,20 +326,21 @@
   </p>
   <div class="hero-btns">
     <a href="registro.html" class="btn btn-gold">⚽ Participar Ahora</a>
-    <a href="bracket.html" class="btn btn-outline">🏆 Ver Bracket</a>
+    <a href="bracket.html"  class="btn btn-outline">🏆 Ver Bracket</a>
   </div>
 
   <p class="cd-title">⏰ Inicio de la Fase Eliminatoria</p>
   <div class="countdown-wrap">
-    <div class="cd-box"><div class="cd-num" id="cd-d">07</div><div class="cd-label">Días</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-d">00</div><div class="cd-label">Días</div></div>
     <div class="cd-box"><div class="cd-num" id="cd-h">00</div><div class="cd-label">Horas</div></div>
     <div class="cd-box"><div class="cd-num" id="cd-m">00</div><div class="cd-label">Min</div></div>
     <div class="cd-box"><div class="cd-num" id="cd-s">00</div><div class="cd-label">Seg</div></div>
   </div>
+  <p id="cd-msg" style="font-size:0.78rem;color:var(--muted);margin-top:10px"></p>
 </div>
 
 <!-- STATS BAR -->
-<div style="padding: 0 24px;">
+<div style="padding:0 24px">
   <div class="stats-bar">
     <div class="stat-item">
       <div class="stat-num">32</div>
@@ -381,7 +355,8 @@
       <div class="stat-label">Rondas</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">383</div>
+      <!-- ✅ FIX — Máximo real según server.js -->
+      <div class="stat-num">353</div>
       <div class="stat-label">Pts Máximo</div>
     </div>
     <div class="stat-item">
@@ -398,83 +373,90 @@
 
   <div class="puntos-grid">
 
+    <!-- ✅ FIX — R32: ganador 3 pts (era 2) -->
     <div class="ronda-card">
       <div class="ronda-header">
         <div class="ronda-name">⚽ Dieciseisavos</div>
         <div class="ronda-badge">R32 · 16 partidos</div>
       </div>
-      <div class="pts-row"><span class="label">Ganador</span><span class="val">2 pts</span></div>
-      <div class="pts-row"><span class="label">Marcador exacto</span><span class="val">+3 pts</span></div>
-      <div class="pts-row"><span class="label">Penales</span><span class="val">+1 pt</span></div>
-      <div class="pts-max">Máx por partido: <strong>6 pts</strong> · Total ronda: <strong>96 pts</strong></div>
-    </div>
-
-    <div class="ronda-card">
-      <div class="ronda-header">
-        <div class="ronda-name">🔥 Octavos</div>
-        <div class="ronda-badge">R16 · 8 partidos</div>
-      </div>
       <div class="pts-row"><span class="label">Ganador</span><span class="val">3 pts</span></div>
       <div class="pts-row"><span class="label">Marcador exacto</span><span class="val">+3 pts</span></div>
       <div class="pts-row"><span class="label">Penales</span><span class="val">+1 pt</span></div>
-      <div class="pts-max">Máx por partido: <strong>7 pts</strong> · Total ronda: <strong>56 pts</strong></div>
+      <div class="pts-max">Máx por partido: <strong>7 pts</strong> · Total ronda: <strong>112 pts</strong></div>
     </div>
 
+    <!-- ✅ FIX — R16: ganador 5 pts (era 3) -->
+    <div class="ronda-card">
+      <div class="ronda-header">
+        <div class="ronda-name">🔥 Octavos de Final</div>
+        <div class="ronda-badge">R16 · 8 partidos</div>
+      </div>
+      <div class="pts-row"><span class="label">Ganador</span><span class="val">5 pts</span></div>
+      <div class="pts-row"><span class="label">Marcador exacto</span><span class="val">+3 pts</span></div>
+      <div class="pts-row"><span class="label">Penales</span><span class="val">+1 pt</span></div>
+      <div class="pts-max">Máx por partido: <strong>9 pts</strong> · Total ronda: <strong>72 pts</strong></div>
+    </div>
+
+    <!-- ✅ FIX — QF: ganador 8 pts (era 5), marcador 4, penales 2 -->
     <div class="ronda-card">
       <div class="ronda-header">
         <div class="ronda-name">⚡ Cuartos de Final</div>
         <div class="ronda-badge">QF · 4 partidos</div>
       </div>
-      <div class="pts-row"><span class="label">Ganador</span><span class="val">5 pts</span></div>
-      <div class="pts-row"><span class="label">Marcador exacto</span><span class="val">+3 pts</span></div>
-      <div class="pts-row"><span class="label">Penales</span><span class="val">+1 pt</span></div>
-      <div class="pts-max">Máx por partido: <strong>9 pts</strong> · Total ronda: <strong>36 pts</strong></div>
+      <div class="pts-row"><span class="label">Ganador</span><span class="val">8 pts</span></div>
+      <div class="pts-row"><span class="label">Marcador exacto</span><span class="val">+4 pts</span></div>
+      <div class="pts-row"><span class="label">Penales</span><span class="val">+2 pts</span></div>
+      <div class="pts-max">Máx por partido: <strong>14 pts</strong> · Total ronda: <strong>56 pts</strong></div>
     </div>
 
+    <!-- ✅ FIX — SF: ganador 12 pts (era 8), marcador 5, penales 2 -->
     <div class="ronda-card">
       <div class="ronda-header">
         <div class="ronda-name">🏅 Semifinales</div>
         <div class="ronda-badge">SF · 2 partidos</div>
       </div>
-      <div class="pts-row"><span class="label">Ganador</span><span class="val">8 pts</span></div>
-      <div class="pts-row"><span class="label">Marcador exacto</span><span class="val">+4 pts</span></div>
+      <div class="pts-row"><span class="label">Ganador</span><span class="val">12 pts</span></div>
+      <div class="pts-row"><span class="label">Marcador exacto</span><span class="val">+5 pts</span></div>
       <div class="pts-row"><span class="label">Penales</span><span class="val">+2 pts</span></div>
-      <div class="pts-max">Máx por partido: <strong>14 pts</strong> · Total ronda: <strong>28 pts</strong></div>
+      <div class="pts-max">Máx por partido: <strong>19 pts</strong> · Total ronda: <strong>38 pts</strong></div>
     </div>
 
+    <!-- ✅ FIX — 3P: ganador 8 pts (era 5), marcador 4, penales 2 -->
     <div class="ronda-card">
       <div class="ronda-header">
         <div class="ronda-name">🥉 Tercer Puesto</div>
         <div class="ronda-badge">3P · 1 partido</div>
       </div>
-      <div class="pts-row"><span class="label">Ganador</span><span class="val">5 pts</span></div>
-      <div class="pts-row"><span class="label">Marcador exacto</span><span class="val">+3 pts</span></div>
-      <div class="pts-row"><span class="label">Penales</span><span class="val">+1 pt</span></div>
-      <div class="pts-max">Máx partido: <strong>9 pts</strong></div>
+      <div class="pts-row"><span class="label">Ganador</span><span class="val">8 pts</span></div>
+      <div class="pts-row"><span class="label">Marcador exacto</span><span class="val">+4 pts</span></div>
+      <div class="pts-row"><span class="label">Penales</span><span class="val">+2 pts</span></div>
+      <div class="pts-max">Máx partido: <strong>14 pts</strong></div>
     </div>
 
-    <div class="ronda-card" style="border-color: rgba(240,180,41,0.4);">
+    <!-- ✅ FIX — FINAL: ganador 20 pts (era 15), marcador 8, penales 3 -->
+    <div class="ronda-card" style="border-color:rgba(240,180,41,0.4)">
       <div class="ronda-header">
         <div class="ronda-name" style="color:var(--gold)">🏆 GRAN FINAL</div>
         <div class="ronda-badge">F · 1 partido</div>
       </div>
-      <div class="pts-row"><span class="label">Ganador</span><span class="val gold">15 pts</span></div>
-      <div class="pts-row"><span class="label">Marcador exacto</span><span class="val gold">+6 pts</span></div>
+      <div class="pts-row"><span class="label">Ganador</span><span class="val gold">20 pts</span></div>
+      <div class="pts-row"><span class="label">Marcador exacto</span><span class="val gold">+8 pts</span></div>
       <div class="pts-row"><span class="label">Penales</span><span class="val gold">+3 pts</span></div>
-      <div class="pts-max">Máx partido: <strong>24 pts</strong></div>
+      <div class="pts-max">Máx partido: <strong>31 pts</strong></div>
     </div>
 
   </div>
 
   <!-- AWARD -->
-  <div style="margin-top: 24px;">
+  <div style="margin-top:24px">
     <div class="award-section">
       <div class="award-icon">⭐</div>
       <div class="award-body">
         <h3>BALÓN DE ORO — MVP DEL MUNDIAL</h3>
         <p>
           Predice al jugador que la FIFA elegirá como el mejor del Mundial 2026.<br/>
-          Se realiza <strong style="color:var(--text)">una sola vez al registrarte</strong> y no se puede modificar.<br/>
+          Se realiza <strong style="color:var(--text)">una sola vez al registrarte</strong>
+          y no se puede modificar.<br/>
           Premio fijo: aciertas o no aciertas. Sin puntuación parcial.
         </p>
       </div>
@@ -482,20 +464,21 @@
     </div>
   </div>
 
-  <!-- TOTAL -->
+  <!-- TOTAL MÁXIMO -->
   <div style="
-    margin-top: 20px; text-align: center;
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 16px; padding: 24px;
+    margin-top:20px; text-align:center;
+    background:var(--card); border:1px solid var(--border);
+    border-radius:16px; padding:28px;
   ">
-    <div style="color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">
+    <div style="color:var(--muted);font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">
       Puntuación Máxima Total
     </div>
-    <div style="font-family:'Bebas Neue',sans-serif; font-size: 3rem; color: var(--gold);">
-      383 PUNTOS
+    <!-- ✅ FIX — 353 pts reales (era 383) -->
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--gold)">
+      353 PUNTOS
     </div>
-    <div style="color: var(--muted); font-size: 0.8rem; margin-top: 4px;">
-      353 pts partidos + 30 pts Balón de Oro
+    <div style="color:var(--muted);font-size:0.8rem;margin-top:8px;line-height:1.8">
+      R32: 112 · R16: 72 · QF: 56 · SF: 38 · 3P: 14 · Final: 31 · Balón de Oro: 30
     </div>
   </div>
 </section>
@@ -503,13 +486,13 @@
 <!-- CÓMO FUNCIONA -->
 <section>
   <div class="section-title">📋 CÓMO FUNCIONA</div>
-  <div class="section-sub">Tres pasos simples para participar</div>
+  <div class="section-sub">Cuatro pasos simples para participar</div>
   <div class="steps-grid">
     <div class="step-card">
       <div class="step-icon">📝</div>
       <div class="step-num">PASO 01</div>
       <div class="step-title">Regístrate</div>
-      <div class="step-desc">Completa el formulario con tus datos, elige tu Balón de Oro y confirma el pago antes del 27 de junio.</div>
+      <div class="step-desc">Completa el formulario, elige tu Balón de Oro y confirma el pago antes del 27 de junio.</div>
     </div>
     <div class="step-card">
       <div class="step-icon">🔮</div>
@@ -539,7 +522,7 @@
     <p>Regístrate antes del cierre y asegura tu lugar en la quiniela más grande del Mundial 2026.</p>
     <div class="deadline-pill">⏰ Fecha límite: 27 de junio · 23:59 hrs</div>
     <br/>
-    <a href="registro.html" class="btn btn-gold" style="font-size:1rem; padding: 16px 36px;">
+    <a href="registro.html" class="btn btn-gold" style="font-size:1rem;padding:16px 36px">
       ⚽ REGISTRARME AHORA
     </a>
   </div>
@@ -547,31 +530,38 @@
 
 <footer>
   <p>Quiniela Mundial 2026 — Segunda Fase &nbsp;|&nbsp; Creado por <strong>Mario Vitale</strong></p>
-  <p style="margin-top:6px; font-size:0.72rem;">28 Jun – 19 Jul 2026 · USA · Canadá · México</p>
+  <p style="margin-top:6px;font-size:0.72rem">28 Jun – 19 Jul 2026 · USA · Canadá · México</p>
 </footer>
 
 <script>
-  // COUNTDOWN → 28 junio 2026 12:00 ET
-  const target = new Date('2026-06-28T12:00:00-04:00');
+  // ✅ FIX — Countdown correcto al primer partido
+  // Sudáfrica vs Canadá — 28 Jun 2026 · 15:00 ET
+  const TARGET = new Date('2026-06-28T15:00:00-04:00');
+
   function tick() {
     const now  = new Date();
-    const diff = target - now;
+    const diff = TARGET - now;
+
     if (diff <= 0) {
-      document.getElementById('cd-d').textContent = '00';
-      document.getElementById('cd-h').textContent = '00';
-      document.getElementById('cd-m').textContent = '00';
-      document.getElementById('cd-s').textContent = '00';
+      ['cd-d','cd-h','cd-m','cd-s'].forEach(id => {
+        document.getElementById(id).textContent = '00';
+      });
+      const msg = document.getElementById('cd-msg');
+      if (msg) msg.textContent = '🔴 ¡La fase eliminatoria ya comenzó!';
       return;
     }
+
     const d = Math.floor(diff / 86400000);
     const h = Math.floor((diff % 86400000) / 3600000);
     const m = Math.floor((diff % 3600000)  / 60000);
     const s = Math.floor((diff % 60000)    / 1000);
+
     document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
     document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
     document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
     document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
   }
+
   tick();
   setInterval(tick, 1000);
 </script>

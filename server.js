@@ -36,43 +36,43 @@ const DB = {
 // BRACKET OFICIAL FIFA 2026 — 32 PARTIDOS
 const BRACKET_DATOS = [
   // ── R32 ──
-  { id:'M73',  ronda:'R32', sede:'Los Ángeles',          local_nombre:'2° Grupo A',    visitante_nombre:'2° Grupo B',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M74',  ronda:'R32', sede:'Boston',                local_nombre:'1° Grupo E',    visitante_nombre:'Mejor 3° (A/B/C/D/F)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M75',  ronda:'R32', sede:'Monterrey',             local_nombre:'1° Grupo F',    visitante_nombre:'2° Grupo C',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M76',  ronda:'R32', sede:'Houston',               local_nombre:'1° Grupo C',    visitante_nombre:'2° Grupo F',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M77',  ronda:'R32', sede:'New York/NJ',           local_nombre:'1° Grupo I',    visitante_nombre:'Mejor 3° (C/D/F/G/H)',  local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M78',  ronda:'R32', sede:'Dallas',                local_nombre:'2° Grupo E',    visitante_nombre:'2° Grupo I',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M79',  ronda:'R32', sede:'Ciudad de México',      local_nombre:'1° Grupo A',    visitante_nombre:'Mejor 3° (C/E/F/H/I)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M80',  ronda:'R32', sede:'Atlanta',               local_nombre:'1° Grupo L',    visitante_nombre:'Mejor 3° (E/H/I/J/K)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M81',  ronda:'R32', sede:'San Francisco',         local_nombre:'1° Grupo D',    visitante_nombre:'Mejor 3° (B/E/F/I/J)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M82',  ronda:'R32', sede:'Seattle',               local_nombre:'1° Grupo G',    visitante_nombre:'Mejor 3° (A/E/H/I/J)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M83',  ronda:'R32', sede:'Toronto',               local_nombre:'2° Grupo K',    visitante_nombre:'2° Grupo L',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M84',  ronda:'R32', sede:'Los Ángeles',           local_nombre:'1° Grupo H',    visitante_nombre:'2° Grupo J',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M85',  ronda:'R32', sede:'Vancouver',             local_nombre:'1° Grupo B',    visitante_nombre:'Mejor 3° (E/F/G/I/J)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M86',  ronda:'R32', sede:'Miami',                 local_nombre:'1° Grupo J',    visitante_nombre:'2° Grupo H',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M87',  ronda:'R32', sede:'Kansas City',           local_nombre:'1° Grupo K',    visitante_nombre:'Mejor 3° (D/E/I/J/L)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M88',  ronda:'R32', sede:'Dallas',                local_nombre:'2° Grupo D',    visitante_nombre:'2° Grupo G',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M73',  ronda:'R32', sede:'Los Ángeles',         local_nombre:'2° Grupo A',    visitante_nombre:'2° Grupo B',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M74',  ronda:'R32', sede:'Boston',               local_nombre:'1° Grupo E',    visitante_nombre:'Mejor 3° (A/B/C/D/F)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M75',  ronda:'R32', sede:'Monterrey',            local_nombre:'1° Grupo F',    visitante_nombre:'2° Grupo C',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M76',  ronda:'R32', sede:'Houston',              local_nombre:'1° Grupo C',    visitante_nombre:'2° Grupo F',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M77',  ronda:'R32', sede:'New York/NJ',          local_nombre:'1° Grupo I',    visitante_nombre:'Mejor 3° (C/D/F/G/H)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M78',  ronda:'R32', sede:'Dallas',               local_nombre:'2° Grupo E',    visitante_nombre:'2° Grupo I',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M79',  ronda:'R32', sede:'Ciudad de México',     local_nombre:'1° Grupo A',    visitante_nombre:'Mejor 3° (C/E/F/H/I)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M80',  ronda:'R32', sede:'Atlanta',              local_nombre:'1° Grupo L',    visitante_nombre:'Mejor 3° (E/H/I/J/K)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M81',  ronda:'R32', sede:'San Francisco',        local_nombre:'1° Grupo D',    visitante_nombre:'Mejor 3° (B/E/F/I/J)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M82',  ronda:'R32', sede:'Seattle',              local_nombre:'1° Grupo G',    visitante_nombre:'Mejor 3° (A/E/H/I/J)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M83',  ronda:'R32', sede:'Toronto',              local_nombre:'2° Grupo K',    visitante_nombre:'2° Grupo L',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M84',  ronda:'R32', sede:'Los Ángeles',          local_nombre:'1° Grupo H',    visitante_nombre:'2° Grupo J',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M85',  ronda:'R32', sede:'Vancouver',            local_nombre:'1° Grupo B',    visitante_nombre:'Mejor 3° (E/F/G/I/J)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M86',  ronda:'R32', sede:'Miami',                local_nombre:'1° Grupo J',    visitante_nombre:'2° Grupo H',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M87',  ronda:'R32', sede:'Kansas City',          local_nombre:'1° Grupo K',    visitante_nombre:'Mejor 3° (D/E/I/J/L)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M88',  ronda:'R32', sede:'Dallas',               local_nombre:'2° Grupo D',    visitante_nombre:'2° Grupo G',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
   // ── R16 ──
-  { id:'M89',  ronda:'R16', sede:'Philadelphia',          local_nombre:'Ganador M74',   visitante_nombre:'Ganador M77',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M90',  ronda:'R16', sede:'Houston',               local_nombre:'Ganador M73',   visitante_nombre:'Ganador M75',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M91',  ronda:'R16', sede:'New York/NJ',           local_nombre:'Ganador M76',   visitante_nombre:'Ganador M78',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M92',  ronda:'R16', sede:'Ciudad de México',      local_nombre:'Ganador M79',   visitante_nombre:'Ganador M80',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M93',  ronda:'R16', sede:'Dallas',                local_nombre:'Ganador M83',   visitante_nombre:'Ganador M84',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M94',  ronda:'R16', sede:'Seattle',               local_nombre:'Ganador M81',   visitante_nombre:'Ganador M82',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M95',  ronda:'R16', sede:'Atlanta',               local_nombre:'Ganador M86',   visitante_nombre:'Ganador M88',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M96',  ronda:'R16', sede:'Vancouver',             local_nombre:'Ganador M85',   visitante_nombre:'Ganador M87',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M89',  ronda:'R16', sede:'Philadelphia',         local_nombre:'Ganador M74',   visitante_nombre:'Ganador M77',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M90',  ronda:'R16', sede:'Houston',              local_nombre:'Ganador M73',   visitante_nombre:'Ganador M75',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M91',  ronda:'R16', sede:'New York/NJ',          local_nombre:'Ganador M76',   visitante_nombre:'Ganador M78',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M92',  ronda:'R16', sede:'Ciudad de México',     local_nombre:'Ganador M79',   visitante_nombre:'Ganador M80',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M93',  ronda:'R16', sede:'Dallas',               local_nombre:'Ganador M83',   visitante_nombre:'Ganador M84',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M94',  ronda:'R16', sede:'Seattle',              local_nombre:'Ganador M81',   visitante_nombre:'Ganador M82',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M95',  ronda:'R16', sede:'Atlanta',              local_nombre:'Ganador M86',   visitante_nombre:'Ganador M88',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M96',  ronda:'R16', sede:'Vancouver',            local_nombre:'Ganador M85',   visitante_nombre:'Ganador M87',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
   // ── QF ──
-  { id:'M97',  ronda:'QF',  sede:'Boston',                local_nombre:'Ganador M89',   visitante_nombre:'Ganador M90',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M98',  ronda:'QF',  sede:'Los Ángeles',           local_nombre:'Ganador M93',   visitante_nombre:'Ganador M94',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M99',  ronda:'QF',  sede:'Miami',                 local_nombre:'Ganador M91',   visitante_nombre:'Ganador M92',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M100', ronda:'QF',  sede:'Kansas City',           local_nombre:'Ganador M95',   visitante_nombre:'Ganador M96',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M97',  ronda:'QF',  sede:'Boston',               local_nombre:'Ganador M89',   visitante_nombre:'Ganador M90',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M98',  ronda:'QF',  sede:'Los Ángeles',          local_nombre:'Ganador M93',   visitante_nombre:'Ganador M94',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M99',  ronda:'QF',  sede:'Miami',                local_nombre:'Ganador M91',   visitante_nombre:'Ganador M92',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M100', ronda:'QF',  sede:'Kansas City',          local_nombre:'Ganador M95',   visitante_nombre:'Ganador M96',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
   // ── SF ──
-  { id:'M101', ronda:'SF',  sede:'Dallas',                local_nombre:'Ganador M97',   visitante_nombre:'Ganador M98',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M102', ronda:'SF',  sede:'Atlanta',               local_nombre:'Ganador M99',   visitante_nombre:'Ganador M100',          local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M101', ronda:'SF',  sede:'Dallas',               local_nombre:'Ganador M97',   visitante_nombre:'Ganador M98',           local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M102', ronda:'SF',  sede:'Atlanta',              local_nombre:'Ganador M99',   visitante_nombre:'Ganador M100',          local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
   // ── 3P ──
-  { id:'M103', ronda:'3P',  sede:'Miami',                 local_nombre:'Perdedor M101', visitante_nombre:'Perdedor M102',         local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M103', ronda:'3P',  sede:'Miami',                local_nombre:'Perdedor M101', visitante_nombre:'Perdedor M102',         local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
   // ── FINAL ──
-  { id:'M104', ronda:'F',   sede:'MetLife Stadium · NJ',  local_nombre:'Ganador M101',  visitante_nombre:'Ganador M102',          local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M104', ronda:'F',   sede:'MetLife Stadium · NJ', local_nombre:'Ganador M101',  visitante_nombre:'Ganador M102',          local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
 ];
 
 // Cargar bracket en memoria al arrancar
@@ -86,7 +86,7 @@ if (!MODO_LOCAL) {
   const { createClient } = require('@supabase/supabase-js');
   supabase = createClient(
     process.env.SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_KEY  // ✅ CORREGIDO
+    process.env.SUPABASE_SERVICE_KEY
   );
   console.log('☁️  Supabase conectado');
 }
@@ -540,6 +540,10 @@ app.post('/api/admin/login', (req, res) => {
   }
 });
 
+// ══════════════════════════════════════════════════════════════
+// RUTAS ADMIN
+// ══════════════════════════════════════════════════════════════
+
 app.get('/api/admin/dashboard', authAdmin, async (req, res) => {
   try {
     const parts    = await db.getParticipantes();
@@ -592,9 +596,27 @@ app.delete('/api/admin/participante/:id', authAdmin, async (req, res) => {
 
 app.put('/api/admin/partido/:id', authAdmin, async (req, res) => {
   const { id } = req.params;
-  const { estado, goles_local, goles_visitante, fue_a_penales, ganador_code } = req.body;
+  const { estado, goles_local, goles_visitante, fue_a_penales, ganador_code,
+          local_nombre, visitante_nombre, local_code, visitante_code,
+          local_bandera, visitante_bandera, fecha, hora } = req.body;
   try {
-    await db.updatePartido(id, { estado, goles_local, goles_visitante, fue_a_penales, ganador_code });
+    const updates = {};
+    if (estado             !== undefined) updates.estado             = estado;
+    if (goles_local        !== undefined) updates.goles_local        = goles_local;
+    if (goles_visitante    !== undefined) updates.goles_visitante    = goles_visitante;
+    if (fue_a_penales      !== undefined) updates.fue_a_penales      = fue_a_penales;
+    if (ganador_code       !== undefined) updates.ganador_code       = ganador_code;
+    if (local_nombre       !== undefined) updates.local_nombre       = local_nombre;
+    if (visitante_nombre   !== undefined) updates.visitante_nombre   = visitante_nombre;
+    if (local_code         !== undefined) updates.local_code         = local_code;
+    if (visitante_code     !== undefined) updates.visitante_code     = visitante_code;
+    if (local_bandera      !== undefined) updates.local_bandera      = local_bandera;
+    if (visitante_bandera  !== undefined) updates.visitante_bandera  = visitante_bandera;
+    if (fecha              !== undefined) updates.fecha              = fecha;
+    if (hora               !== undefined) updates.hora               = hora;
+
+    await db.updatePartido(id, updates);
+
     if (estado === 'FINALIZADO') {
       await calcularPuntosPartido(id);
       await recalcularRanking();
@@ -605,16 +627,56 @@ app.put('/api/admin/partido/:id', authAdmin, async (req, res) => {
   }
 });
 
+// ✅ FIXEADO — poblar-bracket con UPSERT
 app.post('/api/admin/poblar-bracket', authAdmin, async (req, res) => {
   try {
     if (MODO_LOCAL) {
       DB.partidos = JSON.parse(JSON.stringify(BRACKET_DATOS));
     } else {
-      for (const b of BRACKET_DATOS) {
-        await db.updatePartido(b.id, b);
-      }
+      const { error } = await supabase
+        .from('partidos_elim')
+        .upsert(BRACKET_DATOS, { onConflict: 'id' });
+      if (error) throw error;
     }
     res.json({ ok: true, insertados: BRACKET_DATOS.length });
+  } catch(e) {
+    res.status(500).json({ ok: false, error: e.message });
+  }
+});
+
+// ✅ NUEVO — Inicialización completa Supabase
+app.post('/api/admin/init', authAdmin, async (req, res) => {
+  try {
+    if (MODO_LOCAL) {
+      DB.partidos = JSON.parse(JSON.stringify(BRACKET_DATOS));
+      return res.json({
+        ok:    true,
+        msg:   'Bracket cargado en memoria',
+        total: BRACKET_DATOS.length
+      });
+    }
+    // Insertar/actualizar todos los partidos
+    const { error: e1 } = await supabase
+      .from('partidos_elim')
+      .upsert(BRACKET_DATOS, { onConflict: 'id' });
+    if (e1) throw e1;
+
+    // Insertar/actualizar award Balón de Oro
+    const { error: e2 } = await supabase
+      .from('awards_elim')
+      .upsert([{
+        id:      'BALON_ORO',
+        nombre:  'Balón de Oro',
+        puntos:  30,
+        ganador: null
+      }], { onConflict: 'id' });
+    if (e2) throw e2;
+
+    res.json({
+      ok:       true,
+      msg:      'Supabase inicializado correctamente',
+      partidos: BRACKET_DATOS.length
+    });
   } catch(e) {
     res.status(500).json({ ok: false, error: e.message });
   }
@@ -673,12 +735,58 @@ app.post('/api/admin/ranking/actualizar', authAdmin, async (req, res) => {
   }
 });
 
-app.post('/api/admin/emails/masivo', authAdmin, async (req, res) => {
-  res.json({ ok: true, enviados: 0, errores: 0, mensaje: 'Email configurar en producción.' });
+// ✅ PDF con pdfkit
+app.get('/api/pdf/:tipo', async (req, res) => {
+  try {
+    const PDFDocument = require('pdfkit');
+    const { tipo }    = req.params;
+    const doc         = new PDFDocument({ margin: 50 });
+
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename="quiniela-${tipo}-${Date.now()}.pdf"`);
+    doc.pipe(res);
+
+    doc.fontSize(20).text('⚽ Quiniela Mundial 2026 — Segunda Fase', { align: 'center' });
+    doc.fontSize(12).text(`Creado por Mario Vitale`, { align: 'center' });
+    doc.moveDown();
+
+    if (tipo === 'ranking') {
+      const ranking = await db.getRanking();
+      doc.fontSize(16).text('🏆 RANKING GENERAL', { underline: true });
+      doc.moveDown(0.5);
+      ranking.forEach((p, i) => {
+        doc.fontSize(11).text(
+          `${i + 1}. ${p.nombre} (${p.pais}) — ${p.puntos_total || 0} pts`
+        );
+      });
+    } else if (tipo === 'bracket') {
+      const partidos = await db.getPartidos();
+      const rondas   = ['R32', 'R16', 'QF', 'SF', '3P', 'F'];
+      const nombres  = { R32:'Ronda de 32', R16:'Octavos de Final', QF:'Cuartos de Final',
+                         SF:'Semifinales', '3P':'Tercer Puesto', F:'FINAL' };
+      for (const ronda of rondas) {
+        const ps = partidos.filter(p => p.ronda === ronda);
+        if (!ps.length) continue;
+        doc.moveDown().fontSize(14).text(`── ${nombres[ronda]} ──`, { underline: true });
+        ps.forEach(p => {
+          const score = p.estado === 'FINALIZADO'
+            ? `${p.goles_local} - ${p.goles_visitante}`
+            : 'vs';
+          doc.fontSize(10).text(`  ${p.id}: ${p.local_nombre} ${score} ${p.visitante_nombre} | ${p.sede}`);
+        });
+      }
+    } else {
+      doc.fontSize(12).text(`Tipo de PDF no reconocido: ${tipo}`);
+    }
+
+    doc.end();
+  } catch(e) {
+    res.status(500).json({ ok: false, error: e.message });
+  }
 });
 
-app.get('/api/pdf/:tipo', async (req, res) => {
-  res.json({ ok: false, mensaje: 'PDF disponible en producción con pdfkit.' });
+app.post('/api/admin/emails/masivo', authAdmin, async (req, res) => {
+  res.json({ ok: true, enviados: 0, errores: 0, mensaje: 'Email configurar en producción.' });
 });
 
 // ══════════════════════════════════════════════════════════════

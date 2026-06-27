@@ -25,9 +25,6 @@
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; }
 
-    /* ══════════════════════════════════════
-       LOGIN ADMIN
-    ══════════════════════════════════════ */
     .login-screen {
       min-height: 100vh;
       display: flex; align-items: center; justify-content: center;
@@ -62,9 +59,6 @@
       font-size: 0.82rem; color: #fc8181; margin-bottom: 14px;
     }
 
-    /* ══════════════════════════════════════
-       BOTONES GLOBALES
-    ══════════════════════════════════════ */
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       padding: 11px 22px; border-radius: 10px;
@@ -89,12 +83,8 @@
     .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
     .btn-full { width: 100%; }
 
-    /* ══════════════════════════════════════
-       LAYOUT ADMIN
-    ══════════════════════════════════════ */
     #admin-app { display: none; min-height: 100vh; }
 
-    /* TOP BAR */
     .top-bar {
       position: sticky; top: 0; z-index: 100;
       background: rgba(10,14,26,0.97); backdrop-filter: blur(12px);
@@ -118,11 +108,9 @@
     .top-bar-right { display: flex; align-items: center; gap: 10px; }
     .admin-user { font-size: 0.78rem; color: var(--muted); }
 
-    /* TABS NAV */
     .tabs-nav {
       background: var(--card2); border-bottom: 1px solid var(--border);
-      display: flex; gap: 0; overflow-x: auto;
-      scrollbar-width: none;
+      display: flex; gap: 0; overflow-x: auto; scrollbar-width: none;
     }
     .tabs-nav::-webkit-scrollbar { display: none; }
     .tab-nav-btn {
@@ -135,22 +123,16 @@
     .tab-nav-btn:hover { color: var(--text); background: rgba(255,255,255,0.03); }
     .tab-nav-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
 
-    /* CONTENT AREA */
     .content-area { padding: 28px 24px; max-width: 1200px; margin: 0 auto; }
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
-    /* SECTION TITLE */
     .sec-title {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem; letter-spacing: 2px;
-      margin-bottom: 6px;
+      font-size: 1.6rem; letter-spacing: 2px; margin-bottom: 6px;
     }
     .sec-sub { color: var(--muted); font-size: 0.84rem; margin-bottom: 24px; }
 
-    /* ══════════════════════════════════════
-       DASHBOARD
-    ══════════════════════════════════════ */
     .dash-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -176,7 +158,6 @@
       text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;
     }
 
-    /* ACCIONES RÁPIDAS */
     .quick-actions {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 14px; margin-bottom: 28px;
@@ -189,7 +170,6 @@
     .qa-card h4 { font-size: 0.88rem; font-weight: 700; }
     .qa-card p  { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
 
-    /* ACTIVIDAD RECIENTE */
     .actividad-list { display: flex; flex-direction: column; gap: 0; }
     .act-item {
       display: flex; align-items: center; gap: 14px;
@@ -202,16 +182,13 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 1rem; flex-shrink: 0;
     }
-    .act-icon.reg   { background: rgba(56,161,105,0.15); }
-    .act-icon.pred  { background: rgba(49,130,206,0.15); }
-    .act-icon.res   { background: rgba(240,180,41,0.15); }
+    .act-icon.reg  { background: rgba(56,161,105,0.15); }
+    .act-icon.pred { background: rgba(49,130,206,0.15); }
+    .act-icon.res  { background: rgba(240,180,41,0.15); }
     .act-body { flex: 1; }
     .act-body strong { font-weight: 600; }
     .act-time { font-size: 0.72rem; color: var(--muted); }
 
-    /* ══════════════════════════════════════
-       PARTICIPANTES
-    ══════════════════════════════════════ */
     .search-bar {
       display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
     }
@@ -225,7 +202,6 @@
     }
     .search-bar input:focus { border-color: var(--gold); }
 
-    /* TABLA PARTICIPANTES */
     .tabla-admin {
       background: var(--card); border: 1px solid var(--border);
       border-radius: 16px; overflow: hidden; margin-bottom: 20px;
@@ -255,9 +231,9 @@
       font-size: 0.68rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.5px;
     }
-    .status-badge.confirmado  { background: rgba(56,161,105,0.15);  color: var(--green); }
-    .status-badge.pendiente   { background: rgba(240,180,41,0.15);  color: var(--yellow); }
-    .status-badge.rechazado   { background: rgba(229,62,62,0.15);   color: var(--red); }
+    .status-badge.confirmado { background: rgba(56,161,105,0.15);  color: var(--green); }
+    .status-badge.pendiente  { background: rgba(240,180,41,0.15);  color: var(--yellow); }
+    .status-badge.rechazado  { background: rgba(229,62,62,0.15);   color: var(--red); }
     .pago-badge {
       font-size: 0.72rem; color: var(--muted);
       background: rgba(255,255,255,0.04);
@@ -265,7 +241,6 @@
     }
     .ta-actions { display: flex; gap: 6px; }
 
-    /* MODAL */
     .modal-overlay {
       display: none; position: fixed; inset: 0;
       background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
@@ -300,9 +275,6 @@
     .modal-field select option { background: #1a2235; }
     .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
 
-    /* ══════════════════════════════════════
-       BRACKET / RESULTADOS
-    ══════════════════════════════════════ */
     .ronda-selector {
       display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px;
     }
@@ -323,17 +295,15 @@
     }
     .partido-admin-card {
       background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px; overflow: hidden;
-      transition: border-color .2s;
+      border-radius: 16px; overflow: hidden; transition: border-color .2s;
     }
     .partido-admin-card:hover { border-color: rgba(240,180,41,0.3); }
     .pac-header {
       display: flex; justify-content: space-between; align-items: center;
       padding: 10px 16px; background: rgba(255,255,255,0.03);
-      border-bottom: 1px solid var(--border);
-      font-size: 0.72rem;
+      border-bottom: 1px solid var(--border); font-size: 0.72rem;
     }
-    .pac-id { font-weight: 700; color: var(--gold); }
+    .pac-id   { font-weight: 700; color: var(--gold); }
     .pac-sede { color: var(--muted); }
     .pac-body { padding: 16px; }
     .pac-equipo {
@@ -341,17 +311,26 @@
       padding: 8px 0; font-size: 0.86rem;
     }
     .pac-equipo:first-child { border-bottom: 1px solid var(--border); }
-    .pac-flag { font-size: 1.4rem; width: 28px; text-align: center; flex-shrink: 0; }
+    .pac-flag   { font-size: 1.4rem; width: 28px; text-align: center; flex-shrink: 0; }
     .pac-nombre { flex: 1; font-weight: 600; }
     .pac-origen { font-size: 0.7rem; color: var(--muted); }
-    .pac-form { padding: 14px 16px; border-top: 1px solid var(--border); background: rgba(255,255,255,0.02); }
-    .pac-form-title { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; font-weight: 600; }
+    .pac-form {
+      padding: 14px 16px; border-top: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+    .pac-form-title {
+      font-size: 0.7rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 12px; font-weight: 600;
+    }
 
-    /* RESULTADO INPUTS */
     .resultado-row {
       display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
     }
-    .resultado-row label { font-size: 0.74rem; color: var(--muted); font-weight: 600; min-width: 80px; }
+    .resultado-row label {
+      font-size: 0.74rem; color: var(--muted);
+      font-weight: 600; min-width: 80px;
+    }
     .resultado-row input[type="number"] {
       width: 56px; text-align: center;
       background: rgba(255,255,255,0.04); border: 1.5px solid var(--border);
@@ -361,11 +340,16 @@
       transition: border-color .2s;
     }
     .resultado-row input[type="number"]:focus { border-color: var(--gold); }
-    .resultado-row .sep { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--muted); }
+    .resultado-row .sep {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem; color: var(--muted);
+    }
 
-    /* GANADOR SELECT */
     .ganador-select-wrap { margin-bottom: 12px; }
-    .ganador-select-wrap label { font-size: 0.74rem; color: var(--muted); font-weight: 600; display: block; margin-bottom: 6px; }
+    .ganador-select-wrap label {
+      font-size: 0.74rem; color: var(--muted);
+      font-weight: 600; display: block; margin-bottom: 6px;
+    }
     .ganador-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .gb-btn {
       padding: 9px 8px; border-radius: 8px;
@@ -375,10 +359,9 @@
       cursor: pointer; transition: all .2s; text-align: center;
       font-family: 'Inter', sans-serif;
     }
-    .gb-btn:hover { border-color: var(--green); color: var(--text); }
+    .gb-btn:hover  { border-color: var(--green); color: var(--text); }
     .gb-btn.selected { border-color: var(--green); background: rgba(56,161,105,0.1); color: var(--green); }
 
-    /* PENALES ROW */
     .pen-row {
       display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
     }
@@ -397,7 +380,6 @@
     .toggle input:checked + .toggle-slider { background: rgba(56,161,105,0.3); }
     .toggle input:checked + .toggle-slider::before { transform: translateX(18px); background: var(--green); }
 
-    /* ESTADO SELECT */
     .estado-select {
       width: 100%; background: rgba(255,255,255,0.04);
       border: 1.5px solid var(--border); border-radius: 8px;
@@ -408,9 +390,6 @@
     .estado-select:focus { border-color: var(--gold); }
     .estado-select option { background: #1a2235; }
 
-    /* ══════════════════════════════════════
-       PUNTOS
-    ══════════════════════════════════════ */
     .puntos-actions {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 16px; margin-bottom: 28px;
@@ -420,11 +399,10 @@
       border-radius: 16px; padding: 24px;
       display: flex; flex-direction: column; gap: 12px;
     }
-    .pa-card h4 { font-weight: 700; font-size: 0.9rem; }
-    .pa-card p  { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+    .pa-card h4  { font-weight: 700; font-size: 0.9rem; }
+    .pa-card p   { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
     .pa-card .pa-icon { font-size: 2rem; }
 
-    /* LOG RECALCULO */
     .log-box {
       background: var(--card2); border: 1px solid var(--border);
       border-radius: 12px; padding: 16px;
@@ -432,13 +410,10 @@
       color: var(--green); max-height: 240px; overflow-y: auto;
       line-height: 1.8;
     }
-    .log-box .log-line { display: block; }
-    .log-box .log-line.err { color: var(--red); }
-    .log-box .log-line.warn { color: var(--yellow); }
+    .log-box .log-line       { display: block; }
+    .log-box .log-line.err   { color: var(--red); }
+    .log-box .log-line.warn  { color: var(--yellow); }
 
-    /* ══════════════════════════════════════
-       PDFs
-    ══════════════════════════════════════ */
     .pdf-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 16px;
@@ -454,7 +429,6 @@
     .pdf-card h4 { font-weight: 700; font-size: 0.9rem; }
     .pdf-card p  { font-size: 0.8rem; color: var(--muted); line-height: 1.6; flex: 1; }
 
-    /* PDF INDIVIDUAL */
     .pdf-individual-form {
       background: var(--card); border: 1px solid var(--border);
       border-radius: 16px; padding: 24px; margin-top: 20px;
@@ -471,28 +445,6 @@
     }
     .pdf-search-row input:focus { border-color: var(--gold); }
 
-    /* ══════════════════════════════════════
-       AWARD ADMIN
-    ══════════════════════════════════════ */
-    .award-admin-card {
-      background: linear-gradient(135deg,
-        rgba(240,180,41,0.08), rgba(224,123,0,0.04));
-      border: 1px solid rgba(240,180,41,0.25);
-      border-radius: 20px; padding: 28px;
-      display: flex; gap: 20px; align-items: flex-start;
-      flex-wrap: wrap; margin-bottom: 24px;
-    }
-    .award-admin-card .ai { font-size: 3rem; flex-shrink: 0; }
-    .award-admin-card .ab { flex: 1; min-width: 200px; }
-    .award-admin-card .ab h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem; letter-spacing: 2px; color: var(--gold); margin-bottom: 8px;
-    }
-    .award-admin-card .ab p { font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
-
-    /* ══════════════════════════════════════
-       POBLAR BRACKET
-    ══════════════════════════════════════ */
     .poblar-card {
       background: linear-gradient(135deg,
         rgba(49,130,206,0.08), rgba(44,82,130,0.04));
@@ -501,13 +453,14 @@
     }
     .poblar-card h3 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem; letter-spacing: 2px; color: var(--blue); margin-bottom: 8px;
+      font-size: 1.4rem; letter-spacing: 2px;
+      color: var(--blue); margin-bottom: 8px;
     }
-    .poblar-card p { font-size: 0.84rem; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
+    .poblar-card p {
+      font-size: 0.84rem; color: var(--muted);
+      line-height: 1.7; margin-bottom: 16px;
+    }
 
-    /* ══════════════════════════════════════
-       SPINNER / TOAST
-    ══════════════════════════════════════ */
     .spinner {
       width: 20px; height: 20px;
       border: 3px solid rgba(255,255,255,0.2);
@@ -527,14 +480,11 @@
       transform: translateY(80px); opacity: 0;
       transition: all .3s; z-index: 999; max-width: 340px;
     }
-    .toast.show { transform: translateY(0); opacity: 1; }
-    .toast.success { border-color: rgba(56,161,105,0.4); color: var(--green); }
-    .toast.error   { border-color: rgba(229,62,62,0.4);  color: var(--red); }
-    .toast.info    { border-color: rgba(49,130,206,0.4); color: var(--blue); }
+    .toast.show    { transform: translateY(0); opacity: 1; }
+    .toast.success { border-color: rgba(56,161,105,0.4);  color: var(--green); }
+    .toast.error   { border-color: rgba(229,62,62,0.4);   color: var(--red); }
+    .toast.info    { border-color: rgba(49,130,206,0.4);  color: var(--blue); }
 
-    /* ══════════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════════ */
     @media(max-width: 768px) {
       .ta-header, .ta-row {
         grid-template-columns: 1fr 90px 90px 100px;
@@ -545,24 +495,20 @@
       .content-area { padding: 20px 16px; }
     }
     @media(max-width: 480px) {
-      .dash-grid { grid-template-columns: repeat(2, 1fr); }
-      .quick-actions { grid-template-columns: 1fr; }
+      .dash-grid       { grid-template-columns: repeat(2, 1fr); }
+      .quick-actions   { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════ -->
-<!-- LOGIN ADMIN                                -->
-<!-- ══════════════════════════════════════════ -->
+<!-- LOGIN -->
 <div id="login-screen" class="login-screen">
   <div class="login-card">
     <div class="login-icon">🔐</div>
     <h2>PANEL ADMIN</h2>
     <p>Acceso restringido · Quiniela Mundial 2026</p>
-
     <div class="error-msg" id="login-error"></div>
-
     <div class="login-field">
       <label>Usuario</label>
       <input type="text" id="admin-user" placeholder="admin" autocomplete="username"/>
@@ -570,8 +516,7 @@
     <div class="login-field">
       <label>Contraseña</label>
       <input type="password" id="admin-pass" placeholder="••••••••"
-        autocomplete="current-password"
-        onkeydown="if(event.key==='Enter') loginAdmin()"/>
+        autocomplete="current-password"/>
     </div>
     <button class="btn btn-red btn-full" style="margin-top:8px" onclick="loginAdmin()">
       🔐 Ingresar al Panel
@@ -579,12 +524,9 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════ -->
-<!-- ADMIN APP                                  -->
-<!-- ══════════════════════════════════════════ -->
+<!-- ADMIN APP -->
 <div id="admin-app">
 
-  <!-- TOP BAR -->
   <div class="top-bar">
     <div class="top-bar-left">
       <span class="admin-badge">🔴 Admin</span>
@@ -596,40 +538,24 @@
     </div>
   </div>
 
-  <!-- TABS NAV -->
   <div class="tabs-nav">
-    <button class="tab-nav-btn active" onclick="showTab('dashboard', this)">
-      📊 Dashboard
-    </button>
-    <button class="tab-nav-btn" onclick="showTab('participantes', this)">
-      👥 Participantes
-    </button>
-    <button class="tab-nav-btn" onclick="showTab('bracket', this)">
-      🏆 Bracket / Resultados
-    </button>
-    <button class="tab-nav-btn" onclick="showTab('puntos', this)">
-      ⚡ Puntos
-    </button>
-    <button class="tab-nav-btn" onclick="showTab('pdfs', this)">
-      📄 PDFs
-    </button>
+    <button class="tab-nav-btn active" onclick="showTab('dashboard',this)">📊 Dashboard</button>
+    <button class="tab-nav-btn" onclick="showTab('participantes',this)">👥 Participantes</button>
+    <button class="tab-nav-btn" onclick="showTab('bracket',this)">🏆 Bracket / Resultados</button>
+    <button class="tab-nav-btn" onclick="showTab('puntos',this)">⚡ Puntos</button>
+    <button class="tab-nav-btn" onclick="showTab('pdfs',this)">📄 PDFs</button>
   </div>
 
-  <!-- CONTENT -->
   <div class="content-area">
 
-    <!-- ════════════════════════════════════ -->
-    <!-- TAB: DASHBOARD                       -->
-    <!-- ════════════════════════════════════ -->
+    <!-- DASHBOARD -->
     <div class="tab-panel active" id="tab-dashboard">
       <div class="sec-title">📊 DASHBOARD</div>
       <div class="sec-sub">Resumen general del torneo en tiempo real</div>
-
-      <!-- KPIs -->
       <div class="dash-grid">
         <div class="dash-card">
           <div class="dc-icon">👥</div>
-          <div class="dc-num blue" id="d-total">—</div>
+          <div class="dc-num blue"  id="d-total">—</div>
           <div class="dc-lbl">Participantes</div>
         </div>
         <div class="dash-card">
@@ -659,46 +585,36 @@
         </div>
       </div>
 
-      <!-- ACCIONES RÁPIDAS -->
-      <div class="sec-title" style="font-size:1.2rem; margin-bottom:14px;">⚡ Acciones Rápidas</div>
+      <div class="sec-title" style="font-size:1.2rem;margin-bottom:14px">⚡ Acciones Rápidas</div>
       <div class="quick-actions">
         <div class="qa-card">
           <div style="font-size:1.8rem">🏟️</div>
           <h4>Poblar Bracket</h4>
-          <p>Reemplaza los TBD con los equipos reales clasificados. Ejecutar el 27 de junio.</p>
-          <button class="btn btn-blue btn-sm" onclick="showTab('bracket', document.querySelector('[onclick*=bracket]'))">
-            Ir a Bracket →
-          </button>
+          <p>Reemplaza los TBD con los equipos reales clasificados.</p>
+          <button class="btn btn-blue btn-sm" onclick="showTab('bracket',document.querySelectorAll('.tab-nav-btn')[2])">Ir a Bracket →</button>
         </div>
         <div class="qa-card">
           <div style="font-size:1.8rem">⚡</div>
           <h4>Recalcular Puntos</h4>
-          <p>Recalcula todos los puntos de todos los participantes basado en resultados reales.</p>
-          <button class="btn btn-gold btn-sm" onclick="showTab('puntos', document.querySelector('[onclick*=puntos]'))">
-            Ir a Puntos →
-          </button>
+          <p>Recalcula todos los puntos basado en resultados reales.</p>
+          <button class="btn btn-gold btn-sm" onclick="showTab('puntos',document.querySelectorAll('.tab-nav-btn')[3])">Ir a Puntos →</button>
         </div>
         <div class="qa-card">
           <div style="font-size:1.8rem">📄</div>
           <h4>Generar PDFs</h4>
-          <p>Genera el ranking completo, quinielas individuales y certificados de ganadores.</p>
-          <button class="btn btn-purple btn-sm" onclick="showTab('pdfs', document.querySelector('[onclick*=pdfs]'))">
-            Ir a PDFs →
-          </button>
+          <p>Genera ranking completo y quinielas individuales.</p>
+          <button class="btn btn-purple btn-sm" onclick="showTab('pdfs',document.querySelectorAll('.tab-nav-btn')[4])">Ir a PDFs →</button>
         </div>
         <div class="qa-card">
           <div style="font-size:1.8rem">👥</div>
           <h4>Confirmar Pagos</h4>
-          <p>Revisa los participantes pendientes de confirmación de pago.</p>
-          <button class="btn btn-green btn-sm" onclick="showTab('participantes', document.querySelector('[onclick*=participantes]'))">
-            Ver Participantes →
-          </button>
+          <p>Revisa participantes pendientes de confirmación.</p>
+          <button class="btn btn-green btn-sm" onclick="showTab('participantes',document.querySelectorAll('.tab-nav-btn')[1])">Ver Participantes →</button>
         </div>
       </div>
 
-      <!-- ACTIVIDAD RECIENTE -->
-      <div class="sec-title" style="font-size:1.2rem; margin-bottom:14px;">🕐 Actividad Reciente</div>
-      <div class="tabla-admin" style="padding: 0 20px;">
+      <div class="sec-title" style="font-size:1.2rem;margin-bottom:14px">🕐 Actividad Reciente</div>
+      <div class="tabla-admin" style="padding:0 20px">
         <div class="actividad-list" id="actividad-list">
           <div class="act-item">
             <div class="act-icon reg">📝</div>
@@ -709,26 +625,20 @@
       </div>
     </div>
 
-    <!-- ════════════════════════════════════ -->
-    <!-- TAB: PARTICIPANTES                   -->
-    <!-- ════════════════════════════════════ -->
+    <!-- PARTICIPANTES -->
     <div class="tab-panel" id="tab-participantes">
       <div class="sec-title">👥 PARTICIPANTES</div>
       <div class="sec-sub">Gestión completa de participantes registrados</div>
-
       <div class="search-bar">
         <input type="text" id="part-search" placeholder="🔍 Buscar por nombre, email o país..." oninput="filtrarParticipantes()"/>
         <button class="btn btn-ghost btn-sm" onclick="cargarParticipantes()">🔄 Actualizar</button>
         <button class="btn btn-green btn-sm" onclick="exportarCSV()">📥 Exportar CSV</button>
       </div>
-
-      <!-- FILTROS STATUS -->
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;">
-        <button class="rs-btn active" onclick="setFiltroStatus('todos', this)">Todos</button>
-        <button class="rs-btn" onclick="setFiltroStatus('confirmado', this)">✅ Confirmados</button>
-        <button class="rs-btn" onclick="setFiltroStatus('pendiente', this)">⏳ Pendientes</button>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+        <button class="rs-btn active" onclick="setFiltroStatus('todos',this)">Todos</button>
+        <button class="rs-btn" onclick="setFiltroStatus('confirmado',this)">✅ Confirmados</button>
+        <button class="rs-btn" onclick="setFiltroStatus('pendiente',this)">⏳ Pendientes</button>
       </div>
-
       <div class="tabla-admin">
         <div class="ta-header">
           <span>Participante</span>
@@ -739,131 +649,116 @@
           <span>Acciones</span>
         </div>
         <div id="tabla-participantes-body">
-          <div style="padding:40px; text-align:center; color:var(--muted);">
-            <div class="spinner" style="margin:0 auto 12px;"></div>
+          <div style="padding:40px;text-align:center;color:var(--muted)">
+            <div class="spinner" style="margin:0 auto 12px"></div>
             Cargando participantes...
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ════════════════════════════════════ -->
-    <!-- TAB: BRACKET / RESULTADOS            -->
-    <!-- ════════════════════════════════════ -->
+    <!-- BRACKET -->
     <div class="tab-panel" id="tab-bracket">
       <div class="sec-title">🏆 BRACKET / RESULTADOS</div>
       <div class="sec-sub">Carga resultados por partido y gestiona el bracket oficial</div>
 
-      <!-- POBLAR BRACKET -->
       <div class="poblar-card">
         <h3>🏟️ POBLAR BRACKET OFICIAL</h3>
         <p>
           Ejecuta esta función el <strong style="color:var(--text)">27 de junio de 2026</strong>
-          para reemplazar los equipos TBD con los clasificados reales de la fase de grupos.<br/>
-          ⚠️ Esta acción solo debe ejecutarse una vez. Los participantes tendrán hasta las 23:59 del 27 de junio para actualizar sus predicciones.
+          para reemplazar los equipos TBD con los clasificados reales.<br/>
+          ⚠️ Ejecutar solo una vez. Los participantes tienen hasta las 23:59 del 27 de junio.
         </p>
-        <button class="btn btn-blue" onclick="poblarBracket()">
-          🏟️ Poblar Bracket con Equipos Reales
-        </button>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-blue" onclick="poblarBracket()">🏟️ Poblar Bracket con Equipos Reales</button>
+          <button class="btn btn-ghost btn-sm" onclick="inicializarSistema()">🔧 Inicializar Sistema Completo</button>
+        </div>
       </div>
 
-      <!-- SELECTOR RONDA -->
       <div class="ronda-selector">
-        <button class="rs-btn active" onclick="setRondaAdmin('R32', this)">⚽ Dieciseisavos</button>
-        <button class="rs-btn" onclick="setRondaAdmin('R16', this)">🔥 Octavos</button>
-        <button class="rs-btn" onclick="setRondaAdmin('QF', this)">⚡ Cuartos</button>
-        <button class="rs-btn" onclick="setRondaAdmin('SF', this)">🏅 Semis</button>
-        <button class="rs-btn" onclick="setRondaAdmin('3P', this)">🥉 3er Puesto</button>
-        <button class="rs-btn" onclick="setRondaAdmin('F', this)">🏆 Final</button>
+        <button class="rs-btn active" onclick="setRondaAdmin('R32',this)">⚽ Dieciseisavos</button>
+        <button class="rs-btn" onclick="setRondaAdmin('R16',this)">🔥 Octavos</button>
+        <button class="rs-btn" onclick="setRondaAdmin('QF',this)">⚡ Cuartos</button>
+        <button class="rs-btn" onclick="setRondaAdmin('SF',this)">🏅 Semis</button>
+        <button class="rs-btn" onclick="setRondaAdmin('3P',this)">🥉 3er Puesto</button>
+        <button class="rs-btn" onclick="setRondaAdmin('F',this)">🏆 Final</button>
       </div>
 
-      <div class="partidos-admin-grid" id="partidos-admin-grid">
-        <!-- Se renderiza dinámicamente -->
-      </div>
+      <div class="partidos-admin-grid" id="partidos-admin-grid"></div>
     </div>
 
-    <!-- ════════════════════════════════════ -->
-    <!-- TAB: PUNTOS                          -->
-    <!-- ════════════════════════════════════ -->
+    <!-- PUNTOS -->
     <div class="tab-panel" id="tab-puntos">
       <div class="sec-title">⚡ GESTIÓN DE PUNTOS</div>
       <div class="sec-sub">Recálculo automático y visualización de puntos por ronda</div>
-
       <div class="puntos-actions">
         <div class="pa-card">
           <div class="pa-icon">⚡</div>
           <h4>Recalcular Todo</h4>
-          <p>Recalcula los puntos de todos los participantes para todos los partidos finalizados. Proceso automático basado en el protocolo oficial.</p>
+          <p>Recalcula los puntos de todos los participantes para todos los partidos finalizados.</p>
           <button class="btn btn-gold" onclick="recalcularTodo()">⚡ Recalcular Todos los Puntos</button>
         </div>
         <div class="pa-card">
           <div class="pa-icon">🎯</div>
           <h4>Recalcular por Partido</h4>
-          <p>Recalcula los puntos de un partido específico. Útil después de cargar un resultado individual.</p>
-          <div style="display:flex; gap:8px; margin-top:4px;">
+          <p>Recalcula los puntos de un partido específico.</p>
+          <div style="display:flex;gap:8px;margin-top:4px">
             <input type="text" id="recalc-partido-id" placeholder="Ej: M73"
-              style="flex:1; background:rgba(255,255,255,0.04); border:1.5px solid var(--border); border-radius:8px; padding:9px 12px; color:var(--text); font-family:'Inter',sans-serif; outline:none; font-size:0.84rem;"/>
+              style="flex:1;background:rgba(255,255,255,0.04);border:1.5px solid var(--border);border-radius:8px;padding:9px 12px;color:var(--text);font-family:'Inter',sans-serif;outline:none;font-size:0.84rem"/>
             <button class="btn btn-blue btn-sm" onclick="recalcularPartido()">Calcular</button>
           </div>
         </div>
         <div class="pa-card">
           <div class="pa-icon">⭐</div>
           <h4>Cargar Balón de Oro</h4>
-          <p>Registra el ganador oficial del Balón de Oro FIFA 2026 para calcular los 30 puntos del award.</p>
-          <div style="display:flex; gap:8px; margin-top:4px; flex-wrap:wrap;">
+          <p>Registra el ganador oficial del Balón de Oro FIFA 2026 (30 pts).</p>
+          <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap">
             <input type="text" id="balon-oro-ganador" placeholder="Nombre del jugador"
-              style="flex:1; min-width:140px; background:rgba(255,255,255,0.04); border:1.5px solid var(--border); border-radius:8px; padding:9px 12px; color:var(--text); font-family:'Inter',sans-serif; outline:none; font-size:0.84rem;"/>
+              style="flex:1;min-width:140px;background:rgba(255,255,255,0.04);border:1.5px solid var(--border);border-radius:8px;padding:9px 12px;color:var(--text);font-family:'Inter',sans-serif;outline:none;font-size:0.84rem"/>
             <button class="btn btn-gold btn-sm" onclick="cargarBalonOro()">⭐ Guardar</button>
           </div>
         </div>
         <div class="pa-card">
           <div class="pa-icon">📊</div>
           <h4>Actualizar Ranking</h4>
-          <p>Fuerza la actualización del ranking público y recalcula las posiciones de todos los participantes.</p>
+          <p>Fuerza la actualización del ranking público y recalcula posiciones.</p>
           <button class="btn btn-green" onclick="actualizarRanking()">📊 Actualizar Ranking</button>
         </div>
       </div>
-
-      <!-- LOG -->
-      <div class="sec-title" style="font-size:1.2rem; margin-bottom:12px;">📋 Log de Operaciones</div>
+      <div class="sec-title" style="font-size:1.2rem;margin-bottom:12px">📋 Log de Operaciones</div>
       <div class="log-box" id="log-box">
         <span class="log-line">Sistema listo. Esperando operaciones...</span>
       </div>
     </div>
 
-    <!-- ════════════════════════════════════ -->
-    <!-- TAB: PDFs                            -->
-    <!-- ════════════════════════════════════ -->
+    <!-- PDFs -->
     <div class="tab-panel" id="tab-pdfs">
       <div class="sec-title">📄 GENERACIÓN DE PDFs</div>
       <div class="sec-sub">Genera y descarga documentos oficiales del torneo</div>
-
       <div class="pdf-grid">
         <div class="pdf-card">
           <div class="pdf-icon">📊</div>
           <h4>Ranking Completo</h4>
-          <p>Tabla con todos los participantes, puntos desglosados por ronda, fecha y hora de generación, logo oficial.</p>
+          <p>Tabla con todos los participantes y puntos desglosados por ronda.</p>
           <button class="btn btn-gold" onclick="generarPDF('ranking')">📥 Descargar PDF Ranking</button>
         </div>
         <div class="pdf-card">
           <div class="pdf-icon">🏆</div>
-          <h4>Certificados Ganadores</h4>
-          <p>Diseño premium con fondo dorado, nombre del ganador, posición, premio y firma digital de Mario Vitale.</p>
-          <button class="btn btn-gold" onclick="generarPDF('certificados')">🏆 Generar Certificados Top 3</button>
+          <h4>Bracket Completo</h4>
+          <p>PDF con todos los partidos del bracket, resultados y estado actual.</p>
+          <button class="btn btn-gold" onclick="generarPDF('bracket')">🏆 Descargar PDF Bracket</button>
         </div>
         <div class="pdf-card">
           <div class="pdf-icon">📧</div>
           <h4>Enviar PDFs por Email</h4>
-          <p>Envía el PDF de quiniela individual a todos los participantes confirmados por correo electrónico.</p>
+          <p>Envía quiniela individual a todos los participantes confirmados.</p>
           <button class="btn btn-blue" onclick="enviarEmailsMasivos()">📧 Enviar a Todos</button>
         </div>
       </div>
-
-      <!-- PDF INDIVIDUAL -->
       <div class="pdf-individual-form">
         <h4>📋 PDF Quiniela Individual</h4>
-        <p style="font-size:0.82rem; color:var(--muted); margin: 8px 0 16px;">
-          Genera el PDF personal de un participante específico con sus 32 predicciones y puntos acumulados.
+        <p style="font-size:0.82rem;color:var(--muted);margin:8px 0 16px">
+          Genera el PDF personal de un participante con sus predicciones y puntos.
         </p>
         <div class="pdf-search-row">
           <input type="email" id="pdf-email-input" placeholder="Email del participante..."/>
@@ -872,12 +767,10 @@
       </div>
     </div>
 
-  </div><!-- /content-area -->
-</div><!-- /admin-app -->
+  </div>
+</div>
 
-<!-- ══════════════════════════════════════════ -->
-<!-- MODAL PARTICIPANTE                         -->
-<!-- ══════════════════════════════════════════ -->
+<!-- MODAL PARTICIPANTE -->
 <div class="modal-overlay" id="modal-participante">
   <div class="modal-box">
     <h3>👤 GESTIONAR PARTICIPANTE</h3>
@@ -922,760 +815,730 @@
   </div>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<!-- ══════════════════════════════════════════ -->
-<!-- JAVASCRIPT                                -->
-<!-- ══════════════════════════════════════════ -->
 <script>
-  const API = ''; // URL backend Railway
+// ✅ FIX #1 — URL real de Vercel (se autodetecta)
+const API = window.location.origin;
 
-  // ── CREDENCIALES DEMO ──
-  const ADMIN_USER = 'admin';
-  const ADMIN_PASS = 'mundial2026';
+// ✅ FIX #2 — Credenciales guardadas tras login
+let CRED = { usuario: '', password: '' };
 
-  let rondaAdminActiva = 'R32';
-  let participantesData = [];
-  let filtroStatusActivo = 'todos';
+// ✅ FIX #3 — Headers con autenticación para TODAS las llamadas admin
+function authHeaders() {
+  return {
+    'Content-Type': 'application/json',
+    'usuario':  CRED.usuario,
+    'password': CRED.password
+  };
+}
 
-  // ══════════════════════════════════════════
-  // LOGIN
-  // ══════════════════════════════════════════
-  function loginAdmin() {
-    const u = document.getElementById('admin-user').value.trim();
-    const p = document.getElementById('admin-pass').value;
-    const e = document.getElementById('login-error');
-    e.style.display = 'none';
+let rondaAdminActiva   = 'R32';
+let participantesData  = [];
+let filtroStatusActivo = 'todos';
+let ganadorSeleccionado = {};
 
-    if (!u || !p) {
-      e.textContent = '⚠️ Completa usuario y contraseña.';
-      e.style.display = 'block'; return;
-    }
+// ══════════════════════════════════════════
+// LOGIN
+// ══════════════════════════════════════════
+async function loginAdmin() {
+  const u = document.getElementById('admin-user').value.trim();
+  const p = document.getElementById('admin-pass').value;
+  const e = document.getElementById('login-error');
+  e.style.display = 'none';
 
-    // Verificar con backend o credenciales demo
-    if (API) {
-      fetch(`${API}/api/admin/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ usuario: u, password: p })
-      })
-      .then(r => r.json())
-      .then(d => {
-        if (d.ok) { iniciarAdmin(u); }
-        else { e.textContent = '⚠️ Credenciales incorrectas.'; e.style.display = 'block'; }
-      })
-      .catch(() => {
-        // Fallback demo
-        if (u === ADMIN_USER && p === ADMIN_PASS) iniciarAdmin(u);
-        else { e.textContent = '⚠️ Credenciales incorrectas.'; e.style.display = 'block'; }
-      });
+  if (!u || !p) {
+    e.textContent    = '⚠️ Completa usuario y contraseña.';
+    e.style.display  = 'block'; return;
+  }
+
+  try {
+    const res  = await fetch(`${API}/api/admin/login`, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ usuario: u, password: p })
+    });
+    const data = await res.json();
+    if (data.ok) {
+      CRED = { usuario: u, password: p };
+      iniciarAdmin(u);
     } else {
-      if (u === ADMIN_USER && p === ADMIN_PASS) iniciarAdmin(u);
-      else { e.textContent = '⚠️ Credenciales incorrectas.'; e.style.display = 'block'; }
+      e.textContent   = '⚠️ Credenciales incorrectas.';
+      e.style.display = 'block';
     }
+  } catch(err) {
+    e.textContent   = '❌ Error de conexión con el servidor.';
+    e.style.display = 'block';
   }
+}
 
-  function iniciarAdmin(usuario) {
-    document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('admin-app').style.display    = 'block';
-    document.getElementById('admin-user-label').textContent = usuario;
-    cargarDashboard();
-    cargarParticipantes();
-    renderPartidosAdmin('R32');
+function iniciarAdmin(usuario) {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('admin-app').style.display    = 'block';
+  document.getElementById('admin-user-label').textContent = usuario;
+  cargarDashboard();
+  cargarParticipantes();
+  renderPartidosAdmin('R32');
+}
+
+function logoutAdmin() {
+  CRED = { usuario: '', password: '' };
+  document.getElementById('admin-app').style.display    = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('admin-user').value = '';
+  document.getElementById('admin-pass').value = '';
+}
+
+// ══════════════════════════════════════════
+// TABS
+// ══════════════════════════════════════════
+function showTab(tab, el) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  if (el) el.classList.add('active');
+}
+
+// ══════════════════════════════════════════
+// DASHBOARD
+// ══════════════════════════════════════════
+async function cargarDashboard() {
+  try {
+    const res  = await fetch(`${API}/api/admin/dashboard`, {
+      headers: authHeaders()
+    });
+    const data = await res.json();
+    document.getElementById('d-total').textContent           = data.total           || 0;
+    document.getElementById('d-confirmados').textContent     = data.confirmados      || 0;
+    document.getElementById('d-pendientes-pago').textContent = data.pendientes_pago  || 0;
+    document.getElementById('d-jugados').textContent         = data.jugados          || 0;
+    document.getElementById('d-predicciones').textContent    = data.predicciones     || 0;
+    document.getElementById('d-pozo').textContent            = '$' + ((data.confirmados || 0) * 20);
+  } catch(e) {
+    console.warn('Dashboard no disponible:', e.message);
   }
+}
 
-  function logoutAdmin() {
-    document.getElementById('admin-app').style.display    = 'none';
-    document.getElementById('login-screen').style.display = 'flex';
-    document.getElementById('admin-user').value = '';
-    document.getElementById('admin-pass').value = '';
-  }
-
-  // ══════════════════════════════════════════
-  // TABS
-  // ══════════════════════════════════════════
-  function showTab(tab, el) {
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-nav-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('tab-' + tab).classList.add('active');
-    if (el) el.classList.add('active');
-  }
-
-  // ══════════════════════════════════════════
-  // DASHBOARD
-  // ══════════════════════════════════════════
-  async function cargarDashboard() {
-    try {
-      if (API) {
-        const res  = await fetch(`${API}/api/admin/dashboard`);
-        const data = await res.json();
-        document.getElementById('d-total').textContent          = data.total          || 0;
-        document.getElementById('d-confirmados').textContent    = data.confirmados     || 0;
-        document.getElementById('d-pendientes-pago').textContent = data.pendientes_pago || 0;
-        document.getElementById('d-jugados').textContent        = data.jugados         || 0;
-        document.getElementById('d-predicciones').textContent   = data.predicciones    || 0;
-        document.getElementById('d-pozo').textContent           = '$' + ((data.confirmados || 0) * 20);
-      } else {
-        document.getElementById('d-total').textContent          = '0';
-        document.getElementById('d-confirmados').textContent    = '0';
-        document.getElementById('d-pendientes-pago').textContent = '0';
-        document.getElementById('d-jugados').textContent        = '0';
-        document.getElementById('d-predicciones').textContent   = '0';
-        document.getElementById('d-pozo').textContent           = '$0';
-      }
-    } catch(e) { /* silencioso */ }
-  }
-
-  // ══════════════════════════════════════════
-  // PARTICIPANTES
-  // ══════════════════════════════════════════
-  async function cargarParticipantes() {
-    const tbody = document.getElementById('tabla-participantes-body');
-    tbody.innerHTML = '<div style="padding:40px;text-align:center;color:var(--muted)"><div class="spinner" style="margin:0 auto 12px"></div>Cargando...</div>';
-
-    try {
-      if (API) {
-        const res  = await fetch(`${API}/api/admin/participantes`);
-        const data = await res.json();
-        participantesData = data.participantes || [];
-      } else {
-        participantesData = [];
-      }
-      renderParticipantes();
-    } catch(e) {
-      participantesData = [];
-      renderParticipantes();
-    }
-  }
-
-  function filtrarParticipantes() { renderParticipantes(); }
-
-  function setFiltroStatus(s, el) {
-    filtroStatusActivo = s;
-    document.querySelectorAll('#tab-participantes .rs-btn').forEach(b => b.classList.remove('active'));
-    el.classList.add('active');
+// ══════════════════════════════════════════
+// PARTICIPANTES
+// ══════════════════════════════════════════
+async function cargarParticipantes() {
+  const tbody = document.getElementById('tabla-participantes-body');
+  tbody.innerHTML = '<div style="padding:40px;text-align:center;color:var(--muted)"><div class="spinner" style="margin:0 auto 12px"></div>Cargando...</div>';
+  try {
+    const res  = await fetch(`${API}/api/admin/participantes`, {
+      headers: authHeaders()
+    });
+    const data = await res.json();
+    participantesData = data.participantes || [];
     renderParticipantes();
+  } catch(e) {
+    participantesData = [];
+    renderParticipantes();
+    showToast('❌ Error cargando participantes.', 'error');
+  }
+}
+
+function filtrarParticipantes() { renderParticipantes(); }
+
+function setFiltroStatus(s, el) {
+  filtroStatusActivo = s;
+  document.querySelectorAll('#tab-participantes .rs-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderParticipantes();
+}
+
+function renderParticipantes() {
+  const q     = (document.getElementById('part-search')?.value || '').toLowerCase();
+  const tbody = document.getElementById('tabla-participantes-body');
+  let lista   = [...participantesData];
+
+  // ✅ FIX #3 — Filtrar por confirmado/rechazado (boolean) no por .estado (string)
+  if (filtroStatusActivo === 'confirmado') {
+    lista = lista.filter(p => p.confirmado === true);
+  } else if (filtroStatusActivo === 'pendiente') {
+    lista = lista.filter(p => !p.confirmado && !p.rechazado);
   }
 
-  function renderParticipantes() {
-    const q     = (document.getElementById('part-search')?.value || '').toLowerCase();
-    const tbody = document.getElementById('tabla-participantes-body');
+  if (q) {
+    lista = lista.filter(p =>
+      p.nombre?.toLowerCase().includes(q) ||
+      p.email?.toLowerCase().includes(q)  ||
+      p.pais?.toLowerCase().includes(q)
+    );
+  }
 
-    let lista = [...participantesData];
+  if (!lista.length) {
+    tbody.innerHTML = `
+      <div style="padding:40px;text-align:center;color:var(--muted)">
+        <div style="font-size:2.5rem;margin-bottom:12px">👥</div>
+        <p>No se encontraron participantes.</p>
+      </div>`;
+    return;
+  }
 
-    if (filtroStatusActivo !== 'todos') {
-      lista = lista.filter(p => p.estado === filtroStatusActivo);
+  tbody.innerHTML = lista.map(p => {
+    const fecha = p.fecha_reg
+      ? new Date(p.fecha_reg).toLocaleDateString('es-ES', { day:'2-digit', month:'short' })
+      : '—';
+    // ✅ FIX — estado derivado de booleanos
+    const estadoClass = p.confirmado ? 'confirmado' : p.rechazado ? 'rechazado' : 'pendiente';
+    const estadoLabel = p.confirmado ? '✅ Confirmado' : p.rechazado ? '❌ Rechazado' : '⏳ Pendiente';
+    const pSafe = JSON.stringify(p).replace(/"/g, '&quot;');
+    return `
+      <div class="ta-row">
+        <div>
+          <div class="ta-nombre">${p.nombre || '—'}</div>
+          <div class="ta-email">${p.email || '—'}</div>
+        </div>
+        <div>
+          <div style="font-size:0.82rem">${p.pais || '—'}</div>
+          <span class="pago-badge">${(p.metodo_pago || 'N/A').toUpperCase()}</span>
+        </div>
+        <div style="font-size:0.8rem;color:var(--muted)">${fecha}</div>
+        <div><span class="status-badge ${estadoClass}">${estadoLabel}</span></div>
+        <div style="font-size:0.78rem;color:var(--gold)">⭐ ${p.balon_oro || '—'}</div>
+        <div class="ta-actions">
+          <button class="btn btn-ghost btn-sm" onclick='abrirModalParticipante(${pSafe})'>✏️ Editar</button>
+          ${!p.confirmado ? `<button class="btn btn-green btn-sm" onclick="confirmarPago('${p.id}')">✅</button>` : ''}
+        </div>
+      </div>`;
+  }).join('');
+}
+
+// ══════════════════════════════════════════
+// MODAL PARTICIPANTE
+// ══════════════════════════════════════════
+function abrirModalParticipante(p) {
+  document.getElementById('modal-part-id').value = p.id      || '';
+  document.getElementById('modal-nombre').value  = p.nombre  || '';
+  document.getElementById('modal-email').value   = p.email   || '';
+  document.getElementById('modal-pais').value    = p.pais    || '';
+  document.getElementById('modal-pago').value    = (p.metodo_pago || '').toUpperCase();
+  document.getElementById('modal-balon').value   = p.balon_oro || '—';
+  document.getElementById('modal-notas').value   = p.notas   || '';
+  document.getElementById('modal-estado').value  =
+    p.confirmado ? 'confirmado' : p.rechazado ? 'rechazado' : 'pendiente';
+  document.getElementById('modal-participante').classList.add('open');
+}
+
+function cerrarModal(id) {
+  document.getElementById(id).classList.remove('open');
+}
+
+async function guardarParticipante() {
+  const id     = document.getElementById('modal-part-id').value;
+  const estado = document.getElementById('modal-estado').value;
+  const notas  = document.getElementById('modal-notas').value;
+  const nombre = document.getElementById('modal-nombre').value;
+  try {
+    const res = await fetch(`${API}/api/admin/participante/${id}`, {
+      method:  'PUT',
+      headers: authHeaders(),
+      body:    JSON.stringify({
+        confirmado: estado === 'confirmado',
+        rechazado:  estado === 'rechazado',
+        notas
+      })
+    });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error);
+    const idx = participantesData.findIndex(p => p.id === id);
+    if (idx !== -1) {
+      participantesData[idx].confirmado = estado === 'confirmado';
+      participantesData[idx].rechazado  = estado === 'rechazado';
+      participantesData[idx].notas      = notas;
     }
-    if (q) {
-      lista = lista.filter(p =>
-        p.nombre?.toLowerCase().includes(q) ||
-        p.email?.toLowerCase().includes(q)  ||
-        p.pais?.toLowerCase().includes(q)
-      );
-    }
+    cerrarModal('modal-participante');
+    renderParticipantes();
+    cargarDashboard();
+    showToast('✅ Participante actualizado.', 'success');
+    agregarLog(`✅ ${nombre} actualizado → ${estado}`);
+  } catch(e) {
+    showToast('❌ Error al guardar: ' + e.message, 'error');
+  }
+}
 
-        if (!lista.length) {
-      tbody.innerHTML = `
-        <div style="padding:40px; text-align:center; color:var(--muted);">
-          <div style="font-size:2.5rem; margin-bottom:12px;">👥</div>
-          <p>No se encontraron participantes.</p>
-        </div>`;
-      return;
-    }
+async function confirmarPago(id) {
+  try {
+    await fetch(`${API}/api/admin/participante/${id}`, {
+      method:  'PUT',
+      headers: authHeaders(),
+      body:    JSON.stringify({ confirmado: true })
+    });
+        const idx = participantesData.findIndex(p => p.id === id);
+    if (idx !== -1) participantesData[idx].confirmado = true;
+    renderParticipantes();
+    cargarDashboard();
+    showToast('✅ Pago confirmado.', 'success');
+    agregarLog(`✅ Pago confirmado para ID: ${id}`);
+  } catch(e) {
+    showToast('❌ Error al confirmar pago.', 'error');
+  }
+}
 
-    tbody.innerHTML = lista.map(p => {
-      const fecha = p.fecha_reg
-        ? new Date(p.fecha_reg).toLocaleDateString('es-ES', { day:'2-digit', month:'short' })
-        : '—';
-      const estadoClass = p.confirmado ? 'confirmado'
-                        : p.rechazado  ? 'rechazado'
-                        : 'pendiente';
-      const estadoLabel = p.confirmado ? '✅ Confirmado'
-                        : p.rechazado  ? '❌ Rechazado'
-                        : '⏳ Pendiente';
-      return `
-        <div class="ta-row">
-          <div>
-            <div class="ta-nombre">${p.nombre || '—'}</div>
-            <div class="ta-email">${p.email || '—'}</div>
+async function eliminarParticipante() {
+  const id     = document.getElementById('modal-part-id').value;
+  const nombre = document.getElementById('modal-nombre').value;
+  if (!confirm(`¿Eliminar a ${nombre}? Esta acción no se puede deshacer.`)) return;
+  try {
+    await fetch(`${API}/api/admin/participante/${id}`, {
+      method:  'DELETE',
+      headers: authHeaders()
+    });
+    participantesData = participantesData.filter(p => p.id !== id);
+    cerrarModal('modal-participante');
+    renderParticipantes();
+    cargarDashboard();
+    showToast(`🗑️ ${nombre} eliminado.`, 'error');
+    agregarLog(`🗑️ Participante eliminado: ${nombre}`);
+  } catch(e) {
+    showToast('❌ Error al eliminar.', 'error');
+  }
+}
+
+function exportarCSV() {
+  if (!participantesData.length) {
+    showToast('⚠️ No hay participantes para exportar.', 'error'); return;
+  }
+  const headers = ['Nombre','Email','País','Teléfono','Método Pago','Estado','Balón de Oro','Fecha Registro'];
+  const rows = participantesData.map(p => [
+    p.nombre || '', p.email || '', p.pais || '',
+    p.telefono || '', (p.metodo_pago || '').toUpperCase(),
+    p.confirmado ? 'Confirmado' : p.rechazado ? 'Rechazado' : 'Pendiente',
+    p.balon_oro || '',
+    p.fecha_reg ? new Date(p.fecha_reg).toLocaleDateString('es-ES') : ''
+  ]);
+  const csv  = [headers, ...rows].map(r => r.map(c => `"${c}"`).join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = `participantes_mundial2026_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('📥 CSV exportado correctamente.', 'success');
+}
+
+// ══════════════════════════════════════════
+// BRACKET — ESTRUCTURA OFICIAL FIFA 2026
+// ══════════════════════════════════════════
+const BRACKET_ADMIN = {
+  R32: [
+    { id:'M73',  local:'2° Grupo A',    visitante:'2° Grupo B',             sede:'Los Ángeles' },
+    { id:'M74',  local:'1° Grupo E',    visitante:'Mejor 3° (A/B/C/D/F)',   sede:'Boston' },
+    { id:'M75',  local:'1° Grupo F',    visitante:'2° Grupo C',             sede:'Monterrey' },
+    { id:'M76',  local:'1° Grupo C',    visitante:'2° Grupo F',             sede:'Houston' },
+    { id:'M77',  local:'1° Grupo I',    visitante:'Mejor 3° (C/D/F/G/H)',   sede:'New York/NJ' },
+    { id:'M78',  local:'2° Grupo E',    visitante:'2° Grupo I',             sede:'Dallas' },
+    { id:'M79',  local:'1° Grupo A',    visitante:'Mejor 3° (C/E/F/H/I)',   sede:'Ciudad de México' },
+    { id:'M80',  local:'1° Grupo L',    visitante:'Mejor 3° (E/H/I/J/K)',   sede:'Atlanta' },
+    { id:'M81',  local:'1° Grupo D',    visitante:'Mejor 3° (B/E/F/I/J)',   sede:'San Francisco' },
+    { id:'M82',  local:'1° Grupo G',    visitante:'Mejor 3° (A/E/H/I/J)',   sede:'Seattle' },
+    { id:'M83',  local:'2° Grupo K',    visitante:'2° Grupo L',             sede:'Toronto' },
+    { id:'M84',  local:'1° Grupo H',    visitante:'2° Grupo J',             sede:'Los Ángeles' },
+    { id:'M85',  local:'1° Grupo B',    visitante:'Mejor 3° (E/F/G/I/J)',   sede:'Vancouver' },
+    { id:'M86',  local:'1° Grupo J',    visitante:'2° Grupo H',             sede:'Miami' },
+    { id:'M87',  local:'1° Grupo K',    visitante:'Mejor 3° (D/E/I/J/L)',   sede:'Kansas City' },
+    { id:'M88',  local:'2° Grupo D',    visitante:'2° Grupo G',             sede:'Dallas' },
+  ],
+  R16: [
+    { id:'M89',  local:'Ganador M74',   visitante:'Ganador M77',  sede:'Philadelphia' },
+    { id:'M90',  local:'Ganador M73',   visitante:'Ganador M75',  sede:'Houston' },
+    { id:'M91',  local:'Ganador M76',   visitante:'Ganador M78',  sede:'New York/NJ' },
+    { id:'M92',  local:'Ganador M79',   visitante:'Ganador M80',  sede:'Ciudad de México' },
+    { id:'M93',  local:'Ganador M83',   visitante:'Ganador M84',  sede:'Dallas' },
+    { id:'M94',  local:'Ganador M81',   visitante:'Ganador M82',  sede:'Seattle' },
+    { id:'M95',  local:'Ganador M86',   visitante:'Ganador M88',  sede:'Atlanta' },
+    { id:'M96',  local:'Ganador M85',   visitante:'Ganador M87',  sede:'Vancouver' },
+  ],
+  QF: [
+    { id:'M97',  local:'Ganador M89',   visitante:'Ganador M90',  sede:'Boston' },
+    { id:'M98',  local:'Ganador M93',   visitante:'Ganador M94',  sede:'Los Ángeles' },
+    { id:'M99',  local:'Ganador M91',   visitante:'Ganador M92',  sede:'Miami' },
+    { id:'M100', local:'Ganador M95',   visitante:'Ganador M96',  sede:'Kansas City' },
+  ],
+  SF: [
+    { id:'M101', local:'Ganador M97',   visitante:'Ganador M98',  sede:'Dallas' },
+    { id:'M102', local:'Ganador M99',   visitante:'Ganador M100', sede:'Atlanta' },
+  ],
+  '3P': [
+    { id:'M103', local:'Perdedor M101', visitante:'Perdedor M102', sede:'Miami' },
+  ],
+  F: [
+    { id:'M104', local:'Ganador M101',  visitante:'Ganador M102',
+      sede:'MetLife Stadium · New York/NJ' },
+  ]
+};
+
+// ══════════════════════════════════════════
+// RENDER PARTIDOS ADMIN
+// ══════════════════════════════════════════
+let partidosAdminData = {};
+
+async function setRondaAdmin(ronda, el) {
+  rondaAdminActiva = ronda;
+  document.querySelectorAll('#tab-bracket .rs-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderPartidosAdmin(ronda);
+}
+
+async function renderPartidosAdmin(ronda) {
+  const grid = document.getElementById('partidos-admin-grid');
+  grid.innerHTML = '<div style="padding:40px;text-align:center;color:var(--muted)"><div class="spinner" style="margin:0 auto 12px"></div>Cargando partidos...</div>';
+
+  try {
+    const res  = await fetch(`${API}/api/partidos?ronda=${ronda}`);
+    const data = await res.json();
+    if (Array.isArray(data)) {
+      data.forEach(p => { partidosAdminData[p.id] = p; });
+    }
+  } catch(e) { /* sin conexión */ }
+
+  const lista = BRACKET_ADMIN[ronda] || [];
+
+  grid.innerHTML = lista.map(p => {
+    const d           = partidosAdminData[p.id] || {};
+    const localNombre = d.local_nombre      || p.local;
+    const visitNombre = d.visitante_nombre  || p.visitante;
+    const localFlag   = d.local_bandera     || '🏳';
+    const visitFlag   = d.visitante_bandera || '🏳';
+    const localCode   = d.local_code        || '';
+    const visitCode   = d.visitante_code    || '';
+    const estado      = d.estado            || 'PENDIENTE';
+    const ganadorCode = ganadorSeleccionado[p.id] || d.ganador_code || '';
+
+    const estadoColor = estado === 'FINALIZADO' ? 'var(--green)'
+                      : estado === 'EN_JUEGO'   ? 'var(--gold)'
+                      : 'var(--muted)';
+
+    const localSel = ganadorCode && ganadorCode === localCode  ? 'selected' : '';
+    const visitSel = ganadorCode && ganadorCode === visitCode  ? 'selected' : '';
+
+    return `
+      <div class="partido-admin-card">
+        <div class="pac-header">
+          <span class="pac-id">${p.id}</span>
+          <span class="pac-sede">📍 ${p.sede}</span>
+        </div>
+        <div class="pac-body">
+          <div class="pac-equipo">
+            <div class="pac-flag">${localFlag}</div>
+            <div>
+              <div class="pac-nombre">${localNombre}</div>
+              <div class="pac-origen">${p.local}</div>
+            </div>
           </div>
-          <div>
-            <div style="font-size:0.82rem">${p.pais || '—'}</div>
-            <span class="pago-badge">${(p.metodo_pago || 'N/A').toUpperCase()}</span>
-          </div>
-          <div style="font-size:0.8rem; color:var(--muted)">${fecha}</div>
-          <div><span class="status-badge ${estadoClass}">${estadoLabel}</span></div>
-          <div style="font-size:0.78rem; color:var(--gold)">⭐ ${p.balon_oro || '—'}</div>
-          <div class="ta-actions">
-            <button class="btn btn-ghost btn-sm" onclick="abrirModalParticipante(${JSON.stringify(p).replace(/"/g,'&quot;')})">
-              ✏️ Editar
-            </button>
-            ${!p.confirmado ? `
-            <button class="btn btn-green btn-sm" onclick="confirmarPago('${p.id}')">
-              ✅
-            </button>` : ''}
+          <div class="pac-equipo">
+            <div class="pac-flag">${visitFlag}</div>
+            <div>
+              <div class="pac-nombre">${visitNombre}</div>
+              <div class="pac-origen">${p.visitante}</div>
+            </div>
           </div>
         </div>
-      `;
-    }).join('');
+        <div class="pac-form">
+          <div class="pac-form-title">
+            ⚙️ Cargar Resultado
+            <span style="color:${estadoColor};margin-left:8px;font-weight:700">
+              ${estado === 'FINALIZADO' ? '✅ Finalizado'
+              : estado === 'EN_JUEGO'   ? '🔴 En Juego'
+              : '⏳ Pendiente'}
+            </span>
+          </div>
+
+          <select class="estado-select" id="est-${p.id}">
+            <option value="PENDIENTE"  ${estado==='PENDIENTE'  ?'selected':''}>⏳ Pendiente</option>
+            <option value="EN_JUEGO"   ${estado==='EN_JUEGO'   ?'selected':''}>🔴 En Juego</option>
+            <option value="FINALIZADO" ${estado==='FINALIZADO' ?'selected':''}>✅ Finalizado</option>
+          </select>
+
+          <div class="resultado-row">
+            <label>Marcador</label>
+            <div style="display:flex;align-items:center;gap:8px">
+              <input type="number" min="0" max="20" id="gl-${p.id}"
+                value="${d.goles_local ?? ''}" placeholder="0"/>
+              <span class="sep">—</span>
+              <input type="number" min="0" max="20" id="gv-${p.id}"
+                value="${d.goles_visitante ?? ''}" placeholder="0"/>
+            </div>
+          </div>
+
+          <div class="ganador-select-wrap">
+            <label>Equipo Ganador</label>
+            <div class="ganador-btns">
+              <button
+                class="gb-btn ${localSel}"
+                id="gw-local-${p.id}"
+                onclick="selGanadorAdmin('${p.id}','local','${localCode}','${visitCode}')"
+              >${localFlag} ${localNombre}</button>
+              <button
+                class="gb-btn ${visitSel}"
+                id="gw-visit-${p.id}"
+                onclick="selGanadorAdmin('${p.id}','visit','${visitCode}','${localCode}')"
+              >${visitFlag} ${visitNombre}</button>
+            </div>
+          </div>
+
+          <div class="pen-row">
+            <label class="toggle">
+              <input type="checkbox" id="pen-${p.id}" ${d.fue_a_penales ? 'checked' : ''}/>
+              <span class="toggle-slider"></span>
+            </label>
+            <label for="pen-${p.id}">¿Se definió por penales?</label>
+          </div>
+
+          <button class="btn btn-gold" style="width:100%;padding:10px"
+            onclick="guardarResultado('${p.id}')">
+            💾 Guardar Resultado
+          </button>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+// ✅ FIX — selGanadorAdmin simplificado y robusto
+function selGanadorAdmin(matchId, lado, code, otroCode) {
+  ganadorSeleccionado[matchId] = code;
+  const btnLocal = document.getElementById('gw-local-' + matchId);
+  const btnVisit = document.getElementById('gw-visit-' + matchId);
+  if (!btnLocal || !btnVisit) return;
+  if (lado === 'local') {
+    btnLocal.classList.add('selected');
+    btnVisit.classList.remove('selected');
+  } else {
+    btnVisit.classList.add('selected');
+    btnLocal.classList.remove('selected');
+  }
+}
+
+// ══════════════════════════════════════════
+// GUARDAR RESULTADO
+// ══════════════════════════════════════════
+async function guardarResultado(matchId) {
+  const estado  = document.getElementById('est-' + matchId)?.value;
+  const gLocal  = document.getElementById('gl-'  + matchId)?.value;
+  const gVisit  = document.getElementById('gv-'  + matchId)?.value;
+  const penales = document.getElementById('pen-' + matchId)?.checked || false;
+  const ganador = ganadorSeleccionado[matchId] || partidosAdminData[matchId]?.ganador_code || null;
+
+  if (estado === 'FINALIZADO' && !ganador) {
+    showToast('⚠️ Debes seleccionar el equipo ganador.', 'error'); return;
   }
 
-  // ══════════════════════════════════════════
-  // MODAL PARTICIPANTE
-  // ══════════════════════════════════════════
-  function abrirModalParticipante(p) {
-    document.getElementById('modal-part-id').value    = p.id      || '';
-    document.getElementById('modal-nombre').value     = p.nombre  || '';
-    document.getElementById('modal-email').value      = p.email   || '';
-    document.getElementById('modal-pais').value       = p.pais    || '';
-    document.getElementById('modal-pago').value       = (p.metodo_pago || '').toUpperCase();
-    document.getElementById('modal-balon').value      = p.balon_oro || '—';
-    document.getElementById('modal-notas').value      = p.notas   || '';
-    document.getElementById('modal-estado').value     =
-      p.confirmado ? 'confirmado' : p.rechazado ? 'rechazado' : 'pendiente';
-    document.getElementById('modal-participante').classList.add('open');
-  }
-
-  function cerrarModal(id) {
-    document.getElementById(id).classList.remove('open');
-  }
-
-  async function guardarParticipante() {
-    const id     = document.getElementById('modal-part-id').value;
-    const estado = document.getElementById('modal-estado').value;
-    const notas  = document.getElementById('modal-notas').value;
-
-    try {
-      if (API) {
-        await fetch(`${API}/api/admin/participante/${id}`, {
-          method:  'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify({
-            confirmado: estado === 'confirmado',
-            rechazado:  estado === 'rechazado',
-            notas
-          })
-        });
-      }
-      // Actualizar local
-      const idx = participantesData.findIndex(p => p.id === id);
-      if (idx !== -1) {
-        participantesData[idx].confirmado = estado === 'confirmado';
-        participantesData[idx].rechazado  = estado === 'rechazado';
-        participantesData[idx].notas      = notas;
-      }
-      cerrarModal('modal-participante');
-      renderParticipantes();
-      cargarDashboard();
-      showToast('✅ Participante actualizado correctamente.', 'success');
-      agregarLog(`✅ Participante ${document.getElementById('modal-nombre').value} actualizado → ${estado}`);
-    } catch(e) {
-      showToast('❌ Error al guardar. Intenta nuevamente.', 'error');
-    }
-  }
-
-  async function confirmarPago(id) {
-    try {
-      if (API) {
-        await fetch(`${API}/api/admin/participante/${id}`, {
-          method:  'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify({ confirmado: true })
-        });
-      }
-      const idx = participantesData.findIndex(p => p.id === id);
-      if (idx !== -1) participantesData[idx].confirmado = true;
-      renderParticipantes();
-      cargarDashboard();
-      showToast('✅ Pago confirmado.', 'success');
-      agregarLog(`✅ Pago confirmado para participante ID: ${id}`);
-    } catch(e) {
-      showToast('❌ Error al confirmar pago.', 'error');
-    }
-  }
-
-  async function eliminarParticipante() {
-    const id     = document.getElementById('modal-part-id').value;
-    const nombre = document.getElementById('modal-nombre').value;
-    if (!confirm(`¿Eliminar a ${nombre}? Esta acción no se puede deshacer.`)) return;
-    try {
-      if (API) {
-        await fetch(`${API}/api/admin/participante/${id}`, { method: 'DELETE' });
-      }
-      participantesData = participantesData.filter(p => p.id !== id);
-      cerrarModal('modal-participante');
-      renderParticipantes();
-      cargarDashboard();
-      showToast(`🗑️ ${nombre} eliminado.`, 'error');
-      agregarLog(`🗑️ Participante eliminado: ${nombre}`);
-    } catch(e) {
-      showToast('❌ Error al eliminar.', 'error');
-    }
-  }
-
-  function exportarCSV() {
-    if (!participantesData.length) {
-      showToast('⚠️ No hay participantes para exportar.', 'error'); return;
-    }
-    const headers = ['Nombre','Email','País','Teléfono','Método Pago','Estado','Balón de Oro','Fecha Registro'];
-    const rows = participantesData.map(p => [
-      p.nombre || '', p.email || '', p.pais || '',
-      p.telefono || '', (p.metodo_pago || '').toUpperCase(),
-      p.confirmado ? 'Confirmado' : p.rechazado ? 'Rechazado' : 'Pendiente',
-      p.balon_oro || '',
-      p.fecha_reg ? new Date(p.fecha_reg).toLocaleDateString('es-ES') : ''
-    ]);
-    const csv = [headers, ...rows].map(r => r.map(c => `"${c}"`).join(',')).join('\n');
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-    const url  = URL.createObjectURL(blob);
-    const a    = document.createElement('a');
-    a.href     = url;
-    a.download = `participantes_mundial2026_${new Date().toISOString().slice(0,10)}.csv`;
-    a.click();
-    URL.revokeObjectURL(url);
-    showToast('📥 CSV exportado correctamente.', 'success');
-  }
-
-  // ══════════════════════════════════════════
-  // BRACKET OFICIAL FIFA — POSICIONES FIJAS
-  // ══════════════════════════════════════════
-  const BRACKET_ADMIN = {
-    R32: [
-      { id:'M73',  local:'2° Grupo A',  visitante:'2° Grupo B',  sede:'Los Ángeles' },
-      { id:'M74',  local:'1° Grupo E',  visitante:'Mejor 3° (A/B/C/D/F)', sede:'Boston' },
-      { id:'M75',  local:'1° Grupo F',  visitante:'2° Grupo C',  sede:'Monterrey' },
-      { id:'M76',  local:'1° Grupo C',  visitante:'2° Grupo F',  sede:'Houston' },
-      { id:'M77',  local:'1° Grupo I',  visitante:'Mejor 3° (C/D/F/G/H)', sede:'New York/NJ' },
-      { id:'M78',  local:'2° Grupo E',  visitante:'2° Grupo I',  sede:'Dallas' },
-      { id:'M79',  local:'1° Grupo A',  visitante:'Mejor 3° (C/E/F/H/I)', sede:'Ciudad de México' },
-      { id:'M80',  local:'1° Grupo L',  visitante:'Mejor 3° (E/H/I/J/K)', sede:'Atlanta' },
-      { id:'M81',  local:'1° Grupo D',  visitante:'Mejor 3° (B/E/F/I/J)', sede:'San Francisco' },
-      { id:'M82',  local:'1° Grupo G',  visitante:'Mejor 3° (A/E/H/I/J)', sede:'Seattle' },
-      { id:'M83',  local:'2° Grupo K',  visitante:'2° Grupo L',  sede:'Toronto' },
-      { id:'M84',  local:'1° Grupo H',  visitante:'2° Grupo J',  sede:'Los Ángeles' },
-      { id:'M85',  local:'1° Grupo B',  visitante:'Mejor 3° (E/F/G/I/J)', sede:'Vancouver' },
-      { id:'M86',  local:'1° Grupo J',  visitante:'2° Grupo H',  sede:'Miami' },
-      { id:'M87',  local:'1° Grupo K',  visitante:'Mejor 3° (D/E/I/J/L)', sede:'Kansas City' },
-      { id:'M88',  local:'2° Grupo D',  visitante:'2° Grupo G',  sede:'Dallas' },
-    ],
-    R16: [
-      { id:'M89',  local:'Ganador M74', visitante:'Ganador M77', sede:'Philadelphia' },
-      { id:'M90',  local:'Ganador M73', visitante:'Ganador M75', sede:'Houston' },
-      { id:'M91',  local:'Ganador M76', visitante:'Ganador M78', sede:'New York/NJ' },
-      { id:'M92',  local:'Ganador M79', visitante:'Ganador M80', sede:'Ciudad de México' },
-      { id:'M93',  local:'Ganador M83', visitante:'Ganador M84', sede:'Dallas' },
-      { id:'M94',  local:'Ganador M81', visitante:'Ganador M82', sede:'Seattle' },
-      { id:'M95',  local:'Ganador M86', visitante:'Ganador M88', sede:'Atlanta' },
-      { id:'M96',  local:'Ganador M85', visitante:'Ganador M87', sede:'Vancouver' },
-    ],
-    QF: [
-      { id:'M97',  local:'Ganador M89', visitante:'Ganador M90', sede:'Boston' },
-      { id:'M98',  local:'Ganador M93', visitante:'Ganador M94', sede:'Los Ángeles' },
-      { id:'M99',  local:'Ganador M91', visitante:'Ganador M92', sede:'Miami' },
-      { id:'M100', local:'Ganador M95', visitante:'Ganador M96', sede:'Kansas City' },
-    ],
-    SF: [
-      { id:'M101', local:'Ganador M97',  visitante:'Ganador M98',  sede:'Dallas' },
-      { id:'M102', local:'Ganador M99',  visitante:'Ganador M100', sede:'Atlanta' },
-    ],
-    '3P': [
-      { id:'M103', local:'Perdedor M101', visitante:'Perdedor M102', sede:'Miami' },
-    ],
-    F: [
-      { id:'M104', local:'Ganador M101', visitante:'Ganador M102',
-        sede:'MetLife Stadium · New York/NJ' },
-    ]
+  const payload = {
+    estado,
+    goles_local:      gLocal  !== '' ? parseInt(gLocal)  : null,
+    goles_visitante:  gVisit  !== '' ? parseInt(gVisit)  : null,
+    fue_a_penales:    penales,
+    ganador_code:     ganador
   };
 
-  // ══════════════════════════════════════════
-  // RENDER PARTIDOS ADMIN
-  // ══════════════════════════════════════════
-  let partidosAdminData = {};
-
-  async function setRondaAdmin(ronda, el) {
-    rondaAdminActiva = ronda;
-    document.querySelectorAll('#tab-bracket .rs-btn').forEach(b => b.classList.remove('active'));
-    el.classList.add('active');
-    renderPartidosAdmin(ronda);
-  }
-
-  async function renderPartidosAdmin(ronda) {
-    const grid = document.getElementById('partidos-admin-grid');
-    grid.innerHTML = '<div style="padding:40px;text-align:center;color:var(--muted)"><div class="spinner" style="margin:0 auto 12px"></div>Cargando partidos...</div>';
-
-    try {
-      if (API) {
-        const res  = await fetch(`${API}/api/partidos?ronda=${ronda}`);
-        const data = await res.json();
-        data.forEach(p => { partidosAdminData[p.id] = p; });
-      }
-    } catch(e) { /* sin backend */ }
-
-    const lista = BRACKET_ADMIN[ronda] || [];
-    grid.innerHTML = lista.map(p => {
-      const d = partidosAdminData[p.id] || {};
-      const localNombre = d.local_nombre    || p.local;
-      const visitNombre = d.visitante_nombre || p.visitante;
-      const localFlag   = d.local_bandera   || '🏳';
-      const visitFlag   = d.visitante_bandera || '🏳';
-      const localCode   = d.local_code      || '';
-      const visitCode   = d.visitante_code  || '';
-      const estado      = d.estado          || 'PENDIENTE';
-
-      const estadoColor = estado === 'FINALIZADO' ? 'var(--green)'
-                        : estado === 'EN_JUEGO'   ? 'var(--gold)'
-                        : 'var(--muted)';
-
-      return `
-        <div class="partido-admin-card">
-          <div class="pac-header">
-            <span class="pac-id">${p.id}</span>
-            <span class="pac-sede">📍 ${p.sede}</span>
-          </div>
-          <div class="pac-body">
-            <div class="pac-equipo">
-              <div class="pac-flag">${localFlag}</div>
-              <div>
-                <div class="pac-nombre">${localNombre}</div>
-                <div class="pac-origen">${p.local}</div>
-              </div>
-            </div>
-            <div class="pac-equipo">
-              <div class="pac-flag">${visitFlag}</div>
-              <div>
-                <div class="pac-nombre">${visitNombre}</div>
-                <div class="pac-origen">${p.visitante}</div>
-              </div>
-            </div>
-          </div>
-          <div class="pac-form">
-            <div class="pac-form-title">
-              ⚙️ Cargar Resultado
-              <span style="color:${estadoColor}; margin-left:8px; font-weight:700">
-                ${estado === 'FINALIZADO' ? '✅ Finalizado'
-                : estado === 'EN_JUEGO'   ? '🔴 En Juego'
-                : '⏳ Pendiente'}
-              </span>
-            </div>
-
-            <!-- ESTADO -->
-            <select class="estado-select" id="est-${p.id}">
-              <option value="PENDIENTE"   ${estado==='PENDIENTE'  ?'selected':''}>⏳ Pendiente</option>
-              <option value="EN_JUEGO"    ${estado==='EN_JUEGO'   ?'selected':''}>🔴 En Juego</option>
-              <option value="FINALIZADO"  ${estado==='FINALIZADO' ?'selected':''}>✅ Finalizado</option>
-            </select>
-
-            <!-- MARCADOR -->
-            <div class="resultado-row">
-              <label>Marcador</label>
-              <div style="display:flex; align-items:center; gap:8px;">
-                <input type="number" min="0" max="20" id="gl-${p.id}"
-                  value="${d.goles_local ?? ''}" placeholder="0"/>
-                <span class="sep">—</span>
-                <input type="number" min="0" max="20" id="gv-${p.id}"
-                  value="${d.goles_visitante ?? ''}" placeholder="0"/>
-              </div>
-            </div>
-
-            <!-- GANADOR -->
-            <div class="ganador-select-wrap">
-              <label>Equipo Ganador</label>
-              <div class="ganador-btns">
-                <button
-                  class="gb-btn ${d.ganador_code === localCode && localCode ? 'selected' : ''}"
-                  id="gw-local-${p.id}"
-                  onclick="selGanadorAdmin('${p.id}','${localCode}','${visitCode}')"
-                >
-                  ${localFlag} ${localNombre}
-                </button>
-                <button
-                  class="gb-btn ${d.ganador_code === visitCode && visitCode ? 'selected' : ''}"
-                  id="gw-visit-${p.id}"
-                  onclick="selGanadorAdmin('${p.id}','${visitCode}','${localCode}')"
-                >
-                  ${visitFlag} ${visitNombre}
-                </button>
-              </div>
-            </div>
-
-            <!-- PENALES -->
-            <div class="pen-row">
-              <label class="toggle">
-                <input type="checkbox" id="pen-${p.id}" ${d.fue_a_penales ? 'checked' : ''}/>
-                <span class="toggle-slider"></span>
-              </label>
-              <label for="pen-${p.id}">¿Se definió por penales?</label>
-            </div>
-
-            <button class="btn btn-gold" style="width:100%; padding:10px;"
-              onclick="guardarResultado('${p.id}','${localCode}','${visitCode}')">
-              💾 Guardar Resultado
-            </button>
-          </div>
-        </div>
-      `;
-    }).join('');
-  }
-
-  // ══════════════════════════════════════════
-  // SELECCIONAR GANADOR ADMIN
-  // ══════════════════════════════════════════
-  function selGanadorAdmin(matchId, code, otroCode) {
-    const btnL = document.getElementById('gw-local-' + matchId);
-    const btnV = document.getElementById('gw-visit-' + matchId);
-    if (!btnL || !btnV) return;
-    if (btnL.textContent.includes(code) || btnL.getAttribute('onclick')?.includes(code)) {
-      btnL.classList.add('selected');
-      btnV.classList.remove('selected');
-    } else {
-      btnV.classList.add('selected');
-      btnL.classList.remove('selected');
-    }
+  try {
+    const res  = await fetch(`${API}/api/admin/partido/${matchId}`, {
+      method:  'PUT',
+      headers: authHeaders(),
+      body:    JSON.stringify(payload)
+    });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error);
     if (!partidosAdminData[matchId]) partidosAdminData[matchId] = {};
-    partidosAdminData[matchId].ganador_code = code;
+    Object.assign(partidosAdminData[matchId], payload);
+    showToast(`✅ ${matchId} guardado: ${gLocal ?? '?'} — ${gVisit ?? '?'}`, 'success');
+    agregarLog(`⚽ ${matchId} → ${gLocal}-${gVisit} · Ganador: ${ganador || 'N/A'} · ${estado}`);
+    renderPartidosAdmin(rondaAdminActiva);
+  } catch(e) {
+    showToast('❌ Error al guardar: ' + e.message, 'error');
+    agregarLog(`❌ Error guardando ${matchId}: ${e.message}`, 'err');
   }
+}
 
-  // ══════════════════════════════════════════
-  // GUARDAR RESULTADO
-  // ══════════════════════════════════════════
-  async function guardarResultado(matchId, localCode, visitCode) {
-    const estado   = document.getElementById('est-' + matchId)?.value;
-    const gLocal   = parseInt(document.getElementById('gl-' + matchId)?.value) ?? null;
-    const gVisit   = parseInt(document.getElementById('gv-' + matchId)?.value) ?? null;
-    const penales  = document.getElementById('pen-' + matchId)?.checked || false;
-    const ganador  = partidosAdminData[matchId]?.ganador_code || null;
-
-    if (estado === 'FINALIZADO' && !ganador) {
-      showToast('⚠️ Debes seleccionar el equipo ganador.', 'error'); return;
-    }
-
-    const payload = {
-      estado, goles_local: gLocal, goles_visitante: gVisit,
-      fue_a_penales: penales, ganador_code: ganador
-    };
-
-    try {
-      if (API) {
-        await fetch(`${API}/api/admin/partido/${matchId}`, {
-          method:  'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify(payload)
-        });
-      }
-      if (!partidosAdminData[matchId]) partidosAdminData[matchId] = {};
-      Object.assign(partidosAdminData[matchId], payload);
-      showToast(`✅ ${matchId} guardado: ${gLocal ?? '?'} — ${gVisit ?? '?'} · ${estado}`, 'success');
-      agregarLog(`⚽ Resultado cargado: ${matchId} → ${gLocal}-${gVisit} · Ganador: ${ganador || 'N/A'} · ${estado}`);
-    } catch(e) {
-      if (!API) {
-        showToast(`✅ ${matchId} guardado (modo demo)`, 'success');
-        agregarLog(`⚽ [DEMO] Resultado: ${matchId} → ${gLocal}-${gVisit}`);
-      } else {
-        showToast('❌ Error al guardar resultado.', 'error');
-      }
-    }
-  }
-
-  // ══════════════════════════════════════════
-  // POBLAR BRACKET
-  // ══════════════════════════════════════════
-  async function poblarBracket() {
-    if (!confirm('¿Confirmas poblar el bracket con los equipos reales? Esta acción reemplazará todos los TBD.')) return;
-    try {
-      if (API) {
-        const res  = await fetch(`${API}/api/admin/poblar-bracket`, { method: 'POST' });
-        const data = await res.json();
-        if (data.ok) {
-          showToast('✅ Bracket poblado con equipos reales.', 'success');
-          agregarLog('🏟️ Bracket poblado con equipos reales del torneo.');
-          renderPartidosAdmin(rondaAdminActiva);
-        } else {
-          showToast('❌ Error al poblar bracket: ' + (data.error || ''), 'error');
-        }
-      } else {
-        showToast('✅ Bracket poblado (modo demo).', 'success');
-        agregarLog('🏟️ [DEMO] Bracket poblado con equipos reales.');
-      }
-    } catch(e) {
-      showToast('❌ Error de conexión.', 'error');
-    }
-  }
-
-  // ══════════════════════════════════════════
-  // PUNTOS
-  // ══════════════════════════════════════════
-  async function recalcularTodo() {
-    agregarLog('⚡ Iniciando recálculo completo de puntos...');
-    try {
-      if (API) {
-        const res  = await fetch(`${API}/api/admin/recalcular`, { method: 'POST' });
-        const data = await res.json();
-        agregarLog(`✅ Recálculo completado. ${data.procesados || 0} predicciones procesadas.`);
-        showToast('✅ Puntos recalculados correctamente.', 'success');
-      } else {
-        setTimeout(() => {
-          agregarLog('✅ [DEMO] Recálculo completado. 0 predicciones procesadas.');
-          showToast('✅ Puntos recalculados (modo demo).', 'success');
-        }, 1200);
-      }
-    } catch(e) {
-      agregarLog('❌ Error en recálculo: ' + e.message, 'err');
-      showToast('❌ Error al recalcular.', 'error');
-    }
-  }
-
-  async function recalcularPartido() {
-    const id = document.getElementById('recalc-partido-id').value.trim().toUpperCase();
-    if (!id) { showToast('⚠️ Ingresa el ID del partido (Ej: M73).', 'error'); return; }
-    agregarLog(`🎯 Recalculando puntos para ${id}...`);
-    try {
-      if (API) {
-        const res  = await fetch(`${API}/api/admin/recalcular/${id}`, { method: 'POST' });
-        const data = await res.json();
-        agregarLog(`✅ ${id}: ${data.procesados || 0} predicciones actualizadas.`);
-        showToast(`✅ ${id} recalculado.`, 'success');
-      } else {
-        agregarLog(`✅ [DEMO] ${id} recalculado.`);
-        showToast(`✅ ${id} recalculado (modo demo).`, 'success');
-      }
-    } catch(e) {
-      agregarLog(`❌ Error recalculando ${id}: ` + e.message, 'err');
-      showToast('❌ Error al recalcular.', 'error');
-    }
-  }
-
-  async function cargarBalonOro() {
-    const jugador = document.getElementById('balon-oro-ganador').value.trim();
-    if (!jugador) { showToast('⚠️ Ingresa el nombre del jugador.', 'error'); return; }
-    try {
-      if (API) {
-        await fetch(`${API}/api/admin/balon-oro`, {
-          method:  'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify({ ganador: jugador })
-        });
-      }
-      agregarLog(`⭐ Balón de Oro registrado: ${jugador}`);
-      showToast(`⭐ Balón de Oro: ${jugador} guardado.`, 'success');
-    } catch(e) {
-      agregarLog(`⭐ [DEMO] Balón de Oro: ${jugador}`);
-      showToast(`⭐ ${jugador} guardado (modo demo).`, 'success');
-    }
-  }
-
-  async function actualizarRanking() {
-    agregarLog('📊 Actualizando ranking...');
-    try {
-      if (API) {
-        await fetch(`${API}/api/admin/ranking/actualizar`, { method: 'POST' });
-      }
-      agregarLog('✅ Ranking actualizado y posiciones recalculadas.');
-      showToast('📊 Ranking actualizado.', 'success');
-    } catch(e) {
-      agregarLog('✅ [DEMO] Ranking actualizado.');
-      showToast('📊 Ranking actualizado (modo demo).', 'success');
-    }
-  }
-
-  // ══════════════════════════════════════════
-  // PDFs
-  // ══════════════════════════════════════════
-  async function generarPDF(tipo) {
-    try {
-      if (API) {
-        window.open(`${API}/api/pdf/${tipo}`, '_blank');
-      } else {
-        showToast('📄 PDF disponible cuando el backend esté activo.', 'info');
-      }
-      agregarLog(`📄 PDF generado: ${tipo}`);
-    } catch(e) {
-      showToast('❌ Error al generar PDF.', 'error');
-    }
-  }
-
-  async function generarPDFIndividual() {
-    const email = document.getElementById('pdf-email-input').value.trim();
-    if (!email) { showToast('⚠️ Ingresa el email del participante.', 'error'); return; }
-    try {
-      if (API) {
-        window.open(`${API}/api/pdf/quiniela?email=${encodeURIComponent(email)}`, '_blank');
-      } else {
-        showToast('📄 PDF individual disponible con backend activo.', 'info');
-      }
-      agregarLog(`📋 PDF individual generado: ${email}`);
-    } catch(e) {
-      showToast('❌ Error al generar PDF.', 'error');
-    }
-  }
-
-  async function enviarEmailsMasivos() {
-    if (!confirm('¿Enviar PDFs por email a todos los participantes confirmados?')) return;
-    agregarLog('📧 Iniciando envío masivo de emails...');
-    try {
-      if (API) {
-        const res  = await fetch(`${API}/api/admin/emails/masivo`, { method: 'POST' });
-        const data = await res.json();
-        agregarLog(`✅ Emails enviados: ${data.enviados || 0} exitosos, ${data.errores || 0} errores.`);
-        showToast(`📧 ${data.enviados || 0} emails enviados.`, 'success');
-      } else {
-        agregarLog('📧 [DEMO] Envío masivo completado.');
-        showToast('📧 Emails enviados (modo demo).', 'success');
-      }
-    } catch(e) {
-      agregarLog('❌ Error en envío masivo: ' + e.message, 'err');
-      showToast('❌ Error al enviar emails.', 'error');
-    }
-  }
-
-  // ══════════════════════════════════════════
-  // LOG
-  // ══════════════════════════════════════════
-  function agregarLog(msg, tipo = '') {
-    const box  = document.getElementById('log-box');
-    const hora = new Date().toLocaleTimeString('es-ES', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
-    const line = document.createElement('span');
-    line.className   = `log-line ${tipo}`;
-    line.textContent = `[${hora}] ${msg}`;
-    box.appendChild(line);
-    box.scrollTop = box.scrollHeight;
-  }
-
-  // ══════════════════════════════════════════
-  // TOAST
-  // ══════════════════════════════════════════
-  let toastTimer = null;
-  function showToast(msg, tipo = 'success') {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.className   = `toast ${tipo} show`;
-    if (toastTimer) clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => t.classList.remove('show'), 3500);
-  }
-
-  // ══════════════════════════════════════════
-  // CERRAR MODAL CON ESC
-  // ══════════════════════════════════════════
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-overlay.open')
-        .forEach(m => m.classList.remove('open'));
-    }
-  });
-
-  // CERRAR MODAL AL CLICK FUERA
-  document.querySelectorAll('.modal-overlay').forEach(m => {
-    m.addEventListener('click', e => {
-      if (e.target === m) m.classList.remove('open');
+// ══════════════════════════════════════════
+// POBLAR BRACKET
+// ══════════════════════════════════════════
+async function poblarBracket() {
+  if (!confirm('¿Confirmas poblar el bracket con los equipos reales?')) return;
+  try {
+    const res  = await fetch(`${API}/api/admin/poblar-bracket`, {
+      method:  'POST',
+      headers: authHeaders()
     });
-  });
+    const data = await res.json();
+    if (data.ok) {
+      showToast(`✅ Bracket poblado — ${data.insertados} partidos cargados.`, 'success');
+      agregarLog(`🏟️ Bracket poblado: ${data.insertados} partidos insertados en Supabase.`);
+      renderPartidosAdmin(rondaAdminActiva);
+    } else {
+      throw new Error(data.error);
+    }
+  } catch(e) {
+    showToast('❌ Error al poblar bracket: ' + e.message, 'error');
+    agregarLog('❌ Error poblar bracket: ' + e.message, 'err');
+  }
+}
 
-  // ENTER EN LOGIN
-  document.getElementById('admin-pass')
-    .addEventListener('keydown', e => {
-      if (e.key === 'Enter') loginAdmin();
+// ✅ NUEVO — Inicializar sistema completo
+async function inicializarSistema() {
+  if (!confirm('¿Inicializar el sistema completo en Supabase? Esto carga partidos y awards.')) return;
+  try {
+    const res  = await fetch(`${API}/api/admin/init`, {
+      method:  'POST',
+      headers: authHeaders()
     });
+    const data = await res.json();
+    if (data.ok) {
+      showToast(`✅ Sistema inicializado — ${data.partidos} partidos cargados.`, 'success');
+      agregarLog(`🔧 Sistema inicializado: ${data.partidos} partidos + awards en Supabase.`);
+      renderPartidosAdmin(rondaAdminActiva);
+    } else {
+      throw new Error(data.error);
+    }
+  } catch(e) {
+    showToast('❌ Error al inicializar: ' + e.message, 'error');
+    agregarLog('❌ Error inicializar: ' + e.message, 'err');
+  }
+}
 
+// ══════════════════════════════════════════
+// PUNTOS
+// ══════════════════════════════════════════
+async function recalcularTodo() {
+  agregarLog('⚡ Iniciando recálculo completo de puntos...');
+  try {
+    const res  = await fetch(`${API}/api/admin/recalcular`, {
+      method: 'POST', headers: authHeaders()
+    });
+    const data = await res.json();
+    agregarLog(`✅ Recálculo completado. ${data.procesados || 0} predicciones procesadas.`);
+    showToast('✅ Puntos recalculados correctamente.', 'success');
+  } catch(e) {
+    agregarLog('❌ Error en recálculo: ' + e.message, 'err');
+    showToast('❌ Error al recalcular.', 'error');
+  }
+}
+
+async function recalcularPartido() {
+  const id = document.getElementById('recalc-partido-id').value.trim().toUpperCase();
+  if (!id) { showToast('⚠️ Ingresa el ID del partido (Ej: M73).', 'error'); return; }
+  agregarLog(`🎯 Recalculando puntos para ${id}...`);
+  try {
+    const res  = await fetch(`${API}/api/admin/recalcular/${id}`, {
+      method: 'POST', headers: authHeaders()
+    });
+    const data = await res.json();
+    agregarLog(`✅ ${id}: ${data.procesados || 0} predicciones actualizadas.`);
+    showToast(`✅ ${id} recalculado.`, 'success');
+  } catch(e) {
+    agregarLog(`❌ Error recalculando ${id}: ` + e.message, 'err');
+    showToast('❌ Error al recalcular.', 'error');
+  }
+}
+
+async function cargarBalonOro() {
+  const jugador = document.getElementById('balon-oro-ganador').value.trim();
+  if (!jugador) { showToast('⚠️ Ingresa el nombre del jugador.', 'error'); return; }
+  try {
+    const res  = await fetch(`${API}/api/admin/balon-oro`, {
+      method:  'POST',
+      headers: authHeaders(),
+      body:    JSON.stringify({ ganador: jugador })
+    });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error);
+    agregarLog(`⭐ Balón de Oro registrado: ${jugador}`);
+    showToast(`⭐ Balón de Oro: ${jugador} guardado.`, 'success');
+  } catch(e) {
+    showToast('❌ Error: ' + e.message, 'error');
+  }
+}
+
+async function actualizarRanking() {
+  agregarLog('📊 Actualizando ranking...');
+  try {
+    await fetch(`${API}/api/admin/ranking/actualizar`, {
+      method: 'POST', headers: authHeaders()
+    });
+    agregarLog('✅ Ranking actualizado y posiciones recalculadas.');
+    showToast('📊 Ranking actualizado.', 'success');
+  } catch(e) {
+    showToast('❌ Error al actualizar ranking.', 'error');
+  }
+}
+
+// ══════════════════════════════════════════
+// PDFs
+// ══════════════════════════════════════════
+function generarPDF(tipo) {
+  window.open(`${API}/api/pdf/${tipo}`, '_blank');
+  agregarLog(`📄 PDF generado: ${tipo}`);
+}
+
+function generarPDFIndividual() {
+  const email = document.getElementById('pdf-email-input').value.trim();
+  if (!email) { showToast('⚠️ Ingresa el email del participante.', 'error'); return; }
+  window.open(`${API}/api/pdf/quiniela?email=${encodeURIComponent(email)}`, '_blank');
+  agregarLog(`📋 PDF individual: ${email}`);
+}
+
+async function enviarEmailsMasivos() {
+  if (!confirm('¿Enviar PDFs por email a todos los participantes confirmados?')) return;
+  agregarLog('📧 Iniciando envío masivo de emails...');
+  try {
+    const res  = await fetch(`${API}/api/admin/emails/masivo`, {
+      method: 'POST', headers: authHeaders()
+    });
+    const data = await res.json();
+    agregarLog(`✅ Emails: ${data.enviados || 0} enviados, ${data.errores || 0} errores.`);
+    showToast(`📧 ${data.enviados || 0} emails enviados.`, 'success');
+  } catch(e) {
+    showToast('❌ Error al enviar emails.', 'error');
+  }
+}
+
+// ══════════════════════════════════════════
+// LOG
+// ══════════════════════════════════════════
+function agregarLog(msg, tipo = '') {
+  const box  = document.getElementById('log-box');
+  const hora = new Date().toLocaleTimeString('es-ES',
+    { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+  const line       = document.createElement('span');
+  line.className   = `log-line ${tipo}`;
+  line.textContent = `[${hora}] ${msg}`;
+  box.appendChild(line);
+  box.scrollTop = box.scrollHeight;
+}
+
+// ══════════════════════════════════════════
+// TOAST
+// ══════════════════════════════════════════
+let toastTimer = null;
+function showToast(msg, tipo = 'success') {
+  const t     = document.getElementById('toast');
+  t.textContent = msg;
+  t.className   = `toast ${tipo} show`;
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ══════════════════════════════════════════
+// EVENTOS GLOBALES
+// ══════════════════════════════════════════
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open')
+      .forEach(m => m.classList.remove('open'));
+  }
+});
+document.querySelectorAll('.modal-overlay').forEach(m => {
+  m.addEventListener('click', e => {
+    if (e.target === m) m.classList.remove('open');
+  });
+});
+document.getElementById('admin-pass')
+  .addEventListener('keydown', e => {
+    if (e.key === 'Enter') loginAdmin();
+  });
 </script>
 </body>
 </html>

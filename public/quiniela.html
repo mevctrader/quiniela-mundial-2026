@@ -24,7 +24,7 @@
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
       background: rgba(10,14,26,0.96); backdrop-filter: blur(12px);
@@ -37,34 +37,26 @@
     .nav-logo img { height: 32px; }
     .nav-logo span { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 2px; color: var(--gold); }
     .nav-links { display: flex; gap: 6px; }
-    .nav-links a {
-      text-decoration: none; color: var(--muted);
-      font-size: 0.82rem; font-weight: 500;
-      padding: 6px 14px; border-radius: 8px; transition: all .2s;
-    }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.82rem; font-weight: 500; padding: 6px 14px; border-radius: 8px; transition: all .2s; }
     .nav-links a:hover { color: var(--text); background: var(--border); }
     .nav-links a.active { color: var(--gold); }
 
-    /* ── LOGIN SCREEN ── */
+    /* LOGIN */
     .login-screen {
       min-height: calc(100vh - 60px);
       display: flex; align-items: center; justify-content: center;
       padding: 40px 24px;
-      background: radial-gradient(ellipse 70% 50% at 50% 30%,
-        rgba(240,180,41,0.08) 0%, transparent 70%);
+      background: radial-gradient(ellipse 70% 50% at 50% 30%, rgba(240,180,41,0.08) 0%, transparent 70%);
     }
     .login-card {
       background: var(--card); border: 1px solid var(--border);
       border-radius: 24px; padding: 48px 40px;
       max-width: 440px; width: 100%; text-align: center;
     }
-    .login-icon { font-size: 3.5rem; margin-bottom: 16px; }
-    .login-card h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem; letter-spacing: 2px; margin-bottom: 8px;
-    }
-    .login-card p { color: var(--muted); font-size: 0.86rem; margin-bottom: 28px; line-height: 1.6; }
-    .login-field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; text-align: left; }
+    .login-icon  { font-size: 3.5rem; margin-bottom: 16px; }
+    .login-card h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 2px; margin-bottom: 8px; }
+    .login-card p  { color: var(--muted); font-size: 0.86rem; margin-bottom: 28px; line-height: 1.6; }
+    .login-field   { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; text-align: left; }
     .login-field label { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
     .login-field input {
       background: rgba(255,255,255,0.04); border: 1.5px solid var(--border);
@@ -73,21 +65,21 @@
       outline: none; transition: border-color .2s; width: 100%;
     }
     .login-field input:focus { border-color: var(--gold); background: rgba(240,180,41,0.04); }
+
+    /* BUTTONS */
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       padding: 13px 26px; border-radius: 12px;
       font-weight: 700; font-size: 0.88rem;
       cursor: pointer; border: none; transition: all .2s;
-      letter-spacing: 0.5px; font-family: 'Inter', sans-serif;
-      text-decoration: none;
+      letter-spacing: 0.5px; font-family: 'Inter', sans-serif; text-decoration: none;
     }
-    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #000; }
+    .btn-gold  { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #000; }
     .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(240,180,41,0.3); }
     .btn-gold:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
     .btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--muted); }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-    .btn-green { background: linear-gradient(135deg, #38a169, #276749); color: #fff; }
-    .btn-green:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(56,161,105,0.3); }
+
     .error-msg {
       display: none; background: rgba(229,62,62,0.1);
       border: 1px solid rgba(229,62,62,0.3);
@@ -95,13 +87,12 @@
       font-size: 0.82rem; color: #fc8181; margin-bottom: 16px;
     }
 
-    /* ── MAIN APP ── */
+    /* APP */
     #app { display: none; }
 
-    /* ── PAGE HEADER ── */
+    /* PAGE HEADER */
     .page-header {
-      background: radial-gradient(ellipse 70% 50% at 50% 0%,
-        rgba(240,180,41,0.1) 0%, transparent 70%);
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(240,180,41,0.1) 0%, transparent 70%);
       padding: 32px 24px 20px;
     }
     .header-inner {
@@ -109,64 +100,41 @@
       display: flex; align-items: center;
       justify-content: space-between; flex-wrap: wrap; gap: 16px;
     }
-    .header-left h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.2rem; letter-spacing: 2px;
-    }
-    .header-left p { color: var(--muted); font-size: 0.84rem; margin-top: 4px; }
+    .header-left h1 { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 2px; }
+    .header-left p  { color: var(--muted); font-size: 0.84rem; margin-top: 4px; }
     .header-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
-    /* ── STATS ROW ── */
+    /* STATS */
     .stats-row {
       max-width: 1100px; margin: 0 auto;
       padding: 0 24px 24px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px;
     }
-    .stat-box {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 14px; padding: 16px; text-align: center;
-    }
-    .stat-box .num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem; color: var(--gold); line-height: 1;
-    }
+    .stat-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; text-align: center; }
+    .stat-box .num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--gold); line-height: 1; }
     .stat-box .num.green { color: var(--green); }
     .stat-box .num.red   { color: var(--red); }
     .stat-box .lbl { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
 
-    /* ── AWARD BANNER ── */
-    .award-banner {
-      max-width: 1100px; margin: 0 auto 20px;
-      padding: 0 24px;
-    }
+    /* AWARD BANNER */
+    .award-banner { max-width: 1100px; margin: 0 auto 20px; padding: 0 24px; }
     .award-inner {
       display: flex; align-items: center; gap: 16px;
-      background: linear-gradient(135deg,
-        rgba(240,180,41,0.08), rgba(224,123,0,0.04));
+      background: linear-gradient(135deg, rgba(240,180,41,0.08), rgba(224,123,0,0.04));
       border: 1px solid rgba(240,180,41,0.25);
-      border-radius: 16px; padding: 18px 24px;
-      flex-wrap: wrap;
+      border-radius: 16px; padding: 18px 24px; flex-wrap: wrap;
     }
     .award-inner .ai { font-size: 2rem; flex-shrink: 0; }
     .award-inner .at { flex: 1; min-width: 160px; }
-    .award-inner .at h4 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1rem; letter-spacing: 1.5px; color: var(--gold);
-    }
-    .award-inner .at p { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+    .award-inner .at h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 1.5px; color: var(--gold); }
+    .award-inner .at p  { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
     .award-inner .at p strong { color: var(--text); }
-    .award-status {
-      padding: 6px 16px; border-radius: 50px;
-      font-size: 0.75rem; font-weight: 700;
-      letter-spacing: 1px; text-transform: uppercase;
-    }
+    .award-status { padding: 6px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
     .award-status.pendiente { background: rgba(107,122,153,0.15); color: var(--muted); }
     .award-status.ganado    { background: rgba(56,161,105,0.15);  color: var(--green); }
     .award-status.perdido   { background: rgba(229,62,62,0.15);   color: var(--red); }
 
-    /* ── TABS ── */
+    /* TABS */
     .tabs-wrap {
       max-width: 1100px; margin: 0 auto;
       padding: 0 24px 20px;
@@ -181,7 +149,7 @@
     .tab:hover { color: var(--text); border-color: var(--gold); }
     .tab.active { background: var(--gold); color: #000; border-color: var(--gold); }
 
-    /* ── RONDA SECTION ── */
+    /* RONDA */
     .ronda-section { display: none; }
     .ronda-section.active { display: block; }
     .ronda-wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px 40px; }
@@ -189,39 +157,23 @@
       display: flex; align-items: center;
       justify-content: space-between; flex-wrap: wrap; gap: 12px;
       margin-bottom: 20px; padding: 16px 20px;
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 14px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
     }
-    .ronda-header-bar h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.3rem; letter-spacing: 1.5px;
-    }
+    .ronda-header-bar h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 1.5px; }
     .ronda-pts-info { font-size: 0.78rem; color: var(--muted); }
     .ronda-pts-info strong { color: var(--gold); }
 
-    /* ── PREDICCION CARD ── */
-    .pred-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 16px;
-    }
-    .pred-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 18px; overflow: hidden;
-      transition: border-color .2s;
-    }
-    .pred-card:hover { border-color: rgba(240,180,41,0.3); }
+    /* PRED CARD */
+    .pred-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+    .pred-card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; transition: border-color .2s; }
+    .pred-card:hover    { border-color: rgba(240,180,41,0.3); }
     .pred-card.acertado { border-color: rgba(56,161,105,0.4); }
     .pred-card.fallado  { border-color: rgba(229,62,62,0.3); }
-    .pred-card.parcial  { border-color: rgba(214,158,46,0.4); }
 
-    /* CARD HEADER */
     .pred-card-header {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 10px 16px;
-      background: rgba(255,255,255,0.03);
-      border-bottom: 1px solid var(--border);
-      font-size: 0.72rem;
+      padding: 10px 16px; background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid var(--border); font-size: 0.72rem;
     }
     .match-id-badge { font-weight: 700; color: var(--gold); }
     .pred-estado-badge {
@@ -229,195 +181,106 @@
       font-weight: 700; font-size: 0.68rem;
       text-transform: uppercase; letter-spacing: 1px;
     }
-    .pred-estado-badge.pendiente  { background: rgba(107,122,153,0.15); color: var(--muted); }
-    .pred-estado-badge.acertado   { background: rgba(56,161,105,0.15);  color: var(--green); }
-    .pred-estado-badge.fallado    { background: rgba(229,62,62,0.15);   color: var(--red); }
-    .pred-estado-badge.parcial    { background: rgba(214,158,46,0.15);  color: var(--yellow); }
+    .pred-estado-badge.pendiente { background: rgba(107,122,153,0.15); color: var(--muted); }
+    .pred-estado-badge.acertado  { background: rgba(56,161,105,0.15);  color: var(--green); }
+    .pred-estado-badge.fallado   { background: rgba(229,62,62,0.15);   color: var(--red); }
 
-    /* EQUIPOS */
-    .pred-equipos {
-      padding: 16px;
-      display: flex; flex-direction: column; gap: 0;
-    }
-    .pred-equipo {
-      display: flex; align-items: center; gap: 12px;
-      padding: 10px 0;
-    }
+    .pred-equipos { padding: 16px; display: flex; flex-direction: column; }
+    .pred-equipo  { display: flex; align-items: center; gap: 12px; padding: 10px 0; }
     .pred-equipo:first-child { border-bottom: 1px solid var(--border); }
     .pred-flag { font-size: 1.5rem; width: 32px; text-align: center; flex-shrink: 0; }
     .pred-equipo-info { flex: 1; }
     .pred-equipo-nombre { font-weight: 600; font-size: 0.88rem; }
     .pred-equipo-origen { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
-    .pred-score-real {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem; min-width: 28px;
-      text-align: center; color: var(--muted);
-    }
+    .pred-score-real { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; min-width: 28px; text-align: center; color: var(--muted); }
     .pred-score-real.ganador { color: var(--green); }
 
-    /* SEPARADOR vs */
-    .pred-vs {
-      text-align: center; font-size: 0.7rem;
-      color: var(--muted); padding: 4px 0;
-    }
+    /* FORM */
+    .pred-form { padding: 14px 16px; border-top: 1px solid var(--border); background: rgba(255,255,255,0.02); }
+    .pred-form-title { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; font-weight: 600; }
 
-    /* FORMULARIO PREDICCION */
-    .pred-form {
-      padding: 14px 16px;
-      border-top: 1px solid var(--border);
-      background: rgba(255,255,255,0.02);
-    }
-    .pred-form-title {
-      font-size: 0.7rem; color: var(--muted);
-      text-transform: uppercase; letter-spacing: 1px;
-      margin-bottom: 12px; font-weight: 600;
-    }
-
-    /* GANADOR SELECTOR */
-    .ganador-selector {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 8px; margin-bottom: 14px;
-    }
+    .ganador-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
     .ganador-btn {
       padding: 10px 8px; border-radius: 10px;
-      border: 1.5px solid var(--border);
-      background: rgba(255,255,255,0.02);
-      color: var(--muted); font-size: 0.78rem;
-      font-weight: 600; cursor: pointer;
-      transition: all .2s; text-align: center;
-      font-family: 'Inter', sans-serif;
+      border: 1.5px solid var(--border); background: rgba(255,255,255,0.02);
+      color: var(--muted); font-size: 0.78rem; font-weight: 600;
+      cursor: pointer; transition: all .2s; text-align: center; font-family: 'Inter', sans-serif;
     }
     .ganador-btn:hover { border-color: var(--gold); color: var(--text); }
-    .ganador-btn.selected {
-      border-color: var(--gold);
-      background: rgba(240,180,41,0.1);
-      color: var(--gold);
-    }
+    .ganador-btn.selected { border-color: var(--gold); background: rgba(240,180,41,0.1); color: var(--gold); }
     .ganador-btn .gflag { font-size: 1.2rem; display: block; margin-bottom: 4px; }
 
-    /* MARCADOR */
-    .marcador-row {
-      display: flex; align-items: center;
-      gap: 10px; margin-bottom: 12px;
-    }
-    .marcador-row label {
-      font-size: 0.72rem; color: var(--muted);
-      font-weight: 600; white-space: nowrap;
-    }
-    .marcador-inputs {
-      display: flex; align-items: center; gap: 8px; flex: 1;
-    }
+    .marcador-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .marcador-row label { font-size: 0.72rem; color: var(--muted); font-weight: 600; white-space: nowrap; }
+    .marcador-inputs { display: flex; align-items: center; gap: 8px; flex: 1; }
     .marcador-inputs input {
       width: 52px; text-align: center;
-      background: rgba(255,255,255,0.04);
-      border: 1.5px solid var(--border);
+      background: rgba(255,255,255,0.04); border: 1.5px solid var(--border);
       border-radius: 8px; padding: 8px 4px;
-      color: var(--text); font-size: 1rem;
-      font-weight: 700; font-family: 'Inter', sans-serif;
-      outline: none; transition: border-color .2s;
+      color: var(--text); font-size: 1rem; font-weight: 700;
+      font-family: 'Inter', sans-serif; outline: none; transition: border-color .2s;
     }
     .marcador-inputs input:focus { border-color: var(--gold); }
-    .marcador-inputs .sep {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.2rem; color: var(--muted);
-    }
+    .marcador-inputs .sep { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--muted); }
 
-    /* PENALES TOGGLE */
-    .penales-row {
-      display: flex; align-items: center;
-      gap: 10px; margin-bottom: 14px;
-    }
-    .penales-row label {
-      font-size: 0.72rem; color: var(--muted);
-      font-weight: 600; cursor: pointer;
-    }
-    .toggle {
-      position: relative; width: 40px; height: 22px;
-      flex-shrink: 0;
-    }
+    .penales-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .penales-row label { font-size: 0.72rem; color: var(--muted); font-weight: 600; cursor: pointer; }
+    .toggle { position: relative; width: 40px; height: 22px; flex-shrink: 0; }
     .toggle input { opacity: 0; width: 0; height: 0; }
-    .toggle-slider {
-      position: absolute; inset: 0;
-      background: var(--border); border-radius: 22px;
-      cursor: pointer; transition: .3s;
-    }
-    .toggle-slider::before {
-      content: ''; position: absolute;
-      width: 16px; height: 16px; border-radius: 50%;
-      background: var(--muted); top: 3px; left: 3px;
-      transition: .3s;
-    }
+    .toggle-slider { position: absolute; inset: 0; background: var(--border); border-radius: 22px; cursor: pointer; transition: .3s; }
+    .toggle-slider::before { content: ''; position: absolute; width: 16px; height: 16px; border-radius: 50%; background: var(--muted); top: 3px; left: 3px; transition: .3s; }
     .toggle input:checked + .toggle-slider { background: rgba(240,180,41,0.3); }
-    .toggle input:checked + .toggle-slider::before {
-      transform: translateX(18px); background: var(--gold);
-    }
+    .toggle input:checked + .toggle-slider::before { transform: translateX(18px); background: var(--gold); }
 
-    /* PUNTOS GANADOS */
     .pts-ganados {
-      display: flex; align-items: center;
-      justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 10px 14px; border-radius: 10px;
-      background: rgba(56,161,105,0.08);
-      border: 1px solid rgba(56,161,105,0.2);
+      background: rgba(56,161,105,0.08); border: 1px solid rgba(56,161,105,0.2);
       font-size: 0.8rem;
     }
     .pts-ganados .label { color: var(--muted); }
-    .pts-ganados .val {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem; color: var(--green);
-    }
+    .pts-ganados .val   { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--green); }
     .pts-ganados .val.zero { color: var(--red); }
 
-    /* SAVE BTN */
     .save-btn {
-      width: 100%; margin-top: 12px;
-      padding: 11px; border-radius: 10px;
+      width: 100%; margin-top: 12px; padding: 11px; border-radius: 10px;
       background: linear-gradient(135deg, var(--gold), var(--gold2));
       color: #000; font-weight: 700; font-size: 0.84rem;
-      border: none; cursor: pointer; transition: all .2s;
-      font-family: 'Inter', sans-serif;
+      border: none; cursor: pointer; transition: all .2s; font-family: 'Inter', sans-serif;
     }
     .save-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(240,180,41,0.3); }
     .save-btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none; box-shadow: none; }
-    .save-btn.saved {
-      background: linear-gradient(135deg, var(--green), #276749);
-      color: #fff;
-    }
+    .save-btn.saved { background: linear-gradient(135deg, var(--green), #276749); color: #fff; }
 
-    /* PARTIDO BLOQUEADO (ya jugado) */
     .pred-bloqueado {
-      padding: 14px 16px;
-      border-top: 1px solid var(--border);
+      padding: 14px 16px; border-top: 1px solid var(--border);
       background: rgba(255,255,255,0.02);
-      font-size: 0.78rem; color: var(--muted);
-      text-align: center;
+      font-size: 0.78rem; color: var(--muted); text-align: center;
     }
 
-    /* ── PROGRESS BAR ── */
+    /* PROGRESS */
     .progress-wrap { margin-bottom: 20px; }
-    .progress-label {
-      display: flex; justify-content: space-between;
-      font-size: 0.75rem; color: var(--muted); margin-bottom: 6px;
-    }
-    .progress-bar {
-      height: 6px; background: var(--border);
-      border-radius: 6px; overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--gold), var(--gold2));
-      border-radius: 6px; transition: width .5s;
-    }
+    .progress-label { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--muted); margin-bottom: 6px; }
+    .progress-bar   { height: 6px; background: var(--border); border-radius: 6px; overflow: hidden; }
+    .progress-fill  { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold2)); border-radius: 6px; transition: width .5s; }
 
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px; text-align: center;
-      color: var(--muted); font-size: 0.78rem;
+    /* BANNER NO CONFIRMADO */
+    .no-confirmado-banner {
+      max-width: 1100px; margin: 0 auto 20px; padding: 0 24px;
     }
+    .no-confirmado-inner {
+      display: flex; align-items: center; gap: 14px;
+      background: rgba(229,62,62,0.08); border: 1px solid rgba(229,62,62,0.25);
+      border-radius: 14px; padding: 16px 20px;
+    }
+    .no-confirmado-inner p { font-size: 0.84rem; color: #fc8181; line-height: 1.6; }
+    .no-confirmado-inner p strong { color: #fff; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; color: var(--muted); font-size: 0.78rem; }
     footer strong { color: var(--gold); }
 
-    /* ── TOAST ── */
+    /* TOAST */
     .toast {
       position: fixed; bottom: 24px; right: 24px;
       background: var(--card); border: 1px solid var(--border);
@@ -425,16 +288,18 @@
       font-size: 0.84rem; font-weight: 600;
       box-shadow: 0 8px 32px rgba(0,0,0,0.4);
       transform: translateY(80px); opacity: 0;
-      transition: all .3s; z-index: 999;
-      max-width: 320px;
+      transition: all .3s; z-index: 999; max-width: 320px;
     }
-    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast.show    { transform: translateY(0); opacity: 1; }
     .toast.success { border-color: rgba(56,161,105,0.4); color: var(--green); }
     .toast.error   { border-color: rgba(229,62,62,0.4);  color: var(--red); }
 
+    /* SPINNER */
+    .spinner { width: 20px; height: 20px; border: 3px solid var(--border); border-top-color: var(--gold); border-radius: 50%; animation: spin .8s linear infinite; display: inline-block; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
     @media(max-width: 600px) {
       .pred-grid { grid-template-columns: 1fr; }
-      .ganador-selector { grid-template-columns: 1fr 1fr; }
       .header-inner { flex-direction: column; align-items: flex-start; }
       .stats-row { grid-template-columns: repeat(2, 1fr); }
     }
@@ -442,7 +307,7 @@
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
     <img src="assets/trionda.png" alt="Logo" onerror="this.style.display='none'"/>
@@ -456,45 +321,34 @@
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════════ -->
-<!-- LOGIN SCREEN                               -->
-<!-- ══════════════════════════════════════════ -->
+<!-- LOGIN -->
 <div id="login-screen" class="login-screen">
   <div class="login-card">
     <div class="login-icon">📋</div>
     <h2>MI QUINIELA</h2>
     <p>Ingresa tu email registrado para ver y editar tus predicciones del Mundial 2026.</p>
-
     <div class="error-msg" id="login-error"></div>
-
     <div class="login-field">
       <label>Email Registrado</label>
       <input
-        type="email"
-        id="login-email"
-        placeholder="tu@email.com"
-        autocomplete="email"
+        type="email" id="login-email"
+        placeholder="tu@email.com" autocomplete="email"
         onkeydown="if(event.key==='Enter') acceder()"
       />
     </div>
-
-    <button class="btn btn-gold" style="width:100%; margin-top:4px;" onclick="acceder()">
+    <button class="btn btn-gold" style="width:100%;margin-top:4px" id="btn-acceder" onclick="acceder()">
       🔍 Ver Mi Quiniela
     </button>
-
-    <p style="margin-top: 20px; font-size: 0.78rem; color: var(--muted);">
+    <p style="margin-top:20px;font-size:0.78rem;color:var(--muted)">
       ¿Aún no estás registrado?
-      <a href="registro.html" style="color: var(--gold); font-weight: 600;">Inscríbete aquí →</a>
+      <a href="registro.html" style="color:var(--gold);font-weight:600">Inscríbete aquí →</a>
     </p>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════ -->
-<!-- APP PRINCIPAL                              -->
-<!-- ══════════════════════════════════════════ -->
+<!-- APP -->
 <div id="app">
 
-  <!-- PAGE HEADER -->
   <div class="page-header">
     <div class="header-inner">
       <div class="header-left">
@@ -508,32 +362,26 @@
     </div>
   </div>
 
-  <!-- STATS ROW -->
+  <!-- BANNER NO CONFIRMADO -->
+  <div class="no-confirmado-banner" id="banner-no-confirmado" style="display:none">
+    <div class="no-confirmado-inner">
+      <span style="font-size:1.8rem">⏳</span>
+      <p>
+        <strong>Tu pago está pendiente de confirmación.</strong><br/>
+        Puedes ingresar tus predicciones ahora, pero solo serán válidas
+        una vez que el administrador confirme tu pago.
+      </p>
+    </div>
+  </div>
+
+  <!-- STATS -->
   <div class="stats-row">
-    <div class="stat-box">
-      <div class="num" id="stat-pts">0</div>
-      <div class="lbl">Puntos Totales</div>
-    </div>
-    <div class="stat-box">
-      <div class="num green" id="stat-aciertos">0</div>
-      <div class="lbl">Aciertos</div>
-    </div>
-    <div class="stat-box">
-      <div class="num red" id="stat-fallos">0</div>
-      <div class="lbl">Fallos</div>
-    </div>
-    <div class="stat-box">
-      <div class="num" id="stat-pendientes">0</div>
-      <div class="lbl">Pendientes</div>
-    </div>
-    <div class="stat-box">
-      <div class="num" id="stat-posicion">#—</div>
-      <div class="lbl">Posición</div>
-    </div>
-    <div class="stat-box">
-      <div class="num" id="stat-max">353</div>
-      <div class="lbl">Pts Máximo</div>
-    </div>
+    <div class="stat-box"><div class="num" id="stat-pts">0</div><div class="lbl">Puntos Totales</div></div>
+    <div class="stat-box"><div class="num green" id="stat-aciertos">0</div><div class="lbl">Aciertos</div></div>
+    <div class="stat-box"><div class="num red"   id="stat-fallos">0</div><div class="lbl">Fallos</div></div>
+    <div class="stat-box"><div class="num" id="stat-pendientes">0</div><div class="lbl">Pendientes</div></div>
+    <div class="stat-box"><div class="num" id="stat-posicion">#—</div><div class="lbl">Posición</div></div>
+    <div class="stat-box"><div class="num">353</div><div class="lbl">Pts Máximo</div></div>
   </div>
 
   <!-- AWARD BANNER -->
@@ -546,7 +394,7 @@
           <strong id="award-jugador">Cargando...</strong>
           <span id="award-pais" style="color:var(--muted)"></span>
         </p>
-        <p style="font-size:0.75rem; margin-top:4px;">
+        <p style="font-size:0.75rem;margin-top:4px">
           Esta predicción no puede modificarse · Vale <strong style="color:var(--gold)">30 puntos</strong>
         </p>
       </div>
@@ -554,130 +402,100 @@
     </div>
   </div>
 
-  <!-- TABS RONDAS -->
+  <!-- TABS -->
   <div class="tabs-wrap">
-    <button class="tab active" onclick="showRonda('r32', this)">⚽ Dieciseisavos</button>
-    <button class="tab" onclick="showRonda('r16', this)">🔥 Octavos</button>
-    <button class="tab" onclick="showRonda('qf', this)">⚡ Cuartos</button>
-    <button class="tab" onclick="showRonda('sf', this)">🏅 Semis</button>
-    <button class="tab" onclick="showRonda('3p', this)">🥉 3er Puesto</button>
-    <button class="tab" onclick="showRonda('final', this)">🏆 Final</button>
+    <button class="tab active" onclick="showRonda('r32',  this)">⚽ Dieciseisavos</button>
+    <button class="tab"        onclick="showRonda('r16',  this)">🔥 Octavos</button>
+    <button class="tab"        onclick="showRonda('qf',   this)">⚡ Cuartos</button>
+    <button class="tab"        onclick="showRonda('sf',   this)">🏅 Semis</button>
+    <button class="tab"        onclick="showRonda('3p',   this)">🥉 3er Puesto</button>
+    <button class="tab"        onclick="showRonda('final',this)">🏆 Final</button>
   </div>
 
-  <!-- ── RONDA R32 ── -->
+  <!-- RONDA R32 -->
   <div class="ronda-section active" id="sec-r32">
     <div class="ronda-wrap">
       <div class="ronda-header-bar">
         <h3>⚽ DIECISEISAVOS DE FINAL</h3>
-        <div class="ronda-pts-info">
-          Ganador <strong>3 pts</strong> · Marcador <strong>+3 pts</strong> · Penales <strong>+1 pt</strong> · Máx <strong>7 pts</strong>/partido
-        </div>
+        <div class="ronda-pts-info">Ganador <strong>3 pts</strong> · Marcador <strong>+3 pts</strong> · Penales <strong>+1 pt</strong> · Máx <strong>7 pts</strong>/partido</div>
       </div>
       <div class="progress-wrap">
-        <div class="progress-label">
-          <span>Predicciones completadas</span>
-          <span id="prog-r32-label">0 / 16</span>
-        </div>
+        <div class="progress-label"><span>Predicciones completadas</span><span id="prog-r32-label">0 / 16</span></div>
         <div class="progress-bar"><div class="progress-fill" id="prog-r32" style="width:0%"></div></div>
       </div>
       <div class="pred-grid" id="grid-pred-r32"></div>
     </div>
   </div>
 
-  <!-- ── RONDA R16 ── -->
+  <!-- RONDA R16 -->
   <div class="ronda-section" id="sec-r16">
     <div class="ronda-wrap">
       <div class="ronda-header-bar">
         <h3>🔥 OCTAVOS DE FINAL</h3>
-        <div class="ronda-pts-info">
-          Ganador <strong>5 pts</strong> · Marcador <strong>+3 pts</strong> · Penales <strong>+1 pt</strong> · Máx <strong>9 pts</strong>/partido
-        </div>
+        <div class="ronda-pts-info">Ganador <strong>5 pts</strong> · Marcador <strong>+3 pts</strong> · Penales <strong>+1 pt</strong> · Máx <strong>9 pts</strong>/partido</div>
       </div>
       <div class="progress-wrap">
-        <div class="progress-label">
-          <span>Predicciones completadas</span>
-          <span id="prog-r16-label">0 / 8</span>
-        </div>
+        <div class="progress-label"><span>Predicciones completadas</span><span id="prog-r16-label">0 / 8</span></div>
         <div class="progress-bar"><div class="progress-fill" id="prog-r16" style="width:0%"></div></div>
       </div>
       <div class="pred-grid" id="grid-pred-r16"></div>
     </div>
   </div>
 
-  <!-- ── RONDA QF ── -->
+  <!-- RONDA QF -->
   <div class="ronda-section" id="sec-qf">
     <div class="ronda-wrap">
       <div class="ronda-header-bar">
         <h3>⚡ CUARTOS DE FINAL</h3>
-        <div class="ronda-pts-info">
-          Ganador <strong>8 pts</strong> · Marcador <strong>+4 pts</strong> · Penales <strong>+2 pts</strong> · Máx <strong>14 pts</strong>/partido
-        </div>
+        <div class="ronda-pts-info">Ganador <strong>8 pts</strong> · Marcador <strong>+4 pts</strong> · Penales <strong>+2 pts</strong> · Máx <strong>14 pts</strong>/partido</div>
       </div>
       <div class="progress-wrap">
-        <div class="progress-label">
-          <span>Predicciones completadas</span>
-          <span id="prog-qf-label">0 / 4</span>
-        </div>
+        <div class="progress-label"><span>Predicciones completadas</span><span id="prog-qf-label">0 / 4</span></div>
         <div class="progress-bar"><div class="progress-fill" id="prog-qf" style="width:0%"></div></div>
       </div>
       <div class="pred-grid" id="grid-pred-qf"></div>
     </div>
   </div>
 
-  <!-- ── RONDA SF ── -->
+  <!-- RONDA SF -->
   <div class="ronda-section" id="sec-sf">
     <div class="ronda-wrap">
       <div class="ronda-header-bar">
         <h3>🏅 SEMIFINALES</h3>
-        <div class="ronda-pts-info">
-          Ganador <strong>12 pts</strong> · Marcador <strong>+5 pts</strong> · Penales <strong>+2 pts</strong> · Máx <strong>19 pts</strong>/partido
-        </div>
+        <div class="ronda-pts-info">Ganador <strong>12 pts</strong> · Marcador <strong>+5 pts</strong> · Penales <strong>+2 pts</strong> · Máx <strong>19 pts</strong>/partido</div>
       </div>
       <div class="progress-wrap">
-        <div class="progress-label">
-          <span>Predicciones completadas</span>
-          <span id="prog-sf-label">0 / 2</span>
-        </div>
+        <div class="progress-label"><span>Predicciones completadas</span><span id="prog-sf-label">0 / 2</span></div>
         <div class="progress-bar"><div class="progress-fill" id="prog-sf" style="width:0%"></div></div>
       </div>
       <div class="pred-grid" id="grid-pred-sf"></div>
     </div>
   </div>
 
-  <!-- ── RONDA 3P ── -->
+  <!-- RONDA 3P -->
   <div class="ronda-section" id="sec-3p">
     <div class="ronda-wrap">
       <div class="ronda-header-bar">
         <h3>🥉 TERCER PUESTO</h3>
-        <div class="ronda-pts-info">
-          Ganador <strong>8 pts</strong> · Marcador <strong>+4 pts</strong> · Penales <strong>+2 pts</strong> · Máx <strong>14 pts</strong>/partido
-        </div>
+        <div class="ronda-pts-info">Ganador <strong>8 pts</strong> · Marcador <strong>+4 pts</strong> · Penales <strong>+2 pts</strong> · Máx <strong>14 pts</strong>/partido</div>
       </div>
       <div class="progress-wrap">
-        <div class="progress-label">
-          <span>Predicciones completadas</span>
-          <span id="prog-3p-label">0 / 1</span>
-        </div>
+        <div class="progress-label"><span>Predicciones completadas</span><span id="prog-3p-label">0 / 1</span></div>
         <div class="progress-bar"><div class="progress-fill" id="prog-3p" style="width:0%"></div></div>
       </div>
       <div class="pred-grid" id="grid-pred-3p"></div>
     </div>
   </div>
 
-  <!-- ── RONDA FINAL ── -->
+  <!-- RONDA FINAL -->
   <div class="ronda-section" id="sec-final">
     <div class="ronda-wrap">
       <div class="ronda-header-bar">
         <h3>🏆 GRAN FINAL</h3>
-        <div class="ronda-pts-info">
-          Ganador <strong>20 pts</strong> · Marcador <strong>+8 pts</strong> · Penales <strong>+3 pts</strong> · Máx <strong>31 pts</strong>/partido
-        </div>
+        <div class="ronda-pts-info">Ganador <strong>20 pts</strong> · Marcador <strong>+8 pts</strong> · Penales <strong>+3 pts</strong> · Máx <strong>31 pts</strong>/partido</div>
       </div>
       <div class="progress-wrap">
-        <div class="progress-label">
-          <span>Predicciones completadas</span>
-          <span id="prog-final-label">0 / 1</span>
-        </div>
+        <div class="progress-label"><span>Predicciones completadas</span><span id="prog-final-label">0 / 1</span></div>
         <div class="progress-bar"><div class="progress-fill" id="prog-final" style="width:0%"></div></div>
       </div>
       <div class="pred-grid" id="grid-pred-final"></div>
@@ -686,144 +504,133 @@
 
 </div><!-- /app -->
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<!-- FOOTER -->
 <footer>
   <p>Quiniela Mundial 2026 — Segunda Fase &nbsp;|&nbsp; Creado por <strong>Mario Vitale</strong></p>
-  <p style="margin-top:6px; font-size:0.72rem;">Predicciones habilitadas hasta el 27 de junio · 23:59 hrs</p>
+  <p style="margin-top:6px;font-size:0.72rem">Predicciones habilitadas hasta el 27 de junio · 23:59 hrs</p>
 </footer>
 
-<!-- ══════════════════════════════════════════ -->
-<!-- JAVASCRIPT                                -->
-<!-- ══════════════════════════════════════════ -->
 <script>
-const API = ''; // URL backend Railway en producción
+// ✅ FIX #1 — URL real autodetectada
+const API = window.location.origin;
 
-// ── PUNTOS POR RONDA ──
+// ── PUNTOS POR RONDA — ✅ FIX #2 valores correctos
 const PTS = {
-  R32: { ganador: 3,  marcador: 3, penales: 1,  max: 7  },
-  R16: { ganador: 5,  marcador: 3, penales: 1,  max: 9  },
-  QF:  { ganador: 8,  marcador: 4, penales: 2,  max: 14 },
-  SF:  { ganador: 12, marcador: 5, penales: 2,  max: 19 },
-  '3P':{ ganador: 8,  marcador: 4, penales: 2,  max: 14 },
-  F:   { ganador: 20, marcador: 8, penales: 3,  max: 31 }
+  R32:  { ganador: 3,  marcador: 3, penales: 1, max: 7  },
+  R16:  { ganador: 5,  marcador: 3, penales: 1, max: 9  },
+  QF:   { ganador: 8,  marcador: 4, penales: 2, max: 14 },
+  SF:   { ganador: 12, marcador: 5, penales: 2, max: 19 },
+  '3P': { ganador: 8,  marcador: 4, penales: 2, max: 14 },
+  F:    { ganador: 20, marcador: 8, penales: 3, max: 31 }
 };
 
 // ── BRACKET OFICIAL FIFA ──
 const BRACKET = {
   R32: [
-    { id:'M73',  local:'2° Grupo A',  visitante:'2° Grupo B',  sede:'Los Ángeles' },
-    { id:'M74',  local:'1° Grupo E',  visitante:'Mejor 3° (A/B/C/D/F)', sede:'Boston' },
-    { id:'M75',  local:'1° Grupo F',  visitante:'2° Grupo C',  sede:'Monterrey' },
-    { id:'M76',  local:'1° Grupo C',  visitante:'2° Grupo F',  sede:'Houston' },
-    { id:'M77',  local:'1° Grupo I',  visitante:'Mejor 3° (C/D/F/G/H)', sede:'New York/NJ' },
-    { id:'M78',  local:'2° Grupo E',  visitante:'2° Grupo I',  sede:'Dallas' },
-    { id:'M79',  local:'1° Grupo A',  visitante:'Mejor 3° (C/E/F/H/I)', sede:'Ciudad de México' },
-    { id:'M80',  local:'1° Grupo L',  visitante:'Mejor 3° (E/H/I/J/K)', sede:'Atlanta' },
-    { id:'M81',  local:'1° Grupo D',  visitante:'Mejor 3° (B/E/F/I/J)', sede:'San Francisco' },
-    { id:'M82',  local:'1° Grupo G',  visitante:'Mejor 3° (A/E/H/I/J)', sede:'Seattle' },
-    { id:'M83',  local:'2° Grupo K',  visitante:'2° Grupo L',  sede:'Toronto' },
-    { id:'M84',  local:'1° Grupo H',  visitante:'2° Grupo J',  sede:'Los Ángeles' },
-    { id:'M85',  local:'1° Grupo B',  visitante:'Mejor 3° (E/F/G/I/J)', sede:'Vancouver' },
-    { id:'M86',  local:'1° Grupo J',  visitante:'2° Grupo H',  sede:'Miami' },
-    { id:'M87',  local:'1° Grupo K',  visitante:'Mejor 3° (D/E/I/J/L)', sede:'Kansas City' },
-    { id:'M88',  local:'2° Grupo D',  visitante:'2° Grupo G',  sede:'Dallas' },
+    { id:'M73',  local:'2° Grupo A',    visitante:'2° Grupo B',             sede:'Los Ángeles' },
+    { id:'M74',  local:'1° Grupo E',    visitante:'Mejor 3° (A/B/C/D/F)',   sede:'Boston' },
+    { id:'M75',  local:'1° Grupo F',    visitante:'2° Grupo C',             sede:'Monterrey' },
+    { id:'M76',  local:'1° Grupo C',    visitante:'2° Grupo F',             sede:'Houston' },
+    { id:'M77',  local:'1° Grupo I',    visitante:'Mejor 3° (C/D/F/G/H)',   sede:'New York/NJ' },
+    { id:'M78',  local:'2° Grupo E',    visitante:'2° Grupo I',             sede:'Dallas' },
+    { id:'M79',  local:'1° Grupo A',    visitante:'Mejor 3° (C/E/F/H/I)',   sede:'Ciudad de México' },
+    { id:'M80',  local:'1° Grupo L',    visitante:'Mejor 3° (E/H/I/J/K)',   sede:'Atlanta' },
+    { id:'M81',  local:'1° Grupo D',    visitante:'Mejor 3° (B/E/F/I/J)',   sede:'San Francisco' },
+    { id:'M82',  local:'1° Grupo G',    visitante:'Mejor 3° (A/E/H/I/J)',   sede:'Seattle' },
+    { id:'M83',  local:'2° Grupo K',    visitante:'2° Grupo L',             sede:'Toronto' },
+    { id:'M84',  local:'1° Grupo H',    visitante:'2° Grupo J',             sede:'Los Ángeles' },
+    { id:'M85',  local:'1° Grupo B',    visitante:'Mejor 3° (E/F/G/I/J)',   sede:'Vancouver' },
+    { id:'M86',  local:'1° Grupo J',    visitante:'2° Grupo H',             sede:'Miami' },
+    { id:'M87',  local:'1° Grupo K',    visitante:'Mejor 3° (D/E/I/J/L)',   sede:'Kansas City' },
+    { id:'M88',  local:'2° Grupo D',    visitante:'2° Grupo G',             sede:'Dallas' },
   ],
   R16: [
-    { id:'M89',  local:'Ganador M74', visitante:'Ganador M77', sede:'Philadelphia' },
-    { id:'M90',  local:'Ganador M73', visitante:'Ganador M75', sede:'Houston' },
-    { id:'M91',  local:'Ganador M76', visitante:'Ganador M78', sede:'New York/NJ' },
-    { id:'M92',  local:'Ganador M79', visitante:'Ganador M80', sede:'Ciudad de México' },
-    { id:'M93',  local:'Ganador M83', visitante:'Ganador M84', sede:'Dallas' },
-    { id:'M94',  local:'Ganador M81', visitante:'Ganador M82', sede:'Seattle' },
-    { id:'M95',  local:'Ganador M86', visitante:'Ganador M88', sede:'Atlanta' },
-    { id:'M96',  local:'Ganador M85', visitante:'Ganador M87', sede:'Vancouver' },
+    { id:'M89',  local:'Ganador M74',   visitante:'Ganador M77',  sede:'Philadelphia' },
+    { id:'M90',  local:'Ganador M73',   visitante:'Ganador M75',  sede:'Houston' },
+    { id:'M91',  local:'Ganador M76',   visitante:'Ganador M78',  sede:'New York/NJ' },
+    { id:'M92',  local:'Ganador M79',   visitante:'Ganador M80',  sede:'Ciudad de México' },
+    { id:'M93',  local:'Ganador M83',   visitante:'Ganador M84',  sede:'Dallas' },
+    { id:'M94',  local:'Ganador M81',   visitante:'Ganador M82',  sede:'Seattle' },
+    { id:'M95',  local:'Ganador M86',   visitante:'Ganador M88',  sede:'Atlanta' },
+    { id:'M96',  local:'Ganador M85',   visitante:'Ganador M87',  sede:'Vancouver' },
   ],
   QF: [
-    { id:'M97',  local:'Ganador M89', visitante:'Ganador M90', sede:'Boston' },
-    { id:'M98',  local:'Ganador M93', visitante:'Ganador M94', sede:'Los Ángeles' },
-    { id:'M99',  local:'Ganador M91', visitante:'Ganador M92', sede:'Miami' },
-    { id:'M100', local:'Ganador M95', visitante:'Ganador M96', sede:'Kansas City' },
+    { id:'M97',  local:'Ganador M89',   visitante:'Ganador M90',  sede:'Boston' },
+    { id:'M98',  local:'Ganador M93',   visitante:'Ganador M94',  sede:'Los Ángeles' },
+    { id:'M99',  local:'Ganador M91',   visitante:'Ganador M92',  sede:'Miami' },
+    { id:'M100', local:'Ganador M95',   visitante:'Ganador M96',  sede:'Kansas City' },
   ],
   SF: [
-    { id:'M101', local:'Ganador M97',  visitante:'Ganador M98',  sede:'Dallas' },
-    { id:'M102', local:'Ganador M99',  visitante:'Ganador M100', sede:'Atlanta' },
+    { id:'M101', local:'Ganador M97',   visitante:'Ganador M98',  sede:'Dallas' },
+    { id:'M102', local:'Ganador M99',   visitante:'Ganador M100', sede:'Atlanta' },
   ],
   '3P': [
     { id:'M103', local:'Perdedor M101', visitante:'Perdedor M102', sede:'Miami' },
   ],
   F: [
-    { id:'M104', local:'Ganador M101', visitante:'Ganador M102',
+    { id:'M104', local:'Ganador M101',  visitante:'Ganador M102',
       sede:'MetLife Stadium · New York/NJ' },
   ]
 };
 
 // ── ESTADO GLOBAL ──
-let usuario     = null;
-let partidos    = {};   // { M73: { ...datos del partido } }
-let predicciones = {};  // { M73: { ganador_pred, goles_local_pred, goles_vis_pred, penales_pred } }
-let guardando   = {};
+let usuario      = null;
+let partidos     = {};
+let predicciones = {};
+let guardando    = {};
 
 // ══════════════════════════════════════════
 // LOGIN
 // ══════════════════════════════════════════
 async function acceder() {
-  const email = document.getElementById('login-email').value.trim();
-  const errEl = document.getElementById('login-error');
+  const email  = document.getElementById('login-email').value.trim();
+  const errEl  = document.getElementById('login-error');
+  const btnAcc = document.getElementById('btn-acceder');
   errEl.style.display = 'none';
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    errEl.textContent = '⚠️ Ingresa un email válido.';
+    errEl.textContent   = '⚠️ Ingresa un email válido.';
     errEl.style.display = 'block';
     return;
   }
 
+  // ✅ FIX #3 — spinner mientras carga
+  btnAcc.disabled   = true;
+  btnAcc.innerHTML  = '<span class="spinner"></span> Buscando...';
+
   try {
-    if (API) {
-      const res  = await fetch(`${API}/api/participante?email=${encodeURIComponent(email)}`);
-      const data = await res.json();
-      if (!res.ok || !data.participante) {
-        errEl.textContent = '⚠️ Email no encontrado. Verifica o regístrate.';
-        errEl.style.display = 'block';
-        return;
-      }
-      usuario = data.participante;
-      predicciones = data.predicciones || {};
-      partidos     = data.partidos     || {};
-    } else {
-      // MODO DEMO sin backend
-      usuario = {
-        nombre: 'Usuario Demo',
-        email:  email,
-        pais:   'Venezuela',
-        confirmado: true,
-        balon_oro: 'Kylian Mbappé',
-        balon_oro_pais: 'Francia',
-        posicion: 1,
-        puntos_total: 0
-      };
-      predicciones = {};
-      partidos     = {};
+    const res  = await fetch(`${API}/api/participante?email=${encodeURIComponent(email)}`);
+    const data = await res.json();
+
+    if (!res.ok || !data.participante) {
+      errEl.textContent   = '⚠️ Email no encontrado. Verifica tu email o regístrate.';
+      errEl.style.display = 'block';
+      btnAcc.disabled     = false;
+      btnAcc.innerHTML    = '🔍 Ver Mi Quiniela';
+      return;
     }
+
+    usuario      = data.participante;
+    predicciones = data.predicciones || {};
+    // ✅ FIX #4 — partidos indexados por id
+    partidos = {};
+    if (Array.isArray(data.partidos)) {
+      data.partidos.forEach(p => { partidos[p.id] = p; });
+    } else if (data.partidos && typeof data.partidos === 'object') {
+      partidos = data.partidos;
+    }
+
+    // ✅ FIX #5 — guardar email en localStorage para ranking
+    localStorage.setItem('quiniela_email', email);
 
     iniciarApp();
 
   } catch(e) {
-    if (!API) {
-      usuario = {
-        nombre: 'Usuario Demo', email, pais: 'Venezuela',
-        confirmado: true, balon_oro: 'Kylian Mbappé',
-        balon_oro_pais: 'Francia', posicion: 1, puntos_total: 0
-      };
-      predicciones = {};
-      partidos     = {};
-      iniciarApp();
-    } else {
-      errEl.textContent = '⚠️ Error de conexión. Intenta nuevamente.';
-      errEl.style.display = 'block';
-    }
+    errEl.textContent   = '⚠️ Error de conexión. Verifica tu internet e intenta nuevamente.';
+    errEl.style.display = 'block';
+    btnAcc.disabled     = false;
+    btnAcc.innerHTML    = '🔍 Ver Mi Quiniela';
   }
 }
 
@@ -834,7 +641,6 @@ function iniciarApp() {
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app').style.display          = 'block';
 
-  // Header
   document.getElementById('user-greeting').textContent =
     `👤 ${usuario.nombre} · ${usuario.pais || ''} · ${usuario.email}`;
 
@@ -844,10 +650,14 @@ function iniciarApp() {
   document.getElementById('award-pais').textContent =
     usuario.balon_oro_pais ? ` · ${usuario.balon_oro_pais}` : '';
 
-  // Stats
+  // ✅ FIX #6 — banner pago pendiente
+  if (!usuario.confirmado) {
+    document.getElementById('banner-no-confirmado').style.display = 'block';
+  }
+
   actualizarStats();
 
-  // Renderizar todas las rondas
+  // Renderizar rondas
   renderRonda('R32',  'grid-pred-r32',   'prog-r32',   'prog-r32-label',   16);
   renderRonda('R16',  'grid-pred-r16',   'prog-r16',   'prog-r16-label',   8);
   renderRonda('QF',   'grid-pred-qf',    'prog-qf',    'prog-qf-label',    4);
@@ -867,17 +677,17 @@ function renderRonda(rondaKey, gridId, progId, progLabelId, total) {
   let completadas = 0;
 
   grid.innerHTML = lista.map(p => {
-    const partido = partidos[p.id] || {};
-    const pred    = predicciones[p.id] || {};
-    const estado  = partido.estado || 'PENDIENTE';
+    const partido   = partidos[p.id]     || {};
+    const pred      = predicciones[p.id] || {};
+    const estado    = partido.estado     || 'PENDIENTE';
     const bloqueado = estado === 'FINALIZADO' || estado === 'EN_JUEGO';
 
-    const localNombre = partido.local_nombre    || p.local;
-    const visitNombre = partido.visitante_nombre || p.visitante;
-    const localFlag   = partido.local_bandera   || '🏳';
+    const localNombre = partido.local_nombre      || p.local;
+    const visitNombre = partido.visitante_nombre  || p.visitante;
+    const localFlag   = partido.local_bandera     || '🏳';
     const visitFlag   = partido.visitante_bandera || '🏳';
-    const localCode   = partido.local_code      || 'LOCAL';
-    const visitCode   = partido.visitante_code  || 'VISIT';
+    const localCode   = partido.local_code        || 'LOCAL';
+    const visitCode   = partido.visitante_code    || 'VISIT';
 
     const gLocal  = partido.goles_local     != null ? partido.goles_local     : '–';
     const gVisit  = partido.goles_visitante != null ? partido.goles_visitante : '–';
@@ -886,7 +696,6 @@ function renderRonda(rondaKey, gridId, progId, progLabelId, total) {
     const localGana = estado === 'FINALIZADO' && ganador === localCode;
     const visitGana = estado === 'FINALIZADO' && ganador === visitCode;
 
-    // Puntos ganados en este partido
     const ptsRonda = PTS[rondaKey];
     let ptsGanados = 0;
     let estadoPred = 'pendiente';
@@ -894,13 +703,11 @@ function renderRonda(rondaKey, gridId, progId, progLabelId, total) {
     if (estado === 'FINALIZADO' && pred.ganador_pred) {
       if (pred.ganador_pred === ganador) {
         ptsGanados += ptsRonda.ganador;
-        estadoPred = 'acertado';
-        // Marcador
+        estadoPred  = 'acertado';
         if (pred.goles_local_pred == partido.goles_local &&
             pred.goles_vis_pred   == partido.goles_visitante) {
           ptsGanados += ptsRonda.marcador;
         }
-        // Penales
         if (partido.fue_a_penales && pred.penales_pred) {
           ptsGanados += ptsRonda.penales;
         }
@@ -927,68 +734,48 @@ function renderRonda(rondaKey, gridId, progId, progLabelId, total) {
     ` : `
       <div class="pred-form">
         <div class="pred-form-title">🔮 Tu Predicción</div>
-
         <div class="ganador-selector">
           <button
             class="ganador-btn ${pred.ganador_pred === localCode ? 'selected' : ''}"
             id="btn-local-${p.id}"
             onclick="selGanador('${p.id}','${localCode}','${rondaKey}')"
           >
-            <span class="gflag">${localFlag}</span>
-            ${localNombre}
+            <span class="gflag">${localFlag}</span>${localNombre}
           </button>
           <button
             class="ganador-btn ${pred.ganador_pred === visitCode ? 'selected' : ''}"
             id="btn-visit-${p.id}"
             onclick="selGanador('${p.id}','${visitCode}','${rondaKey}')"
           >
-            <span class="gflag">${visitFlag}</span>
-            ${visitNombre}
+            <span class="gflag">${visitFlag}</span>${visitNombre}
           </button>
         </div>
-
         <div class="marcador-row">
           <label>Marcador</label>
           <div class="marcador-inputs">
-            <input
-              type="number" min="0" max="20"
-              id="gl-${p.id}"
-              value="${pred.goles_local_pred ?? ''}"
-              placeholder="0"
-              oninput="marcarCambio('${p.id}')"
-            />
+            <input type="number" min="0" max="20" id="gl-${p.id}"
+              value="${pred.goles_local_pred ?? ''}" placeholder="0"
+              oninput="marcarCambio('${p.id}')"/>
             <span class="sep">—</span>
-            <input
-              type="number" min="0" max="20"
-              id="gv-${p.id}"
-              value="${pred.goles_vis_pred ?? ''}"
-              placeholder="0"
-              oninput="marcarCambio('${p.id}')"
-            />
+            <input type="number" min="0" max="20" id="gv-${p.id}"
+              value="${pred.goles_vis_pred ?? ''}" placeholder="0"
+              oninput="marcarCambio('${p.id}')"/>
           </div>
         </div>
-
         <div class="penales-row">
           <label class="toggle">
-            <input
-              type="checkbox"
-              id="pen-${p.id}"
+            <input type="checkbox" id="pen-${p.id}"
               ${pred.penales_pred ? 'checked' : ''}
-              onchange="marcarCambio('${p.id}')"
-            />
+              onchange="marcarCambio('${p.id}')"/>
             <span class="toggle-slider"></span>
           </label>
           <label for="pen-${p.id}">¿Va a penales? (+${ptsRonda.penales} pts si aciertas)</label>
         </div>
-
         <button
-          class="save-btn"
-          id="save-${p.id}"
+          class="save-btn" id="save-${p.id}"
           onclick="guardarPrediccion('${p.id}','${rondaKey}')"
           ${!pred.ganador_pred ? 'disabled' : ''}
-        >
-          💾 Guardar Predicción
-        </button>
+        >💾 Guardar Predicción</button>
       </div>
     `;
 
@@ -997,10 +784,9 @@ function renderRonda(rondaKey, gridId, progId, progLabelId, total) {
         <div class="pred-card-header">
           <span class="match-id-badge">${p.id} · 📍 ${p.sede}</span>
           <span class="pred-estado-badge ${estadoPred}">
-            ${estadoPred === 'pendiente'  ? '⏳ Pendiente'  : ''}
-            ${estadoPred === 'acertado'   ? '✅ Acertado'   : ''}
-            ${estadoPred === 'fallado'    ? '❌ Fallado'    : ''}
-            ${estadoPred === 'parcial'    ? '⚡ Parcial'    : ''}
+            ${estadoPred === 'pendiente' ? '⏳ Pendiente'  : ''}
+            ${estadoPred === 'acertado'  ? '✅ Acertado'   : ''}
+            ${estadoPred === 'fallado'   ? '❌ Fallado'    : ''}
           </span>
         </div>
         <div class="pred-equipos">
@@ -1022,14 +808,12 @@ function renderRonda(rondaKey, gridId, progId, progLabelId, total) {
           </div>
         </div>
         ${formHtml}
-      </div>
-    `;
+      </div>`;
   }).join('');
 
-  // Progress bar
   const pct = total > 0 ? Math.round((completadas / total) * 100) : 0;
-  document.getElementById(progId).style.width       = pct + '%';
-  document.getElementById(progLabelId).textContent  = `${completadas} / ${total}`;
+  document.getElementById(progId).style.width      = pct + '%';
+  document.getElementById(progLabelId).textContent = `${completadas} / ${total}`;
 }
 
 // ══════════════════════════════════════════
@@ -1039,8 +823,7 @@ function selGanador(matchId, code, ronda) {
   if (!predicciones[matchId]) predicciones[matchId] = {};
   predicciones[matchId].ganador_pred = code;
 
-  // Actualizar botones
-  const partido = partidos[matchId] || {};
+  const partido   = partidos[matchId]  || {};
   const localCode = partido.local_code || 'LOCAL';
   const visitCode = partido.visitante_code || 'VISIT';
 
@@ -1049,13 +832,12 @@ function selGanador(matchId, code, ronda) {
   if (btnL) btnL.classList.toggle('selected', code === localCode);
   if (btnV) btnV.classList.toggle('selected', code === visitCode);
 
-  // Habilitar save
   const saveBtn = document.getElementById('save-' + matchId);
   if (saveBtn) saveBtn.disabled = false;
 }
 
 // ══════════════════════════════════════════
-// MARCAR CAMBIO (marcador / penales)
+// MARCAR CAMBIO
 // ══════════════════════════════════════════
 function marcarCambio(matchId) {
   const saveBtn = document.getElementById('save-' + matchId);
@@ -1072,46 +854,40 @@ async function guardarPrediccion(matchId, ronda) {
 
   const pred = predicciones[matchId] || {};
   if (!pred.ganador_pred) {
-    showToast('⚠️ Debes seleccionar un ganador primero.', 'error');
+    showToast('⚠️ Selecciona un ganador primero.', 'error');
     return;
   }
 
-  const glEl  = document.getElementById('gl-' + matchId);
-  const gvEl  = document.getElementById('gv-' + matchId);
+  const glEl  = document.getElementById('gl-'  + matchId);
+  const gvEl  = document.getElementById('gv-'  + matchId);
   const penEl = document.getElementById('pen-' + matchId);
 
   const payload = {
-    partido_id:        matchId,
-    ganador_pred:      pred.ganador_pred,
-    goles_local_pred:  glEl  ? parseInt(glEl.value)  || null : null,
-    goles_vis_pred:    gvEl  ? parseInt(gvEl.value)  || null : null,
-    penales_pred:      penEl ? penEl.checked : false,
-    email:             usuario.email
+    partido_id:       matchId,
+    ganador_pred:     pred.ganador_pred,
+    goles_local_pred: glEl  ? (parseInt(glEl.value)  >= 0 ? parseInt(glEl.value)  : null) : null,
+    goles_vis_pred:   gvEl  ? (parseInt(gvEl.value)  >= 0 ? parseInt(gvEl.value)  : null) : null,
+    penales_pred:     penEl ? penEl.checked : false,
+    email:            usuario.email
   };
 
-  // Guardar localmente
-  predicciones[matchId] = {
-    ...predicciones[matchId],
-    ...payload
-  };
+  predicciones[matchId] = { ...predicciones[matchId], ...payload };
 
   const saveBtn = document.getElementById('save-' + matchId);
   if (saveBtn) {
-    guardando[matchId] = true;
+    guardando[matchId]  = true;
     saveBtn.textContent = '⏳ Guardando...';
     saveBtn.disabled    = true;
   }
 
   try {
-    if (API) {
-      const res = await fetch(`${API}/api/prediccion`, {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(payload)
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Error al guardar');
-    }
+    const res  = await fetch(`${API}/api/prediccion`, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload)
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Error al guardar');
 
     if (saveBtn) {
       saveBtn.textContent = '✅ Guardado';
@@ -1119,8 +895,8 @@ async function guardarPrediccion(matchId, ronda) {
       setTimeout(() => {
         saveBtn.textContent = '💾 Guardar Predicción';
         saveBtn.classList.remove('saved');
-        saveBtn.disabled = false;
-        guardando[matchId] = false;
+        saveBtn.disabled    = false;
+        guardando[matchId]  = false;
       }, 2000);
     }
 
@@ -1133,11 +909,7 @@ async function guardarPrediccion(matchId, ronda) {
       saveBtn.disabled    = false;
       guardando[matchId]  = false;
     }
-    if (!API) {
-      showToast(`✅ ${matchId} guardado (modo demo)`, 'success');
-    } else {
-      showToast('❌ Error al guardar. Intenta nuevamente.', 'error');
-    }
+    showToast('❌ Error al guardar: ' + e.message, 'error');
   }
 }
 
@@ -1148,17 +920,17 @@ function actualizarStats() {
   let pts = 0, aciertos = 0, fallos = 0, pendientes = 0;
 
   Object.entries(predicciones).forEach(([matchId, pred]) => {
-    const partido  = partidos[matchId] || {};
-    const estado   = partido.estado    || 'PENDIENTE';
-    const ronda    = partido.ronda     || 'R32';
-    const ptsRonda = PTS[ronda]        || PTS['R32'];
+    const partido  = partidos[matchId]  || {};
+    const estado   = partido.estado     || 'PENDIENTE';
+    const ronda    = partido.ronda      || 'R32';
+    const ptsRonda = PTS[ronda]         || PTS['R32'];
 
     if (estado === 'FINALIZADO') {
       if (pred.ganador_pred === partido.ganador_code) {
         let p = ptsRonda.ganador;
         if (pred.goles_local_pred == partido.goles_local &&
             pred.goles_vis_pred   == partido.goles_visitante) p += ptsRonda.marcador;
-                if (partido.fue_a_penales && pred.penales_pred) p += ptsRonda.penales;
+        if (partido.fue_a_penales && pred.penales_pred)       p += ptsRonda.penales;
         pts += p;
         aciertos++;
       } else {
@@ -1169,16 +941,16 @@ function actualizarStats() {
     }
   });
 
-  document.getElementById('stat-pts').textContent       = pts;
-  document.getElementById('stat-aciertos').textContent  = aciertos;
-  document.getElementById('stat-fallos').textContent    = fallos;
+  document.getElementById('stat-pts').textContent        = pts;
+  document.getElementById('stat-aciertos').textContent   = aciertos;
+  document.getElementById('stat-fallos').textContent     = fallos;
   document.getElementById('stat-pendientes').textContent = pendientes;
-  document.getElementById('stat-posicion').textContent  =
-    usuario.posicion ? '#' + usuario.posicion : '#—';
+  document.getElementById('stat-posicion').textContent   =
+    usuario?.posicion ? '#' + usuario.posicion : '#—';
 }
 
 // ══════════════════════════════════════════
-// TABS RONDAS
+// TABS
 // ══════════════════════════════════════════
 function showRonda(ronda, el) {
   document.querySelectorAll('.ronda-section').forEach(s => s.classList.remove('active'));
@@ -1189,20 +961,11 @@ function showRonda(ronda, el) {
 }
 
 // ══════════════════════════════════════════
-// DESCARGAR PDF
+// PDF
 // ══════════════════════════════════════════
-async function descargarPDF() {
+function descargarPDF() {
   if (!usuario) return;
-  try {
-    if (API) {
-      const url = `${API}/api/pdf/quiniela?email=${encodeURIComponent(usuario.email)}`;
-      window.open(url, '_blank');
-    } else {
-      showToast('📄 PDF disponible cuando el backend esté activo.', 'success');
-    }
-  } catch(e) {
-    showToast('❌ No se pudo generar el PDF.', 'error');
-  }
+  window.open(`${API}/api/pdf/quiniela?email=${encodeURIComponent(usuario.email)}`, '_blank');
 }
 
 // ══════════════════════════════════════════
@@ -1214,10 +977,17 @@ function cerrarSesion() {
   partidos     = {};
   guardando    = {};
 
-  document.getElementById('app').style.display          = 'none';
+    document.getElementById('app').style.display          = 'none';
   document.getElementById('login-screen').style.display = 'flex';
   document.getElementById('login-email').value          = '';
   document.getElementById('login-error').style.display  = 'none';
+  document.getElementById('banner-no-confirmado').style.display = 'none';
+
+  const btnAcc = document.getElementById('btn-acceder');
+  if (btnAcc) {
+    btnAcc.disabled  = false;
+    btnAcc.innerHTML = '🔍 Ver Mi Quiniela';
+  }
 
   showToast('👋 Sesión cerrada correctamente.', 'success');
 }
@@ -1227,13 +997,11 @@ function cerrarSesion() {
 // ══════════════════════════════════════════
 let toastTimer = null;
 function showToast(msg, tipo = 'success') {
-  const t = document.getElementById('toast');
+  const t     = document.getElementById('toast');
   t.textContent = msg;
   t.className   = `toast ${tipo} show`;
   if (toastTimer) clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => {
-    t.classList.remove('show');
-  }, 3000);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
 }
 
 // ══════════════════════════════════════════
@@ -1243,8 +1011,6 @@ document.getElementById('login-email')
   .addEventListener('keydown', e => {
     if (e.key === 'Enter') acceder();
   });
-
 </script>
 </body>
 </html>
-
