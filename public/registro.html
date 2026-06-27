@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro — Quiniela Mundial 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:     #0a0e1a;
+      --card:   #111827;
+      --border: #1e2d40;
+      --gold:   #f0b429;
+      --gold2:  #e07b00;
+      --text:   #f0f4f8;
+      --muted:  #6b7a99;
+      --accent: #e53e3e;
+      --green:  #38a169;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,14,26,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 0 24px; height: 60px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--text);
+    }
+    .nav-logo img { height: 32px; }
+    .nav-logo span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem; letter-spacing: 2px; color: var(--gold);
+    }
+    .nav-links { display: flex; gap: 6px; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted);
+      font-size: 0.82rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 8px; transition: all .2s;
+    }
+    .nav-links a:hover { color: var(--text); background: var(--border); }
+    .nav-links a.active { color: var(--gold); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      text-align: center; padding: 40px 24px 20px;
+      background: radial-gradient(ellipse 70% 50% at 50% 0%,
+        rgba(240,180,41,0.1) 0%, transparent 70%);
+    }
+    .page-header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem; letter-spacing: 3px;
+    }
+    .page-header p { color: var(--muted); font-size: 0.88rem; margin-top: 6px; }
+
+    /* ── FORM CONTAINER ── */
+    .form-container {
+      max-width: 680px; margin: 0 auto;
+      padding: 20px 24px 80px;
+    }
+
+    /* ── DEADLINE BANNER ── */
+    .deadline-banner {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(229,62,62,0.08);
+      border: 1px solid rgba(229,62,62,0.25);
+      border-radius: 12px; padding: 14px 18px;
+      font-size: 0.84rem; margin-bottom: 28px;
+      color: #fc8181;
+    }
+    .deadline-banner strong { color: #fff; }
+
+    /* ── STEPS INDICATOR ── */
+    .steps-indicator {
+      display: flex; align-items: center;
+      justify-content: center; margin-bottom: 32px;
+    }
+    .step-dot {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 6px;
+    }
+    .step-dot .dot {
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.82rem;
+      background: var(--card); border: 2px solid var(--border);
+      color: var(--muted); transition: all .3s;
+    }
+    .step-dot span {
+      font-size: 0.68rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .step-dot.active .dot {
+      background: var(--gold); border-color: var(--gold);
+      color: #000;
+    }
+    .step-dot.active span { color: var(--gold); }
+    .step-dot.done .dot {
+      background: var(--green); border-color: var(--green);
+      color: #fff;
+    }
+    .step-dot.done span { color: var(--green); }
+    .step-line {
+      flex: 1; height: 2px; max-width: 60px;
+      background: var(--border); margin: 0 8px;
+      margin-bottom: 22px;
+    }
+
+    /* ── FORM SECTION ── */
+    .form-section { display: none; }
+    .form-section.active { display: block; }
+
+    /* ── SECTION CARD ── */
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px; padding: 28px;
+      margin-bottom: 20px;
+    }
+    .section-card h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem; letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+    .section-card .desc {
+      color: var(--muted); font-size: 0.84rem;
+      margin-bottom: 24px; line-height: 1.6;
+    }
+
+    /* ── FIELDS ── */
+    .field-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label {
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--muted); text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .req { color: var(--accent); margin-left: 2px; }
+    .field input,
+    .field select,
+    .field textarea {
+      background: rgba(255,255,255,0.04);
+      border: 1.5px solid var(--border);
+      border-radius: 10px; padding: 12px 14px;
+      color: var(--text); font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      transition: border-color .2s;
+      outline: none; width: 100%;
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--gold);
+      background: rgba(240,180,41,0.04);
+    }
+    .field select option { background: #1a2235; }
+
+    /* ── AWARD HIGHLIGHT ── */
+    .award-highlight {
+      display: flex; gap: 20px; align-items: flex-start;
+      background: linear-gradient(135deg,
+        rgba(240,180,41,0.08), rgba(224,123,0,0.04));
+      border: 1px solid rgba(240,180,41,0.25);
+      border-radius: 16px; padding: 24px;
+      margin-bottom: 24px;
+    }
+    .award-highlight .icon { font-size: 2.8rem; flex-shrink: 0; }
+    .award-highlight h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem; letter-spacing: 1.5px;
+      color: var(--gold); margin-bottom: 6px;
+    }
+    .award-highlight p {
+      font-size: 0.82rem; color: var(--muted);
+      line-height: 1.7;
+    }
+    .award-highlight p strong { color: var(--text); }
+    .award-pts-badge {
+      display: inline-block; margin-top: 10px;
+      background: rgba(240,180,41,0.15);
+      color: var(--gold); border-radius: 8px;
+      padding: 4px 12px; font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 1px;
+    }
+
+    /* ── PREVIEW BALÓN DE ORO ── */
+    .award-preview {
+      display: none;
+      background: linear-gradient(135deg,
+        rgba(240,180,41,0.08), rgba(240,180,41,0.04));
+      border: 1px solid rgba(240,180,41,0.25);
+      border-radius: 14px; padding: 16px 20px;
+      margin-top: 16px;
+      align-items: center; gap: 14px;
+    }
+    .award-preview.visible { display: flex; }
+    .award-preview .prev-icon { font-size: 2rem; }
+    .award-preview .prev-label {
+      font-size: 0.68rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 3px;
+    }
+    .award-preview .prev-name {
+      font-weight: 700; font-size: 1rem;
+    }
+    .award-preview .prev-pais {
+      font-size: 0.78rem; color: var(--muted);
+    }
+    .award-preview .prev-pts {
+      margin-left: auto;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem; color: var(--gold);
+    }
+
+    /* ── PAGO OPTIONS ── */
+    .pago-options {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin-bottom: 20px;
+    }
+    .pago-option {
+      background: rgba(255,255,255,0.03);
+      border: 2px solid var(--border);
+      border-radius: 14px; padding: 20px 16px;
+      text-align: center; cursor: pointer;
+      transition: all .2s;
+    }
+    .pago-option:hover { border-color: var(--gold); }
+    .pago-option.selected {
+      border-color: var(--gold);
+      background: rgba(240,180,41,0.08);
+    }
+    .pago-icon { font-size: 2rem; margin-bottom: 8px; }
+    .pago-name { font-weight: 700; font-size: 0.9rem; }
+    .pago-desc { font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+
+    /* ── PAGO INFO BOX ── */
+    .pago-info-box {
+      display: none;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 18px 20px;
+      font-size: 0.84rem; line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .pago-info-box.visible { display: block; }
+    .pago-info-box code {
+      display: block; margin-top: 6px;
+      font-size: 0.78rem; word-break: break-all;
+      color: var(--gold); background: rgba(0,0,0,0.3);
+      padding: 8px 12px; border-radius: 8px;
+    }
+
+    /* ── RESUMEN ── */
+    .resumen-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 20px;
+      margin-bottom: 20px;
+    }
+    .resumen-row {
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+    .resumen-row:last-child { border-bottom: none; }
+    .resumen-row .label { color: var(--muted); }
+    .resumen-row .value { font-weight: 600; }
+    .resumen-row .value.gold { color: var(--gold); }
+
+    /* ── TÉRMINOS ── */
+    .terminos {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 0.82rem; color: var(--muted);
+      line-height: 1.6; margin-bottom: 24px;
+      padding: 16px; background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border); border-radius: 12px;
+    }
+    .terminos input[type="checkbox"] {
+      width: 18px; height: 18px; flex-shrink: 0;
+      accent-color: var(--gold); margin-top: 2px;
+      cursor: pointer;
+    }
+    .terminos label { cursor: pointer; }
+
+    /* ── FORM NAV ── */
+    .form-nav {
+      display: flex; justify-content: space-between;
+      align-items: center; gap: 12px; margin-top: 8px;
+    }
+    .form-nav.right { justify-content: flex-end; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 26px; border-radius: 12px;
+      font-weight: 700; font-size: 0.88rem;
+      cursor: pointer; border: none;
+      transition: all .2s; letter-spacing: 0.5px;
+      text-decoration: none; font-family: 'Inter', sans-serif;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #000;
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240,180,41,0.3);
+    }
+    .btn-gold:disabled {
+      opacity: 0.4; cursor: not-allowed;
+      transform: none; box-shadow: none;
+    }
+    .btn-ghost {
+      background: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--muted);
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── ERROR MSG ── */
+    .error-msg {
+      display: none;
+      background: rgba(229,62,62,0.1);
+      border: 1px solid rgba(229,62,62,0.3);
+      border-radius: 10px; padding: 12px 16px;
+      font-size: 0.84rem; color: #fc8181;
+      margin-bottom: 16px;
+    }
+
+    /* ── SUCCESS ── */
+    .success-wrap {
+      display: none; text-align: center;
+      padding: 60px 20px;
+    }
+    .success-icon { font-size: 5rem; margin-bottom: 20px; }
+    .success-wrap h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem; letter-spacing: 2px;
+      color: var(--gold); margin-bottom: 12px;
+    }
+    .success-wrap p {
+      color: var(--muted); font-size: 0.9rem;
+      line-height: 1.8; max-width: 440px;
+      margin: 0 auto 28px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px; text-align: center;
+      color: var(--muted); font-size: 0.78rem;
+    }
+    footer strong { color: var(--gold); }
+
+    @media(max-width: 560px) {
+      .field-group { grid-template-columns: 1fr; }
+      .pago-options { grid-template-columns: 1fr; }
+      .form-nav { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/trionda.png" alt="Logo" onerror="this.style.display='none'"/>
+    <span>MUNDIAL 2026</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">🏠 Inicio</a>
+    <a href="bracket.html">🏆 Bracket</a>
+    <a href="ranking.html">📊 Ranking</a>
+    <a href="registro.html" class="active">⚽ Registro</a>
+  </div>
+</nav>
+
+<!-- ── PAGE HEADER ── -->
+<div class="page-header">
+  <h1>⚽ REGISTRO</h1>
+  <p>Completa tu inscripción en 3 pasos · Fecha límite: 27 de junio 2026</p>
+</div>
+
+<!-- ── FORM CONTAINER ── -->
+<div class="form-container">
+
+  <!-- DEADLINE -->
+  <div class="deadline-banner">
+    ⏰
+    <div>Fecha límite de registro: <strong>27 de junio de 2026 · 23:59 hrs</strong><br/>
+    Después de esta fecha no se aceptan nuevas inscripciones.</div>
+  </div>
+
+  <!-- STEPS -->
+  <div class="steps-indicator" id="steps">
+    <div class="step-dot active" id="sdot-1">
+      <div class="dot">01</div>
+      <span>Tus Datos</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step-dot" id="sdot-2">
+      <div class="dot">02</div>
+      <span>Balón de Oro</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step-dot" id="sdot-3">
+      <div class="dot">03</div>
+      <span>Pago</span>
+    </div>
+  </div>
+
+  <!-- ERROR GLOBAL -->
+  <div class="error-msg" id="error-global"></div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- PASO 1 — DATOS PERSONALES             -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="form-section active" id="step-1">
+    <div class="section-card">
+      <h2>📝 Datos Personales</h2>
+      <p class="desc">Ingresa tu información para crear tu perfil en la quiniela.</p>
+
+      <div class="field-group">
+        <div class="field full">
+          <label>Nombre Completo <span class="req">*</span></label>
+          <input type="text" id="nombre" placeholder="Tu nombre completo" autocomplete="name"/>
+        </div>
+        <div class="field full">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" id="email" placeholder="tu@email.com" autocomplete="email"/>
+        </div>
+        <div class="field">
+          <label>País <span class="req">*</span></label>
+          <select id="pais">
+            <option value="">Selecciona tu país</option>
+            <option>Venezuela</option>
+            <option>Colombia</option>
+            <option>México</option>
+            <option>Argentina</option>
+            <option>Estados Unidos</option>
+            <option>España</option>
+            <option>Perú</option>
+            <option>Chile</option>
+            <option>Ecuador</option>
+            <option>Bolivia</option>
+            <option>Uruguay</option>
+            <option>Paraguay</option>
+            <option>Brasil</option>
+            <option>República Dominicana</option>
+            <option>Panamá</option>
+            <option>Costa Rica</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Teléfono / WhatsApp</label>
+          <input type="tel" id="telefono" placeholder="+1 555 000 0000" autocomplete="tel"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-nav right">
+      <button class="btn btn-gold" onclick="irPaso2()">
+        Siguiente → Balón de Oro
+      </button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- PASO 2 — BALÓN DE ORO                 -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="form-section" id="step-2">
+
+    <div class="award-highlight">
+      <div class="icon">⭐</div>
+      <div>
+        <h3>BALÓN DE ORO — MVP DEL MUNDIAL</h3>
+        <p>
+          Predice al jugador que la FIFA elegirá como el mejor del Mundial 2026.<br/>
+          Esta predicción se realiza <strong>una sola vez al registrarte</strong>
+          y no puede modificarse después.<br/>
+          Si aciertas sumas <strong>30 puntos</strong> al final del torneo.
+        </p>
+        <span class="award-pts-badge">⭐ 30 PUNTOS SI ACIERTAS</span>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h2>⭐ Tu Predicción</h2>
+      <p class="desc">Escribe el nombre del jugador que crees será el MVP del Mundial 2026.</p>
+
+      <div class="field-group">
+        <div class="field full">
+          <label>Jugador — Balón de Oro <span class="req">*</span></label>
+          <input
+            type="text"
+            id="balon-oro"
+            placeholder="Ej: Kylian Mbappé, Lionel Messi, Vinicius Jr..."
+            autocomplete="off"
+            list="jugadores-list"
+            oninput="actualizarPreview()"
+          />
+          <datalist id="jugadores-list">
+            <option value="Kylian Mbappé"/>
+            <option value="Lionel Messi"/>
+            <option value="Vinicius Jr."/>
+            <option value="Erling Haaland"/>
+            <option value="Jude Bellingham"/>
+            <option value="Pedri"/>
+            <option value="Lamine Yamal"/>
+            <option value="Rodri"/>
+            <option value="Bukayo Saka"/>
+            <option value="Phil Foden"/>
+            <option value="Federico Valverde"/>
+            <option value="Raphinha"/>
+            <option value="Antoine Griezmann"/>
+            <option value="Harry Kane"/>
+            <option value="Florian Wirtz"/>
+            <option value="Jamal Musiala"/>
+            <option value="Martin Ødegaard"/>
+            <option value="Erling Haaland"/>
+            <option value="Gavi"/>
+            <option value="Bernardo Silva"/>
+          </datalist>
+        </div>
+        <div class="field full">
+          <label>País del Jugador</label>
+          <input
+            type="text"
+            id="balon-oro-pais"
+            placeholder="Ej: Francia, Argentina, Brasil..."
+            autocomplete="off"
+            oninput="actualizarPreview()"
+          />
+        </div>
+      </div>
+
+      <!-- PREVIEW -->
+      <div class="award-preview" id="award-preview">
+        <span class="prev-icon">⭐</span>
+        <div>
+          <div class="prev-label">Tu predicción</div>
+          <div class="prev-name" id="preview-nombre">—</div>
+          <div class="prev-pais" id="preview-pais">—</div>
+        </div>
+        <div class="prev-pts">30<br/><span style="font-family:'Inter',sans-serif;font-size:0.65rem;color:var(--muted);font-weight:400">pts</span></div>
+      </div>
+    </div>
+
+    <div class="form-nav">
+      <button class="btn btn-ghost" onclick="irPaso(1)">← Atrás</button>
+      <button class="btn btn-gold" onclick="irPaso3()">
+        Siguiente → Pago
+      </button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- PASO 3 — PAGO                         -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="form-section" id="step-3">
+
+    <div class="section-card">
+      <h2>💳 Método de Pago</h2>
+      <p class="desc">Selecciona cómo realizarás tu pago de inscripción y sigue las instrucciones.</p>
+
+      <div class="pago-options">
+        <div class="pago-option" id="opt-zelle" onclick="seleccionarPago('zelle', this)">
+          <div class="pago-icon">🏦</div>
+          <div class="pago-name">Zelle</div>
+          <div class="pago-desc">Transferencia bancaria USA</div>
+        </div>
+        <div class="pago-option" id="opt-usdt" onclick="seleccionarPago('usdt', this)">
+          <div class="pago-icon">₮</div>
+          <div class="pago-name">USDT</div>
+          <div class="pago-desc">Cripto · TRC20 / ERC20</div>
+        </div>
+      </div>
+
+      <!-- INFO ZELLE -->
+      <div class="pago-info-box" id="info-zelle">
+        <strong>📧 Zelle:</strong> pagos@quiniela2026.com<br/>
+        <strong>👤 Nombre:</strong> Mario Vitale<br/>
+        <strong>💵 Monto:</strong> $20.00 USD<br/>
+        <span style="color:#fc8181; font-size:0.8rem;">
+          ⚠️ Incluye tu nombre completo en el memo del pago.
+        </span>
+      </div>
+
+      <!-- INFO USDT -->
+      <div class="pago-info-box" id="info-usdt">
+        <strong>₮ Red TRC20 (TRON):</strong>
+        <code>TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxx</code>
+        <strong>💵 Monto:</strong> $20.00 USDT<br/>
+        <span style="color:#fc8181; font-size:0.8rem;">
+          ⚠️ Envía SOLO por red TRC20. Guarda el hash de la transacción como comprobante.
+        </span>
+      </div>
+    </div>
+
+    <!-- RESUMEN -->
+    <div class="section-card">
+      <h2>📋 Resumen de tu Registro</h2>
+      <p class="desc">Verifica que todo esté correcto antes de confirmar.</p>
+
+      <div class="resumen-card">
+        <div class="resumen-row">
+          <span class="label">Nombre</span>
+          <span class="value" id="res-nombre">—</span>
+        </div>
+        <div class="resumen-row">
+          <span class="label">Email</span>
+          <span class="value" id="res-email">—</span>
+        </div>
+        <div class="resumen-row">
+          <span class="label">País</span>
+          <span class="value" id="res-pais">—</span>
+        </div>
+        <div class="resumen-row">
+          <span class="label">⭐ Balón de Oro</span>
+          <span class="value gold" id="res-balon">—</span>
+        </div>
+        <div class="resumen-row">
+          <span class="label">Método de Pago</span>
+          <span class="value" id="res-pago">No seleccionado</span>
+        </div>
+        <div class="resumen-row">
+          <span class="label">Inscripción</span>
+          <span class="value gold">$20.00 USD</span>
+        </div>
+      </div>
+
+      <!-- TÉRMINOS -->
+      <div class="terminos">
+        <input type="checkbox" id="acepto-terminos" onchange="verificarTerminos()"/>
+        <label for="acepto-terminos">
+          Acepto que mis predicciones son definitivas al registrarme,
+          que el Balón de Oro no puede modificarse después del registro,
+          y que el pago debe ser confirmado por el administrador para
+          activar mi participación en la quiniela.
+        </label>
+      </div>
+
+      <div class="error-msg" id="error-paso3"></div>
+
+      <div class="form-nav">
+        <button class="btn btn-ghost" onclick="irPaso(2)">← Atrás</button>
+        <button
+          class="btn btn-gold"
+          id="btn-registrar"
+          onclick="registrar()"
+          disabled
+        >
+          ✅ CONFIRMAR REGISTRO
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- ÉXITO                                 -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="success-wrap" id="success-wrap">
+    <div class="success-icon">🎉</div>
+    <h2>¡REGISTRO EXITOSO!</h2>
+    <p>
+      Tu registro ha sido recibido correctamente.<br/>
+      Un administrador confirmará tu pago en las próximas horas.<br/>
+      Una vez confirmado tendrás acceso completo para ingresar
+      tus predicciones antes del <strong style="color:var(--text)">27 de junio · 23:59 hrs</strong>.
+    </p>
+    <a href="bracket.html" class="btn btn-gold" style="display:inline-flex; margin: 0 auto;">
+      🏆 Ver el Bracket Oficial
+    </a>
+  </div>
+
+</div><!-- /form-container -->
+
+<!-- FOOTER -->
+<footer>
+  <p>Quiniela Mundial 2026 — Segunda Fase &nbsp;|&nbsp; Creado por <strong>Mario Vitale</strong></p>
+  <p style="margin-top:6px; font-size:0.72rem;">Fecha límite de registro: 27 de junio de 2026 · 23:59 hrs</p>
+</footer>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- JAVASCRIPT                                -->
+<!-- ══════════════════════════════════════════ -->
+<script>
+  const API = ''; // URL backend en producción
+
+  let pagoSeleccionado = '';
+  let currentStep = 1;
+
+  // ── NAVEGACIÓN DE PASOS ──
+  function irPaso(n) {
+    document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+    document.getElementById('step-' + n).classList.add('active');
+
+    for (let i = 1; i <= 3; i++) {
+      const dot = document.getElementById('sdot-' + i);
+      dot.classList.remove('active', 'done');
+      if (i < n)  dot.classList.add('done');
+      if (i === n) dot.classList.add('active');
+    }
+
+    currentStep = n;
+    ocultarError();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── PASO 1 → 2 ──
+  function irPaso2() {
+    const nombre = document.getElementById('nombre').value.trim();
+    const email  = document.getElementById('email').value.trim();
+    const pais   = document.getElementById('pais').value;
+
+    if (!nombre) { mostrarError('Por favor ingresa tu nombre completo.'); return; }
+    if (!email)  { mostrarError('Por favor ingresa tu email.'); return; }
+    if (!validarEmail(email)) { mostrarError('El email no tiene un formato válido.'); return; }
+    if (!pais)   { mostrarError('Por favor selecciona tu país.'); return; }
+
+    ocultarError();
+    irPaso(2);
+  }
+
+  // ── PASO 2 → 3 ──
+  function irPaso3() {
+    const balon = document.getElementById('balon-oro').value.trim();
+    if (!balon) {
+      mostrarError('Debes ingresar tu predicción del Balón de Oro para continuar.');
+      return;
+    }
+
+    // Llenar resumen
+    document.getElementById('res-nombre').textContent = document.getElementById('nombre').value.trim();
+    document.getElementById('res-email').textContent  = document.getElementById('email').value.trim();
+    document.getElementById('res-pais').textContent   = document.getElementById('pais').value;
+    document.getElementById('res-balon').textContent  = balon +
+      (document.getElementById('balon-oro-pais').value.trim()
+        ? ' · ' + document.getElementById('balon-oro-pais').value.trim()
+        : '');
+    document.getElementById('res-pago').textContent   = pagoSeleccionado
+      ? pagoSeleccionado.toUpperCase()
+      : 'No seleccionado';
+
+    ocultarError();
+    irPaso(3);
+  }
+
+  // ── SELECCIONAR PAGO ──
+  function seleccionarPago(metodo, el) {
+    pagoSeleccionado = metodo;
+
+    document.querySelectorAll('.pago-option').forEach(o => o.classList.remove('selected'));
+    document.querySelectorAll('.pago-info-box').forEach(b => b.classList.remove('visible'));
+
+    el.classList.add('selected');
+    document.getElementById('info-' + metodo).classList.add('visible');
+    document.getElementById('res-pago').textContent = metodo.toUpperCase();
+
+    verificarTerminos();
+  }
+
+  // ── VERIFICAR TÉRMINOS ──
+  function verificarTerminos() {
+    const acepta = document.getElementById('acepto-terminos').checked;
+    const pago   = pagoSeleccionado !== '';
+    document.getElementById('btn-registrar').disabled = !(acepta && pago);
+  }
+
+  // ── PREVIEW BALÓN DE ORO ──
+  function actualizarPreview() {
+    const nombre = document.getElementById('balon-oro').value.trim();
+    const pais   = document.getElementById('balon-oro-pais').value.trim();
+    const preview = document.getElementById('award-preview');
+
+    if (nombre.length > 2) {
+      document.getElementById('preview-nombre').textContent = nombre;
+      document.getElementById('preview-pais').textContent   = pais || 'País no especificado';
+      preview.classList.add('visible');
+    } else {
+      preview.classList.remove('visible');
+    }
+  }
+
+  // ── REGISTRAR ──
+  async function registrar() {
+    const btn = document.getElementById('btn-registrar');
+    btn.disabled = true;
+    btn.textContent = '⏳ Registrando...';
+
+    const payload = {
+      nombre:      document.getElementById('nombre').value.trim(),
+      email:       document.getElementById('email').value.trim(),
+      pais:        document.getElementById('pais').value,
+      telefono:    document.getElementById('telefono').value.trim(),
+      metodo_pago: pagoSeleccionado,
+      balon_oro:   document.getElementById('balon-oro').value.trim(),
+      balon_oro_pais: document.getElementById('balon-oro-pais').value.trim()
+    };
+
+    try {
+      if (API) {
+        const res  = await fetch(`${API}/api/registro`, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload)
+        });
+        const data = await res.json();
+
+        if (!res.ok || !data.ok) {
+          mostrarErrorPaso3(data.error || 'Ocurrió un error. Intenta nuevamente.');
+          btn.disabled = false;
+          btn.textContent = '✅ CONFIRMAR REGISTRO';
+          return;
+        }
+      }
+
+      // ÉXITO
+      document.getElementById('steps').style.display        = 'none';
+      document.querySelector('.deadline-banner').style.display = 'none';
+      document.getElementById('error-global').style.display  = 'none';
+      document.querySelectorAll('.form-section').forEach(s => s.style.display = 'none');
+      document.getElementById('success-wrap').style.display  = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    } catch (err) {
+      // Sin backend → mostrar éxito de todas formas (modo demo)
+      if (!API) {
+        document.getElementById('steps').style.display        = 'none';
+        document.querySelector('.deadline-banner').style.display = 'none';
+        document.getElementById('error-global').style.display  = 'none';
+        document.querySelectorAll('.form-section').forEach(s => s.style.display = 'none');
+        document.getElementById('success-wrap').style.display  = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        mostrarErrorPaso3('No se pudo conectar con el servidor. Verifica tu conexión.');
+        btn.disabled = false;
+        btn.textContent = '✅ CONFIRMAR REGISTRO';
+      }
+    }
+  }
+
+  // ── HELPERS ──
+  function mostrarError(msg) {
+    const el = document.getElementById('error-global');
+    el.textContent = '⚠️ ' + msg;
+    el.style.display = 'block';
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function mostrarErrorPaso3(msg) {
+    const el = document.getElementById('error-paso3');
+    el.textContent = '⚠️ ' + msg;
+    el.style.display = 'block';
+  }
+
+  function ocultarError() {
+    document.getElementById('error-global').style.display  = 'none';
+    document.getElementById('error-paso3').style.display   = 'none';
+  }
+
+  function validarEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+</script>
+
+</body>
+</html>

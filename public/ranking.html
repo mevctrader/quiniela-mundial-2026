@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ranking — Quiniela Mundial 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:     #0a0e1a;
+      --card:   #111827;
+      --border: #1e2d40;
+      --gold:   #f0b429;
+      --gold2:  #e07b00;
+      --text:   #f0f4f8;
+      --muted:  #6b7a99;
+      --green:  #38a169;
+      --red:    #e53e3e;
+      --blue:   #3182ce;
+      --silver: #a0aec0;
+      --bronze: #c05621;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,14,26,0.96); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 0 24px; height: 60px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+    .nav-logo img { height: 32px; }
+    .nav-logo span { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 2px; color: var(--gold); }
+    .nav-links { display: flex; gap: 6px; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted);
+      font-size: 0.82rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 8px; transition: all .2s;
+    }
+    .nav-links a:hover { color: var(--text); background: var(--border); }
+    .nav-links a.active { color: var(--gold); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      text-align: center; padding: 40px 24px 24px;
+      background: radial-gradient(ellipse 70% 50% at 50% 0%,
+        rgba(240,180,41,0.1) 0%, transparent 70%);
+    }
+    .page-header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem; letter-spacing: 3px;
+    }
+    .page-header p { color: var(--muted); font-size: 0.88rem; margin-top: 6px; }
+
+    /* ── MAIN WRAP ── */
+    .main-wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px 60px; }
+
+    /* ── STATS GLOBALES ── */
+    .global-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px; margin-bottom: 28px;
+    }
+    .gstat {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px; text-align: center;
+    }
+    .gstat .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem; color: var(--gold); line-height: 1;
+    }
+    .gstat .lbl {
+      font-size: 0.68rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;
+    }
+
+    /* ── PODIO ── */
+    .podio-wrap {
+      display: flex; align-items: flex-end;
+      justify-content: center; gap: 12px;
+      margin-bottom: 32px; flex-wrap: wrap;
+    }
+    .podio-item {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0;
+      flex: 1; min-width: 140px; max-width: 220px;
+    }
+    .podio-avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; margin-bottom: 10px;
+      border: 3px solid var(--border);
+    }
+    .podio-item.p1 .podio-avatar { border-color: var(--gold); background: rgba(240,180,41,0.1); }
+    .podio-item.p2 .podio-avatar { border-color: var(--silver); background: rgba(160,174,192,0.1); }
+    .podio-item.p3 .podio-avatar { border-color: var(--bronze); background: rgba(192,86,33,0.1); }
+    .podio-nombre {
+      font-weight: 700; font-size: 0.88rem;
+      text-align: center; margin-bottom: 4px;
+    }
+    .podio-pais { font-size: 0.72rem; color: var(--muted); margin-bottom: 8px; }
+    .podio-pts {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem; margin-bottom: 0;
+    }
+    .podio-item.p1 .podio-pts { color: var(--gold); }
+    .podio-item.p2 .podio-pts { color: var(--silver); }
+    .podio-item.p3 .podio-pts { color: var(--bronze); }
+    .podio-plataforma {
+      width: 100%; border-radius: 14px 14px 0 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem; letter-spacing: 2px;
+    }
+    .podio-item.p1 .podio-plataforma {
+      height: 90px;
+      background: linear-gradient(180deg, rgba(240,180,41,0.15), rgba(240,180,41,0.05));
+      border: 1px solid rgba(240,180,41,0.3); color: var(--gold);
+    }
+    .podio-item.p2 .podio-plataforma {
+      height: 70px;
+      background: linear-gradient(180deg, rgba(160,174,192,0.1), rgba(160,174,192,0.03));
+      border: 1px solid rgba(160,174,192,0.2); color: var(--silver);
+    }
+    .podio-item.p3 .podio-plataforma {
+      height: 55px;
+      background: linear-gradient(180deg, rgba(192,86,33,0.1), rgba(192,86,33,0.03));
+      border: 1px solid rgba(192,86,33,0.2); color: var(--bronze);
+    }
+
+    /* ── CONTROLES ── */
+    .controles {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      align-items: center; justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .search-wrap { position: relative; flex: 1; min-width: 200px; max-width: 320px; }
+    .search-wrap input {
+      width: 100%; background: var(--card);
+      border: 1.5px solid var(--border); border-radius: 10px;
+      padding: 10px 14px 10px 38px;
+      color: var(--text); font-size: 0.86rem;
+      font-family: 'Inter', sans-serif; outline: none;
+      transition: border-color .2s;
+    }
+    .search-wrap input:focus { border-color: var(--gold); }
+    .search-wrap .si {
+      position: absolute; left: 12px; top: 50%;
+      transform: translateY(-50%); color: var(--muted);
+      font-size: 0.9rem; pointer-events: none;
+    }
+    .filter-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+    .ftab {
+      padding: 8px 16px; border-radius: 50px;
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--muted); font-size: 0.78rem; font-weight: 600;
+      cursor: pointer; transition: all .2s; white-space: nowrap;
+    }
+    .ftab:hover { color: var(--text); border-color: var(--gold); }
+    .ftab.active { background: var(--gold); color: #000; border-color: var(--gold); }
+    .btn-pdf {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 18px; border-radius: 10px;
+      background: transparent; border: 1.5px solid var(--border);
+      color: var(--muted); font-size: 0.8rem; font-weight: 700;
+      cursor: pointer; transition: all .2s; font-family: 'Inter', sans-serif;
+      white-space: nowrap;
+    }
+    .btn-pdf:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── TABLA RANKING ── */
+    .tabla-wrap {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 18px; overflow: hidden;
+    }
+    .tabla-header {
+      display: grid;
+      grid-template-columns: 56px 1fr 80px 80px 80px 80px 80px;
+      gap: 0; padding: 12px 20px;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.68rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 1px; font-weight: 600;
+    }
+    .tabla-header span { text-align: center; }
+    .tabla-header span:nth-child(2) { text-align: left; }
+
+    .tabla-row {
+      display: grid;
+      grid-template-columns: 56px 1fr 80px 80px 80px 80px 80px;
+      gap: 0; padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      align-items: center; transition: background .15s;
+      cursor: default;
+    }
+    .tabla-row:last-child { border-bottom: none; }
+    .tabla-row:hover { background: rgba(255,255,255,0.025); }
+    .tabla-row.top1 { background: rgba(240,180,41,0.06); }
+    .tabla-row.top2 { background: rgba(160,174,192,0.04); }
+    .tabla-row.top3 { background: rgba(192,86,33,0.04); }
+    .tabla-row.yo   { background: rgba(49,130,206,0.06); border-left: 3px solid var(--blue); }
+
+    /* POSICIÓN */
+    .pos-badge {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem;
+      margin: 0 auto;
+    }
+    .pos-badge.p1 { background: rgba(240,180,41,0.15); color: var(--gold); border: 1px solid rgba(240,180,41,0.3); }
+    .pos-badge.p2 { background: rgba(160,174,192,0.12); color: var(--silver); border: 1px solid rgba(160,174,192,0.25); }
+    .pos-badge.p3 { background: rgba(192,86,33,0.12); color: var(--bronze); border: 1px solid rgba(192,86,33,0.25); }
+    .pos-badge.pn { background: rgba(255,255,255,0.04); color: var(--muted); border: 1px solid var(--border); }
+
+    /* PARTICIPANTE */
+    .part-info { display: flex; flex-direction: column; gap: 2px; }
+    .part-nombre { font-weight: 600; font-size: 0.88rem; }
+    .part-meta { font-size: 0.7rem; color: var(--muted); }
+    .yo-badge {
+      display: inline-block; margin-left: 6px;
+      background: rgba(49,130,206,0.15); color: var(--blue);
+      border-radius: 4px; padding: 1px 6px;
+      font-size: 0.62rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+
+    /* CELDAS NUMÉRICAS */
+    .tabla-row .cell {
+      text-align: center; font-size: 0.84rem;
+    }
+    .cell.pts-total {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem; color: var(--gold);
+    }
+    .cell.aciertos { color: var(--green); font-weight: 700; }
+    .cell.fallos   { color: var(--red);   font-weight: 700; }
+
+    /* BARRA PROGRESO MINI */
+    .mini-bar-wrap { display: flex; flex-direction: column; gap: 3px; align-items: center; }
+    .mini-bar {
+      width: 52px; height: 5px;
+      background: var(--border); border-radius: 5px; overflow: hidden;
+    }
+    .mini-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      border-radius: 5px;
+    }
+    .mini-pct { font-size: 0.62rem; color: var(--muted); }
+
+    /* AWARD CELL */
+    .award-cell { text-align: center; font-size: 0.78rem; }
+    .award-cell .check { color: var(--green); font-size: 1rem; }
+    .award-cell .cross { color: var(--red);   font-size: 1rem; }
+    .award-cell .wait  { color: var(--muted); font-size: 0.9rem; }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      text-align: center; padding: 60px 20px;
+      color: var(--muted);
+    }
+    .empty-state .ei { font-size: 3rem; margin-bottom: 12px; }
+    .empty-state p { font-size: 0.88rem; }
+
+    /* ── PAGINACION ── */
+    .paginacion {
+      display: flex; align-items: center;
+      justify-content: center; gap: 8px;
+      margin-top: 20px; flex-wrap: wrap;
+    }
+    .pag-btn {
+      padding: 8px 14px; border-radius: 8px;
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--muted); font-size: 0.8rem; font-weight: 600;
+      cursor: pointer; transition: all .2s; font-family: 'Inter', sans-serif;
+    }
+    .pag-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .pag-btn.active { background: var(--gold); color: #000; border-color: var(--gold); }
+    .pag-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    /* ── DESGLOSE RONDAS ── */
+    .desglose-section { margin-top: 32px; }
+    .desglose-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem; letter-spacing: 2px;
+      margin-bottom: 16px; color: var(--gold);
+    }
+    .desglose-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    .desglose-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px; text-align: center;
+    }
+    .desglose-card .ronda-name {
+      font-size: 0.72rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .desglose-card .ronda-pts {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem; color: var(--gold);
+    }
+    .desglose-card .ronda-max {
+      font-size: 0.68rem; color: var(--muted); margin-top: 4px;
+    }
+
+    /* ── LOADING ── */
+    .loading-wrap {
+      display: flex; align-items: center; justify-content: center;
+      padding: 60px; gap: 12px; color: var(--muted);
+    }
+    .spinner {
+      width: 24px; height: 24px;
+      border: 3px solid var(--border);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px; text-align: center;
+      color: var(--muted); font-size: 0.78rem;
+    }
+    footer strong { color: var(--gold); }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed; bottom: 24px; right: 24px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 14px 20px;
+      font-size: 0.84rem; font-weight: 600;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      transform: translateY(80px); opacity: 0;
+      transition: all .3s; z-index: 999; max-width: 320px;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast.success { border-color: rgba(56,161,105,0.4); color: var(--green); }
+    .toast.error   { border-color: rgba(229,62,62,0.4);  color: var(--red); }
+
+    @media(max-width: 768px) {
+      .tabla-header,
+      .tabla-row {
+        grid-template-columns: 44px 1fr 60px 60px 60px;
+      }
+      .tabla-header span:nth-child(5),
+      .tabla-header span:nth-child(6),
+      .tabla-row .cell:nth-child(5),
+      .tabla-row .cell:nth-child(6) { display: none; }
+      .podio-wrap { gap: 8px; }
+    }
+    @media(max-width: 480px) {
+      .tabla-header,
+      .tabla-row { grid-template-columns: 40px 1fr 56px 56px; }
+      .tabla-header span:nth-child(4),
+      .tabla-row .cell:nth-child(4) { display: none; }
+      .global-stats { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/trionda.png" alt="Logo" onerror="this.style.display='none'"/>
+    <span>MUNDIAL 2026</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">🏠 Inicio</a>
+    <a href="bracket.html">🏆 Bracket</a>
+    <a href="ranking.html" class="active">📊 Ranking</a>
+    <a href="quiniela.html">📋 Mi Quiniela</a>
+    <a href="registro.html">⚽ Participar</a>
+  </div>
+</nav>
+
+<!-- ── PAGE HEADER ── -->
+<div class="page-header">
+  <h1>📊 RANKING GENERAL</h1>
+  <p>Tabla de posiciones en tiempo real · Quiniela Mundial 2026</p>
+</div>
+
+<!-- ── MAIN ── -->
+<div class="main-wrap">
+
+  <!-- STATS GLOBALES -->
+  <div class="global-stats">
+    <div class="gstat">
+      <div class="num" id="g-participantes">—</div>
+      <div class="lbl">Participantes</div>
+    </div>
+    <div class="gstat">
+      <div class="num" id="g-jugados">—</div>
+      <div class="lbl">Partidos Jugados</div>
+    </div>
+    <div class="gstat">
+      <div class="num" id="g-pendientes">—</div>
+      <div class="lbl">Pendientes</div>
+    </div>
+    <div class="gstat">
+      <div class="num" id="g-lider-pts">—</div>
+      <div class="lbl">Pts Líder</div>
+    </div>
+    <div class="gstat">
+      <div class="num" id="g-promedio">—</div>
+      <div class="lbl">Promedio</div>
+    </div>
+    <div class="gstat">
+      <div class="num">353</div>
+      <div class="lbl">Pts Máximo</div>
+    </div>
+  </div>
+
+  <!-- PODIO TOP 3 -->
+  <div class="podio-wrap" id="podio-wrap">
+    <!-- Se renderiza dinámicamente -->
+  </div>
+
+  <!-- CONTROLES -->
+  <div class="controles">
+    <div class="search-wrap">
+      <span class="si">🔍</span>
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Buscar participante..."
+        oninput="filtrar()"
+      />
+    </div>
+    <div class="filter-tabs">
+      <button class="ftab active" onclick="setFiltro('todos', this)">Todos</button>
+      <button class="ftab" onclick="setFiltro('top10', this)">Top 10</button>
+      <button class="ftab" onclick="setFiltro('r32', this)">R32</button>
+      <button class="ftab" onclick="setFiltro('r16', this)">R16</button>
+      <button class="ftab" onclick="setFiltro('qf', this)">QF</button>
+      <button class="ftab" onclick="setFiltro('sf', this)">SF</button>
+    </div>
+    <button class="btn-pdf" onclick="descargarPDF()">📄 PDF Ranking</button>
+  </div>
+
+  <!-- TABLA -->
+  <div class="tabla-wrap">
+    <div class="tabla-header">
+      <span>#</span>
+      <span>Participante</span>
+      <span>Pts Total</span>
+      <span>Aciertos</span>
+      <span>Fallos</span>
+      <span>% Efic.</span>
+      <span>⭐ Award</span>
+    </div>
+    <div id="tabla-body">
+      <div class="loading-wrap">
+        <div class="spinner"></div>
+        <span>Cargando ranking...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGINACIÓN -->
+  <div class="paginacion" id="paginacion"></div>
+
+  <!-- DESGLOSE POR RONDA -->
+  <div class="desglose-section">
+    <div class="desglose-title">📋 PUNTOS MÁXIMOS POR RONDA</div>
+    <div class="desglose-grid">
+      <div class="desglose-card">
+        <div class="ronda-name">⚽ Dieciseisavos</div>
+        <div class="ronda-pts" id="pts-r32">—</div>
+        <div class="ronda-max">Máx: 112 pts</div>
+      </div>
+      <div class="desglose-card">
+        <div class="ronda-name">🔥 Octavos</div>
+        <div class="ronda-pts" id="pts-r16">—</div>
+        <div class="ronda-max">Máx: 72 pts</div>
+      </div>
+      <div class="desglose-card">
+        <div class="ronda-name">⚡ Cuartos</div>
+        <div class="ronda-pts" id="pts-qf">—</div>
+        <div class="ronda-max">Máx: 56 pts</div>
+      </div>
+      <div class="desglose-card">
+        <div class="ronda-name">🏅 Semis</div>
+        <div class="ronda-pts" id="pts-sf">—</div>
+        <div class="ronda-max">Máx: 38 pts</div>
+      </div>
+      <div class="desglose-card">
+        <div class="ronda-name">🥉 3er Puesto</div>
+        <div class="ronda-pts" id="pts-3p">—</div>
+        <div class="ronda-max">Máx: 14 pts</div>
+      </div>
+      <div class="desglose-card">
+        <div class="ronda-name">🏆 Final</div>
+        <div class="ronda-pts" id="pts-final">—</div>
+        <div class="ronda-max">Máx: 31 pts</div>
+      </div>
+      <div class="desglose-card" style="border-color: rgba(240,180,41,0.3);">
+        <div class="ronda-name">⭐ Balón de Oro</div>
+        <div class="ronda-pts" style="color:var(--gold)" id="pts-award">—</div>
+        <div class="ronda-max">Máx: 30 pts</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-wrap -->
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Quiniela Mundial 2026 — Segunda Fase &nbsp;|&nbsp; Creado por <strong>Mario Vitale</strong></p>
+  <p style="margin-top:6px; font-size:0.72rem;">Ranking actualizado en tiempo real · 28 Jun – 19 Jul 2026</p>
+</footer>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- JAVASCRIPT                                -->
+<!-- ══════════════════════════════════════════ -->
+<script>
+  const API          = '';   // URL backend Railway
+  const POR_PAGINA   = 20;
+
+  let todosLosParticipantes = [];
+  let filtrados             = [];
+  let paginaActual          = 1;
+  let filtroActivo          = 'todos';
+  let emailYo               = localStorage.getItem('quiniela_email') || '';
+
+  // ══════════════════════════════════════════
+  // CARGAR RANKING
+  // ══════════════════════════════════════════
+  async function cargarRanking() {
+    try {
+      if (API) {
+        const res  = await fetch(`${API}/api/ranking`);
+        const data = await res.json();
+        todosLosParticipantes = data.ranking     || [];
+        actualizarStatsGlobales(data.stats       || {});
+        actualizarDesglose(data.desglose_lider   || {});
+      } else {
+        // MODO DEMO — datos de ejemplo
+        todosLosParticipantes = generarDemoData();
+        actualizarStatsGlobales({
+          participantes: todosLosParticipantes.length,
+          jugados: 0,
+          pendientes: 32,
+          lider_pts: 0,
+          promedio: 0
+        });
+        actualizarDesglose({});
+      }
+
+      aplicarFiltro();
+      renderPodio();
+
+    } catch(e) {
+      todosLosParticipantes = generarDemoData();
+      actualizarStatsGlobales({
+        participantes: todosLosParticipantes.length,
+        jugados: 0, pendientes: 32, lider_pts: 0, promedio: 0
+      });
+      actualizarDesglose({});
+      aplicarFiltro();
+      renderPodio();
+    }
+  }
+
+  // ══════════════════════════════════════════
+  // DEMO DATA
+  // ══════════════════════════════════════════
+  function generarDemoData() {
+    const nombres = [
+      'Carlos Rodríguez','María González','José Martínez',
+      'Ana López','Luis Hernández','Carmen García',
+      'Pedro Sánchez','Laura Díaz','Miguel Torres',
+      'Isabel Ramírez','Roberto Flores','Patricia Morales'
+    ];
+    const paises = ['Venezuela','Colombia','México','Argentina','España','Perú'];
+    return nombres.map((n, i) => ({
+      posicion:      i + 1,
+      nombre:        n,
+      pais:          paises[i % paises.length],
+      email:         `demo${i}@ejemplo.com`,
+      puntos_total:  0,
+      aciertos:      0,
+      fallos:        0,
+      pendientes:    32,
+      award_ganado:  null,
+      pts_r32:       0,
+      pts_r16:       0,
+      pts_qf:        0,
+      pts_sf:        0,
+      pts_3p:        0,
+      pts_final:     0,
+      pts_award:     0
+    }));
+  }
+
+  // ══════════════════════════════════════════
+  // STATS GLOBALES
+  // ══════════════════════════════════════════
+  function actualizarStatsGlobales(s) {
+    document.getElementById('g-participantes').textContent = s.participantes  || '—';
+    document.getElementById('g-jugados').textContent       = s.jugados        || '0';
+    document.getElementById('g-pendientes').textContent    = s.pendientes     || '32';
+    document.getElementById('g-lider-pts').textContent     = s.lider_pts      || '0';
+    document.getElementById('g-promedio').textContent      = s.promedio       || '0';
+  }
+
+  // ══════════════════════════════════════════
+  // DESGLOSE LÍDER
+  // ══════════════════════════════════════════
+  function actualizarDesglose(d) {
+    document.getElementById('pts-r32').textContent   = d.r32   ?? '0';
+    document.getElementById('pts-r16').textContent   = d.r16   ?? '0';
+    document.getElementById('pts-qf').textContent    = d.qf    ?? '0';
+    document.getElementById('pts-sf').textContent    = d.sf    ?? '0';
+    document.getElementById('pts-3p').textContent    = d['3p'] ?? '0';
+    document.getElementById('pts-final').textContent = d.final ?? '0';
+    document.getElementById('pts-award').textContent = d.award ?? '0';
+  }
+
+  // ══════════════════════════════════════════
+  // PODIO TOP 3
+  // ══════════════════════════════════════════
+  function renderPodio() {
+    const wrap = document.getElementById('podio-wrap');
+    const top3 = todosLosParticipantes.slice(0, 3);
+    if (top3.length < 1) { wrap.innerHTML = ''; return; }
+
+    const orden = top3.length >= 3
+      ? [top3[1], top3[0], top3[2]]   // 2 · 1 · 3
+      : top3.length === 2
+        ? [top3[1], top3[0]]
+        : [top3[0]];
+
+    const clases  = top3.length >= 3 ? ['p2','p1','p3'] : ['p2','p1'];
+    const alturas = top3.length >= 3 ? [70, 90, 55]     : [70, 90];
+    const medallas = ['🥈','🥇','🥉'];
+
+    wrap.innerHTML = orden.map((p, i) => {
+      const cls = clases[i];
+      const alt = alturas[i];
+      const med = medallas[i];
+      const ini = p.nombre ? p.nombre.charAt(0).toUpperCase() : '?';
+      return `
+        <div class="podio-item ${cls}">
+          <div class="podio-avatar">${ini}</div>
+          <div class="podio-nombre">${p.nombre}</div>
+          <div class="podio-pais">${p.pais || ''}</div>
+          <div class="podio-pts">${p.puntos_total} pts</div>
+          <div class="podio-plataforma" style="height:${alt}px">${med}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // ══════════════════════════════════════════
+  // FILTRAR + BUSCAR
+  // ══════════════════════════════════════════
+  function filtrar() {
+    aplicarFiltro();
+  }
+
+  function setFiltro(f, el) {
+    filtroActivo = f;
+    document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    paginaActual = 1;
+    aplicarFiltro();
+  }
+
+  function aplicarFiltro() {
+    const q = (document.getElementById('search-input')?.value || '').toLowerCase().trim();
+
+    let lista = [...todosLosParticipantes];
+
+    // Filtro por ronda
+    if (filtroActivo === 'top10') {
+      lista = lista.slice(0, 10);
+    } else if (['r32','r16','qf','sf'].includes(filtroActivo)) {
+      lista = lista.sort((a, b) =>
+        (b['pts_' + filtroActivo] || 0) - (a['pts_' + filtroActivo] || 0)
+      );
+    }
+
+    // Búsqueda
+    if (q) {
+      lista = lista.filter(p =>
+        p.nombre?.toLowerCase().includes(q) ||
+        p.pais?.toLowerCase().includes(q)   ||
+        p.email?.toLowerCase().includes(q)
+      );
+    }
+
+    filtrados = lista;
+    paginaActual = 1;
+    renderTabla();
+    renderPaginacion();
+  }
+
+  // ══════════════════════════════════════════
+  // RENDER TABLA
+  // ══════════════════════════════════════════
+  function renderTabla() {
+    const tbody = document.getElementById('tabla-body');
+    if (!filtrados.length) {
+      tbody.innerHTML = `
+        <div class="empty-state">
+          <div class="ei">🔍</div>
+          <p>No se encontraron participantes.</p>
+        </div>`;
+      return;
+    }
+
+    const inicio = (paginaActual - 1) * POR_PAGINA;
+    const fin    = inicio + POR_PAGINA;
+    const pagina = filtrados.slice(inicio, fin);
+
+    tbody.innerHTML = pagina.map((p, idx) => {
+      const posReal = inicio + idx + 1;
+      const esYo    = emailYo && p.email === emailYo;
+      const total   = (p.aciertos || 0) + (p.fallos || 0);
+      const efic    = total > 0 ? Math.round((p.aciertos / total) * 100) : 0;
+
+      const posClass = posReal === 1 ? 'p1'
+                     : posReal === 2 ? 'p2'
+                     : posReal === 3 ? 'p3' : 'pn';
+
+      const rowClass = posReal === 1 ? 'top1'
+                     : posReal === 2 ? 'top2'
+                     : posReal === 3 ? 'top3'
+                     : esYo ? 'yo' : '';
+
+      const awardHtml = p.award_ganado === true  ? `<span class="check">✅</span>`
+                      : p.award_ganado === false ? `<span class="cross">❌</span>`
+                      : `<span class="wait">⏳</span>`;
+
+      const ini = p.nombre ? p.nombre.charAt(0).toUpperCase() : '?';
+
+      return `
+        <div class="tabla-row ${rowClass}">
+          <div>
+            <div class="pos-badge ${posClass}">${posReal}</div>
+          </div>
+          <div class="part-info">
+            <div class="part-nombre">
+              ${ini} ${p.nombre}
+              ${esYo ? '<span class="yo-badge">Tú</span>' : ''}
+            </div>
+            <div class="part-meta">${p.pais || ''}</div>
+          </div>
+          <div class="cell pts-total">${p.puntos_total || 0}</div>
+          <div class="cell aciertos">${p.aciertos || 0}</div>
+          <div class="cell fallos">${p.fallos || 0}</div>
+          <div class="cell">
+            <div class="mini-bar-wrap">
+              <div class="mini-bar">
+                <div class="mini-bar-fill" style="width:${efic}%"></div>
+              </div>
+              <span class="mini-pct">${efic}%</span>
+            </div>
+          </div>
+          <div class="award-cell">${awardHtml}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // ══════════════════════════════════════════
+  // PAGINACIÓN
+  // ══════════════════════════════════════════
+  function renderPaginacion() {
+    const pag  = document.getElementById('paginacion');
+    const total = Math.ceil(filtrados.length / POR_PAGINA);
+    if (total <= 1) { pag.innerHTML = ''; return; }
+
+    let html = `
+      <button class="pag-btn" onclick="irPagina(${paginaActual - 1})"
+        ${paginaActual === 1 ? 'disabled' : ''}>← Anterior</button>
+    `;
+
+    for (let i = 1; i <= total; i++) {
+      if (
+        i === 1 || i === total ||
+        (i >= paginaActual - 1 && i <= paginaActual + 1)
+      ) {
+        html += `<button class="pag-btn ${i === paginaActual ? 'active' : ''}"
+          onclick="irPagina(${i})">${i}</button>`;
+      } else if (i === paginaActual - 2 || i === paginaActual + 2) {
+        html += `<span style="color:var(--muted);padding:0 4px">…</span>`;
+      }
+    }
+
+    html += `
+      <button class="pag-btn" onclick="irPagina(${paginaActual + 1})"
+        ${paginaActual === total ? 'disabled' : ''}>Siguiente →</button>
+    `;
+
+    pag.innerHTML = html;
+  }
+
+  function irPagina(n) {
+    const total = Math.ceil(filtrados.length / POR_PAGINA);
+    if (n < 1 || n > total) return;
+    paginaActual = n;
+    renderTabla();
+    renderPaginacion();
+    window.scrollTo({ top: 300, behavior: 'smooth' });
+  }
+
+  // ══════════════════════════════════════════
+  // DESCARGAR PDF
+  // ══════════════════════════════════════════
+  async function descargarPDF() {
+    try {
+      if (API) {
+        window.open(`${API}/api/pdf/ranking`, '_blank');
+      } else {
+        showToast('📄 PDF disponible cuando el backend esté activo.', 'success');
+      }
+    } catch(e) {
+      showToast('❌ No se pudo generar el PDF.', 'error');
+    }
+  }
+
+  // ══════════════════════════════════════════
+  // TOAST
+  // ══════════════════════════════════════════
+  let toastTimer = null;
+  function showToast(msg, tipo = 'success') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className   = `toast ${tipo} show`;
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  // ══════════════════════════════════════════
+  // AUTO-REFRESH cada 60 segundos
+  // ══════════════════════════════════════════
+  cargarRanking();
+  setInterval(cargarRanking, 60000);
+</script>
+</body>
+</html>

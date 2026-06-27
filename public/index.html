@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiniela Mundial 2026 — Segunda Fase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:      #0a0e1a;
+      --card:    #111827;
+      --border:  #1e2d40;
+      --gold:    #f0b429;
+      --gold2:   #e07b00;
+      --text:    #f0f4f8;
+      --muted:   #6b7a99;
+      --accent:  #e53e3e;
+      --green:   #38a169;
+      --blue:    #3182ce;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,14,26,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 0 24px; height: 60px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--text);
+    }
+    .nav-logo img { height: 32px; }
+    .nav-logo span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem; letter-spacing: 2px;
+      color: var(--gold);
+    }
+    .nav-links { display: flex; gap: 6px; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted);
+      font-size: 0.82rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 8px;
+      transition: all .2s;
+    }
+    .nav-links a:hover { color: var(--text); background: var(--border); }
+    .nav-links a.cta {
+      background: var(--gold); color: #000;
+      font-weight: 700;
+    }
+    .nav-links a.cta:hover { background: var(--gold2); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; overflow: hidden;
+      min-height: 88vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 60px 24px;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(240,180,41,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(49,130,206,0.08) 0%, transparent 60%),
+        var(--bg);
+    }
+    .hero-ball {
+      font-size: 5rem;
+      animation: float 3s ease-in-out infinite;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 30px rgba(240,180,41,0.4));
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-16px); }
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(240,180,41,0.12);
+      border: 1px solid rgba(240,180,41,0.3);
+      border-radius: 50px; padding: 6px 18px;
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--gold); letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 10vw, 7rem);
+      line-height: 1; letter-spacing: 3px;
+      background: linear-gradient(135deg, #fff 30%, var(--gold) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      color: var(--muted); margin-bottom: 32px;
+      font-weight: 300;
+    }
+    .hero-sub strong { color: var(--gold); font-weight: 700; }
+    .hero-btns {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      justify-content: center; margin-bottom: 48px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 12px;
+      font-weight: 700; font-size: 0.9rem;
+      text-decoration: none; cursor: pointer;
+      border: none; transition: all .2s;
+      letter-spacing: 0.5px;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #000;
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(240,180,41,0.35); }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--text);
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── COUNTDOWN ── */
+    .countdown-wrap {
+      display: flex; gap: 16px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 16px;
+    }
+    .cd-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px 20px;
+      text-align: center; min-width: 80px;
+    }
+    .cd-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem; color: var(--gold);
+      line-height: 1;
+    }
+    .cd-label {
+      font-size: 0.65rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 1.5px;
+      margin-top: 4px;
+    }
+    .cd-title {
+      font-size: 0.78rem; color: var(--muted);
+      text-align: center; margin-bottom: 12px;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: flex; gap: 0; flex-wrap: wrap;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      max-width: 900px; margin: 0 auto 60px;
+    }
+    .stat-item {
+      flex: 1; min-width: 140px;
+      padding: 20px 16px; text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem; color: var(--gold);
+    }
+    .stat-label {
+      font-size: 0.72rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 60px 24px; max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem; letter-spacing: 2px;
+      text-align: center; margin-bottom: 8px;
+    }
+    .section-sub {
+      text-align: center; color: var(--muted);
+      font-size: 0.88rem; margin-bottom: 40px;
+    }
+
+    /* ── PUNTOS TABLE ── */
+    .puntos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .ronda-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 20px;
+      transition: border-color .2s;
+    }
+    .ronda-card:hover { border-color: var(--gold); }
+    .ronda-header {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .ronda-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem; letter-spacing: 1px;
+    }
+    .ronda-badge {
+      background: rgba(240,180,41,0.15);
+      color: var(--gold); border-radius: 8px;
+      padding: 4px 10px; font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .pts-row {
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.84rem;
+    }
+    .pts-row:last-child { border-bottom: none; }
+    .pts-row .label { color: var(--muted); }
+    .pts-row .val { font-weight: 700; color: var(--text); }
+    .pts-row .val.gold { color: var(--gold); }
+    .pts-max {
+      margin-top: 12px; text-align: right;
+      font-size: 0.78rem; color: var(--muted);
+    }
+    .pts-max strong { color: var(--gold); }
+
+    /* ── CÓMO FUNCIONA ── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px;
+      text-align: center;
+    }
+    .step-icon { font-size: 2.4rem; margin-bottom: 12px; }
+    .step-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.75rem; letter-spacing: 2px;
+      color: var(--gold); margin-bottom: 8px;
+    }
+    .step-title { font-weight: 700; margin-bottom: 8px; }
+    .step-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── AWARD HIGHLIGHT ── */
+    .award-section {
+      background: linear-gradient(135deg,
+        rgba(240,180,41,0.08), rgba(224,123,0,0.05));
+      border: 1px solid rgba(240,180,41,0.25);
+      border-radius: 20px; padding: 40px;
+      display: flex; gap: 24px; align-items: center;
+      flex-wrap: wrap;
+    }
+    .award-icon { font-size: 4rem; flex-shrink: 0; }
+    .award-body { flex: 1; min-width: 200px; }
+    .award-body h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem; letter-spacing: 2px;
+      color: var(--gold); margin-bottom: 8px;
+    }
+    .award-body p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
+    .award-pts {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem; color: var(--gold);
+      text-align: center; flex-shrink: 0;
+    }
+    .award-pts span {
+      display: block; font-family: 'Inter', sans-serif;
+      font-size: 0.7rem; color: var(--muted);
+      font-weight: 400; letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── CTA FINAL ── */
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(135deg,
+        rgba(240,180,41,0.1), rgba(49,130,206,0.06));
+      border: 1px solid var(--border);
+      border-radius: 24px; padding: 60px 40px;
+    }
+    .cta-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem; letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .cta-section p { color: var(--muted); margin-bottom: 28px; }
+    .deadline-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(229,62,62,0.12);
+      border: 1px solid rgba(229,62,62,0.3);
+      border-radius: 50px; padding: 6px 18px;
+      font-size: 0.78rem; color: var(--accent);
+      font-weight: 600; margin-bottom: 24px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px; text-align: center;
+      color: var(--muted); font-size: 0.78rem;
+    }
+    footer strong { color: var(--gold); }
+
+    @media(max-width:600px) {
+      .stats-bar { flex-direction: column; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .award-section { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/trionda.png" alt="Logo" onerror="this.style.display='none'"/>
+    <span>MUNDIAL 2026</span>
+  </a>
+  <div class="nav-links">
+    <a href="bracket.html">🏆 Bracket</a>
+    <a href="ranking.html">📊 Ranking</a>
+    <a href="quiniela.html">📋 Mi Quiniela</a>
+    <a href="registro.html" class="cta">⚽ Participar</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-ball">⚽</div>
+  <div class="hero-badge">🏆 Segunda Fase · 32 Equipos</div>
+  <h1>QUINIELA<br/>MUNDIAL 2026</h1>
+  <p class="hero-sub">
+    Predice los <strong>32 partidos</strong> de la fase eliminatoria.<br/>
+    Desde Dieciseisavos hasta la Gran Final en Nueva York.
+  </p>
+  <div class="hero-btns">
+    <a href="registro.html" class="btn btn-gold">⚽ Participar Ahora</a>
+    <a href="bracket.html" class="btn btn-outline">🏆 Ver Bracket</a>
+  </div>
+
+  <p class="cd-title">⏰ Inicio de la Fase Eliminatoria</p>
+  <div class="countdown-wrap">
+    <div class="cd-box"><div class="cd-num" id="cd-d">07</div><div class="cd-label">Días</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-h">00</div><div class="cd-label">Horas</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-m">00</div><div class="cd-label">Min</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-s">00</div><div class="cd-label">Seg</div></div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div style="padding: 0 24px;">
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">32</div>
+      <div class="stat-label">Equipos</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">32</div>
+      <div class="stat-label">Partidos</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">7</div>
+      <div class="stat-label">Rondas</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">383</div>
+      <div class="stat-label">Pts Máximo</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">19 Jul</div>
+      <div class="stat-label">Gran Final</div>
+    </div>
+  </div>
+</div>
+
+<!-- SISTEMA DE PUNTOS -->
+<section>
+  <div class="section-title">⭐ SISTEMA DE PUNTOS</div>
+  <div class="section-sub">Más difícil la ronda, más puntos en juego</div>
+
+  <div class="puntos-grid">
+
+    <div class="ronda-card">
+      <div class="ronda-header">
+        <div class="ronda-name">⚽ Dieciseisavos</div>
+        <div class="ronda-badge">R32 · 16 partidos</div>
+      </div>
+      <div class="pts-row"><span class="label">Ganador</span><span class="val">2 pts</span></div>
+      <div class="pts-row"><span class="label">Marcador exacto</span><span class="val">+3 pts</span></div>
+      <div class="pts-row"><span class="label">Penales</span><span class="val">+1 pt</span></div>
+      <div class="pts-max">Máx por partido: <strong>6 pts</strong> · Total ronda: <strong>96 pts</strong></div>
+    </div>
+
+    <div class="ronda-card">
+      <div class="ronda-header">
+        <div class="ronda-name">🔥 Octavos</div>
+        <div class="ronda-badge">R16 · 8 partidos</div>
+      </div>
+      <div class="pts-row"><span class="label">Ganador</span><span class="val">3 pts</span></div>
+      <div class="pts-row"><span class="label">Marcador exacto</span><span class="val">+3 pts</span></div>
+      <div class="pts-row"><span class="label">Penales</span><span class="val">+1 pt</span></div>
+      <div class="pts-max">Máx por partido: <strong>7 pts</strong> · Total ronda: <strong>56 pts</strong></div>
+    </div>
+
+    <div class="ronda-card">
+      <div class="ronda-header">
+        <div class="ronda-name">⚡ Cuartos de Final</div>
+        <div class="ronda-badge">QF · 4 partidos</div>
+      </div>
+      <div class="pts-row"><span class="label">Ganador</span><span class="val">5 pts</span></div>
+      <div class="pts-row"><span class="label">Marcador exacto</span><span class="val">+3 pts</span></div>
+      <div class="pts-row"><span class="label">Penales</span><span class="val">+1 pt</span></div>
+      <div class="pts-max">Máx por partido: <strong>9 pts</strong> · Total ronda: <strong>36 pts</strong></div>
+    </div>
+
+    <div class="ronda-card">
+      <div class="ronda-header">
+        <div class="ronda-name">🏅 Semifinales</div>
+        <div class="ronda-badge">SF · 2 partidos</div>
+      </div>
+      <div class="pts-row"><span class="label">Ganador</span><span class="val">8 pts</span></div>
+      <div class="pts-row"><span class="label">Marcador exacto</span><span class="val">+4 pts</span></div>
+      <div class="pts-row"><span class="label">Penales</span><span class="val">+2 pts</span></div>
+      <div class="pts-max">Máx por partido: <strong>14 pts</strong> · Total ronda: <strong>28 pts</strong></div>
+    </div>
+
+    <div class="ronda-card">
+      <div class="ronda-header">
+        <div class="ronda-name">🥉 Tercer Puesto</div>
+        <div class="ronda-badge">3P · 1 partido</div>
+      </div>
+      <div class="pts-row"><span class="label">Ganador</span><span class="val">5 pts</span></div>
+      <div class="pts-row"><span class="label">Marcador exacto</span><span class="val">+3 pts</span></div>
+      <div class="pts-row"><span class="label">Penales</span><span class="val">+1 pt</span></div>
+      <div class="pts-max">Máx partido: <strong>9 pts</strong></div>
+    </div>
+
+    <div class="ronda-card" style="border-color: rgba(240,180,41,0.4);">
+      <div class="ronda-header">
+        <div class="ronda-name" style="color:var(--gold)">🏆 GRAN FINAL</div>
+        <div class="ronda-badge">F · 1 partido</div>
+      </div>
+      <div class="pts-row"><span class="label">Ganador</span><span class="val gold">15 pts</span></div>
+      <div class="pts-row"><span class="label">Marcador exacto</span><span class="val gold">+6 pts</span></div>
+      <div class="pts-row"><span class="label">Penales</span><span class="val gold">+3 pts</span></div>
+      <div class="pts-max">Máx partido: <strong>24 pts</strong></div>
+    </div>
+
+  </div>
+
+  <!-- AWARD -->
+  <div style="margin-top: 24px;">
+    <div class="award-section">
+      <div class="award-icon">⭐</div>
+      <div class="award-body">
+        <h3>BALÓN DE ORO — MVP DEL MUNDIAL</h3>
+        <p>
+          Predice al jugador que la FIFA elegirá como el mejor del Mundial 2026.<br/>
+          Se realiza <strong style="color:var(--text)">una sola vez al registrarte</strong> y no se puede modificar.<br/>
+          Premio fijo: aciertas o no aciertas. Sin puntuación parcial.
+        </p>
+      </div>
+      <div class="award-pts">30<span>puntos</span></div>
+    </div>
+  </div>
+
+  <!-- TOTAL -->
+  <div style="
+    margin-top: 20px; text-align: center;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 24px;
+  ">
+    <div style="color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">
+      Puntuación Máxima Total
+    </div>
+    <div style="font-family:'Bebas Neue',sans-serif; font-size: 3rem; color: var(--gold);">
+      383 PUNTOS
+    </div>
+    <div style="color: var(--muted); font-size: 0.8rem; margin-top: 4px;">
+      353 pts partidos + 30 pts Balón de Oro
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section>
+  <div class="section-title">📋 CÓMO FUNCIONA</div>
+  <div class="section-sub">Tres pasos simples para participar</div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-icon">📝</div>
+      <div class="step-num">PASO 01</div>
+      <div class="step-title">Regístrate</div>
+      <div class="step-desc">Completa el formulario con tus datos, elige tu Balón de Oro y confirma el pago antes del 27 de junio.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-icon">🔮</div>
+      <div class="step-num">PASO 02</div>
+      <div class="step-title">Predice</div>
+      <div class="step-desc">Ingresa tus predicciones para los 32 partidos: ganador, marcador exacto y si habrá penales.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-icon">📊</div>
+      <div class="step-num">PASO 03</div>
+      <div class="step-title">Compite</div>
+      <div class="step-desc">Sigue el ranking en tiempo real. Cada acierto suma puntos. El mejor al final del torneo gana.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-icon">🏆</div>
+      <div class="step-num">PASO 04</div>
+      <div class="step-title">Gana</div>
+      <div class="step-desc">El 19 de julio, tras la Final, se determina el campeón de la quiniela y se entregan los premios.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section>
+  <div class="cta-section">
+    <h2>¿LISTO PARA COMPETIR?</h2>
+    <p>Regístrate antes del cierre y asegura tu lugar en la quiniela más grande del Mundial 2026.</p>
+    <div class="deadline-pill">⏰ Fecha límite: 27 de junio · 23:59 hrs</div>
+    <br/>
+    <a href="registro.html" class="btn btn-gold" style="font-size:1rem; padding: 16px 36px;">
+      ⚽ REGISTRARME AHORA
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>Quiniela Mundial 2026 — Segunda Fase &nbsp;|&nbsp; Creado por <strong>Mario Vitale</strong></p>
+  <p style="margin-top:6px; font-size:0.72rem;">28 Jun – 19 Jul 2026 · USA · Canadá · México</p>
+</footer>
+
+<script>
+  // COUNTDOWN → 28 junio 2026 12:00 ET
+  const target = new Date('2026-06-28T12:00:00-04:00');
+  function tick() {
+    const now  = new Date();
+    const diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('cd-d').textContent = '00';
+      document.getElementById('cd-h').textContent = '00';
+      document.getElementById('cd-m').textContent = '00';
+      document.getElementById('cd-s').textContent = '00';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000)  / 60000);
+    const s = Math.floor((diff % 60000)    / 1000);
+    document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
+    document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+</script>
+</body>
+</html>
