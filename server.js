@@ -3,6 +3,7 @@
 // Quiniela Mundial 2026 — Segunda Fase
 // Creado por Mario Vitale
 // Modo: LOCAL (sin Supabase) + PRODUCCIÓN (con Supabase)
+// Ajustado para Vercel
 // ══════════════════════════════════════════════════════════════
 
 require('dotenv').config();
@@ -36,10 +37,10 @@ const DB = {
 const BRACKET_DATOS = [
   // ── R32 ──
   { id:'M73',  ronda:'R32', sede:'Los Ángeles',          local_nombre:'2° Grupo A',    visitante_nombre:'2° Grupo B',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M74',  ronda:'R32', sede:'Boston',                local_nombre:'1° Grupo E',    visitante_nombre:'Mejor 3° (A/B/C/D/F)',  local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M74',  ronda:'R32', sede:'Boston',                local_nombre:'1° Grupo E',    visitante_nombre:'Mejor 3° (A/B/C/D/F)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
   { id:'M75',  ronda:'R32', sede:'Monterrey',             local_nombre:'1° Grupo F',    visitante_nombre:'2° Grupo C',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
   { id:'M76',  ronda:'R32', sede:'Houston',               local_nombre:'1° Grupo C',    visitante_nombre:'2° Grupo F',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
-  { id:'M77',  ronda:'R32', sede:'New York/NJ',           local_nombre:'1° Grupo I',    visitante_nombre:'Mejor 3° (C/D/F/G/H)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
+  { id:'M77',  ronda:'R32', sede:'New York/NJ',           local_nombre:'1° Grupo I',    visitante_nombre:'Mejor 3° (C/D/F/G/H)',  local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
   { id:'M78',  ronda:'R32', sede:'Dallas',                local_nombre:'2° Grupo E',    visitante_nombre:'2° Grupo I',            local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
   { id:'M79',  ronda:'R32', sede:'Ciudad de México',      local_nombre:'1° Grupo A',    visitante_nombre:'Mejor 3° (C/E/F/H/I)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
   { id:'M80',  ronda:'R32', sede:'Atlanta',               local_nombre:'1° Grupo L',    visitante_nombre:'Mejor 3° (E/H/I/J/K)', local_code:'TBD', visitante_code:'TBD', local_bandera:'🏳', visitante_bandera:'🏳', estado:'PENDIENTE' },
@@ -85,14 +86,13 @@ if (!MODO_LOCAL) {
   const { createClient } = require('@supabase/supabase-js');
   supabase = createClient(
     process.env.SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_KEY
+    process.env.SUPABASE_SERVICE_KEY  // ✅ CORREGIDO
   );
   console.log('☁️  Supabase conectado');
 }
 
 // ══════════════════════════════════════════════════════════════
 // ADAPTADOR DE BASE DE DATOS
-// Misma interfaz para LOCAL y SUPABASE
 // ══════════════════════════════════════════════════════════════
 const db = {
 
@@ -185,9 +185,9 @@ const db = {
 
   async deleteParticipante(id) {
     if (MODO_LOCAL) {
-      DB.participantes  = DB.participantes.filter(p => p.id !== id);
-      DB.predicciones   = DB.predicciones.filter(p => p.participante_id !== id);
-      DB.pred_awards    = DB.pred_awards.filter(p => p.participante_id !== id);
+      DB.participantes = DB.participantes.filter(p => p.id !== id);
+      DB.predicciones  = DB.predicciones.filter(p => p.participante_id !== id);
+      DB.pred_awards   = DB.pred_awards.filter(p => p.participante_id !== id);
       return;
     }
     await supabase.from('predicciones_elim').delete().eq('participante_id', id);
@@ -340,11 +340,8 @@ app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Servir archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Rate limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 500,
@@ -352,7 +349,6 @@ const limiter = rateLimit({
 });
 app.use('/api/', limiter);
 
-// ── CREDENCIALES ADMIN ──
 const ADMIN_USER = process.env.ADMIN_USER || 'admin';
 const ADMIN_PASS = process.env.ADMIN_PASS || 'mundial2026';
 
@@ -361,19 +357,18 @@ const ADMIN_PASS = process.env.ADMIN_PASS || 'mundial2026';
 // ══════════════════════════════════════════════════════════════
 app.get('/api/health', (req, res) => {
   res.json({
-    ok:      true,
-    sistema: 'Quiniela Mundial 2026 — Segunda Fase',
-    autor:   'Mario Vitale',
-    modo:    MODO_LOCAL ? 'local' : 'produccion',
+    ok:        true,
+    sistema:   'Quiniela Mundial 2026 — Segunda Fase',
+    autor:     'Mario Vitale',
+    modo:      MODO_LOCAL ? 'local' : 'produccion',
     timestamp: new Date().toISOString()
   });
 });
 
 // ══════════════════════════════════════════════════════════════
-// ── RUTAS PÚBLICAS ──
+// RUTAS PÚBLICAS
 // ══════════════════════════════════════════════════════════════
 
-// ── GET /api/partidos ──────────────────────────────────────────
 app.get('/api/partidos', async (req, res) => {
   try {
     const { ronda } = req.query;
@@ -384,7 +379,6 @@ app.get('/api/partidos', async (req, res) => {
   }
 });
 
-// ── GET /api/ranking ───────────────────────────────────────────
 app.get('/api/ranking', async (req, res) => {
   try {
     const ranking  = await db.getRanking();
@@ -410,10 +404,7 @@ app.get('/api/ranking', async (req, res) => {
 
     res.json({
       ranking,
-      stats: {
-        participantes: ranking.length,
-        jugados, pendientes, lider_pts: liderPts, promedio
-      },
+      stats: { participantes: ranking.length, jugados, pendientes, lider_pts: liderPts, promedio },
       desglose_lider: desglose
     });
   } catch(e) {
@@ -421,21 +412,19 @@ app.get('/api/ranking', async (req, res) => {
   }
 });
 
-// ── GET /api/participante?email= ───────────────────────────────
 app.get('/api/participante', async (req, res) => {
   const { email } = req.query;
   if (!email) return res.status(400).json({ ok: false, error: 'Email requerido.' });
 
   try {
     const part = await db.getParticipante(email.toLowerCase().trim());
-    if (!part)           return res.status(404).json({ ok: false, error: 'Participante no encontrado.' });
+    if (!part)            return res.status(404).json({ ok: false, error: 'Participante no encontrado.' });
     if (!part.confirmado) return res.status(403).json({ ok: false, error: 'Tu pago aún no ha sido confirmado.' });
 
     const preds    = await db.getPrediccionesByParticipante(part.id);
     const partidos = await db.getPartidos();
     const award    = await db.getPredAward(part.id);
 
-    // Mapa predicciones { M73: {...} }
     const predsMap = {};
     preds.forEach(p => {
       predsMap[p.partido_id] = {
@@ -447,15 +436,11 @@ app.get('/api/participante', async (req, res) => {
       };
     });
 
-    // Mapa partidos { M73: {...} }
     const partidosMap = {};
     partidos.forEach(p => { partidosMap[p.id] = p; });
 
     res.json({
-      participante: {
-        ...part,
-        balon_oro: award?.prediccion || part.balon_oro || ''
-      },
+      participante: { ...part, balon_oro: award?.prediccion || part.balon_oro || '' },
       predicciones: predsMap,
       partidos:     partidosMap
     });
@@ -464,7 +449,6 @@ app.get('/api/participante', async (req, res) => {
   }
 });
 
-// ── POST /api/registro ─────────────────────────────────────────
 app.post('/api/registro', async (req, res) => {
   const { nombre, email, pais, telefono, metodo_pago, balon_oro, balon_oro_pais } = req.body;
 
@@ -504,17 +488,11 @@ app.post('/api/registro', async (req, res) => {
   }
 });
 
-// ── POST /api/prediccion ───────────────────────────────────────
 app.post('/api/prediccion', async (req, res) => {
-  const {
-    partido_id, ganador_pred,
-    goles_local_pred, goles_vis_pred,
-    penales_pred, email
-  } = req.body;
+  const { partido_id, ganador_pred, goles_local_pred, goles_vis_pred, penales_pred, email } = req.body;
 
-  if (!partido_id || !ganador_pred || !email) {
+  if (!partido_id || !ganador_pred || !email)
     return res.status(400).json({ ok: false, error: 'Datos incompletos.' });
-  }
 
   try {
     const part = await db.getParticipante(email.toLowerCase().trim());
@@ -522,20 +500,19 @@ app.post('/api/prediccion', async (req, res) => {
     if (!part.confirmado) return res.status(403).json({ ok: false, error: 'Pago no confirmado.' });
 
     const partido = await db.getPartido(partido_id);
-    if (partido?.estado === 'FINALIZADO') {
+    if (partido?.estado === 'FINALIZADO')
       return res.status(403).json({ ok: false, error: 'El partido ya finalizó.' });
-    }
 
     await db.upsertPrediccion({
-      participante_id:     part.id,
+      participante_id:      part.id,
       partido_id,
       ganador_pred,
-      goles_local_pred:    goles_local_pred    ?? null,
-      goles_visitante_pred: goles_vis_pred     ?? null,
-      penales_pred:        penales_pred        || false,
-      puntos:              0,
-      calculado:           false,
-      fecha_pred:          new Date().toISOString()
+      goles_local_pred:     goles_local_pred    ?? null,
+      goles_visitante_pred: goles_vis_pred      ?? null,
+      penales_pred:         penales_pred        || false,
+      puntos:               0,
+      calculado:            false,
+      fecha_pred:           new Date().toISOString()
     });
 
     res.json({ ok: true });
@@ -545,7 +522,7 @@ app.post('/api/prediccion', async (req, res) => {
 });
 
 // ══════════════════════════════════════════════════════════════
-// ── MIDDLEWARE ADMIN ──
+// MIDDLEWARE ADMIN
 // ══════════════════════════════════════════════════════════════
 function authAdmin(req, res, next) {
   const u = req.headers['usuario'] || req.body?.usuario;
@@ -554,7 +531,6 @@ function authAdmin(req, res, next) {
   res.status(401).json({ ok: false, error: 'No autorizado.' });
 }
 
-// ── POST /api/admin/login ──────────────────────────────────────
 app.post('/api/admin/login', (req, res) => {
   const { usuario, password } = req.body;
   if (usuario === ADMIN_USER && password === ADMIN_PASS) {
@@ -564,26 +540,20 @@ app.post('/api/admin/login', (req, res) => {
   }
 });
 
-// ── GET /api/admin/dashboard ───────────────────────────────────
 app.get('/api/admin/dashboard', authAdmin, async (req, res) => {
   try {
     const parts    = await db.getParticipantes();
     const partidos = await db.getPartidos();
-    const preds    = MODO_LOCAL ? DB.predicciones : [];
-
     const total         = parts.length;
     const confirmados   = parts.filter(p => p.confirmado).length;
     const pendPago      = parts.filter(p => !p.confirmado && !p.rechazado).length;
     const jugados       = partidos.filter(p => p.estado === 'FINALIZADO').length;
-    const predicciones  = MODO_LOCAL ? preds.length : 0;
-
-    res.json({ total, confirmados, pendientes_pago: pendPago, jugados, predicciones });
+    res.json({ total, confirmados, pendientes_pago: pendPago, jugados, predicciones: 0 });
   } catch(e) {
     res.status(500).json({ ok: false, error: e.message });
   }
 });
 
-// ── GET /api/admin/participantes ───────────────────────────────
 app.get('/api/admin/participantes', authAdmin, async (req, res) => {
   try {
     const participantes = await db.getParticipantes();
@@ -593,7 +563,6 @@ app.get('/api/admin/participantes', authAdmin, async (req, res) => {
   }
 });
 
-// ── PUT /api/admin/participante/:id ───────────────────────────
 app.put('/api/admin/participante/:id', authAdmin, async (req, res) => {
   const { id } = req.params;
   const { confirmado, rechazado, notas } = req.body;
@@ -612,7 +581,6 @@ app.put('/api/admin/participante/:id', authAdmin, async (req, res) => {
   }
 });
 
-// ── DELETE /api/admin/participante/:id ────────────────────────
 app.delete('/api/admin/participante/:id', authAdmin, async (req, res) => {
   try {
     await db.deleteParticipante(req.params.id);
@@ -622,7 +590,6 @@ app.delete('/api/admin/participante/:id', authAdmin, async (req, res) => {
   }
 });
 
-// ── PUT /api/admin/partido/:id ────────────────────────────────
 app.put('/api/admin/partido/:id', authAdmin, async (req, res) => {
   const { id } = req.params;
   const { estado, goles_local, goles_visitante, fue_a_penales, ganador_code } = req.body;
@@ -638,7 +605,6 @@ app.put('/api/admin/partido/:id', authAdmin, async (req, res) => {
   }
 });
 
-// ── POST /api/admin/poblar-bracket ───────────────────────────
 app.post('/api/admin/poblar-bracket', authAdmin, async (req, res) => {
   try {
     if (MODO_LOCAL) {
@@ -654,10 +620,9 @@ app.post('/api/admin/poblar-bracket', authAdmin, async (req, res) => {
   }
 });
 
-// ── POST /api/admin/recalcular ───────────────────────────────
 app.post('/api/admin/recalcular', authAdmin, async (req, res) => {
   try {
-    const partidos = await db.getPartidos();
+    const partidos    = await db.getPartidos();
     const finalizados = partidos.filter(p => p.estado === 'FINALIZADO');
     let procesados = 0;
     for (const p of finalizados) {
@@ -670,7 +635,6 @@ app.post('/api/admin/recalcular', authAdmin, async (req, res) => {
   }
 });
 
-// ── POST /api/admin/recalcular/:id ───────────────────────────
 app.post('/api/admin/recalcular/:id', authAdmin, async (req, res) => {
   try {
     const procesados = await calcularPuntosPartido(req.params.id);
@@ -681,7 +645,6 @@ app.post('/api/admin/recalcular/:id', authAdmin, async (req, res) => {
   }
 });
 
-// ── POST /api/admin/balon-oro ────────────────────────────────
 app.post('/api/admin/balon-oro', authAdmin, async (req, res) => {
   const { ganador } = req.body;
   if (!ganador) return res.status(400).json({ ok: false, error: 'Nombre requerido.' });
@@ -692,10 +655,7 @@ app.post('/api/admin/balon-oro', authAdmin, async (req, res) => {
       const acerto = pred.prediccion?.toLowerCase().trim() === ganador.toLowerCase().trim();
       const pts    = acerto ? PTS_BALON_ORO : 0;
       await db.updatePredAward(pred.id, { acerto, puntos: pts });
-      await db.updateParticipante(pred.participante_id, {
-        pts_award:    pts,
-        award_ganado: acerto
-      });
+      await db.updateParticipante(pred.participante_id, { pts_award: pts, award_ganado: acerto });
     }
     await recalcularRanking();
     res.json({ ok: true, ganador });
@@ -704,7 +664,6 @@ app.post('/api/admin/balon-oro', authAdmin, async (req, res) => {
   }
 });
 
-// ── POST /api/admin/ranking/actualizar ───────────────────────
 app.post('/api/admin/ranking/actualizar', authAdmin, async (req, res) => {
   try {
     await recalcularRanking();
@@ -714,13 +673,10 @@ app.post('/api/admin/ranking/actualizar', authAdmin, async (req, res) => {
   }
 });
 
-// ── POST /api/admin/emails/masivo ────────────────────────────
 app.post('/api/admin/emails/masivo', authAdmin, async (req, res) => {
-  // Placeholder — requiere nodemailer configurado
   res.json({ ok: true, enviados: 0, errores: 0, mensaje: 'Email configurar en producción.' });
 });
 
-// ── GET /api/pdf/:tipo ────────────────────────────────────────
 app.get('/api/pdf/:tipo', async (req, res) => {
   res.json({ ok: false, mensaje: 'PDF disponible en producción con pdfkit.' });
 });
@@ -738,29 +694,21 @@ async function calcularPuntosPartido(partidoId) {
 
   for (const pred of preds) {
     let pts = 0;
-
-    // R1: Ganador correcto
     if (pred.ganador_pred === partido.ganador_code) {
       pts += ptsRonda.ganador;
-
-      // R2: Marcador exacto
       if (
-        pred.goles_local_pred      === partido.goles_local &&
-        pred.goles_visitante_pred  === partido.goles_visitante
+        pred.goles_local_pred     === partido.goles_local &&
+        pred.goles_visitante_pred === partido.goles_visitante
       ) {
         pts += ptsRonda.marcador;
       }
-
-      // R3: Penales
       if (partido.fue_a_penales && pred.penales_pred) {
         pts += ptsRonda.penales;
       }
     }
-
     await db.updatePrediccion(pred.id, { puntos: pts, calculado: true });
     procesados++;
   }
-
   return procesados;
 }
 
@@ -768,7 +716,7 @@ async function calcularPuntosPartido(partidoId) {
 // RECALCULAR RANKING
 // ══════════════════════════════════════════════════════════════
 async function recalcularRanking() {
-  const parts = await db.getParticipantes();
+  const parts       = await db.getParticipantes();
   const confirmados = parts.filter(p => p.confirmado);
 
   for (const part of confirmados) {
@@ -805,7 +753,6 @@ async function recalcularRanking() {
     });
   }
 
-  // Actualizar posiciones
   const ranking = (await db.getParticipantes())
     .filter(p => p.confirmado)
     .sort((a, b) => (b.puntos_total || 0) - (a.puntos_total || 0));
@@ -828,22 +775,18 @@ app.use((err, req, res, next) => {
 });
 
 // ══════════════════════════════════════════════════════════════
-// ARRANQUE
+// ARRANQUE — Compatible Vercel + Node tradicional
 // ══════════════════════════════════════════════════════════════
-app.listen(PORT, () => {
-  console.log('\n══════════════════════════════════════════════');
-  console.log('  ⚽ QUINIELA MUNDIAL 2026 — SEGUNDA FASE');
-  console.log('  Creado por Mario Vitale');
-  console.log(`  🚀 Puerto: ${PORT}`);
-  console.log(`  🔧 Modo:   ${MODO_LOCAL ? 'LOCAL (memoria)' : 'PRODUCCIÓN (Supabase)'}`);
-  console.log('══════════════════════════════════════════════\n');
-  console.log('  📡 Rutas disponibles:');
-  console.log(`  → http://localhost:${PORT}`);
-  console.log(`  → http://localhost:${PORT}/api/health`);
-  console.log(`  → http://localhost:${PORT}/api/partidos`);
-  console.log(`  → http://localhost:${PORT}/api/ranking`);
-  console.log(`  → http://localhost:${PORT}/admin.html`);
-  console.log('══════════════════════════════════════════════\n');
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log('\n══════════════════════════════════════════════');
+    console.log('  ⚽ QUINIELA MUNDIAL 2026 — SEGUNDA FASE');
+    console.log('  Creado por Mario Vitale');
+    console.log(`  🚀 Puerto: ${PORT}`);
+    console.log(`  🔧 Modo:   ${MODO_LOCAL ? 'LOCAL (memoria)' : 'PRODUCCIÓN (Supabase)'}`);
+    console.log('══════════════════════════════════════════════\n');
+  });
+}
 
+// ✅ EXPORT PARA VERCEL
 module.exports = app;
