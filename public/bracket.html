@@ -47,25 +47,19 @@
       background: radial-gradient(ellipse 70% 50% at 50% 0%,
         rgba(240,180,41,0.1) 0%, transparent 70%);
     }
-    .page-header h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3rem; letter-spacing: 3px;
-    }
+    .page-header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 3px; }
     .page-header p { color: var(--muted); font-size: 0.88rem; margin-top: 6px; }
 
     .stats-bar {
-      display: flex; justify-content: center; gap: 0;
-      max-width: 800px; margin: 0 auto 0;
+      display: flex; justify-content: center;
+      max-width: 800px; margin: 0 auto;
       background: var(--card); border: 1px solid var(--border);
       border-radius: 14px; overflow: hidden;
     }
-    .sbar-item {
-      flex: 1; padding: 14px 12px; text-align: center;
-      border-right: 1px solid var(--border);
-    }
+    .sbar-item { flex: 1; padding: 14px 12px; text-align: center; border-right: 1px solid var(--border); }
     .sbar-item:last-child { border-right: none; }
-    .sbar-num  { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--gold); }
-    .sbar-lbl  { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+    .sbar-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--gold); }
+    .sbar-lbl { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
 
     .tabs-wrap {
       display: flex; gap: 8px; flex-wrap: wrap;
@@ -81,38 +75,22 @@
       cursor: pointer; transition: all .2s; white-space: nowrap;
       font-family: 'Inter', sans-serif;
     }
-    .tab:hover  { color: var(--text); border-color: var(--gold); }
+    .tab:hover { color: var(--text); border-color: var(--gold); }
     .tab.active { background: var(--gold); color: #000; border-color: var(--gold); }
 
     .ronda-panel { display: none; padding: 32px 24px; max-width: 1200px; margin: 0 auto; }
     .ronda-panel.active { display: block; }
 
-    .ronda-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem; letter-spacing: 2px;
-      text-align: center; margin-bottom: 6px; color: var(--gold);
-    }
-    .ronda-info {
-      text-align: center; color: var(--muted);
-      font-size: 0.82rem; margin-bottom: 8px;
-    }
-    .ronda-pts-bar {
-      display: flex; justify-content: center; gap: 16px;
-      flex-wrap: wrap; margin-bottom: 28px;
-    }
+    .ronda-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; text-align: center; margin-bottom: 6px; color: var(--gold); }
+    .ronda-info { text-align: center; color: var(--muted); font-size: 0.82rem; margin-bottom: 8px; }
+    .ronda-pts-bar { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
     .ronda-pts-pill {
-      background: rgba(240,180,41,0.08);
-      border: 1px solid rgba(240,180,41,0.2);
-      border-radius: 50px; padding: 5px 14px;
-      font-size: 0.75rem; color: var(--muted);
+      background: rgba(240,180,41,0.08); border: 1px solid rgba(240,180,41,0.2);
+      border-radius: 50px; padding: 5px 14px; font-size: 0.75rem; color: var(--muted);
     }
     .ronda-pts-pill strong { color: var(--gold); }
 
-    .partidos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 16px;
-    }
+    .partidos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
 
     .partido-card {
       background: var(--card); border: 1px solid var(--border);
@@ -125,47 +103,46 @@
 
     .partido-header {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 10px 16px;
-      background: rgba(255,255,255,0.03);
-      border-bottom: 1px solid var(--border);
-      font-size: 0.72rem; color: var(--muted);
+      padding: 10px 16px; background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid var(--border); font-size: 0.72rem; color: var(--muted);
     }
-    .match-id   { font-weight: 700; color: var(--gold); }
+    .match-id { font-weight: 700; color: var(--gold); }
     .match-info { text-align: right; line-height: 1.4; }
 
     .partido-body { padding: 16px; }
-    .equipo-row {
-      display: flex; align-items: center;
-      gap: 12px; padding: 10px 0;
-    }
+    .equipo-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; }
     .equipo-row:first-child { border-bottom: 1px solid var(--border); }
-    .equipo-flag   { font-size: 1.6rem; width: 36px; text-align: center; flex-shrink: 0; }
-    .equipo-info   { flex: 1; }
-    .equipo-nombre { font-weight: 600; font-size: 0.9rem; }
-    .equipo-score  {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem; min-width: 32px; text-align: center;
+
+    /* ══ FLAG — mismo sistema que Primera Fase ══ */
+    .equipo-flag-wrap {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 28px; border-radius: 4px; overflow: hidden;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.5);
+      background: rgba(255,255,255,0.05); flex-shrink: 0;
     }
-    .equipo-score.ganador   { color: var(--green); }
-    .equipo-score.perdedor  { color: var(--muted); }
+    .equipo-flag-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .equipo-flag-wrap .flag-emoji-fb { font-size: 22px; line-height: 1; }
+
+    .equipo-info { flex: 1; }
+    .equipo-nombre { font-weight: 600; font-size: 0.9rem; }
+    .equipo-score { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; min-width: 32px; text-align: center; }
+    .equipo-score.ganador  { color: var(--green); }
+    .equipo-score.perdedor { color: var(--muted); }
     .equipo-score.pendiente { color: var(--border); }
 
     .partido-footer {
-      padding: 8px 16px;
-      background: rgba(255,255,255,0.02);
+      padding: 8px 16px; background: rgba(255,255,255,0.02);
       border-top: 1px solid var(--border);
-      display: flex; justify-content: space-between;
-      align-items: center; font-size: 0.72rem;
+      display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem;
     }
     .estado-badge {
-      padding: 3px 10px; border-radius: 50px;
-      font-weight: 700; font-size: 0.68rem;
-      text-transform: uppercase; letter-spacing: 1px;
+      padding: 3px 10px; border-radius: 50px; font-weight: 700;
+      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1px;
     }
     .estado-badge.pendiente  { background: rgba(107,122,153,0.15); color: var(--muted); }
-    .estado-badge.en-juego   { background: rgba(240,180,41,0.15);  color: var(--gold); animation: pulse 1.5s infinite; }
-    .estado-badge.finalizado { background: rgba(56,161,105,0.15);  color: var(--green); }
-    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.5; } }
+    .estado-badge.en-juego   { background: rgba(240,180,41,0.15); color: var(--gold); animation: pulse 1.5s infinite; }
+    .estado-badge.finalizado { background: rgba(56,161,105,0.15); color: var(--green); }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
 
     .pts-badge { color: var(--muted); font-size: 0.7rem; }
     .pts-badge strong { color: var(--gold); }
@@ -175,54 +152,31 @@
       background: rgba(240,180,41,0.12); color: var(--gold);
       border-radius: 4px; padding: 1px 6px;
       font-size: 0.62rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.5px;
-      font-family: 'Inter', sans-serif;
+      text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Inter', sans-serif;
     }
 
-    .loading-wrap {
-      display: flex; align-items: center; justify-content: center;
-      padding: 60px; gap: 12px; color: var(--muted);
-    }
-    .spinner {
-      width: 24px; height: 24px;
-      border: 3px solid var(--border); border-top-color: var(--gold);
-      border-radius: 50%; animation: spin .8s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-wrap { display: flex; align-items: center; justify-content: center; padding: 60px; gap: 12px; color: var(--muted); }
+    .spinner { width: 24px; height: 24px; border: 3px solid var(--border); border-top-color: var(--gold); border-radius: 50%; animation: spin .8s linear infinite; }
+    @keyframes spin { to{transform:rotate(360deg)} }
 
-    .leyenda {
-      display: flex; gap: 20px; flex-wrap: wrap;
-      justify-content: center; padding: 20px 24px 32px;
-      border-top: 1px solid var(--border); margin-top: 8px;
-    }
+    .leyenda { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; padding: 20px 24px 32px; border-top: 1px solid var(--border); margin-top: 8px; }
     .ley-item { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--muted); }
     .ley-dot  { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 
-    .refresh-bar {
-      text-align: center; padding: 8px;
-      font-size: 0.72rem; color: var(--muted);
-      border-bottom: 1px solid var(--border);
-    }
+    .refresh-bar { text-align: center; padding: 8px; font-size: 0.72rem; color: var(--muted); border-bottom: 1px solid var(--border); }
     .refresh-bar span { color: var(--gold); }
 
     .hoy-badge {
-      display: inline-block;
-      background: rgba(240,180,41,0.15);
-      color: var(--gold); border: 1px solid rgba(240,180,41,0.3);
-      border-radius: 4px; padding: 1px 7px;
-      font-size: 0.62rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.5px;
+      display: inline-block; background: rgba(240,180,41,0.15); color: var(--gold);
+      border: 1px solid rgba(240,180,41,0.3); border-radius: 4px; padding: 1px 7px;
+      font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
       margin-left: 6px; animation: pulse 2s infinite;
     }
 
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px; text-align: center;
-      color: var(--muted); font-size: 0.78rem;
-    }
+    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; color: var(--muted); font-size: 0.78rem; }
     footer strong { color: var(--gold); }
 
-    @media(max-width: 600px) {
+    @media(max-width:600px) {
       .partidos-grid { grid-template-columns: 1fr; }
       .nav-links a:not(.cta):not(.active) { display: none; }
       .stats-bar { flex-wrap: wrap; }
@@ -378,32 +332,88 @@
 const API = window.location.origin;
 
 const PTS_RONDA = {
-  R32:  { ganador: 3,  marcador: 3, penales: 1, max: 7  },
-  R16:  { ganador: 5,  marcador: 3, penales: 1, max: 9  },
-  QF:   { ganador: 8,  marcador: 4, penales: 2, max: 14 },
-  SF:   { ganador: 12, marcador: 5, penales: 2, max: 19 },
-  '3P': { ganador: 8,  marcador: 4, penales: 2, max: 14 },
-  F:    { ganador: 20, marcador: 8, penales: 3, max: 31 }
+  R32:  { ganador:3,  marcador:3, penales:1, max:7  },
+  R16:  { ganador:5,  marcador:3, penales:1, max:9  },
+  QF:   { ganador:8,  marcador:4, penales:2, max:14 },
+  SF:   { ganador:12, marcador:5, penales:2, max:19 },
+  '3P': { ganador:8,  marcador:4, penales:2, max:14 },
+  F:    { ganador:20, marcador:8, penales:3, max:31 }
 };
 
 // ══════════════════════════════════════════════════════════
-// ✅ FIX CRÍTICO: BANDERAS DESDE CODE — NUNCA DESDE SUPABASE
+// ✅ SISTEMA DE BANDERAS — IGUAL QUE PRIMERA FASE
+//    flagcdn.com (imagen) → flagpedia.net (fallback) → emoji
 // ══════════════════════════════════════════════════════════
-function flagFromCode(code) {
-  const flags = {
-    'RSA':'🇿🇦', 'CAN':'🇨🇦', 'BRA':'🇧🇷', 'JPN':'🇯🇵',
-    'GER':'🇩🇪', 'PAR':'🇵🇾', 'NED':'🇳🇱', 'MAR':'🇲🇦',
-    'CIV':'🇨🇮', 'NOR':'🇳🇴', 'FRA':'🇫🇷', 'SWE':'🇸🇪',
-    'MEX':'🇲🇽', 'ECU':'🇪🇨', 'ENG':'🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'COD':'🇨🇩',
-    'BEL':'🇧🇪', 'SEN':'🇸🇳', 'USA':'🇺🇸', 'BIH':'🇧🇦',
-    'ESP':'🇪🇸', 'AUT':'🇦🇹', 'POR':'🇵🇹', 'CRO':'🇭🇷',
-    'SUI':'🇨🇭', 'ALG':'🇩🇿', 'AUS':'🇦🇺', 'EGY':'🇪🇬',
-    'ARG':'🇦🇷', 'CPV':'🇨🇻', 'COL':'🇨🇴', 'GHA':'🇬🇭',
-    'TBD':'🏳️'
-  };
-  return flags[code] || '🏳️';
+const FLAG_ISO = {
+  'RSA':'za', 'CAN':'ca', 'BRA':'br', 'JPN':'jp',
+  'GER':'de', 'PAR':'py', 'NED':'nl', 'MAR':'ma',
+  'CIV':'ci', 'NOR':'no', 'FRA':'fr', 'SWE':'se',
+  'MEX':'mx', 'ECU':'ec', 'COD':'cd',
+  'BEL':'be', 'SEN':'sn', 'USA':'us', 'BIH':'ba',
+  'ESP':'es', 'AUT':'at', 'POR':'pt', 'CRO':'hr',
+  'SUI':'ch', 'ALG':'dz', 'AUS':'au', 'EGY':'eg',
+  'ARG':'ar', 'CPV':'cv', 'COL':'co', 'GHA':'gh'
+};
+
+const FLAG_EMOJI = {
+  'RSA':'🇿🇦', 'CAN':'🇨🇦', 'BRA':'🇧🇷', 'JPN':'🇯🇵',
+  'GER':'🇩🇪', 'PAR':'🇵🇾', 'NED':'🇳🇱', 'MAR':'🇲🇦',
+  'CIV':'🇨🇮', 'NOR':'🇳🇴', 'FRA':'🇫🇷', 'SWE':'🇸🇪',
+  'MEX':'🇲🇽', 'ECU':'🇪🇨', 'ENG':'🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'COD':'🇨🇩',
+  'BEL':'🇧🇪', 'SEN':'🇸🇳', 'USA':'🇺🇸', 'BIH':'🇧🇦',
+  'ESP':'🇪🇸', 'AUT':'🇦🇹', 'POR':'🇵🇹', 'CRO':'🇭🇷',
+  'SUI':'🇨🇭', 'ALG':'🇩🇿', 'AUS':'🇦🇺', 'EGY':'🇪🇬',
+  'ARG':'🇦🇷', 'CPV':'🇨🇻', 'COL':'🇨🇴', 'GHA':'🇬🇭',
+  'TBD':'🏳️'
+};
+
+// Inglaterra usa bandera especial (gb-eng no existe en flagcdn)
+const FLAG_SPECIAL = {
+  'ENG': 'https://flagpedia.net/data/flags/w40/gb-eng.png'
+};
+
+function flagHtml(code) {
+  const emoji   = FLAG_EMOJI[code]   || '🏳️';
+  const iso     = FLAG_ISO[code];
+  const special = FLAG_SPECIAL[code];
+
+  if (special) {
+    return `<span class="equipo-flag-wrap">
+      <img src="${special}"
+           data-emoji="${emoji}"
+           alt="${code}"
+           loading="lazy"
+           onerror="flagError(this)"/>
+    </span>`;
+  }
+  if (!iso) {
+    return `<span class="equipo-flag-wrap">
+      <span class="flag-emoji-fb">${emoji}</span>
+    </span>`;
+  }
+  return `<span class="equipo-flag-wrap">
+    <img src="https://flagcdn.com/40x30/${iso}.png"
+         data-src2="https://flagpedia.net/data/flags/w40/${iso}.png"
+         data-emoji="${emoji}"
+         alt="${code}"
+         loading="lazy"
+         onerror="flagError(this)"/>
+  </span>`;
 }
 
+function flagError(img) {
+  if (!img.dataset.tried && img.dataset.src2) {
+    img.dataset.tried = '1';
+    img.src = img.dataset.src2;
+  } else {
+    img.parentElement.innerHTML =
+      `<span class="flag-emoji-fb">${img.dataset.emoji || '🏳️'}</span>`;
+  }
+}
+
+// ══════════════════════════════════════════════════════════
+// BRACKET OFICIAL FIFA 2026
+// ══════════════════════════════════════════════════════════
 const BRACKET = {
   R32: [
     { id:'M73', local:'Sudáfrica',             localCode:'RSA',
@@ -519,8 +529,8 @@ let apiData     = {};
 let rondaActiva = 'r32';
 
 function esHoy(fechaStr) {
-  const hoy = new Date();
-  const meses = { 'Jun':5, 'Jul':6, 'Ago':7 };
+  const hoy    = new Date();
+  const meses  = { 'Jun':5, 'Jul':6, 'Ago':7 };
   const partes = fechaStr.trim().split(' ');
   if (partes.length < 2) return false;
   const dia = parseInt(partes[0]);
@@ -529,23 +539,16 @@ function esHoy(fechaStr) {
   return hoy.getDate() === dia && hoy.getMonth() === mes;
 }
 
-// ══════════════════════════════════════════
-// ✅ RENDER CARD — BANDERAS SIEMPRE DESDE flagFromCode()
-// ══════════════════════════════════════════
+// ══════════════════════════════════════════════════════════
+// RENDER CARD — banderas via flagHtml() con imagen real
+// ══════════════════════════════════════════════════════════
 function renderCard(p) {
   const d = apiData[p.id] || {};
 
-  // Nombres: Supabase primero, fallback al BRACKET local
   const localNombre = d.local_nombre     || p.local;
   const visitNombre = d.visitante_nombre || p.visitante;
-
-  // Codes: Supabase primero, fallback al BRACKET local
-  const localCode = d.local_code     || p.localCode || 'TBD';
-  const visitCode = d.visitante_code || p.visitCode || 'TBD';
-
-  // ✅ BANDERAS: SIEMPRE desde flagFromCode() — nunca desde Supabase
-  const localFlag = flagFromCode(localCode);
-  const visitFlag = flagFromCode(visitCode);
+  const localCode   = d.local_code       || p.localCode || 'TBD';
+  const visitCode   = d.visitante_code   || p.visitCode || 'TBD';
 
   const estado   = d.estado        || 'PENDIENTE';
   const ganador  = d.ganador_code  || null;
@@ -563,7 +566,6 @@ function renderCard(p) {
 
   const estadoClass = finalizado ? 'finalizado' : enJuego ? 'en-juego' : 'pendiente';
   const estadoLabel = finalizado ? '✅ Finalizado' : enJuego ? '🔴 En Juego' : '⏳ Pendiente';
-
   const ptsRonda    = PTS_RONDA[p.ronda] || PTS_RONDA['R32'];
   const penalesHtml = penales && finalizado ? `<span class="pen-tag">PEN</span>` : '';
   const hoyHtml     = esHoy(fecha) && !finalizado ? `<span class="hoy-badge">HOY</span>` : '';
@@ -582,14 +584,14 @@ function renderCard(p) {
       </div>
       <div class="partido-body">
         <div class="equipo-row">
-          <div class="equipo-flag">${localFlag}</div>
+          ${flagHtml(localCode)}
           <div class="equipo-info">
             <div class="equipo-nombre" style="${localGana ? 'color:var(--green)' : ''}">${localNombre}</div>
           </div>
           <div class="equipo-score ${localScoreClass}">${gLocal}</div>
         </div>
         <div class="equipo-row">
-          <div class="equipo-flag">${visitFlag}</div>
+          ${flagHtml(visitCode)}
           <div class="equipo-info">
             <div class="equipo-nombre" style="${visitGana ? 'color:var(--green)' : ''}">${visitNombre}</div>
           </div>
