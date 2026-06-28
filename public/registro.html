@@ -222,11 +222,38 @@
       font-size: 0.84rem; color: #fc8181; margin-bottom: 16px;
     }
 
-    /* ÉXITO */
+    /* ✅ ÉXITO — rediseñado */
     .success-wrap { display: none; text-align: center; padding: 60px 20px; }
     .success-icon { font-size: 5rem; margin-bottom: 20px; }
-    .success-wrap h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; letter-spacing: 2px; color: var(--gold); margin-bottom: 12px; }
-    .success-wrap p { color: var(--muted); font-size: 0.9rem; line-height: 1.8; max-width: 440px; margin: 0 auto 28px; }
+    .success-wrap h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem; letter-spacing: 2px;
+      color: var(--gold); margin-bottom: 12px;
+    }
+    .success-wrap p {
+      color: var(--muted); font-size: 0.9rem;
+      line-height: 1.8; max-width: 480px;
+      margin: 0 auto 28px;
+    }
+    .success-wrap p strong { color: var(--text); }
+    .success-wrap p .highlight { color: var(--gold); font-weight: 700; }
+    .success-btns {
+      display: flex; gap: 12px;
+      justify-content: center; flex-wrap: wrap;
+    }
+
+    /* ✅ BANNER ÉXITO — acceso inmediato */
+    .success-access-banner {
+      background: linear-gradient(135deg, rgba(56,161,105,0.12), rgba(56,161,105,0.06));
+      border: 1px solid rgba(56,161,105,0.35);
+      border-radius: 14px; padding: 18px 24px;
+      margin: 0 auto 28px; max-width: 480px;
+      display: flex; align-items: center; gap: 14px;
+      text-align: left;
+    }
+    .success-access-banner .sab-icon { font-size: 2rem; flex-shrink: 0; }
+    .success-access-banner .sab-text { font-size: 0.84rem; color: var(--text); line-height: 1.6; }
+    .success-access-banner .sab-text strong { color: var(--green); }
 
     footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; color: var(--muted); font-size: 0.78rem; }
     footer strong { color: var(--gold); }
@@ -236,6 +263,7 @@
       .pago-options { grid-template-columns: 1fr; }
       .form-nav     { flex-direction: column; }
       .btn          { width: 100%; justify-content: center; }
+      .success-btns { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
@@ -523,13 +551,14 @@
         </div>
       </div>
 
+      <!-- ✅ TÉRMINOS — texto actualizado: pago no bloquea quiniela -->
       <div class="terminos">
         <input type="checkbox" id="acepto-terminos" onchange="verificarTerminos()"/>
         <label for="acepto-terminos">
           Acepto que mis predicciones son definitivas al registrarme,
           que el Balón de Oro no puede modificarse después del registro,
-          y que el pago debe ser confirmado por el administrador para
-          activar mi participación en la quiniela.
+          y que puedo llenar mi quiniela inmediatamente tras registrarme.
+          El pago será confirmado por el administrador de forma independiente.
         </label>
       </div>
 
@@ -545,20 +574,38 @@
     </div>
   </div>
 
-  <!-- PANTALLA ÉXITO -->
+  <!-- ✅ PANTALLA ÉXITO — acceso inmediato a quiniela -->
   <div class="success-wrap" id="success-wrap">
     <div class="success-icon">🎉</div>
     <h2>¡REGISTRO EXITOSO!</h2>
+
+    <!-- Banner acceso inmediato -->
+    <div class="success-access-banner">
+      <div class="sab-icon">✅</div>
+      <div class="sab-text">
+        <strong>¡Ya puedes llenar tu quiniela ahora mismo!</strong><br/>
+        No necesitas esperar confirmación de pago.
+        Ingresa tus predicciones para los 32 partidos de inmediato.
+      </div>
+    </div>
+
     <p>
       Tu registro ha sido recibido correctamente.<br/>
-      Un administrador confirmará tu pago en las próximas horas.<br/>
-      Una vez confirmado tendrás acceso completo para ingresar
-      tus predicciones en <strong style="color:var(--text)">Mi Quiniela</strong>.
+      El pago será confirmado por el administrador en las próximas horas,
+      pero eso <span class="highlight">no te impide predecir</span>.<br/>
+      <strong>¡El torneo ya comenzó — no pierdas tiempo!</strong>
     </p>
-    <a href="bracket.html" class="btn btn-gold"
-       style="display:inline-flex;margin:0 auto">
-      🏆 Ver el Bracket Oficial
-    </a>
+
+    <div class="success-btns">
+      <a href="quiniela.html" class="btn btn-gold"
+         style="font-size:1rem;padding:14px 32px"
+         id="btn-ir-quiniela">
+        📋 Llenar Mi Quiniela Ahora →
+      </a>
+      <a href="bracket.html" class="btn btn-ghost">
+        🏆 Ver Bracket
+      </a>
+    </div>
   </div>
 
 </div><!-- /form-container -->
@@ -608,7 +655,6 @@
     const m = Math.floor((diff % 3600000) / 60000);
     const s = Math.floor((diff % 60000)   / 1000);
 
-    // Urgencia visual < 60 min
     if (diff < 60 * 60 * 1000) {
       el.style.color    = 'var(--accent)';
       el.style.fontSize = '1.3rem';
@@ -681,7 +727,6 @@
     }
     if (new Date() >= TARGET_REGISTRO) { mostrarCerrado(); return; }
 
-    // ✅ Poblar resumen
     const balonPais = document.getElementById('balon-oro-pais').value.trim();
     document.getElementById('res-nombre').textContent = document.getElementById('nombre').value.trim();
     document.getElementById('res-email').textContent  = document.getElementById('email').value.trim();
@@ -732,8 +777,6 @@
 
   // ══════════════════════════════════════════
   // REGISTRAR
-  // ✅ FIX: balon_oro_pais se concatena al jugador_pred
-  //    para no romper el esquema SQL de predicciones_awards
   // ══════════════════════════════════════════
   async function registrar() {
     if (new Date() >= TARGET_REGISTRO) { mostrarCerrado(); return; }
@@ -744,20 +787,18 @@
 
     const balonNombre = document.getElementById('balon-oro').value.trim();
     const balonPais   = document.getElementById('balon-oro-pais').value.trim();
-
-    // ✅ jugador_pred = "Nombre · País" o solo "Nombre"
-    //    Así queda todo en el campo jugador_pred de predicciones_awards
     const jugadorPred = balonPais
       ? `${balonNombre} (${balonPais})`
       : balonNombre;
 
+    const emailVal = document.getElementById('email').value.trim();
+
     const payload = {
       nombre:      document.getElementById('nombre').value.trim(),
-      email:       document.getElementById('email').value.trim(),
+      email:       emailVal,
       pais:        document.getElementById('pais').value,
       telefono:    document.getElementById('telefono').value.trim(),
       metodo_pago: pagoSeleccionado,
-      // ✅ Campo correcto para el servidor
       balon_oro:   jugadorPred
     };
 
@@ -777,8 +818,15 @@
         return;
       }
 
-      // ✅ Guardar email para identificar "Tú" en ranking/quiniela
-      localStorage.setItem('quiniela_email', payload.email);
+      // ✅ Guardar email en localStorage para auto-login en quiniela
+      localStorage.setItem('quiniela_email', emailVal);
+
+      // ✅ Actualizar link del botón con email para auto-login
+      const btnQ = document.getElementById('btn-ir-quiniela');
+      if (btnQ) {
+        btnQ.href = `quiniela.html?email=${encodeURIComponent(emailVal)}`;
+      }
+
       mostrarExito();
 
     } catch(err) {
@@ -791,7 +839,7 @@
   }
 
   // ══════════════════════════════════════════
-  // ÉXITO
+  // ✅ ÉXITO — acceso inmediato sin esperar pago
   // ══════════════════════════════════════════
   function mostrarExito() {
     ['steps','deadline-banner','error-global'].forEach(id => {

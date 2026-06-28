@@ -37,13 +37,10 @@ const DB = {
 
 // ══════════════════════════════════════════════════════════════
 // BRACKET OFICIAL FIFA 2026 — ACTUALIZADO 28 JUN 2026
-// DATOS 100% REALES VERIFICADOS
 // ══════════════════════════════════════════════════════════════
 const BRACKET_DATOS = [
 
-  // ─────────────────────────────────────────────────────────
-  // RONDA DE 32 — R32 (Jun 28 – Jul 3)
-  // ─────────────────────────────────────────────────────────
+  // ── R32 ───────────────────────────────────────────────────
   {
     id: 'M73', ronda: 'R32',
     sede: 'SoFi Stadium · Los Ángeles, CA',
@@ -189,9 +186,7 @@ const BRACKET_DATOS = [
     goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
   },
 
-  // ─────────────────────────────────────────────────────────
-  // RONDA DE 16 — R16 (Jul 4–7)
-  // ─────────────────────────────────────────────────────────
+  // ── R16 ───────────────────────────────────────────────────
   {
     id: 'M89', ronda: 'R16',
     sede: 'Lincoln Financial Field · Philadelphia, PA',
@@ -265,9 +260,7 @@ const BRACKET_DATOS = [
     goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
   },
 
-  // ─────────────────────────────────────────────────────────
-  // CUARTOS DE FINAL — QF (Jul 9–11)
-  // ─────────────────────────────────────────────────────────
+  // ── QF ────────────────────────────────────────────────────
   {
     id: 'M97', ronda: 'QF',
     sede: 'Gillette Stadium · Foxborough, MA',
@@ -305,9 +298,7 @@ const BRACKET_DATOS = [
     goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
   },
 
-  // ─────────────────────────────────────────────────────────
-  // SEMIFINALES — SF (Jul 14–15)
-  // ─────────────────────────────────────────────────────────
+  // ── SF ────────────────────────────────────────────────────
   {
     id: 'M101', ronda: 'SF',
     sede: 'AT&T Stadium · Arlington, TX',
@@ -327,9 +318,7 @@ const BRACKET_DATOS = [
     goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
   },
 
-  // ─────────────────────────────────────────────────────────
-  // TERCER PUESTO — 3P (Jul 18)
-  // ─────────────────────────────────────────────────────────
+  // ── 3P ───────────────────────────────────────────────────
   {
     id: 'M103', ronda: '3P',
     sede: 'Hard Rock Stadium · Miami Gardens, FL',
@@ -340,9 +329,7 @@ const BRACKET_DATOS = [
     goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
   },
 
-  // ─────────────────────────────────────────────────────────
-  // FINAL — F (Jul 19)
-  // ─────────────────────────────────────────────────────────
+  // ── FINAL ─────────────────────────────────────────────────
   {
     id: 'M104', ronda: 'F',
     sede: 'MetLife Stadium · East Rutherford, NJ',
@@ -494,7 +481,8 @@ const db = {
   async upsertPrediccion(data) {
     if (MODO_LOCAL) {
       const idx = DB.predicciones.findIndex(
-        p => p.partido_id === data.partido_id && p.participante_id === data.participante_id
+        p => p.partido_id === data.partido_id &&
+             p.participante_id === data.participante_id
       );
       if (idx !== -1) DB.predicciones[idx] = { ...DB.predicciones[idx], ...data };
       else DB.predicciones.push({ ...data, id: 'PR' + Date.now() });
@@ -552,7 +540,8 @@ const db = {
   async upsertPredAward(data) {
     if (MODO_LOCAL) {
       const idx = DB.pred_awards.findIndex(
-        p => p.participante_id === data.participante_id && p.award_id === data.award_id
+        p => p.participante_id === data.participante_id &&
+             p.award_id === data.award_id
       );
       if (idx !== -1) DB.pred_awards[idx] = { ...DB.pred_awards[idx], ...data };
       else DB.pred_awards.push({ ...data, id: 'A' + Date.now() });
@@ -609,7 +598,7 @@ app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// ✅ FIX — Sin caché para HTML (evita 304 en Vercel)
+// Sin caché para HTML
 app.use((req, res, next) => {
   if (req.path.endsWith('.html') || req.path === '/') {
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
@@ -644,9 +633,10 @@ function authAdmin(req, res, next) {
 }
 
 // ══════════════════════════════════════════════════════════════
-// RUTAS
+// RUTAS PÚBLICAS
 // ══════════════════════════════════════════════════════════════
 
+// ── HEALTH ────────────────────────────────────────────────────
 app.get('/api/health', (req, res) => {
   res.json({
     ok: true,
@@ -658,6 +648,7 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// ── ADMIN LOGIN ───────────────────────────────────────────────
 app.post('/api/admin/login', (req, res) => {
   const { usuario, password } = req.body;
   if (!usuario || !password)
@@ -667,6 +658,7 @@ app.post('/api/admin/login', (req, res) => {
   res.status(401).json({ ok: false, error: 'Credenciales incorrectas.' });
 });
 
+// ── PARTIDOS ──────────────────────────────────────────────────
 app.get('/api/partidos', async (req, res) => {
   try {
     const partidos = await db.getPartidos(req.query.ronda);
@@ -674,6 +666,38 @@ app.get('/api/partidos', async (req, res) => {
   } catch(e) { res.status(500).json({ ok: false, error: e.message }); }
 });
 
+// ✅ NUEVO — Resultados como mapa { id: partido }
+// El frontend quiniela.html llama GET /api/resultados
+app.get('/api/resultados', async (req, res) => {
+  try {
+    const partidos = await db.getPartidos();
+    const map = {};
+    partidos.forEach(p => { map[p.id] = p; });
+    res.json(map);
+  } catch(e) { res.status(500).json({ ok: false, error: e.message }); }
+});
+
+// ✅ NUEVO — Predicciones por participante como mapa { partido_id: pred }
+// El frontend quiniela.html llama GET /api/predicciones/:id
+app.get('/api/predicciones/:id', async (req, res) => {
+  try {
+    const preds = await db.getPrediccionesByParticipante(req.params.id);
+    const map   = {};
+    preds.forEach(p => {
+      map[p.partido_id] = {
+        ganador:         p.ganador_pred           || p.ganador           || null,
+        goles_local:     p.goles_local_pred       ?? p.goles_local       ?? null,
+        goles_visitante: p.goles_visitante_pred   ?? p.goles_visitante   ?? null,
+        penales:         p.penales_pred           ?? p.penales           ?? false,
+        puntos:          p.puntos                 || 0,
+        calculado:       p.calculado              || false
+      };
+    });
+    res.json(map);
+  } catch(e) { res.status(500).json({ ok: false, error: e.message }); }
+});
+
+// ── RANKING ───────────────────────────────────────────────────
 app.get('/api/ranking', async (req, res) => {
   try {
     const ranking  = await db.getRanking();
@@ -682,7 +706,8 @@ app.get('/api/ranking', async (req, res) => {
     const pendientes = partidos.length - jugados;
     const liderPts   = ranking[0]?.puntos_total || 0;
     const promedio   = ranking.length
-      ? Math.round(ranking.reduce((s, p) => s + (p.puntos_total || 0), 0) / ranking.length) : 0;
+      ? Math.round(ranking.reduce((s, p) => s + (p.puntos_total || 0), 0) / ranking.length)
+      : 0;
     const lider    = ranking[0] || {};
     const desglose = {
       r32:   lider.pts_r32   || 0,
@@ -695,44 +720,84 @@ app.get('/api/ranking', async (req, res) => {
     };
     res.json({
       ranking,
-      stats: { participantes: ranking.length, jugados, pendientes, lider_pts: liderPts, promedio },
+      stats: {
+        participantes: ranking.length,
+        jugados, pendientes,
+        lider_pts: liderPts, promedio
+      },
       desglose_lider: desglose
     });
   } catch(e) { res.status(500).json({ ok: false, error: e.message }); }
 });
 
-app.get('/api/participante', async (req, res) => {
-  const { email } = req.query;
+// ── PARTICIPANTE — GET por email ──────────────────────────────
+// ✅ Acepta /api/participante/:email  Y  /api/participante?email=
+// ✅ NO bloquea por confirmado — acceso inmediato tras registro
+app.get('/api/participante/:email?', async (req, res) => {
+  const email = (req.params.email || req.query.email || '').toLowerCase().trim();
   if (!email) return res.status(400).json({ ok: false, error: 'Email requerido.' });
+
   try {
-    const part = await db.getParticipante(email.toLowerCase().trim());
-    if (!part)            return res.status(404).json({ ok: false, error: 'Participante no encontrado.' });
-    if (!part.confirmado) return res.status(403).json({ ok: false, error: 'Tu pago aún no ha sido confirmado.' });
+    const part = await db.getParticipante(email);
+    if (!part)
+      return res.status(404).json({ ok: false, error: 'Participante no encontrado.' });
+
+    // ✅ NO se bloquea por confirmado
+    // El pago se gestiona en admin de forma independiente
+    // El usuario puede predecir inmediatamente tras registrarse
+
     const preds    = await db.getPrediccionesByParticipante(part.id);
     const partidos = await db.getPartidos();
     const award    = await db.getPredAward(part.id);
+
+    // Mapear predicciones por partido_id
+    // Normalizar nombres de campo (pred puede venir con o sin sufijo _pred)
     const predsMap = {};
     preds.forEach(p => {
       predsMap[p.partido_id] = {
-        ganador_pred:     p.ganador_pred,
-        goles_local_pred: p.goles_local_pred,
-        goles_vis_pred:   p.goles_visitante_pred,
-        penales_pred:     p.penales_pred,
-        puntos:           p.puntos || 0
+        ganador:         p.ganador_pred           || p.ganador           || null,
+        goles_local:     p.goles_local_pred       ?? p.goles_local       ?? null,
+        goles_visitante: p.goles_visitante_pred   ?? p.goles_visitante   ?? null,
+        penales:         p.penales_pred           ?? p.penales           ?? false,
+        puntos:          p.puntos                 || 0,
+        calculado:       p.calculado              || false
       };
     });
+
+    // Mapear partidos por id
     const partidosMap = {};
     partidos.forEach(p => { partidosMap[p.id] = p; });
+
     res.json({
-      participante: { ...part, balon_oro: award?.prediccion || part.balon_oro || '' },
+      id:           part.id,
+      nombre:       part.nombre,
+      email:        part.email,
+      pais:         part.pais,
+      telefono:     part.telefono     || null,
+      confirmado:   part.confirmado   || false,  // ✅ Devuelto para banner en frontend
+      puntos_total: part.puntos_total || 0,
+      pts_r32:      part.pts_r32      || 0,
+      pts_r16:      part.pts_r16      || 0,
+      pts_qf:       part.pts_qf       || 0,
+      pts_sf:       part.pts_sf       || 0,
+      pts_3p:       part.pts_3p       || 0,
+      pts_final:    part.pts_final    || 0,
+      pts_award:    part.pts_award    || 0,
+      aciertos:     part.aciertos     || 0,
+      fallos:       part.fallos       || 0,
+      posicion:     part.posicion     || null,
+      award_ganado: part.award_ganado || null,
+      balon_oro:    award?.prediccion || part.balon_oro || '',
       predicciones: predsMap,
       partidos:     partidosMap
     });
   } catch(e) { res.status(500).json({ ok: false, error: e.message }); }
 });
 
+// ── REGISTRO ──────────────────────────────────────────────────
 app.post('/api/registro', async (req, res) => {
   const { nombre, email, pais, telefono, metodo_pago, balon_oro, balon_oro_pais } = req.body;
+
   if (!nombre?.trim())    return res.status(400).json({ ok: false, error: 'Nombre requerido.' });
   if (!email?.trim())     return res.status(400).json({ ok: false, error: 'Email requerido.' });
   if (!pais?.trim())      return res.status(400).json({ ok: false, error: 'País requerido.' });
@@ -747,56 +812,116 @@ app.post('/api/registro', async (req, res) => {
   const emailLower = email.toLowerCase().trim();
   try {
     const existe = await db.existeEmail(emailLower);
-    if (existe) return res.status(409).json({ ok: false, error: 'Este email ya está registrado.' });
+    if (existe)
+      return res.status(409).json({ ok: false, error: 'Este email ya está registrado.' });
+
     const nuevo = await db.addParticipante({
-      nombre: nombre.trim(), email: emailLower, pais: pais.trim(),
-      telefono: telefono?.trim() || null, metodo_pago,
-      balon_oro: balon_oro.trim(), balon_oro_pais: balon_oro_pais?.trim() || null,
-      confirmado: false
+      nombre:       nombre.trim(),
+      email:        emailLower,
+      pais:         pais.trim(),
+      telefono:     telefono?.trim()     || null,
+      metodo_pago,
+      balon_oro:    balon_oro.trim(),
+      balon_oro_pais: balon_oro_pais?.trim() || null,
+      confirmado:   false   // ✅ Empieza sin confirmar — admin confirma después
     });
+
     await db.upsertPredAward({
-      participante_id: nuevo.id, award_id: 'BALON_ORO',
-      prediccion: balon_oro.trim(), puntos: 0
+      participante_id: nuevo.id,
+      award_id:        'BALON_ORO',
+      prediccion:      balon_oro.trim(),
+      puntos:          0
     });
-    res.json({ ok: true, participante_id: nuevo.id });
+
+    // ✅ Devolver id para que el frontend pueda hacer auto-login
+    res.json({ ok: true, participante_id: nuevo.id, email: emailLower });
   } catch(e) { res.status(500).json({ ok: false, error: e.message }); }
 });
 
+// ── GUARDAR PREDICCIÓN ────────────────────────────────────────
+// ✅ NO bloquea por confirmado
+// ✅ Acepta participante_id directo O email
+// ✅ Normaliza nombres de campo (con y sin sufijo _pred)
 app.post('/api/prediccion', async (req, res) => {
-  const { partido_id, ganador_pred, goles_local_pred, goles_vis_pred, penales_pred, email } = req.body;
-  if (!partido_id || !ganador_pred || !email)
-    return res.status(400).json({ ok: false, error: 'Datos incompletos.' });
+  const {
+    partido_id,
+    participante_id,
+    email,
+    ronda,
+    ganador,        ganador_pred,
+    goles_local,    goles_local_pred,
+    goles_visitante,goles_vis_pred,
+    penales,        penales_pred
+  } = req.body;
+
+  // Normalizar campos
+  const ganadorFinal  = ganador      || ganador_pred      || null;
+  const golesLoc      = goles_local  ?? goles_local_pred  ?? null;
+  const golesVis      = goles_visitante ?? goles_vis_pred ?? null;
+  const penalesFinal  = penales      ?? penales_pred       ?? false;
+
+  if (!partido_id || !ganadorFinal)
+    return res.status(400).json({ ok: false, error: 'partido_id y ganador son requeridos.' });
+
+  if (!participante_id && !email)
+    return res.status(400).json({ ok: false, error: 'participante_id o email requerido.' });
+
   try {
-    const part = await db.getParticipante(email.toLowerCase().trim());
-    if (!part)            return res.status(404).json({ ok: false, error: 'Participante no encontrado.' });
-    if (!part.confirmado) return res.status(403).json({ ok: false, error: 'Pago no confirmado.' });
+    let part = null;
+
+    if (participante_id) {
+      part = await db.getParticipanteById(participante_id);
+    } else {
+      part = await db.getParticipante(email.toLowerCase().trim());
+    }
+
+    if (!part)
+      return res.status(404).json({ ok: false, error: 'Participante no encontrado.' });
+
+    // ✅ NO se bloquea por confirmado
+    // Cualquier participante registrado puede predecir
+
+    // Solo bloquear si el partido ya terminó
     const partido = await db.getPartido(partido_id);
     if (partido?.estado === 'FINALIZADO')
-      return res.status(403).json({ ok: false, error: 'El partido ya finalizó.' });
+      return res.status(403).json({
+        ok: false,
+        error: 'El partido ya finalizó. No se puede modificar la predicción.'
+      });
+
     await db.upsertPrediccion({
-      participante_id: part.id, partido_id, ganador_pred,
-      goles_local_pred: goles_local_pred ?? null,
-      goles_visitante_pred: goles_vis_pred ?? null,
-      penales_pred: penales_pred || false,
-      puntos: 0, calculado: false,
-      fecha_pred: new Date().toISOString()
+      participante_id:      part.id,
+      partido_id,
+      ronda:                ronda || partido?.ronda || 'R32',
+      ganador_pred:         ganadorFinal,
+      goles_local_pred:     golesLoc,
+      goles_visitante_pred: golesVis,
+      penales_pred:         penalesFinal,
+      puntos:               0,
+      calculado:            false,
+      fecha_pred:           new Date().toISOString()
     });
-    res.json({ ok: true });
+
+    res.json({ ok: true, partido_id, ganador: ganadorFinal });
   } catch(e) { res.status(500).json({ ok: false, error: e.message }); }
 });
 
-// ── ADMIN ──────────────────────────────────────────────────────
+// ══════════════════════════════════════════════════════════════
+// RUTAS ADMIN
+// ══════════════════════════════════════════════════════════════
 
 app.get('/api/admin/dashboard', authAdmin, async (req, res) => {
   try {
     const parts    = await db.getParticipantes();
     const partidos = await db.getPartidos();
     res.json({
-      total:            parts.length,
-      confirmados:      parts.filter(p => p.confirmado).length,
-      pendientes_pago:  parts.filter(p => !p.confirmado && !p.rechazado).length,
-      jugados:          partidos.filter(p => p.estado === 'FINALIZADO').length,
-      predicciones:     0
+      total:           parts.length,
+      confirmados:     parts.filter(p =>  p.confirmado).length,
+      pendientes_pago: parts.filter(p => !p.confirmado && !p.rechazado).length,
+      rechazados:      parts.filter(p =>  p.rechazado).length,
+      jugados:         partidos.filter(p => p.estado === 'FINALIZADO').length,
+      pendientes_jug:  partidos.filter(p => p.estado !== 'FINALIZADO').length,
+      total_partidos:  partidos.length
     });
   } catch(e) { res.status(500).json({ ok: false, error: e.message }); }
 });
@@ -850,7 +975,9 @@ app.put('/api/admin/partido/:id', authAdmin, async (req, res) => {
     if (visitante_bandera !== undefined) updates.visitante_bandera = visitante_bandera;
     if (fecha             !== undefined) updates.fecha             = fecha;
     if (hora              !== undefined) updates.hora              = hora;
+
     await db.updatePartido(req.params.id, updates);
+
     if (estado === 'FINALIZADO') {
       await calcularPuntosPartido(req.params.id);
       await recalcularRanking();
@@ -876,17 +1003,27 @@ app.post('/api/admin/init', authAdmin, async (req, res) => {
   try {
     if (MODO_LOCAL) {
       DB.partidos = JSON.parse(JSON.stringify(BRACKET_DATOS));
-      return res.json({ ok: true, msg: 'Bracket oficial cargado en memoria', total: BRACKET_DATOS.length });
+      return res.json({
+        ok: true,
+        msg: 'Bracket oficial cargado en memoria',
+        total: BRACKET_DATOS.length
+      });
     }
     const { error: e1 } = await supabase
       .from('partidos_elim').upsert(BRACKET_DATOS, { onConflict: 'id' });
     if (e1) throw e1;
     const { error: e2 } = await supabase
       .from('awards_elim')
-      .upsert([{ id: 'BALON_ORO', nombre: 'Balón de Oro', puntos: 30, ganador: null }],
-              { onConflict: 'id' });
+      .upsert(
+        [{ id: 'BALON_ORO', nombre: 'Balón de Oro', puntos: 30, ganador: null }],
+        { onConflict: 'id' }
+      );
     if (e2) throw e2;
-    res.json({ ok: true, msg: 'Supabase inicializado con bracket oficial', partidos: BRACKET_DATOS.length });
+    res.json({
+      ok: true,
+      msg: 'Supabase inicializado con bracket oficial',
+      partidos: BRACKET_DATOS.length
+    });
   } catch(e) { res.status(500).json({ ok: false, error: e.message }); }
 });
 
@@ -919,7 +1056,8 @@ app.post('/api/admin/balon-oro', authAdmin, async (req, res) => {
       const acerto = pred.prediccion?.toLowerCase().trim() === ganador.toLowerCase().trim();
       await db.updatePredAward(pred.id, { acerto, puntos: acerto ? PTS_BALON_ORO : 0 });
       await db.updateParticipante(pred.participante_id, {
-        pts_award: acerto ? PTS_BALON_ORO : 0, award_ganado: acerto
+        pts_award:    acerto ? PTS_BALON_ORO : 0,
+        award_ganado: acerto
       });
     }
     await recalcularRanking();
@@ -939,33 +1077,160 @@ app.get('/api/pdf/:tipo', async (req, res) => {
     const PDFDocument = require('pdfkit');
     const doc = new PDFDocument({ margin: 50 });
     res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Content-Disposition', `attachment; filename="quiniela-${req.params.tipo}-${Date.now()}.pdf"`);
+    res.setHeader('Content-Disposition',
+      `attachment; filename="quiniela-${req.params.tipo}-${Date.now()}.pdf"`);
     doc.pipe(res);
+
     doc.fontSize(20).text('⚽ Quiniela Mundial 2026 — Segunda Fase', { align: 'center' });
     doc.fontSize(12).text('Creado por Mario Vitale', { align: 'center' });
     doc.moveDown();
+
     if (req.params.tipo === 'ranking') {
       const ranking = await db.getRanking();
       doc.fontSize(16).text('🏆 RANKING GENERAL', { underline: true }).moveDown(0.5);
       ranking.forEach((p, i) =>
-        doc.fontSize(11).text(`${i+1}. ${p.nombre} (${p.pais}) — ${p.puntos_total||0} pts`)
+        doc.fontSize(11).text(
+          `${i + 1}. ${p.nombre} (${p.pais}) — ${p.puntos_total || 0} pts`
+        )
       );
+
     } else if (req.params.tipo === 'bracket') {
       const partidos = await db.getPartidos();
-      const rondas   = ['R32','R16','QF','SF','3P','F'];
-      const nombres  = { R32:'Ronda de 32', R16:'Octavos', QF:'Cuartos', SF:'Semis', '3P':'3er Puesto', F:'FINAL' };
+      const rondas   = ['R32', 'R16', 'QF', 'SF', '3P', 'F'];
+      const nombres  = {
+        R32: 'Ronda de 32', R16: 'Octavos de Final',
+        QF:  'Cuartos de Final', SF: 'Semifinales',
+        '3P':'Tercer Puesto', F: 'GRAN FINAL'
+      };
       for (const r of rondas) {
         const ps = partidos.filter(p => p.ronda === r);
         if (!ps.length) continue;
         doc.moveDown().fontSize(14).text(`── ${nombres[r]} ──`, { underline: true });
         ps.forEach(p => {
-          const score = p.estado === 'FINALIZADO' ? `${p.goles_local}-${p.goles_visitante}` : 'vs';
-          doc.fontSize(10).text(`  ${p.id}: ${p.local_nombre} ${score} ${p.visitante_nombre} | ${p.sede}`);
+          const score = p.estado === 'FINALIZADO'
+            ? `${p.goles_local} - ${p.goles_visitante}${p.fue_a_penales ? ' (pen)' : ''}`
+            : 'vs';
+          doc.fontSize(10).text(
+            `  ${p.id}: ${p.local_nombre} ${score} ${p.visitante_nombre} | ${p.sede}`
+          );
         });
       }
+
+    } else if (req.params.tipo.startsWith('quiniela/')) {
+      // PDF individual de un participante: /api/pdf/quiniela/:participante_id
+      const participanteId = req.params.tipo.replace('quiniela/', '');
+      const part    = await db.getParticipanteById(participanteId);
+      const preds   = await db.getPrediccionesByParticipante(participanteId);
+      const partidos= await db.getPartidos();
+      const award   = await db.getPredAward(participanteId);
+
+      if (!part) {
+        doc.fontSize(14).text('Participante no encontrado.', { align: 'center' });
+      } else {
+        doc.fontSize(16).text(`Quiniela de: ${part.nombre}`, { underline: true });
+        doc.fontSize(11).text(`Email: ${part.email} | País: ${part.pais}`);
+        doc.fontSize(11).text(`Puntos: ${part.puntos_total || 0} | Posición: #${part.posicion || '—'}`);
+        doc.fontSize(11).text(`⭐ Balón de Oro: ${award?.prediccion || part.balon_oro || '—'}`);
+        doc.moveDown();
+
+        const rondas = ['R32', 'R16', 'QF', 'SF', '3P', 'F'];
+        const nombres = {
+          R32: 'Ronda de 32', R16: 'Octavos', QF: 'Cuartos',
+          SF: 'Semis', '3P': 'Tercer Lugar', F: 'Final'
+        };
+
+        for (const r of rondas) {
+          const ps = partidos.filter(p => p.ronda === r);
+          if (!ps.length) continue;
+          doc.moveDown(0.5).fontSize(13).text(`── ${nombres[r]} ──`, { underline: true });
+
+          ps.forEach(p => {
+            const pred = preds.find(x => x.partido_id === p.id);
+            const resultado = p.estado === 'FINALIZADO'
+              ? `Real: ${p.goles_local}-${p.goles_visitante}${p.fue_a_penales ? '(P)' : ''}`
+              : 'Pendiente';
+            const prediccion = pred
+              ? `Pred: ${pred.ganador_pred} ${pred.goles_local_pred ?? '?'}-${pred.goles_visitante_pred ?? '?'}${pred.penales_pred ? '(P)' : ''} · ${pred.puntos || 0}pts`
+              : 'Sin predicción';
+            doc.fontSize(9).text(
+              `  ${p.id}: ${p.local_nombre} vs ${p.visitante_nombre} | ${resultado} | ${prediccion}`
+            );
+          });
+        }
+      }
     }
+
     doc.end();
-  } catch(e) { res.status(500).json({ ok: false, error: e.message }); }
+  } catch(e) {
+    console.error('PDF error:', e.message);
+    if (!res.headersSent) res.status(500).json({ ok: false, error: e.message });
+  }
+});
+
+// ── PDF individual por participante_id ────────────────────────
+app.get('/api/pdf/quiniela/:id', async (req, res) => {
+  try {
+    const PDFDocument = require('pdfkit');
+    const doc = new PDFDocument({ margin: 50 });
+
+    const part    = await db.getParticipanteById(req.params.id);
+    const preds   = await db.getPrediccionesByParticipante(req.params.id);
+    const partidos= await db.getPartidos();
+    const award   = await db.getPredAward(req.params.id);
+
+    const nombre = part?.nombre?.replace(/\s/g, '_') || 'participante';
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition',
+      `attachment; filename="quiniela_${nombre}.pdf"`);
+    doc.pipe(res);
+
+    doc.fontSize(20).text('⚽ Quiniela Mundial 2026 — Segunda Fase', { align: 'center' });
+    doc.fontSize(12).text('Creado por Mario Vitale', { align: 'center' });
+    doc.moveDown();
+
+    if (!part) {
+      doc.fontSize(14).text('Participante no encontrado.', { align: 'center' });
+      doc.end();
+      return;
+    }
+
+    doc.fontSize(16).text(`Quiniela de: ${part.nombre}`, { underline: true });
+    doc.fontSize(11).text(`Email: ${part.email} | País: ${part.pais}`);
+    doc.fontSize(11).text(`Puntos: ${part.puntos_total || 0} | Posición: #${part.posicion || '—'}`);
+    doc.fontSize(11).text(`⭐ Balón de Oro: ${award?.prediccion || part.balon_oro || '—'}`);
+    doc.moveDown();
+
+    const rondas = ['R32', 'R16', 'QF', 'SF', '3P', 'F'];
+    const nombres = {
+      R32: 'Ronda de 32', R16: 'Octavos de Final',
+      QF:  'Cuartos de Final', SF: 'Semifinales',
+      '3P':'Tercer Lugar', F: 'Gran Final'
+    };
+
+    for (const r of rondas) {
+      const ps = partidos.filter(p => p.ronda === r);
+      if (!ps.length) continue;
+      doc.moveDown(0.5).fontSize(13).text(`── ${nombres[r]} ──`, { underline: true });
+
+      ps.forEach(p => {
+        const pred = preds.find(x => x.partido_id === p.id);
+        const resultado = p.estado === 'FINALIZADO'
+          ? `Real: ${p.goles_local}-${p.goles_visitante}${p.fue_a_penales ? ' (pen)' : ''}`
+          : 'Pendiente';
+        const prediccion = pred
+          ? `Pred: ${pred.ganador_pred} · ${pred.goles_local_pred ?? '?'}-${pred.goles_visitante_pred ?? '?'}${pred.penales_pred ? ' (pen)' : ''} · ${pred.puntos || 0} pts`
+          : 'Sin predicción';
+        doc.fontSize(9).text(
+          `  ${p.id}: ${p.local_nombre} vs ${p.visitante_nombre} | ${resultado} | ${prediccion}`
+        );
+      });
+    }
+
+    doc.end();
+  } catch(e) {
+    console.error('PDF error:', e.message);
+    if (!res.headersSent) res.status(500).json({ ok: false, error: e.message });
+  }
 });
 
 app.post('/api/admin/emails/masivo', authAdmin, async (req, res) => {
@@ -978,6 +1243,7 @@ app.post('/api/admin/emails/masivo', authAdmin, async (req, res) => {
 async function calcularPuntosPartido(partidoId) {
   const partido = await db.getPartido(partidoId);
   if (!partido || partido.estado !== 'FINALIZADO') return 0;
+
   const ptsRonda = PTS[partido.ronda] || PTS['R32'];
   const preds    = await db.getPrediccionesByPartido(partidoId);
   let procesados = 0;
@@ -1089,10 +1355,10 @@ if (require.main === module) {
     console.log(`  🔧  Modo    : ${MODO_LOCAL ? 'LOCAL (memoria)' : 'PRODUCCIÓN (Supabase)'}`);
     console.log('  📋  Bracket : OFICIAL 28-JUN-2026 ✅');
     console.log('  🏟️  R32     : M73–M88 con equipos reales');
+    console.log('  ✅  Acceso  : Inmediato sin esperar pago');
     console.log('══════════════════════════════════════════════════════\n');
   });
 }
 
 // ✅ EXPORT PARA VERCEL
 module.exports = app;
-

@@ -24,151 +24,116 @@
     flex-wrap: wrap;
     gap: 12px;
   }
-  .header-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .header-logo img {
-    height: 48px;
-    border-radius: 8px;
-  }
-  .header-title h1 {
-    font-size: 1.4rem;
-    color: #c9a227;
-    font-weight: 700;
-    letter-spacing: 1px;
-  }
-  .header-title p {
-    font-size: 0.75rem;
-    color: #8899aa;
-  }
-  .nav-links {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
+  .header-logo { display: flex; align-items: center; gap: 12px; }
+  .header-logo img { height: 48px; border-radius: 8px; }
+  .header-title h1 { font-size: 1.4rem; color: #c9a227; font-weight: 700; letter-spacing: 1px; }
+  .header-title p  { font-size: 0.75rem; color: #8899aa; }
+  .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
   .nav-links a {
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-decoration: none;
-    border: 1px solid #2a3a5a;
-    color: #8899bb;
-    transition: all 0.2s;
+    padding: 6px 14px; border-radius: 20px; font-size: 0.8rem;
+    font-weight: 600; text-decoration: none; border: 1px solid #2a3a5a;
+    color: #8899bb; transition: all 0.2s;
   }
-  .nav-links a:hover { background: #1a2a4a; color: #c9a227; border-color: #c9a227; }
+  .nav-links a:hover  { background: #1a2a4a; color: #c9a227; border-color: #c9a227; }
   .nav-links a.active { background: #c9a227; color: #0a0e1a; border-color: #c9a227; }
 
   /* ── LOGIN PANEL ── */
   .login-panel {
-    max-width: 480px;
-    margin: 60px auto;
+    max-width: 480px; margin: 60px auto;
     background: linear-gradient(135deg, #0d1b2a, #1a2a4a);
-    border: 1px solid #2a3a5a;
-    border-radius: 16px;
-    padding: 40px;
-    text-align: center;
+    border: 1px solid #2a3a5a; border-radius: 16px;
+    padding: 40px; text-align: center;
   }
   .login-panel .icon { font-size: 3rem; margin-bottom: 16px; }
-  .login-panel h2 { color: #c9a227; font-size: 1.5rem; margin-bottom: 8px; }
-  .login-panel p { color: #8899aa; font-size: 0.9rem; margin-bottom: 24px; }
+  .login-panel h2   { color: #c9a227; font-size: 1.5rem; margin-bottom: 8px; }
+  .login-panel p    { color: #8899aa; font-size: 0.9rem; margin-bottom: 24px; }
   .login-panel input {
-    width: 100%;
-    padding: 12px 16px;
-    background: #0a0e1a;
-    border: 1px solid #2a3a5a;
-    border-radius: 8px;
-    color: #e0e6f0;
-    font-size: 1rem;
-    margin-bottom: 16px;
-    outline: none;
-    transition: border-color 0.2s;
+    width: 100%; padding: 12px 16px;
+    background: #0a0e1a; border: 1px solid #2a3a5a;
+    border-radius: 8px; color: #e0e6f0; font-size: 1rem;
+    margin-bottom: 16px; outline: none; transition: border-color 0.2s;
   }
   .login-panel input:focus { border-color: #c9a227; }
+
+  /* ✅ NUEVO — banner acceso inmediato en login */
+  .login-access-note {
+    background: rgba(56,161,105,0.1);
+    border: 1px solid rgba(56,161,105,0.3);
+    border-radius: 10px; padding: 12px 16px;
+    font-size: 0.8rem; color: #68d391;
+    margin-bottom: 16px; text-align: left;
+    line-height: 1.6;
+  }
+  .login-access-note strong { color: #9ae6b4; }
+
   .btn-gold {
-    width: 100%;
-    padding: 12px;
+    width: 100%; padding: 12px;
     background: linear-gradient(135deg, #c9a227, #e8c547);
-    border: none;
-    border-radius: 8px;
-    color: #0a0e1a;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: opacity 0.2s;
+    border: none; border-radius: 8px;
+    color: #0a0e1a; font-size: 1rem; font-weight: 700;
+    cursor: pointer; transition: opacity 0.2s;
   }
   .btn-gold:hover { opacity: 0.9; }
   .login-error {
-    color: #ff4444;
-    font-size: 0.85rem;
-    margin-top: 12px;
-    display: none;
+    color: #ff4444; font-size: 0.85rem;
+    margin-top: 12px; display: none;
   }
+
+  /* ✅ NUEVO — link a registro */
+  .login-registro-link {
+    margin-top: 16px; font-size: 0.82rem; color: #8899aa;
+  }
+  .login-registro-link a {
+    color: #c9a227; text-decoration: none; font-weight: 600;
+  }
+  .login-registro-link a:hover { text-decoration: underline; }
 
   /* ── MAIN PANEL ── */
   .main-panel { display: none; padding: 24px; max-width: 1200px; margin: 0 auto; }
 
+  /* ✅ NUEVO — banner pago pendiente */
+  .pago-pendiente-banner {
+    display: none;
+    background: rgba(214,158,46,0.1);
+    border: 1px solid rgba(214,158,46,0.35);
+    border-radius: 12px; padding: 14px 20px;
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 0.84rem; color: #f6e05e;
+  }
+  .pago-pendiente-banner.visible { display: flex; }
+  .pago-pendiente-banner .ppb-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .pago-pendiente-banner .ppb-text { line-height: 1.6; }
+  .pago-pendiente-banner .ppb-text strong { color: #fefcbf; }
+
   /* ── USER HEADER ── */
   .user-header {
     background: linear-gradient(135deg, #0d1b2a, #1a2a4a);
-    border: 1px solid #2a3a5a;
-    border-radius: 12px;
+    border: 1px solid #2a3a5a; border-radius: 12px;
     padding: 20px 24px;
-    display: flex;
-    align-items: center;
+    display: flex; align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 24px;
+    flex-wrap: wrap; gap: 16px; margin-bottom: 20px;
   }
   .user-info h2 { color: #c9a227; font-size: 1.3rem; }
-  .user-info p { color: #8899aa; font-size: 0.85rem; margin-top: 4px; }
-  .user-stats {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
+  .user-info p  { color: #8899aa; font-size: 0.85rem; margin-top: 4px; }
+  .user-stats   { display: flex; gap: 16px; flex-wrap: wrap; }
   .stat-box {
-    background: #0a0e1a;
-    border: 1px solid #2a3a5a;
-    border-radius: 10px;
-    padding: 12px 20px;
-    text-align: center;
-    min-width: 100px;
+    background: #0a0e1a; border: 1px solid #2a3a5a;
+    border-radius: 10px; padding: 12px 20px;
+    text-align: center; min-width: 100px;
   }
-  .stat-box .val {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #c9a227;
-  }
-  .stat-box .lbl {
-    font-size: 0.7rem;
-    color: #8899aa;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
+  .stat-box .val { font-size: 1.8rem; font-weight: 700; color: #c9a227; }
+  .stat-box .lbl { font-size: 0.7rem; color: #8899aa; text-transform: uppercase; letter-spacing: 0.5px; }
 
   /* ── ROUND TABS ── */
-  .round-tabs {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 24px;
-  }
+  .round-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
   .round-tab {
-    padding: 8px 18px;
-    border-radius: 20px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    cursor: pointer;
-    border: 1px solid #2a3a5a;
-    color: #8899bb;
-    background: transparent;
-    transition: all 0.2s;
+    padding: 8px 18px; border-radius: 20px; font-size: 0.82rem;
+    font-weight: 600; cursor: pointer; border: 1px solid #2a3a5a;
+    color: #8899bb; background: transparent; transition: all 0.2s;
   }
-  .round-tab:hover { background: #1a2a4a; color: #c9a227; border-color: #c9a227; }
+  .round-tab:hover  { background: #1a2a4a; color: #c9a227; border-color: #c9a227; }
   .round-tab.active { background: #c9a227; color: #0a0e1a; border-color: #c9a227; }
 
   /* ── MATCH GRID ── */
@@ -181,78 +146,50 @@
   /* ── MATCH CARD ── */
   .match-card {
     background: linear-gradient(135deg, #0d1b2a, #1a2a4a);
-    border: 1px solid #2a3a5a;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.2s, border-color 0.2s;
+    border: 1px solid #2a3a5a; border-radius: 12px;
+    overflow: hidden; transition: transform 0.2s, border-color 0.2s;
   }
-  .match-card:hover { transform: translateY(-2px); border-color: #3a4a6a; }
-  .match-card.win { border-color: #00cc66; }
-  .match-card.loss { border-color: #ff4444; }
-  .match-card.pending { border-color: #c9a227; }
+  .match-card:hover  { transform: translateY(-2px); border-color: #3a4a6a; }
+  .match-card.win    { border-color: #00cc66; }
+  .match-card.loss   { border-color: #ff4444; }
+  .match-card.pending{ border-color: #c9a227; }
 
   .card-header {
-    background: rgba(0,0,0,0.3);
-    padding: 8px 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.72rem;
-    color: #8899aa;
+    background: rgba(0,0,0,0.3); padding: 8px 14px;
+    display: flex; justify-content: space-between;
+    align-items: center; font-size: 0.72rem; color: #8899aa;
   }
   .card-header .match-id { color: #c9a227; font-weight: 700; }
   .status-badge {
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 0.68rem;
-    font-weight: 700;
-    text-transform: uppercase;
+    padding: 2px 8px; border-radius: 10px;
+    font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
   }
-  .status-badge.win { background: #00cc6622; color: #00cc66; border: 1px solid #00cc66; }
-  .status-badge.loss { background: #ff444422; color: #ff4444; border: 1px solid #ff4444; }
+  .status-badge.win     { background: #00cc6622; color: #00cc66; border: 1px solid #00cc66; }
+  .status-badge.loss    { background: #ff444422; color: #ff4444; border: 1px solid #ff4444; }
   .status-badge.pending { background: #c9a22722; color: #c9a227; border: 1px solid #c9a227; }
-  .status-badge.tbd { background: #44556622; color: #8899aa; border: 1px solid #445566; }
+  .status-badge.tbd     { background: #44556622; color: #8899aa; border: 1px solid #445566; }
 
   .card-teams {
-    padding: 16px 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    padding: 16px 14px; display: flex;
+    align-items: center; gap: 8px;
   }
-  .team-side {
-    flex: 1;
-    text-align: center;
-  }
-  .team-flag { font-size: 2rem; display: block; margin-bottom: 4px; }
-  .team-name { font-size: 0.8rem; font-weight: 600; color: #c8d8e8; }
-  .team-score {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #c9a227;
-    margin-top: 4px;
-  }
-  .vs-divider {
-    font-size: 0.75rem;
-    color: #445566;
-    font-weight: 700;
-    padding: 0 4px;
-    text-align: center;
-    min-width: 40px;
+  .team-side   { flex: 1; text-align: center; }
+  .team-flag   { font-size: 2rem; display: block; margin-bottom: 4px; }
+  .team-name   { font-size: 0.8rem; font-weight: 600; color: #c8d8e8; }
+  .team-score  { font-size: 1.4rem; font-weight: 700; color: #c9a227; margin-top: 4px; }
+  .vs-divider  {
+    font-size: 0.75rem; color: #445566; font-weight: 700;
+    padding: 0 4px; text-align: center; min-width: 40px;
   }
   .vs-divider .score-line {
-    font-size: 1.6rem;
-    color: #e0e6f0;
-    font-weight: 700;
-    display: block;
+    font-size: 1.6rem; color: #e0e6f0;
+    font-weight: 700; display: block;
   }
 
   .card-info {
-    padding: 8px 14px 12px;
-    font-size: 0.72rem;
-    color: #8899aa;
-    border-top: 1px solid #1a2a3a;
+    padding: 8px 14px 12px; font-size: 0.72rem;
+    color: #8899aa; border-top: 1px solid #1a2a3a;
   }
-  .card-info span { margin-right: 12px; }
 
   /* ── PREDICTION SECTION ── */
   .prediction-section {
@@ -261,71 +198,43 @@
     border-top: 1px solid #1a2a3a;
   }
   .prediction-label {
-    font-size: 0.7rem;
-    color: #8899aa;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
+    font-size: 0.7rem; color: #8899aa;
+    text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;
   }
-  .prediction-teams {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
+  .prediction-teams { display: flex; gap: 8px; flex-wrap: wrap; }
   .pred-btn {
-    flex: 1;
-    min-width: 80px;
-    padding: 8px 10px;
-    border-radius: 8px;
-    border: 1px solid #2a3a5a;
-    background: transparent;
-    color: #8899bb;
-    font-size: 0.78rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-align: center;
+    flex: 1; min-width: 80px; padding: 8px 10px;
+    border-radius: 8px; border: 1px solid #2a3a5a;
+    background: transparent; color: #8899bb;
+    font-size: 0.78rem; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; text-align: center;
   }
-  .pred-btn:hover { border-color: #c9a227; color: #c9a227; background: rgba(201,162,39,0.1); }
+  .pred-btn:hover    { border-color: #c9a227; color: #c9a227; background: rgba(201,162,39,0.1); }
   .pred-btn.selected { background: #c9a227; color: #0a0e1a; border-color: #c9a227; }
-  .pred-btn.correct { background: #00cc66; color: #fff; border-color: #00cc66; }
-  .pred-btn.wrong { background: #ff4444; color: #fff; border-color: #ff4444; }
+  .pred-btn.correct  { background: #00cc66; color: #fff; border-color: #00cc66; }
+  .pred-btn.wrong    { background: #ff4444; color: #fff; border-color: #ff4444; }
   .pred-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
   .score-inputs {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 10px;
+    display: flex; align-items: center;
+    gap: 8px; margin-top: 10px;
   }
   .score-inputs input {
-    width: 48px;
-    padding: 6px;
-    text-align: center;
-    background: #0a0e1a;
-    border: 1px solid #2a3a5a;
-    border-radius: 6px;
-    color: #e0e6f0;
-    font-size: 1rem;
-    font-weight: 700;
-    outline: none;
+    width: 48px; padding: 6px; text-align: center;
+    background: #0a0e1a; border: 1px solid #2a3a5a;
+    border-radius: 6px; color: #e0e6f0;
+    font-size: 1rem; font-weight: 700; outline: none;
   }
   .score-inputs input:focus { border-color: #c9a227; }
-  .score-inputs span { color: #445566; font-weight: 700; }
+  .score-inputs span  { color: #445566; font-weight: 700; }
   .score-inputs label { font-size: 0.72rem; color: #8899aa; }
 
   .save-pred-btn {
-    margin-top: 10px;
-    width: 100%;
-    padding: 8px;
+    margin-top: 10px; width: 100%; padding: 8px;
     background: linear-gradient(135deg, #1a3a6a, #2a4a8a);
-    border: 1px solid #3a5a9a;
-    border-radius: 8px;
-    color: #c8d8f8;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
+    border: 1px solid #3a5a9a; border-radius: 8px;
+    color: #c8d8f8; font-size: 0.8rem; font-weight: 600;
+    cursor: pointer; transition: all 0.2s;
   }
   .save-pred-btn:hover { background: linear-gradient(135deg, #2a4a8a, #3a5aaa); }
   .save-pred-btn.saved { background: #00cc6622; border-color: #00cc66; color: #00cc66; }
@@ -333,10 +242,8 @@
   /* ── POINTS BREAKDOWN ── */
   .points-breakdown {
     background: linear-gradient(135deg, #0d1b2a, #1a2a4a);
-    border: 1px solid #2a3a5a;
-    border-radius: 12px;
-    padding: 20px 24px;
-    margin-bottom: 24px;
+    border: 1px solid #2a3a5a; border-radius: 12px;
+    padding: 20px 24px; margin-bottom: 24px;
   }
   .points-breakdown h3 { color: #c9a227; margin-bottom: 16px; font-size: 1rem; }
   .points-table {
@@ -345,84 +252,72 @@
     gap: 12px;
   }
   .pt-row {
-    background: #0a0e1a;
-    border: 1px solid #1a2a3a;
-    border-radius: 8px;
-    padding: 10px 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background: #0a0e1a; border: 1px solid #1a2a3a;
+    border-radius: 8px; padding: 10px 14px;
+    display: flex; justify-content: space-between; align-items: center;
   }
   .pt-row .rnd { font-size: 0.78rem; color: #8899aa; }
   .pt-row .pts { font-size: 1rem; font-weight: 700; color: #c9a227; }
 
   /* ── EMPTY STATE ── */
-  .empty-state {
-    text-align: center;
-    padding: 60px 20px;
-    color: #445566;
-  }
+  .empty-state { text-align: center; padding: 60px 20px; color: #445566; }
   .empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
   .empty-state p { font-size: 0.9rem; }
 
-  /* ── DOWNLOAD BTN ── */
-  .download-bar {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 24px;
-  }
+  /* ── DOWNLOAD BAR ── */
+  .download-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
   .btn-outline {
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: 1px solid #c9a227;
-    background: transparent;
-    color: #c9a227;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
+    padding: 10px 20px; border-radius: 8px;
+    border: 1px solid #c9a227; background: transparent;
+    color: #c9a227; font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; transition: all 0.2s;
   }
   .btn-outline:hover { background: rgba(201,162,39,0.1); }
   .btn-danger {
-    padding: 10px 20px;
-    border-radius: 8px;
-    border: 1px solid #ff4444;
-    background: transparent;
-    color: #ff4444;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
+    padding: 10px 20px; border-radius: 8px;
+    border: 1px solid #ff4444; background: transparent;
+    color: #ff4444; font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; transition: all 0.2s;
   }
   .btn-danger:hover { background: rgba(255,68,68,0.1); }
 
   /* ── TOAST ── */
   .toast {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    background: #1a2a4a;
-    border: 1px solid #c9a227;
-    border-radius: 10px;
-    padding: 14px 20px;
-    font-size: 0.85rem;
-    color: #e0e6f0;
-    z-index: 9999;
-    transform: translateY(100px);
-    opacity: 0;
-    transition: all 0.3s;
-    max-width: 300px;
+    position: fixed; bottom: 24px; right: 24px;
+    background: #1a2a4a; border: 1px solid #c9a227;
+    border-radius: 10px; padding: 14px 20px;
+    font-size: 0.85rem; color: #e0e6f0; z-index: 9999;
+    transform: translateY(100px); opacity: 0;
+    transition: all 0.3s; max-width: 300px;
   }
-  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast.show    { transform: translateY(0); opacity: 1; }
   .toast.success { border-color: #00cc66; }
-  .toast.error { border-color: #ff4444; }
+  .toast.error   { border-color: #ff4444; }
+
+  /* ── LOADING ── */
+  .loading-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(10,14,26,0.85);
+    z-index: 999; align-items: center; justify-content: center;
+    flex-direction: column; gap: 16px;
+  }
+  .loading-overlay.visible { display: flex; }
+  .spinner {
+    width: 40px; height: 40px;
+    border: 4px solid rgba(201,162,39,0.2);
+    border-top-color: #c9a227;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading-overlay p { color: #c9a227; font-size: 0.9rem; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
-    .matches-grid { grid-template-columns: 1fr; }
-    .user-stats { justify-content: center; }
-    .main-panel { padding: 16px; }
+    .matches-grid  { grid-template-columns: 1fr; }
+    .user-stats    { justify-content: center; }
+    .main-panel    { padding: 16px; }
+    .download-bar  { flex-direction: column; }
   }
 </style>
 </head>
@@ -448,16 +343,54 @@
 
 <!-- LOGIN PANEL -->
 <div id="loginPanel" class="login-panel">
-  <div class="icon">🔐</div>
+  <div class="icon">📋</div>
   <h2>Accede a tu Quiniela</h2>
   <p>Ingresa tu correo electrónico para ver y editar tus predicciones</p>
-  <input type="email" id="emailInput" placeholder="tu@correo.com" autocomplete="email">
-  <button class="btn-gold" onclick="doLogin()">Ver Mi Quiniela →</button>
-  <div class="login-error" id="loginError">❌ Correo no encontrado. Verifica o regístrate.</div>
+
+  <!-- ✅ NUEVO — nota acceso inmediato -->
+  <div class="login-access-note">
+    ✅ <strong>Acceso inmediato tras el registro.</strong><br/>
+    No necesitas esperar confirmación de pago para predecir.
+    Solo ingresa tu email registrado.
+  </div>
+
+  <input type="email" id="emailInput"
+         placeholder="tu@correo.com" autocomplete="email">
+  <button class="btn-gold" onclick="doLogin()">
+    Ver Mi Quiniela →
+  </button>
+  <div class="login-error" id="loginError">
+    ❌ Correo no encontrado.
+    <a href="registro.html" style="color:#c9a227;font-weight:700">
+      ¿Aún no te registraste?
+    </a>
+  </div>
+
+  <div class="login-registro-link">
+    ¿Primera vez?
+    <a href="registro.html">Regístrate aquí →</a>
+  </div>
+</div>
+
+<!-- LOADING -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <p>Cargando tu quiniela...</p>
 </div>
 
 <!-- MAIN PANEL -->
 <div id="mainPanel" class="main-panel">
+
+  <!-- ✅ BANNER PAGO PENDIENTE — solo si no está confirmado -->
+  <div class="pago-pendiente-banner" id="pagoPendienteBanner">
+    <div class="ppb-icon">⏳</div>
+    <div class="ppb-text">
+      <strong>Pago pendiente de confirmación.</strong><br/>
+      Puedes llenar todas tus predicciones ahora mismo.
+      El administrador confirmará tu pago en las próximas horas.
+      Esto <strong>no afecta</strong> tu participación.
+    </div>
+  </div>
 
   <!-- USER HEADER -->
   <div class="user-header">
@@ -489,15 +422,13 @@
   <div class="download-bar">
     <button class="btn-outline" onclick="downloadPDF()">📄 Descargar PDF</button>
     <button class="btn-outline" onclick="refreshData()">🔄 Actualizar</button>
-    <button class="btn-danger" onclick="doLogout()">🚪 Cerrar Sesión</button>
+    <button class="btn-danger"  onclick="doLogout()">🚪 Cerrar Sesión</button>
   </div>
 
   <!-- POINTS BREAKDOWN -->
   <div class="points-breakdown">
     <h3>📊 Desglose de Puntos por Ronda</h3>
-    <div class="points-table" id="pointsTable">
-      <!-- Generado por JS -->
-    </div>
+    <div class="points-table" id="pointsTable"></div>
   </div>
 
   <!-- ROUND TABS -->
@@ -519,185 +450,140 @@
 <div class="toast" id="toast"></div>
 
 <script>
-// ══════════════════════════════════════════════════════════
-// ✅ BRACKET OFICIAL FIFA MUNDIAL 2026
-//    Datos verificados — 28 Jun 2026
-//    Fuentes: TyC Sports · El Financiero · AS · Bolavip
-// ══════════════════════════════════════════════════════════
+const API = window.location.origin;
 
-const API = window.location.hostname === 'localhost'
-  ? 'http://localhost:3000'
-  : 'https://tu-backend.railway.app'; // ← Cambiar por URL real
-
-// ── ESTRUCTURA COMPLETA DEL BRACKET ──────────────────────
+// ══════════════════════════════════════════════════════════
+// BRACKET OFICIAL FIFA MUNDIAL 2026
+// ══════════════════════════════════════════════════════════
 const BRACKET = {
-
   R32: [
-    { id:'M73',
-      local:'Sudáfrica',    localFlag:'🇿🇦', localCode:'RSA',
-      visitante:'Canadá',   visitFlag:'🇨🇦', visitCode:'CAN',
-      sede:'SoFi Stadium · Los Ángeles, CA',
-      fecha:'28 Jun', hora:'1:00 PM ET' },
-
-    { id:'M74',
-      local:'Brasil',       localFlag:'🇧🇷', localCode:'BRA',
-      visitante:'Japón',    visitFlag:'🇯🇵', visitCode:'JPN',
-      sede:'NRG Stadium · Houston, TX',
-      fecha:'29 Jun', hora:'11:00 AM ET' },
-
-    { id:'M75',
-      local:'Alemania',     localFlag:'🇩🇪', localCode:'GER',
-      visitante:'Paraguay', visitFlag:'🇵🇾', visitCode:'PAR',
-      sede:'Gillette Stadium · Boston, MA',
-      fecha:'29 Jun', hora:'2:30 PM ET' },
-
-    { id:'M76',
-      local:'Países Bajos', localFlag:'🇳🇱', localCode:'NED',
-      visitante:'Marruecos',visitFlag:'🇲🇦', visitCode:'MAR',
-      sede:'Estadio BBVA · Monterrey, México',
-      fecha:'29 Jun', hora:'7:00 PM ET' },
-
-    { id:'M77',
-      local:'Costa de Marfil', localFlag:'🇨🇮', localCode:'CIV',
-      visitante:'Noruega',     visitFlag:'🇳🇴', visitCode:'NOR',
-      sede:'AT&T Stadium · Dallas, TX',
-      fecha:'30 Jun', hora:'11:00 AM ET' },
-
-    { id:'M78',
-      local:'Francia',      localFlag:'🇫🇷', localCode:'FRA',
-      visitante:'Suecia',   visitFlag:'🇸🇪', visitCode:'SWE',
-      sede:'MetLife Stadium · East Rutherford, NJ',
-      fecha:'30 Jun', hora:'3:00 PM ET' },
-
-    { id:'M79',
-      local:'México',       localFlag:'🇲🇽', localCode:'MEX',
-      visitante:'Ecuador',  visitFlag:'🇪🇨', visitCode:'ECU',
-      sede:'Estadio Azteca · Ciudad de México',
-      fecha:'30 Jun', hora:'7:00 PM ET' },
-
-    { id:'M80',
-      local:'Inglaterra',   localFlag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿', localCode:'ENG',
-      visitante:'RD Congo', visitFlag:'🇨🇩', visitCode:'COD',
-      sede:'Mercedes-Benz Stadium · Atlanta, GA',
-      fecha:'1 Jul',  hora:'10:00 AM ET' },
-
-    { id:'M81',
-      local:'Bélgica',      localFlag:'🇧🇪', localCode:'BEL',
-      visitante:'Senegal',  visitFlag:'🇸🇳', visitCode:'SEN',
-      sede:'Lumen Field · Seattle, WA',
-      fecha:'1 Jul',  hora:'2:00 PM ET' },
-
-    { id:'M82',
-      local:'Estados Unidos',       localFlag:'🇺🇸', localCode:'USA',
-      visitante:'Bosnia-Herzegovina',visitFlag:'🇧🇦', visitCode:'BIH',
-      sede:"Levi's Stadium · Santa Clara, CA",
-      fecha:'1 Jul',  hora:'6:00 PM ET' },
-
-    { id:'M83',
-      local:'España',       localFlag:'🇪🇸', localCode:'ESP',
-      visitante:'Austria',  visitFlag:'🇦🇹', visitCode:'AUT',
-      sede:'SoFi Stadium · Los Ángeles, CA',
-      fecha:'2 Jul',  hora:'1:00 PM ET' },
-
-    { id:'M84',
-      local:'Portugal',     localFlag:'🇵🇹', localCode:'POR',
-      visitante:'Croacia',  visitFlag:'🇭🇷', visitCode:'CRO',
-      sede:'BMO Field · Toronto, Canadá',
-      fecha:'2 Jul',  hora:'5:00 PM ET' },
-
-    { id:'M85',
-      local:'Suiza',        localFlag:'🇨🇭', localCode:'SUI',
-      visitante:'Argelia',  visitFlag:'🇩🇿', visitCode:'ALG',
-      sede:'BC Place · Vancouver, Canadá',
-      fecha:'2 Jul',  hora:'9:00 PM ET' },
-
-    { id:'M86',
-      local:'Australia',    localFlag:'🇦🇺', localCode:'AUS',
-      visitante:'Egipto',   visitFlag:'🇪🇬', visitCode:'EGY',
-      sede:'AT&T Stadium · Dallas, TX',
-      fecha:'3 Jul',  hora:'12:00 PM ET' },
-
-    { id:'M87',
-      local:'Argentina',    localFlag:'🇦🇷', localCode:'ARG',
-      visitante:'Cabo Verde',visitFlag:'🇨🇻', visitCode:'CPV',
-      sede:'Hard Rock Stadium · Miami Gardens, FL',
-      fecha:'3 Jul',  hora:'4:00 PM ET' },
-
-    { id:'M88',
-      local:'Colombia',     localFlag:'🇨🇴', localCode:'COL',
-      visitante:'Ghana',    visitFlag:'🇬🇭', visitCode:'GHA',
-      sede:'Arrowhead Stadium · Kansas City, MO',
-      fecha:'3 Jul',  hora:'7:30 PM ET' },
-  ],
-
-  R16: [
-    { id:'M89',  local:'Ganador M73', localFlag:'🏳', localCode:'TBD',
-                 visitante:'Ganador M74', visitFlag:'🏳', visitCode:'TBD',
-                 sede:'Por definir', fecha:'5 Jul', hora:'TBD' },
-    { id:'M90',  local:'Ganador M75', localFlag:'🏳', localCode:'TBD',
-                 visitante:'Ganador M76', visitFlag:'🏳', visitCode:'TBD',
-                 sede:'Por definir', fecha:'5 Jul', hora:'TBD' },
-    { id:'M91',  local:'Ganador M77', localFlag:'🏳', localCode:'TBD',
-                 visitante:'Ganador M78', visitFlag:'🏳', visitCode:'TBD',
-                 sede:'Por definir', fecha:'6 Jul', hora:'TBD' },
-    { id:'M92',  local:'Ganador M79', localFlag:'🏳', localCode:'TBD',
-                 visitante:'Ganador M80', visitFlag:'🏳', visitCode:'TBD',
-                 sede:'Por definir', fecha:'6 Jul', hora:'TBD' },
-    { id:'M93',  local:'Ganador M81', localFlag:'🏳', localCode:'TBD',
-                 visitante:'Ganador M82', visitFlag:'🏳', visitCode:'TBD',
-                 sede:'Por definir', fecha:'7 Jul', hora:'TBD' },
-    { id:'M94',  local:'Ganador M83', localFlag:'🏳', localCode:'TBD',
-                 visitante:'Ganador M84', visitFlag:'🏳', visitCode:'TBD',
-                 sede:'Por definir', fecha:'7 Jul', hora:'TBD' },
-    { id:'M95',  local:'Ganador M85', localFlag:'🏳', localCode:'TBD',
-                 visitante:'Ganador M86', visitFlag:'🏳', visitCode:'TBD',
-                 sede:'Por definir', fecha:'8 Jul', hora:'TBD' },
-    { id:'M96',  local:'Ganador M87', localFlag:'🏳', localCode:'TBD',
-                 visitante:'Ganador M88', visitFlag:'🏳', visitCode:'TBD',
-                 sede:'Por definir', fecha:'8 Jul', hora:'TBD' },
-  ],
-
-  QF: [
-    { id:'M97',  local:'Ganador M89', localFlag:'🏳', localCode:'TBD',
-                 visitante:'Ganador M90', visitFlag:'🏳', visitCode:'TBD',
-                 sede:'Por definir', fecha:'11 Jul', hora:'TBD' },
-    { id:'M98',  local:'Ganador M91', localFlag:'🏳', localCode:'TBD',
-                 visitante:'Ganador M92', visitFlag:'🏳', visitCode:'TBD',
-                 sede:'Por definir', fecha:'11 Jul', hora:'TBD' },
-    { id:'M99',  local:'Ganador M93', localFlag:'🏳', localCode:'TBD',
-                 visitante:'Ganador M94', visitFlag:'🏳', visitCode:'TBD',
-                 sede:'Por definir', fecha:'12 Jul', hora:'TBD' },
-    { id:'M100', local:'Ganador M95', localFlag:'🏳', localCode:'TBD',
-                 visitante:'Ganador M96', visitFlag:'🏳', visitCode:'TBD',
-                 sede:'Por definir', fecha:'12 Jul', hora:'TBD' },
-  ],
-
-  SF: [
-    { id:'M101', local:'Ganador M97', localFlag:'🏳', localCode:'TBD',
-                 visitante:'Ganador M98', visitFlag:'🏳', visitCode:'TBD',
-                 sede:'Por definir', fecha:'15 Jul', hora:'TBD' },
-    { id:'M102', local:'Ganador M99', localFlag:'🏳', localCode:'TBD',
-                 visitante:'Ganador M100',visitFlag:'🏳', visitCode:'TBD',
-                 sede:'Por definir', fecha:'16 Jul', hora:'TBD' },
-  ],
-
-  '3P': [
-    { id:'M103', local:'Perdedor M101', localFlag:'🏳', localCode:'TBD',
-                 visitante:'Perdedor M102', visitFlag:'🏳', visitCode:'TBD',
-                 sede:'Por definir', fecha:'19 Jul', hora:'TBD' },
-  ],
-
-  F: [
-    { id:'M104', local:'Ganador M101', localFlag:'🏳', localCode:'TBD',
-                 visitante:'Ganador M102', visitFlag:'🏳', visitCode:'TBD',
+    { id:'M73',  local:'Sudáfrica',    localFlag:'🇿🇦', localCode:'RSA',
+                 visitante:'Canadá',   visitFlag:'🇨🇦', visitCode:'CAN',
+                 sede:'SoFi Stadium · Los Ángeles, CA',
+                 fecha:'28 Jun', hora:'1:00 PM ET' },
+    { id:'M74',  local:'Brasil',       localFlag:'🇧🇷', localCode:'BRA',
+                 visitante:'Japón',    visitFlag:'🇯🇵', visitCode:'JPN',
+                 sede:'NRG Stadium · Houston, TX',
+                 fecha:'29 Jun', hora:'11:00 AM ET' },
+    { id:'M75',  local:'Alemania',     localFlag:'🇩🇪', localCode:'GER',
+                 visitante:'Paraguay', visitFlag:'🇵🇾', visitCode:'PAR',
+                 sede:'Gillette Stadium · Boston, MA',
+                 fecha:'29 Jun', hora:'2:30 PM ET' },
+    { id:'M76',  local:'Países Bajos', localFlag:'🇳🇱', localCode:'NED',
+                 visitante:'Marruecos',visitFlag:'🇲🇦', visitCode:'MAR',
+                 sede:'Estadio BBVA · Monterrey, México',
+                 fecha:'29 Jun', hora:'7:00 PM ET' },
+    { id:'M77',  local:'Costa de Marfil', localFlag:'🇨🇮', localCode:'CIV',
+                 visitante:'Noruega',     visitFlag:'🇳🇴', visitCode:'NOR',
+                 sede:'AT&T Stadium · Dallas, TX',
+                 fecha:'30 Jun', hora:'11:00 AM ET' },
+    { id:'M78',  local:'Francia',      localFlag:'🇫🇷', localCode:'FRA',
+                 visitante:'Suecia',   visitFlag:'🇸🇪', visitCode:'SWE',
                  sede:'MetLife Stadium · East Rutherford, NJ',
-                 fecha:'19 Jul', hora:'TBD' },
+                 fecha:'30 Jun', hora:'3:00 PM ET' },
+    { id:'M79',  local:'México',       localFlag:'🇲🇽', localCode:'MEX',
+                 visitante:'Ecuador',  visitFlag:'🇪🇨', visitCode:'ECU',
+                 sede:'Estadio Azteca · Ciudad de México',
+                 fecha:'30 Jun', hora:'7:00 PM ET' },
+    { id:'M80',  local:'Inglaterra',   localFlag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿', localCode:'ENG',
+                 visitante:'RD Congo', visitFlag:'🇨🇩', visitCode:'COD',
+                 sede:'Mercedes-Benz Stadium · Atlanta, GA',
+                 fecha:'1 Jul',  hora:'10:00 AM ET' },
+    { id:'M81',  local:'Bélgica',      localFlag:'🇧🇪', localCode:'BEL',
+                 visitante:'Senegal',  visitFlag:'🇸🇳', visitCode:'SEN',
+                 sede:'Lumen Field · Seattle, WA',
+                 fecha:'1 Jul',  hora:'2:00 PM ET' },
+    { id:'M82',  local:'Estados Unidos',        localFlag:'🇺🇸', localCode:'USA',
+                 visitante:'Bosnia-Herzegovina', visitFlag:'🇧🇦', visitCode:'BIH',
+                 sede:"Levi's Stadium · Santa Clara, CA",
+                 fecha:'1 Jul',  hora:'6:00 PM ET' },
+    { id:'M83',  local:'España',       localFlag:'🇪🇸', localCode:'ESP',
+                 visitante:'Austria',  visitFlag:'🇦🇹', visitCode:'AUT',
+                 sede:'SoFi Stadium · Los Ángeles, CA',
+                 fecha:'2 Jul',  hora:'1:00 PM ET' },
+    { id:'M84',  local:'Portugal',     localFlag:'🇵🇹', localCode:'POR',
+                 visitante:'Croacia',  visitFlag:'🇭🇷', visitCode:'CRO',
+                 sede:'BMO Field · Toronto, Canadá',
+                 fecha:'2 Jul',  hora:'5:00 PM ET' },
+    { id:'M85',  local:'Suiza',        localFlag:'🇨🇭', localCode:'SUI',
+                 visitante:'Argelia',  visitFlag:'🇩🇿', visitCode:'ALG',
+                 sede:'BC Place · Vancouver, Canadá',
+                 fecha:'2 Jul',  hora:'9:00 PM ET' },
+    { id:'M86',  local:'Australia',    localFlag:'🇦🇺', localCode:'AUS',
+                 visitante:'Egipto',   visitFlag:'🇪🇬', visitCode:'EGY',
+                 sede:'AT&T Stadium · Dallas, TX',
+                 fecha:'3 Jul',  hora:'12:00 PM ET' },
+    { id:'M87',  local:'Argentina',    localFlag:'🇦🇷', localCode:'ARG',
+                 visitante:'Cabo Verde',visitFlag:'🇨🇻', visitCode:'CPV',
+                 sede:'Hard Rock Stadium · Miami Gardens, FL',
+                 fecha:'3 Jul',  hora:'4:00 PM ET' },
+    { id:'M88',  local:'Colombia',     localFlag:'🇨🇴', localCode:'COL',
+                 visitante:'Ghana',    visitFlag:'🇬🇭', visitCode:'GHA',
+                 sede:'Arrowhead Stadium · Kansas City, MO',
+                 fecha:'3 Jul',  hora:'7:30 PM ET' },
+  ],
+  R16: [
+    { id:'M89',  local:'Ganador M74', localFlag:'🏳️', localCode:'TBD',
+                 visitante:'Ganador M77', visitFlag:'🏳️', visitCode:'TBD',
+                 sede:'Lincoln Financial Field · Philadelphia', fecha:'4 Jul', hora:'3:00 PM ET' },
+    { id:'M90',  local:'Ganador M73', localFlag:'🏳️', localCode:'TBD',
+                 visitante:'Ganador M75', visitFlag:'🏳️', visitCode:'TBD',
+                 sede:'NRG Stadium · Houston', fecha:'4 Jul', hora:'7:00 PM ET' },
+    { id:'M91',  local:'Ganador M76', localFlag:'🏳️', localCode:'TBD',
+                 visitante:'Ganador M78', visitFlag:'🏳️', visitCode:'TBD',
+                 sede:'MetLife Stadium · New York/NJ', fecha:'5 Jul', hora:'3:00 PM ET' },
+    { id:'M92',  local:'Ganador M79', localFlag:'🏳️', localCode:'TBD',
+                 visitante:'Ganador M80', visitFlag:'🏳️', visitCode:'TBD',
+                 sede:'Estadio Azteca · Ciudad de México', fecha:'5 Jul', hora:'7:00 PM ET' },
+    { id:'M93',  local:'Ganador M83', localFlag:'🏳️', localCode:'TBD',
+                 visitante:'Ganador M84', visitFlag:'🏳️', visitCode:'TBD',
+                 sede:'BMO Field · Toronto', fecha:'6 Jul', hora:'3:00 PM ET' },
+    { id:'M94',  local:'Ganador M81', localFlag:'🏳️', localCode:'TBD',
+                 visitante:'Ganador M82', visitFlag:'🏳️', visitCode:'TBD',
+                 sede:"Levi's Stadium · Santa Clara", fecha:'6 Jul', hora:'7:00 PM ET' },
+    { id:'M95',  local:'Ganador M86', localFlag:'🏳️', localCode:'TBD',
+                 visitante:'Ganador M88', visitFlag:'🏳️', visitCode:'TBD',
+                 sede:'Hard Rock Stadium · Miami', fecha:'7 Jul', hora:'3:00 PM ET' },
+    { id:'M96',  local:'Ganador M85', localFlag:'🏳️', localCode:'TBD',
+                 visitante:'Ganador M87', visitFlag:'🏳️', visitCode:'TBD',
+                 sede:'BC Place · Vancouver', fecha:'7 Jul', hora:'7:00 PM ET' },
+  ],
+  QF: [
+    { id:'M97',  local:'Ganador M89', localFlag:'🏳️', localCode:'TBD',
+                 visitante:'Ganador M90', visitFlag:'🏳️', visitCode:'TBD',
+                 sede:'Gillette Stadium · Boston', fecha:'9 Jul', hora:'7:00 PM ET' },
+    { id:'M98',  local:'Ganador M93', localFlag:'🏳️', localCode:'TBD',
+                 visitante:'Ganador M94', visitFlag:'🏳️', visitCode:'TBD',
+                 sede:'SoFi Stadium · Los Ángeles', fecha:'10 Jul', hora:'7:00 PM ET' },
+    { id:'M99',  local:'Ganador M91', localFlag:'🏳️', localCode:'TBD',
+                 visitante:'Ganador M92', visitFlag:'🏳️', visitCode:'TBD',
+                 sede:'Hard Rock Stadium · Miami', fecha:'11 Jul', hora:'3:00 PM ET' },
+    { id:'M100', local:'Ganador M95', localFlag:'🏳️', localCode:'TBD',
+                 visitante:'Ganador M96', visitFlag:'🏳️', visitCode:'TBD',
+                 sede:'Arrowhead Stadium · Kansas City', fecha:'11 Jul', hora:'7:00 PM ET' },
+  ],
+  SF: [
+    { id:'M101', local:'Ganador M97',  localFlag:'🏳️', localCode:'TBD',
+                 visitante:'Ganador M98',  visitFlag:'🏳️', visitCode:'TBD',
+                 sede:'AT&T Stadium · Dallas', fecha:'14 Jul', hora:'7:00 PM ET' },
+    { id:'M102', local:'Ganador M99',  localFlag:'🏳️', localCode:'TBD',
+                 visitante:'Ganador M100', visitFlag:'🏳️', visitCode:'TBD',
+                 sede:'Mercedes-Benz Stadium · Atlanta', fecha:'15 Jul', hora:'7:00 PM ET' },
+  ],
+  '3P': [
+    { id:'M103', local:'Perdedor M101', localFlag:'🏳️', localCode:'TBD',
+                 visitante:'Perdedor M102', visitFlag:'🏳️', visitCode:'TBD',
+                 sede:'Hard Rock Stadium · Miami', fecha:'18 Jul', hora:'3:00 PM ET' },
+  ],
+  F: [
+    { id:'M104', local:'Ganador M101', localFlag:'🏳️', localCode:'TBD',
+                 visitante:'Ganador M102', visitFlag:'🏳️', visitCode:'TBD',
+                 sede:'MetLife Stadium · East Rutherford, NJ',
+                 fecha:'19 Jul', hora:'3:00 PM ET' },
   ],
 };
 
 // ── SISTEMA DE PUNTOS ─────────────────────────────────────
-// ✅ VERIFICADO vs KB OFICIAL — Sincronizado con
-//    server.js · puntos.js · ranking.html
 const PUNTOS = {
   R32:  { ganador: 3,  marcador: 3, penales: 1, max: 7  },
   R16:  { ganador: 5,  marcador: 3, penales: 1, max: 9  },
@@ -706,40 +592,76 @@ const PUNTOS = {
   '3P': { ganador: 8,  marcador: 4, penales: 2, max: 14 },
   F:    { ganador: 20, marcador: 8, penales: 3, max: 31 },
 };
-const PUNTOS_AWARD = 30;   // ⭐ Balón de Oro
-const MAX_TOTAL    = 353;  // 323 pts partidos + 30 pts award
-
 
 const ROUND_NAMES = {
-  R32: '16avos de Final',
-  R16: 'Octavos de Final',
-  QF:  'Cuartos de Final',
-  SF:  'Semifinales',
-  '3P':'Tercer Lugar',
-  F:   'Gran Final',
+  R32: '16avos de Final', R16: 'Octavos de Final',
+  QF:  'Cuartos de Final', SF: 'Semifinales',
+  '3P':'Tercer Lugar',     F:  'Gran Final',
 };
 
 // ── ESTADO ────────────────────────────────────────────────
-let currentUser = null;
-let predictions = {};
-let results     = {};
+let currentUser  = null;
+let predictions  = {};
+let results      = {};
 let currentRound = 'R32';
+
+// ══════════════════════════════════════════
+// ✅ AUTO-LOGIN — desde URL ?email= o localStorage
+// ══════════════════════════════════════════
+(function autoLogin() {
+  const params     = new URLSearchParams(window.location.search);
+  const emailParam = params.get('email');
+  if (emailParam) {
+    document.getElementById('emailInput').value = emailParam;
+    // Limpiar URL sin recargar
+    window.history.replaceState({}, '', window.location.pathname);
+    doLogin();
+    return;
+  }
+  // Pre-llenar desde localStorage (no auto-login silencioso)
+  const emailSaved = localStorage.getItem('quiniela_email');
+  if (emailSaved) {
+    document.getElementById('emailInput').value = emailSaved;
+  }
+})();
 
 // ── LOGIN ─────────────────────────────────────────────────
 async function doLogin() {
   const email = document.getElementById('emailInput').value.trim().toLowerCase();
   if (!email) return;
 
+  showLoading(true);
+  document.getElementById('loginError').style.display = 'none';
+
   try {
     const res = await fetch(`${API}/api/participante/${encodeURIComponent(email)}`);
     if (!res.ok) throw new Error('not found');
     const data = await res.json();
+
+    // ✅ Aceptar cualquier participante registrado
+    // sin importar si confirmado === true o false
     currentUser = data;
+    localStorage.setItem('quiniela_email', email);
+
     await loadUserData();
+
     document.getElementById('loginPanel').style.display = 'none';
     document.getElementById('mainPanel').style.display  = 'block';
+
+    // ✅ Mostrar banner pago pendiente si no está confirmado
+    const banner = document.getElementById('pagoPendienteBanner');
+    if (banner) {
+      if (!currentUser.confirmado) {
+        banner.classList.add('visible');
+      } else {
+        banner.classList.remove('visible');
+      }
+    }
+
   } catch {
     document.getElementById('loginError').style.display = 'block';
+  } finally {
+    showLoading(false);
   }
 }
 
@@ -751,10 +673,12 @@ function doLogout() {
   currentUser = null;
   predictions = {};
   results     = {};
+  localStorage.removeItem('quiniela_email');
   document.getElementById('loginPanel').style.display = 'block';
   document.getElementById('mainPanel').style.display  = 'none';
-  document.getElementById('emailInput').value = '';
+  document.getElementById('emailInput').value         = '';
   document.getElementById('loginError').style.display = 'none';
+  document.getElementById('pagoPendienteBanner').classList.remove('visible');
 }
 
 // ── CARGA DE DATOS ────────────────────────────────────────
@@ -773,24 +697,24 @@ async function loadUserData() {
     if (rkRes.ok) {
       const ranking = await rkRes.json();
       const pos = ranking.findIndex(r => r.id === currentUser.id) + 1;
-      document.getElementById('statPosicion').textContent = pos > 0 ? `#${pos}` : '#—';
+      document.getElementById('statPosicion').textContent =
+        pos > 0 ? `#${pos}` : '#—';
     }
 
     updateUI();
   } catch (e) {
-    console.error('Error cargando datos:', e);
-    // Modo offline: mostrar bracket vacío
-    updateUI();
+    console.warn('Error cargando datos:', e);
+    updateUI(); // Modo offline: mostrar bracket vacío
   }
 }
 
 // ── ACTUALIZAR UI ─────────────────────────────────────────
 function updateUI() {
-  // Header usuario
-  document.getElementById('userName').textContent  = `👤 ${currentUser?.nombre || 'Usuario'}`;
-  document.getElementById('userEmail').textContent = currentUser?.email || '';
+  document.getElementById('userName').textContent  =
+    `👤 ${currentUser?.nombre || 'Usuario'}`;
+  document.getElementById('userEmail').textContent =
+    currentUser?.email || '';
 
-  // Calcular stats
   let totalPuntos = 0, aciertos = 0, pendientes = 0;
   const puntosRonda = {};
 
@@ -806,7 +730,7 @@ function updateUI() {
       if (pred.ganador === res.ganador_code) {
         pts += PUNTOS[ronda].ganador;
         aciertos++;
-        if (pred.goles_local    === res.goles_local &&
+        if (pred.goles_local     === res.goles_local &&
             pred.goles_visitante === res.goles_visitante) {
           pts += PUNTOS[ronda].marcador;
         }
@@ -814,8 +738,8 @@ function updateUI() {
           pts += PUNTOS[ronda].penales;
         }
       }
-      totalPuntos       += pts;
-      puntosRonda[ronda]+= pts;
+      totalPuntos        += pts;
+      puntosRonda[ronda] += pts;
     });
   });
 
@@ -832,7 +756,6 @@ function updateUI() {
     </div>
   `).join('');
 
-  // Renderizar ronda actual
   renderRound(currentRound);
 }
 
@@ -848,21 +771,31 @@ function showRound(ronda, btn) {
 function renderRound(ronda) {
   const grid    = document.getElementById('matchesGrid');
   const matches = BRACKET[ronda] || [];
-  const isClosed = isPastDeadline();
 
   if (!matches.length) {
-    grid.innerHTML = `<div class="empty-state"><div class="icon">🏆</div><p>No hay partidos en esta ronda.</p></div>`;
+    grid.innerHTML = `<div class="empty-state">
+      <div class="icon">🏆</div>
+      <p>No hay partidos en esta ronda.</p>
+    </div>`;
     return;
   }
 
-  grid.innerHTML = matches.map(match => buildMatchCard(match, ronda, isClosed)).join('');
+  grid.innerHTML = matches.map(match =>
+    buildMatchCard(match, ronda)
+  ).join('');
 }
 
 // ── CONSTRUIR TARJETA ─────────────────────────────────────
-function buildMatchCard(match, ronda, isClosed) {
-  const pred   = predictions[match.id] || {};
-  const res    = results[match.id]     || {};
-  const ended  = res.estado === 'FINALIZADO';
+function buildMatchCard(match, ronda) {
+  const pred  = predictions[match.id] || {};
+  const res   = results[match.id]     || {};
+  const ended = res.estado === 'FINALIZADO';
+  const isTBD = match.localCode === 'TBD' || match.visitCode === 'TBD';
+
+  // ✅ SOLO se bloquea si el partido ya terminó o es TBD
+  // NO se bloquea por fecha ni por pago pendiente
+  const locked   = ended || isTBD;
+  const disabled = locked ? 'disabled' : '';
 
   // Estado de la predicción
   let cardClass = 'match-card';
@@ -878,47 +811,67 @@ function buildMatchCard(match, ronda, isClosed) {
     }
   } else if (pred.ganador) {
     cardClass += ' pending';
-    badgeHtml  = '<span class="status-badge pending">⏳ Pendiente</span>';
+    badgeHtml  = '<span class="status-badge pending">⏳ Guardado</span>';
+  } else if (!isTBD) {
+    badgeHtml = '<span class="status-badge tbd">📝 Sin predicción</span>';
   } else {
-    badgeHtml = '<span class="status-badge tbd">Sin predicción</span>';
+    badgeHtml = '<span class="status-badge tbd">🔒 Por definir</span>';
   }
 
   // Score real
   let scoreHtml = '<span style="color:#445566">vs</span>';
   if (ended) {
     const pen = res.fue_a_penales
-      ? `<div style="font-size:0.65rem;color:#8899aa">(${res.penales_local}-${res.penales_visitante} pen)</div>`
+      ? `<div style="font-size:0.65rem;color:#8899aa">(pen.)</div>`
       : '';
-    scoreHtml = `<span class="score-line">${res.goles_local ?? '?'} - ${res.goles_visitante ?? '?'}</span>${pen}`;
+    scoreHtml = `<span class="score-line">
+      ${res.goles_local ?? '?'} - ${res.goles_visitante ?? '?'}
+    </span>${pen}`;
   }
 
-  // Botones predicción
-  const localCode = match.localCode;
-  const visitCode = match.visitCode;
-  const isTBD     = localCode === 'TBD' || visitCode === 'TBD';
-  const disabled  = isClosed || ended || isTBD ? 'disabled' : '';
+  // Clases botones ganador
+  const localSel = pred.ganador === match.localCode
+    ? (ended
+        ? (pred.ganador === res.ganador_code ? 'correct' : 'wrong')
+        : 'selected')
+    : '';
+  const visitSel = pred.ganador === match.visitCode
+    ? (ended
+        ? (pred.ganador === res.ganador_code ? 'correct' : 'wrong')
+        : 'selected')
+    : '';
 
-  const localSel  = pred.ganador === localCode  ? (ended ? (pred.ganador === res.ganador_code ? 'correct' : 'wrong') : 'selected') : '';
-  const visitSel  = pred.ganador === visitCode  ? (ended ? (pred.ganador === res.ganador_code ? 'correct' : 'wrong') : 'selected') : '';
-
-  const scoreInputs = (!isClosed && !ended && !isTBD) ? `
+  // Inputs de marcador — solo si no bloqueado
+  const scoreInputs = !locked ? `
     <div class="score-inputs">
       <label>Marcador:</label>
-      <input type="number" min="0" max="20" id="sl_${match.id}"
-             value="${pred.goles_local ?? ''}" placeholder="0">
+      <input type="number" min="0" max="20"
+             id="sl_${match.id}"
+             value="${pred.goles_local ?? ''}"
+             placeholder="0"/>
       <span>-</span>
-      <input type="number" min="0" max="20" id="sv_${match.id}"
-             value="${pred.goles_visitante ?? ''}" placeholder="0">
+      <input type="number" min="0" max="20"
+             id="sv_${match.id}"
+             value="${pred.goles_visitante ?? ''}"
+             placeholder="0"/>
       <label style="margin-left:8px">
-        <input type="checkbox" id="sp_${match.id}" ${pred.penales ? 'checked' : ''}>
+        <input type="checkbox"
+               id="sp_${match.id}"
+               ${pred.penales ? 'checked' : ''}/>
         Pen.
       </label>
     </div>
-  ` : '';
+  ` : (pred.goles_local != null ? `
+    <div style="font-size:0.78rem;color:#8899aa;margin-top:8px">
+      Tu marcador: ${pred.goles_local} - ${pred.goles_visitante}
+      ${pred.penales ? '· Penales ✓' : ''}
+    </div>
+  ` : '');
 
-  const saveBtn = (!isClosed && !ended && !isTBD) ? `
-    <button class="save-pred-btn" id="sb_${match.id}"
-            onclick="savePrediction('${match.id}','${localCode}','${visitCode}','${ronda}')">
+  const saveBtn = !locked ? `
+    <button class="save-pred-btn"
+            id="sb_${match.id}"
+            onclick="savePrediction('${match.id}','${match.localCode}','${match.visitCode}','${ronda}')">
       💾 Guardar Predicción
     </button>
   ` : '';
@@ -947,16 +900,18 @@ function buildMatchCard(match, ronda, isClosed) {
         <span>🏟️ ${match.sede}</span>
       </div>
       <div class="prediction-section">
-        <div class="prediction-label">Tu predicción — Ganador</div>
+        <div class="prediction-label">
+          ${locked && !ended ? '🔒 Equipo por definir' : '🔮 Tu predicción — Ganador'}
+        </div>
         <div class="prediction-teams">
           <button class="pred-btn ${localSel}" ${disabled}
                   id="pb_${match.id}_local"
-                  onclick="selectWinner('${match.id}','${localCode}','${visitCode}')">
+                  onclick="selectWinner('${match.id}','${match.localCode}','${match.visitCode}','${ronda}')">
             ${match.localFlag} ${match.local}
           </button>
           <button class="pred-btn ${visitSel}" ${disabled}
                   id="pb_${match.id}_visit"
-                  onclick="selectWinner('${match.id}','${visitCode}','${localCode}')">
+                  onclick="selectWinner('${match.id}','${match.visitCode}','${match.localCode}','${ronda}')">
             ${match.visitFlag} ${match.visitante}
           </button>
         </div>
@@ -968,19 +923,18 @@ function buildMatchCard(match, ronda, isClosed) {
 }
 
 // ── SELECCIONAR GANADOR ───────────────────────────────────
-function selectWinner(matchId, winnerCode, loserCode) {
+function selectWinner(matchId, winnerCode, loserCode, ronda) {
   if (!predictions[matchId]) predictions[matchId] = {};
   predictions[matchId].ganador = winnerCode;
 
-  // Actualizar botones visualmente
   const match = findMatch(matchId);
   if (!match) return;
 
   const isLocal = winnerCode === match.localCode;
-  const btnLocal = document.getElementById(`pb_${matchId}_local`);
-  const btnVisit = document.getElementById(`pb_${matchId}_visit`);
-  if (btnLocal) { btnLocal.classList.toggle('selected', isLocal);  }
-  if (btnVisit) { btnVisit.classList.toggle('selected', !isLocal); }
+  const btnL    = document.getElementById(`pb_${matchId}_local`);
+  const btnV    = document.getElementById(`pb_${matchId}_visit`);
+  if (btnL) btnL.classList.toggle('selected',  isLocal);
+  if (btnV) btnV.classList.toggle('selected', !isLocal);
 }
 
 // ── GUARDAR PREDICCIÓN ────────────────────────────────────
@@ -998,36 +952,83 @@ async function savePrediction(matchId, localCode, visitCode, ronda) {
   const payload = {
     participante_id: currentUser.id,
     partido_id:      matchId,
-    ronda:           ronda,
+    ronda,
     ganador:         pred.ganador,
-    goles_local:     slEl ? parseInt(slEl.value) || null : null,
-    goles_visitante: svEl ? parseInt(svEl.value) || null : null,
+    goles_local:     slEl ? (parseInt(slEl.value) >= 0 ? parseInt(slEl.value) : null) : null,
+    goles_visitante: svEl ? (parseInt(svEl.value) >= 0 ? parseInt(svEl.value) : null) : null,
     penales:         spEl ? spEl.checked : false,
   };
 
+  const btn = document.getElementById(`sb_${matchId}`);
+  if (btn) { btn.disabled = true; btn.textContent = '⏳ Guardando...'; }
+
   try {
     const res = await fetch(`${API}/api/prediccion`, {
-      method: 'POST',
+      method:  'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      body:    JSON.stringify(payload),
     });
     if (!res.ok) throw new Error();
 
     predictions[matchId] = { ...pred, ...payload };
 
-    const btn = document.getElementById(`sb_${matchId}`);
     if (btn) {
       btn.textContent = '✅ Guardado';
       btn.classList.add('saved');
       setTimeout(() => {
+        btn.disabled    = false;
         btn.textContent = '💾 Guardar Predicción';
         btn.classList.remove('saved');
       }, 2000);
     }
     showToast('✅ Predicción guardada', 'success');
+
+    // Actualizar badge de la card
+    const card = document.getElementById(`card_${matchId}`);
+    if (card) {
+      const badge = card.querySelector('.status-badge');
+      if (badge) {
+        badge.className   = 'status-badge pending';
+        badge.textContent = '⏳ Guardado';
+      }
+      card.classList.add('pending');
+    }
+
+    // Actualizar contador pendientes
+    updatePendientesCount();
+
   } catch {
     showToast('❌ Error al guardar. Intenta de nuevo.', 'error');
+    if (btn) {
+      btn.disabled    = false;
+      btn.textContent = '💾 Guardar Predicción';
+    }
   }
+}
+
+// ── ACTUALIZAR CONTADOR PENDIENTES ────────────────────────
+function updatePendientesCount() {
+  let pendientes = 0;
+  Object.keys(BRACKET).forEach(ronda => {
+    BRACKET[ronda].forEach(match => {
+      if (match.localCode === 'TBD') return;
+      const pred = predictions[match.id];
+      const res  = results[match.id];
+      if (!pred?.ganador) pendientes++;
+      else if (res?.estado === 'FINALIZADO') return;
+      else pendientes++;
+    });
+  });
+  // Solo contar los que faltan predecir (sin resultado aún)
+  let sinPred = 0;
+  Object.keys(BRACKET).forEach(ronda => {
+    BRACKET[ronda].forEach(match => {
+      if (match.localCode === 'TBD') return;
+      const pred = predictions[match.id];
+      if (!pred?.ganador) sinPred++;
+    });
+  });
+  document.getElementById('statPendientes').textContent = sinPred;
 }
 
 // ── HELPERS ───────────────────────────────────────────────
@@ -1039,14 +1040,11 @@ function findMatch(id) {
   return null;
 }
 
-function isPastDeadline() {
-  // Cierre de predicciones: 27 Jun 2026 23:59 ET
-  return new Date() > new Date('2026-06-27T23:59:00-05:00');
-}
-
 async function refreshData() {
-  showToast('🔄 Actualizando datos...', '');
+  showToast('🔄 Actualizando...', '');
+  showLoading(true);
   await loadUserData();
+  showLoading(false);
   showToast('✅ Datos actualizados', 'success');
 }
 
@@ -1065,6 +1063,11 @@ async function downloadPDF() {
   } catch {
     showToast('❌ Error al generar PDF', 'error');
   }
+}
+
+function showLoading(visible) {
+  const el = document.getElementById('loadingOverlay');
+  if (el) el.classList.toggle('visible', visible);
 }
 
 function showToast(msg, type = '') {
