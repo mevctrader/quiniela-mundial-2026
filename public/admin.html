@@ -26,11 +26,9 @@
     body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; }
 
     .login-screen {
-      min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
       padding: 40px 24px;
-      background: radial-gradient(ellipse 60% 50% at 50% 30%,
-        rgba(229,62,62,0.08) 0%, transparent 70%);
+      background: radial-gradient(ellipse 60% 50% at 50% 30%, rgba(229,62,62,0.08) 0%, transparent 70%);
     }
     .login-card {
       background: var(--card); border: 1px solid var(--border);
@@ -39,8 +37,8 @@
     }
     .login-icon { font-size: 3rem; margin-bottom: 16px; }
     .login-card h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 2px; margin-bottom: 6px; }
-    .login-card p { color: var(--muted); font-size: 0.84rem; margin-bottom: 28px; }
-    .login-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; text-align: left; }
+    .login-card p  { color: var(--muted); font-size: 0.84rem; margin-bottom: 28px; }
+    .login-field   { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; text-align: left; }
     .login-field label { font-size: 0.74rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
     .login-field input {
       background: rgba(255,255,255,0.04); border: 1.5px solid var(--border);
@@ -50,16 +48,13 @@
     }
     .login-field input:focus { border-color: var(--red); }
     .error-msg {
-      display: none; background: rgba(229,62,62,0.1);
-      border: 1px solid rgba(229,62,62,0.3);
-      border-radius: 10px; padding: 11px 14px;
-      font-size: 0.82rem; color: #fc8181; margin-bottom: 14px;
+      display: none; background: rgba(229,62,62,0.1); border: 1px solid rgba(229,62,62,0.3);
+      border-radius: 10px; padding: 11px 14px; font-size: 0.82rem; color: #fc8181; margin-bottom: 14px;
     }
 
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 11px 22px; border-radius: 10px;
-      font-weight: 700; font-size: 0.84rem;
+      padding: 11px 22px; border-radius: 10px; font-weight: 700; font-size: 0.84rem;
       cursor: pointer; border: none; transition: all .2s;
       letter-spacing: 0.5px; font-family: 'Inter', sans-serif;
       text-decoration: none; white-space: nowrap;
@@ -76,7 +71,7 @@
     .btn-purple:hover { transform: translateY(-1px); }
     .btn-ghost  { background: transparent; border: 1.5px solid var(--border); color: var(--muted); }
     .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-    .btn-sm { padding: 7px 14px; font-size: 0.76rem; border-radius: 8px; }
+    .btn-sm  { padding: 7px 14px; font-size: 0.76rem; border-radius: 8px; }
     .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
     .btn-full { width: 100%; }
 
@@ -86,21 +81,19 @@
       position: sticky; top: 0; z-index: 100;
       background: rgba(10,14,26,0.97); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      display: flex; align-items: center;
-      justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 0 24px; height: 60px;
     }
-    .top-bar-left { display: flex; align-items: center; gap: 12px; }
-    .admin-badge {
+    .top-bar-left  { display: flex; align-items: center; gap: 12px; }
+    .admin-badge   {
       background: rgba(229,62,62,0.15); color: var(--red);
-      border: 1px solid rgba(229,62,62,0.3);
-      border-radius: 6px; padding: 3px 10px;
-      font-size: 0.68rem; font-weight: 700;
+      border: 1px solid rgba(229,62,62,0.3); border-radius: 6px;
+      padding: 3px 10px; font-size: 0.68rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 1.5px;
     }
     .top-bar-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 2px; color: var(--gold); }
     .top-bar-right { display: flex; align-items: center; gap: 10px; }
-    .admin-user { font-size: 0.78rem; color: var(--muted); }
+    .admin-user    { font-size: 0.78rem; color: var(--muted); }
 
     .tabs-nav {
       background: var(--card2); border-bottom: 1px solid var(--border);
@@ -114,51 +107,37 @@
       cursor: pointer; transition: all .2s; white-space: nowrap;
       border-bottom: 3px solid transparent; font-family: 'Inter', sans-serif;
     }
-    .tab-nav-btn:hover { color: var(--text); background: rgba(255,255,255,0.03); }
+    .tab-nav-btn:hover  { color: var(--text); background: rgba(255,255,255,0.03); }
     .tab-nav-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
 
     .content-area { padding: 28px 24px; max-width: 1200px; margin: 0 auto; }
-    .tab-panel { display: none; }
+    .tab-panel        { display: none; }
     .tab-panel.active { display: block; }
 
     .sec-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 2px; margin-bottom: 6px; }
-    .sec-sub { color: var(--muted); font-size: 0.84rem; margin-bottom: 24px; }
+    .sec-sub   { color: var(--muted); font-size: 0.84rem; margin-bottom: 24px; }
 
     .dash-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 14px; margin-bottom: 28px;
     }
-    .dash-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 20px; text-align: center; transition: border-color .2s;
-    }
+    .dash-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; text-align: center; transition: border-color .2s; }
     .dash-card:hover { border-color: rgba(240,180,41,0.3); }
     .dash-card .dc-icon { font-size: 1.8rem; margin-bottom: 8px; }
-    .dash-card .dc-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; line-height: 1; }
-    .dash-card .dc-num.gold   { color: var(--gold); }
-    .dash-card .dc-num.green  { color: var(--green); }
-    .dash-card .dc-num.red    { color: var(--red); }
-    .dash-card .dc-num.blue   { color: var(--blue); }
+    .dash-card .dc-num  { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; line-height: 1; }
+    .dash-card .dc-num.gold  { color: var(--gold); }
+    .dash-card .dc-num.green { color: var(--green); }
+    .dash-card .dc-num.red   { color: var(--red); }
+    .dash-card .dc-num.blue  { color: var(--blue); }
     .dash-card .dc-lbl { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
 
-    .quick-actions {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 14px; margin-bottom: 28px;
-    }
-    .qa-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 20px;
-      display: flex; flex-direction: column; gap: 12px;
-    }
+    .quick-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 28px; }
+    .qa-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
     .qa-card h4 { font-size: 0.88rem; font-weight: 700; }
     .qa-card p  { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
 
     .actividad-list { display: flex; flex-direction: column; gap: 0; }
-    .act-item {
-      display: flex; align-items: center; gap: 14px;
-      padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 0.84rem;
-    }
+    .act-item { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 0.84rem; }
     .act-item:last-child { border-bottom: none; }
     .act-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
     .act-icon.reg  { background: rgba(56,161,105,0.15); }
@@ -170,27 +149,20 @@
 
     .search-bar { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
     .search-bar input {
-      flex: 1; min-width: 200px;
-      background: var(--card); border: 1.5px solid var(--border);
-      border-radius: 10px; padding: 11px 16px;
-      color: var(--text); font-size: 0.86rem;
+      flex: 1; min-width: 200px; background: var(--card); border: 1.5px solid var(--border);
+      border-radius: 10px; padding: 11px 16px; color: var(--text); font-size: 0.86rem;
       font-family: 'Inter', sans-serif; outline: none; transition: border-color .2s;
     }
     .search-bar input:focus { border-color: var(--gold); }
 
     .tabla-admin { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-bottom: 20px; }
     .ta-header {
-      display: grid;
-      grid-template-columns: 1fr 160px 100px 100px 120px 120px;
-      padding: 12px 20px;
-      background: rgba(255,255,255,0.03);
-      border-bottom: 1px solid var(--border);
-      font-size: 0.68rem; color: var(--muted);
-      text-transform: uppercase; letter-spacing: 1px; font-weight: 600;
+      display: grid; grid-template-columns: 1fr 160px 100px 100px 120px 120px;
+      padding: 12px 20px; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border);
+      font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600;
     }
     .ta-row {
-      display: grid;
-      grid-template-columns: 1fr 160px 100px 100px 120px 120px;
+      display: grid; grid-template-columns: 1fr 160px 100px 100px 120px 120px;
       padding: 14px 20px; border-bottom: 1px solid var(--border);
       align-items: center; font-size: 0.84rem; transition: background .15s;
     }
@@ -199,10 +171,8 @@
     .ta-nombre { font-weight: 600; }
     .ta-email  { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
     .status-badge {
-      display: inline-flex; align-items: center; gap: 4px;
-      padding: 3px 10px; border-radius: 50px;
-      font-size: 0.68rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.5px;
+      display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 50px;
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
     }
     .status-badge.confirmado { background: rgba(56,161,105,0.15);  color: var(--green); }
     .status-badge.pendiente  { background: rgba(240,180,41,0.15);  color: var(--yellow); }
@@ -210,79 +180,60 @@
     .pago-badge { font-size: 0.72rem; color: var(--muted); background: rgba(255,255,255,0.04); border-radius: 6px; padding: 2px 8px; }
     .ta-actions { display: flex; gap: 6px; }
 
-    .modal-overlay {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
-      z-index: 200; align-items: center; justify-content: center; padding: 24px;
-    }
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 200; align-items: center; justify-content: center; padding: 24px; }
     .modal-overlay.open { display: flex; }
-    .modal-box {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 20px; padding: 32px;
-      max-width: 520px; width: 100%;
-      max-height: 90vh; overflow-y: auto;
-    }
+    .modal-box { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 32px; max-width: 520px; width: 100%; max-height: 90vh; overflow-y: auto; }
     .modal-box h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 20px; }
     .modal-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
     .modal-field label { font-size: 0.74rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
-    .modal-field input,
-    .modal-field select,
-    .modal-field textarea {
-      background: rgba(255,255,255,0.04); border: 1.5px solid var(--border);
-      border-radius: 10px; padding: 11px 14px;
-      color: var(--text); font-size: 0.88rem;
-      font-family: 'Inter', sans-serif; outline: none;
-      transition: border-color .2s; width: 100%;
+    .modal-field input, .modal-field select, .modal-field textarea {
+      background: rgba(255,255,255,0.04); border: 1.5px solid var(--border); border-radius: 10px;
+      padding: 11px 14px; color: var(--text); font-size: 0.88rem;
+      font-family: 'Inter', sans-serif; outline: none; transition: border-color .2s; width: 100%;
     }
-    .modal-field input:focus,
-    .modal-field select:focus,
-    .modal-field textarea:focus { border-color: var(--gold); }
+    .modal-field input:focus, .modal-field select:focus, .modal-field textarea:focus { border-color: var(--gold); }
     .modal-field select option { background: #1a2235; }
     .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
 
     .ronda-selector { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
     .rs-btn {
-      padding: 8px 18px; border-radius: 50px;
-      background: var(--card); border: 1px solid var(--border);
-      color: var(--muted); font-size: 0.8rem; font-weight: 600;
-      cursor: pointer; transition: all .2s; white-space: nowrap;
-      font-family: 'Inter', sans-serif;
+      padding: 8px 18px; border-radius: 50px; background: var(--card); border: 1px solid var(--border);
+      color: var(--muted); font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all .2s;
+      white-space: nowrap; font-family: 'Inter', sans-serif;
     }
-    .rs-btn:hover { color: var(--text); border-color: var(--gold); }
+    .rs-btn:hover  { color: var(--text); border-color: var(--gold); }
     .rs-btn.active { background: var(--gold); color: #000; border-color: var(--gold); }
 
-    .partidos-admin-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 16px;
-    }
-    .partido-admin-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px; overflow: hidden; transition: border-color .2s;
-    }
+    .partidos-admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+    .partido-admin-card  { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: border-color .2s; }
     .partido-admin-card:hover { border-color: rgba(240,180,41,0.3); }
-    .pac-header {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 10px 16px; background: rgba(255,255,255,0.03);
-      border-bottom: 1px solid var(--border); font-size: 0.72rem;
-    }
+    .pac-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border); font-size: 0.72rem; }
     .pac-id   { font-weight: 700; color: var(--gold); }
     .pac-sede { color: var(--muted); }
     .pac-body { padding: 16px; }
+
+    /* ✅ FLAG WRAP — igual que bracket.html */
     .pac-equipo { display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 0.86rem; }
     .pac-equipo:first-child { border-bottom: 1px solid var(--border); }
-    .pac-flag   { font-size: 1.4rem; width: 28px; text-align: center; flex-shrink: 0; }
+    .pac-flag-wrap {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 26px; border-radius: 4px; overflow: hidden;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.5);
+      background: rgba(255,255,255,0.05); flex-shrink: 0;
+    }
+    .pac-flag-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pac-flag-wrap .flag-emoji-fb { font-size: 20px; line-height: 1; }
+
     .pac-nombre { flex: 1; font-weight: 600; }
     .pac-origen { font-size: 0.7rem; color: var(--muted); }
-    .pac-form { padding: 14px 16px; border-top: 1px solid var(--border); background: rgba(255,255,255,0.02); }
+    .pac-form   { padding: 14px 16px; border-top: 1px solid var(--border); background: rgba(255,255,255,0.02); }
     .pac-form-title { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; font-weight: 600; }
 
     .resultado-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
     .resultado-row label { font-size: 0.74rem; color: var(--muted); font-weight: 600; min-width: 80px; }
     .resultado-row input[type="number"] {
-      width: 56px; text-align: center;
-      background: rgba(255,255,255,0.04); border: 1.5px solid var(--border);
-      border-radius: 8px; padding: 8px 4px;
+      width: 56px; text-align: center; background: rgba(255,255,255,0.04);
+      border: 1.5px solid var(--border); border-radius: 8px; padding: 8px 4px;
       color: var(--text); font-size: 1rem; font-weight: 700;
       font-family: 'Inter', sans-serif; outline: none; transition: border-color .2s;
     }
@@ -293,10 +244,10 @@
     .ganador-select-wrap label { font-size: 0.74rem; color: var(--muted); font-weight: 600; display: block; margin-bottom: 6px; }
     .ganador-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .gb-btn {
-      padding: 9px 8px; border-radius: 8px;
-      border: 1.5px solid var(--border); background: rgba(255,255,255,0.02);
-      color: var(--muted); font-size: 0.76rem; font-weight: 600;
+      padding: 9px 8px; border-radius: 8px; border: 1.5px solid var(--border);
+      background: rgba(255,255,255,0.02); color: var(--muted); font-size: 0.76rem; font-weight: 600;
       cursor: pointer; transition: all .2s; text-align: center; font-family: 'Inter', sans-serif;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
     }
     .gb-btn:hover    { border-color: var(--green); color: var(--text); }
     .gb-btn.selected { border-color: var(--green); background: rgba(56,161,105,0.1); color: var(--green); }
@@ -311,42 +262,32 @@
     .toggle input:checked + .toggle-slider::before { transform: translateX(18px); background: var(--green); }
 
     .estado-select {
-      width: 100%; background: rgba(255,255,255,0.04);
-      border: 1.5px solid var(--border); border-radius: 8px;
-      padding: 9px 12px; color: var(--text); font-size: 0.84rem;
-      font-family: 'Inter', sans-serif; outline: none;
-      transition: border-color .2s; margin-bottom: 12px;
+      width: 100%; background: rgba(255,255,255,0.04); border: 1.5px solid var(--border);
+      border-radius: 8px; padding: 9px 12px; color: var(--text); font-size: 0.84rem;
+      font-family: 'Inter', sans-serif; outline: none; transition: border-color .2s; margin-bottom: 12px;
     }
     .estado-select:focus { border-color: var(--gold); }
     .estado-select option { background: #1a2235; }
 
-    .puntos-actions {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px; margin-bottom: 28px;
-    }
+    .puntos-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 28px; }
     .pa-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
     .pa-card h4  { font-weight: 700; font-size: 0.9rem; }
     .pa-card p   { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
     .pa-card .pa-icon { font-size: 2rem; }
 
     .log-box {
-      background: var(--card2); border: 1px solid var(--border);
-      border-radius: 12px; padding: 16px;
-      font-family: 'Courier New', monospace; font-size: 0.78rem;
-      color: var(--green); max-height: 240px; overflow-y: auto; line-height: 1.8;
+      background: var(--card2); border: 1px solid var(--border); border-radius: 12px; padding: 16px;
+      font-family: 'Courier New', monospace; font-size: 0.78rem; color: var(--green);
+      max-height: 240px; overflow-y: auto; line-height: 1.8;
     }
-    .log-box .log-line       { display: block; }
-    .log-box .log-line.err   { color: var(--red); }
-    .log-box .log-line.warn  { color: var(--yellow); }
+    .log-box .log-line      { display: block; }
+    .log-box .log-line.err  { color: var(--red); }
+    .log-box .log-line.warn { color: var(--yellow); }
 
     .pdf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-    .pdf-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 24px;
-      display: flex; flex-direction: column; gap: 14px; transition: border-color .2s;
-    }
+    .pdf-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 14px; transition: border-color .2s; }
     .pdf-card:hover { border-color: rgba(240,180,41,0.3); }
-    .pdf-icon { font-size: 2.4rem; }
+    .pdf-icon    { font-size: 2.4rem; }
     .pdf-card h4 { font-weight: 700; font-size: 0.9rem; }
     .pdf-card p  { font-size: 0.8rem; color: var(--muted); line-height: 1.6; flex: 1; }
 
@@ -354,51 +295,32 @@
     .pdf-individual-form h4 { font-weight: 700; margin-bottom: 14px; }
     .pdf-search-row { display: flex; gap: 10px; flex-wrap: wrap; }
     .pdf-search-row input {
-      flex: 1; min-width: 200px;
-      background: rgba(255,255,255,0.04); border: 1.5px solid var(--border);
-      border-radius: 10px; padding: 11px 14px;
-      color: var(--text); font-size: 0.86rem;
+      flex: 1; min-width: 200px; background: rgba(255,255,255,0.04); border: 1.5px solid var(--border);
+      border-radius: 10px; padding: 11px 14px; color: var(--text); font-size: 0.86rem;
       font-family: 'Inter', sans-serif; outline: none; transition: border-color .2s;
     }
     .pdf-search-row input:focus { border-color: var(--gold); }
 
-    /* ✅ NUEVO — Poblar card actualizado */
     .poblar-card {
       background: linear-gradient(135deg, rgba(49,130,206,0.08), rgba(44,82,130,0.04));
-      border: 1px solid rgba(49,130,206,0.25);
-      border-radius: 20px; padding: 28px; margin-bottom: 24px;
+      border: 1px solid rgba(49,130,206,0.25); border-radius: 20px; padding: 28px; margin-bottom: 24px;
     }
     .poblar-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 2px; color: var(--blue); margin-bottom: 8px; }
     .poblar-card p  { font-size: 0.84rem; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
 
-    /* ✅ NUEVO — Progress bar para carga masiva */
-    .poblar-progress {
-      display: none;
-      background: var(--card2); border: 1px solid var(--border);
-      border-radius: 10px; padding: 14px 16px; margin-top: 14px;
-    }
+    .poblar-progress { display: none; background: var(--card2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-top: 14px; }
     .poblar-progress.visible { display: block; }
-    .poblar-progress-bar { height: 6px; background: var(--border); border-radius: 6px; overflow: hidden; margin: 8px 0; }
+    .poblar-progress-bar  { height: 6px; background: var(--border); border-radius: 6px; overflow: hidden; margin: 8px 0; }
     .poblar-progress-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--gold)); border-radius: 6px; transition: width .3s; }
     .poblar-progress-label { font-size: 0.75rem; color: var(--muted); }
 
-    .spinner {
-      width: 20px; height: 20px;
-      border: 3px solid rgba(255,255,255,0.2);
-      border-top-color: currentColor;
-      border-radius: 50%;
-      animation: spin .7s linear infinite;
-      display: inline-block;
-    }
+    .spinner { width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.2); border-top-color: currentColor; border-radius: 50%; animation: spin .7s linear infinite; display: inline-block; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
     .toast {
-      position: fixed; bottom: 24px; right: 24px;
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 14px; padding: 14px 20px;
-      font-size: 0.84rem; font-weight: 600;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-      transform: translateY(80px); opacity: 0;
+      position: fixed; bottom: 24px; right: 24px; background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 14px 20px; font-size: 0.84rem; font-weight: 600;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4); transform: translateY(80px); opacity: 0;
       transition: all .3s; z-index: 999; max-width: 340px;
     }
     .toast.show    { transform: translateY(0); opacity: 1; }
@@ -406,14 +328,14 @@
     .toast.error   { border-color: rgba(229,62,62,0.4);   color: var(--red); }
     .toast.info    { border-color: rgba(49,130,206,0.4);  color: var(--blue); }
 
-    @media(max-width: 768px) {
+    @media(max-width:768px) {
       .ta-header, .ta-row { grid-template-columns: 1fr 90px 90px 100px; }
       .ta-header span:nth-child(3), .ta-row > *:nth-child(3) { display: none; }
       .partidos-admin-grid { grid-template-columns: 1fr; }
       .content-area { padding: 20px 16px; }
     }
-    @media(max-width: 480px) {
-      .dash-grid     { grid-template-columns: repeat(2, 1fr); }
+    @media(max-width:480px) {
+      .dash-grid     { grid-template-columns: repeat(2,1fr); }
       .quick-actions { grid-template-columns: 1fr; }
     }
   </style>
@@ -443,7 +365,6 @@
 
 <!-- ADMIN APP -->
 <div id="admin-app">
-
   <div class="top-bar">
     <div class="top-bar-left">
       <span class="admin-badge">🔴 Admin</span>
@@ -477,7 +398,6 @@
         <div class="dash-card"><div class="dc-icon">🔮</div><div class="dc-num blue" id="d-predicciones">—</div><div class="dc-lbl">Predicciones</div></div>
         <div class="dash-card"><div class="dc-icon">💰</div><div class="dc-num green" id="d-pozo">$0</div><div class="dc-lbl">Pozo Acumulado</div></div>
       </div>
-
       <div class="sec-title" style="font-size:1.2rem;margin-bottom:14px">⚡ Acciones Rápidas</div>
       <div class="quick-actions">
         <div class="qa-card">
@@ -505,7 +425,6 @@
           <button class="btn btn-green btn-sm" onclick="showTab('participantes',document.querySelectorAll('.tab-nav-btn')[1])">Ver Participantes →</button>
         </div>
       </div>
-
       <div class="sec-title" style="font-size:1.2rem;margin-bottom:14px">🕐 Actividad Reciente</div>
       <div class="tabla-admin" style="padding:0 20px">
         <div class="actividad-list" id="actividad-list">
@@ -534,17 +453,12 @@
       </div>
       <div class="tabla-admin">
         <div class="ta-header">
-          <span>Participante</span>
-          <span>País / Pago</span>
-          <span>Fecha</span>
-          <span>Estado</span>
-          <span>Balón de Oro</span>
-          <span>Acciones</span>
+          <span>Participante</span><span>País / Pago</span><span>Fecha</span>
+          <span>Estado</span><span>Balón de Oro</span><span>Acciones</span>
         </div>
         <div id="tabla-participantes-body">
           <div style="padding:40px;text-align:center;color:var(--muted)">
-            <div class="spinner" style="margin:0 auto 12px"></div>
-            Cargando participantes...
+            <div class="spinner" style="margin:0 auto 12px"></div>Cargando participantes...
           </div>
         </div>
       </div>
@@ -554,34 +468,20 @@
     <div class="tab-panel" id="tab-bracket">
       <div class="sec-title">🏆 BRACKET / RESULTADOS</div>
       <div class="sec-sub">Carga resultados por partido · Fase Eliminatoria 28 Jun – 19 Jul 2026</div>
-
-      <!-- ✅ ACTUALIZADO — Poblar card con equipos reales -->
       <div class="poblar-card">
         <h3>🏟️ INICIALIZACIÓN DEL SISTEMA</h3>
-        <p>
-          El bracket oficial ya tiene los <strong style="color:var(--text)">16 equipos reales</strong>
-          de la Fase de Dieciseisavos (M73–M88).<br/>
-          Usa <strong style="color:var(--text)">Inicializar Sistema</strong> para cargar todos los partidos
-          en Supabase con los datos oficiales FIFA 2026.<br/>
-          ⚠️ Ejecutar solo una vez al inicio del torneo.
-        </p>
+        <p>El bracket oficial ya tiene los <strong style="color:var(--text)">16 equipos reales</strong> de la Fase de Dieciseisavos (M73–M88).<br/>
+        Usa <strong style="color:var(--text)">Inicializar Sistema</strong> para cargar todos los partidos en Supabase con los datos oficiales FIFA 2026.<br/>
+        ⚠️ Ejecutar solo una vez al inicio del torneo.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn btn-blue" id="btn-poblar" onclick="poblarBracket()">
-            🏟️ Poblar Bracket con Equipos Reales
-          </button>
-          <button class="btn btn-ghost btn-sm" id="btn-init" onclick="inicializarSistema()">
-            🔧 Inicializar Sistema Completo
-          </button>
+          <button class="btn btn-blue" id="btn-poblar" onclick="poblarBracket()">🏟️ Poblar Bracket con Equipos Reales</button>
+          <button class="btn btn-ghost btn-sm" id="btn-init" onclick="inicializarSistema()">🔧 Inicializar Sistema Completo</button>
         </div>
-        <!-- ✅ NUEVO — Progress bar -->
         <div class="poblar-progress" id="poblar-progress">
           <div class="poblar-progress-label" id="poblar-progress-label">Cargando partidos...</div>
-          <div class="poblar-progress-bar">
-            <div class="poblar-progress-fill" id="poblar-progress-fill" style="width:0%"></div>
-          </div>
+          <div class="poblar-progress-bar"><div class="poblar-progress-fill" id="poblar-progress-fill" style="width:0%"></div></div>
         </div>
       </div>
-
       <div class="ronda-selector">
         <button class="rs-btn active" onclick="setRondaAdmin('R32',this)">⚽ Dieciseisavos</button>
         <button class="rs-btn" onclick="setRondaAdmin('R16',this)">🔥 Octavos</button>
@@ -590,7 +490,6 @@
         <button class="rs-btn" onclick="setRondaAdmin('3P',this)">🥉 3er Puesto</button>
         <button class="rs-btn" onclick="setRondaAdmin('F',this)">🏆 Final</button>
       </div>
-
       <div class="partidos-admin-grid" id="partidos-admin-grid"></div>
     </div>
 
@@ -664,9 +563,7 @@
       </div>
       <div class="pdf-individual-form">
         <h4>📋 PDF Quiniela Individual</h4>
-        <p style="font-size:0.82rem;color:var(--muted);margin:8px 0 16px">
-          Genera el PDF personal de un participante con sus predicciones y puntos.
-        </p>
+        <p style="font-size:0.82rem;color:var(--muted);margin:8px 0 16px">Genera el PDF personal de un participante con sus predicciones y puntos.</p>
         <div class="pdf-search-row">
           <input type="email" id="pdf-email-input" placeholder="Email del participante..."/>
           <button class="btn btn-gold" onclick="generarPDFIndividual()">📄 Generar PDF</button>
@@ -714,17 +611,123 @@ const API = window.location.origin;
 let CRED  = { usuario: '', password: '' };
 
 function authHeaders() {
-  return {
-    'Content-Type': 'application/json',
-    'usuario':  CRED.usuario,
-    'password': CRED.password
-  };
+  return { 'Content-Type':'application/json', 'usuario':CRED.usuario, 'password':CRED.password };
 }
 
 let rondaAdminActiva    = 'R32';
 let participantesData   = [];
 let filtroStatusActivo  = 'todos';
 let ganadorSeleccionado = {};
+
+// ══════════════════════════════════════════════════════════
+// ✅ SISTEMA DE BANDERAS — IGUAL QUE bracket.html
+// ══════════════════════════════════════════════════════════
+const FLAG_ISO = {
+  'RSA':'za','CAN':'ca','BRA':'br','JPN':'jp',
+  'GER':'de','PAR':'py','NED':'nl','MAR':'ma',
+  'CIV':'ci','NOR':'no','FRA':'fr','SWE':'se',
+  'MEX':'mx','ECU':'ec','COD':'cd',
+  'BEL':'be','SEN':'sn','USA':'us','BIH':'ba',
+  'ESP':'es','AUT':'at','POR':'pt','CRO':'hr',
+  'SUI':'ch','ALG':'dz','AUS':'au','EGY':'eg',
+  'ARG':'ar','CPV':'cv','COL':'co','GHA':'gh'
+};
+
+const FLAG_EMOJI = {
+  'RSA':'🇿🇦','CAN':'🇨🇦','BRA':'🇧🇷','JPN':'🇯🇵',
+  'GER':'🇩🇪','PAR':'🇵🇾','NED':'🇳🇱','MAR':'🇲🇦',
+  'CIV':'🇨🇮','NOR':'🇳🇴','FRA':'🇫🇷','SWE':'🇸🇪',
+  'MEX':'🇲🇽','ECU':'🇪🇨','ENG':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','COD':'🇨🇩',
+  'BEL':'🇧🇪','SEN':'🇸🇳','USA':'🇺🇸','BIH':'🇧🇦',
+  'ESP':'🇪🇸','AUT':'🇦🇹','POR':'🇵🇹','CRO':'🇭🇷',
+  'SUI':'🇨🇭','ALG':'🇩🇿','AUS':'🇦🇺','EGY':'🇪🇬',
+  'ARG':'🇦🇷','CPV':'🇨🇻','COL':'🇨🇴','GHA':'🇬🇭',
+  'TBD':'🏳️'
+};
+
+const FLAG_SPECIAL = {
+  'ENG':'https://flagpedia.net/data/flags/w40/gb-eng.png'
+};
+
+function flagHtml(code) {
+  const emoji   = FLAG_EMOJI[code]   || '🏳️';
+  const iso     = FLAG_ISO[code];
+  const special = FLAG_SPECIAL[code];
+  if (special) {
+    return `<span class="pac-flag-wrap">
+      <img src="${special}" data-emoji="${emoji}" alt="${code}" loading="lazy" onerror="flagError(this)"/>
+    </span>`;
+  }
+  if (!iso) {
+    return `<span class="pac-flag-wrap">
+      <span class="flag-emoji-fb">${emoji}</span>
+    </span>`;
+  }
+  return `<span class="pac-flag-wrap">
+    <img src="https://flagcdn.com/40x30/${iso}.png"
+         data-src2="https://flagpedia.net/data/flags/w40/${iso}.png"
+         data-emoji="${emoji}" alt="${code}" loading="lazy" onerror="flagError(this)"/>
+  </span>`;
+}
+
+function flagError(img) {
+  if (!img.dataset.tried && img.dataset.src2) {
+    img.dataset.tried = '1';
+    img.src = img.dataset.src2;
+  } else {
+    img.parentElement.innerHTML = `<span class="flag-emoji-fb">${img.dataset.emoji||'🏳️'}</span>`;
+  }
+}
+
+// ══════════════════════════════════════════════════════════
+// BRACKET ADMIN
+// ══════════════════════════════════════════════════════════
+const BRACKET_ADMIN = {
+  R32: [
+    { id:'M73',  local:'Sudáfrica',             localCode:'RSA', visitante:'Canadá',             visitCode:'CAN', sede:'SoFi Stadium · Los Ángeles',        fecha:'28 Jun', hora:'1:00 PM ET' },
+    { id:'M74',  local:'Brasil',                localCode:'BRA', visitante:'Japón',              visitCode:'JPN', sede:'NRG Stadium · Houston',             fecha:'29 Jun', hora:'11:00 AM ET' },
+    { id:'M75',  local:'Alemania',              localCode:'GER', visitante:'Paraguay',           visitCode:'PAR', sede:'Gillette Stadium · Boston',         fecha:'29 Jun', hora:'2:30 PM ET' },
+    { id:'M76',  local:'Países Bajos',          localCode:'NED', visitante:'Marruecos',          visitCode:'MAR', sede:'Estadio BBVA · Monterrey',          fecha:'29 Jun', hora:'7:00 PM ET' },
+    { id:'M77',  local:'Costa de Marfil',       localCode:'CIV', visitante:'Noruega',            visitCode:'NOR', sede:'AT&T Stadium · Dallas',             fecha:'30 Jun', hora:'11:00 AM ET' },
+    { id:'M78',  local:'Francia',               localCode:'FRA', visitante:'Suecia',             visitCode:'SWE', sede:'MetLife Stadium · New York/NJ',     fecha:'30 Jun', hora:'3:00 PM ET' },
+    { id:'M79',  local:'México',                localCode:'MEX', visitante:'Ecuador',            visitCode:'ECU', sede:'Estadio Azteca · Ciudad de México', fecha:'30 Jun', hora:'7:00 PM ET' },
+    { id:'M80',  local:'Inglaterra',            localCode:'ENG', visitante:'RD Congo',           visitCode:'COD', sede:'Mercedes-Benz Stadium · Atlanta',   fecha:'1 Jul',  hora:'10:00 AM ET' },
+    { id:'M81',  local:'Bélgica',               localCode:'BEL', visitante:'Senegal',            visitCode:'SEN', sede:'Lumen Field · Seattle',             fecha:'1 Jul',  hora:'2:00 PM ET' },
+    { id:'M82',  local:'Estados Unidos',        localCode:'USA', visitante:'Bosnia-Herzegovina', visitCode:'BIH', sede:"Levi's Stadium · Santa Clara",      fecha:'1 Jul',  hora:'6:00 PM ET' },
+    { id:'M83',  local:'España',                localCode:'ESP', visitante:'Austria',            visitCode:'AUT', sede:'SoFi Stadium · Los Ángeles',        fecha:'2 Jul',  hora:'1:00 PM ET' },
+    { id:'M84',  local:'Portugal',              localCode:'POR', visitante:'Croacia',            visitCode:'CRO', sede:'BMO Field · Toronto',               fecha:'2 Jul',  hora:'5:00 PM ET' },
+    { id:'M85',  local:'Suiza',                 localCode:'SUI', visitante:'Argelia',            visitCode:'ALG', sede:'BC Place · Vancouver',              fecha:'2 Jul',  hora:'9:00 PM ET' },
+    { id:'M86',  local:'Australia',             localCode:'AUS', visitante:'Egipto',             visitCode:'EGY', sede:'AT&T Stadium · Dallas',             fecha:'3 Jul',  hora:'12:00 PM ET' },
+    { id:'M87',  local:'Argentina',             localCode:'ARG', visitante:'Cabo Verde',         visitCode:'CPV', sede:'Hard Rock Stadium · Miami',         fecha:'3 Jul',  hora:'4:00 PM ET' },
+    { id:'M88',  local:'Colombia',              localCode:'COL', visitante:'Ghana',              visitCode:'GHA', sede:'Arrowhead Stadium · Kansas City',   fecha:'3 Jul',  hora:'7:30 PM ET' },
+  ],
+  R16: [
+    { id:'M89',  local:'Ganador M74', localCode:'TBD', visitante:'Ganador M77', visitCode:'TBD', sede:'Lincoln Financial Field · Philadelphia', fecha:'4 Jul', hora:'3:00 PM ET' },
+    { id:'M90',  local:'Ganador M73', localCode:'TBD', visitante:'Ganador M75', visitCode:'TBD', sede:'NRG Stadium · Houston',                  fecha:'4 Jul', hora:'7:00 PM ET' },
+    { id:'M91',  local:'Ganador M76', localCode:'TBD', visitante:'Ganador M78', visitCode:'TBD', sede:'MetLife Stadium · New York/NJ',          fecha:'5 Jul', hora:'3:00 PM ET' },
+    { id:'M92',  local:'Ganador M79', localCode:'TBD', visitante:'Ganador M80', visitCode:'TBD', sede:'Estadio Azteca · Ciudad de México',      fecha:'5 Jul', hora:'7:00 PM ET' },
+    { id:'M93',  local:'Ganador M83', localCode:'TBD', visitante:'Ganador M84', visitCode:'TBD', sede:'BMO Field · Toronto',                    fecha:'6 Jul', hora:'3:00 PM ET' },
+    { id:'M94',  local:'Ganador M81', localCode:'TBD', visitante:'Ganador M82', visitCode:'TBD', sede:"Levi's Stadium · Santa Clara",           fecha:'6 Jul', hora:'7:00 PM ET' },
+    { id:'M95',  local:'Ganador M86', localCode:'TBD', visitante:'Ganador M88', visitCode:'TBD', sede:'Hard Rock Stadium · Miami',              fecha:'7 Jul', hora:'3:00 PM ET' },
+    { id:'M96',  local:'Ganador M85', localCode:'TBD', visitante:'Ganador M87', visitCode:'TBD', sede:'BC Place · Vancouver',                   fecha:'7 Jul', hora:'7:00 PM ET' },
+  ],
+  QF: [
+    { id:'M97',  local:'Ganador M89', localCode:'TBD', visitante:'Ganador M90', visitCode:'TBD', sede:'Gillette Stadium · Boston',        fecha:'9 Jul',  hora:'7:00 PM ET' },
+    { id:'M98',  local:'Ganador M93', localCode:'TBD', visitante:'Ganador M94', visitCode:'TBD', sede:'SoFi Stadium · Los Ángeles',       fecha:'10 Jul', hora:'7:00 PM ET' },
+        { id:'M99',  local:'Ganador M91', localCode:'TBD', visitante:'Ganador M92', visitCode:'TBD', sede:'Hard Rock Stadium · Miami',        fecha:'11 Jul', hora:'3:00 PM ET' },
+    { id:'M100', local:'Ganador M95', localCode:'TBD', visitante:'Ganador M96', visitCode:'TBD', sede:'Arrowhead Stadium · Kansas City',  fecha:'11 Jul', hora:'7:00 PM ET' },
+  ],
+  SF: [
+    { id:'M101', local:'Ganador M97',  localCode:'TBD', visitante:'Ganador M98',  visitCode:'TBD', sede:'AT&T Stadium · Dallas',              fecha:'14 Jul', hora:'7:00 PM ET' },
+    { id:'M102', local:'Ganador M99',  localCode:'TBD', visitante:'Ganador M100', visitCode:'TBD', sede:'Mercedes-Benz Stadium · Atlanta',    fecha:'15 Jul', hora:'7:00 PM ET' },
+  ],
+  '3P': [
+    { id:'M103', local:'Perdedor M101', localCode:'TBD', visitante:'Perdedor M102', visitCode:'TBD', sede:'Hard Rock Stadium · Miami',         fecha:'18 Jul', hora:'3:00 PM ET' },
+  ],
+  F: [
+    { id:'M104', local:'Ganador M101', localCode:'TBD', visitante:'Ganador M102', visitCode:'TBD', sede:'MetLife Stadium · East Rutherford, NJ', fecha:'19 Jul', hora:'3:00 PM ET' },
+  ]
+};
 
 // ══════════════════════════════════════════
 // LOGIN
@@ -735,20 +738,16 @@ async function loginAdmin() {
   const e   = document.getElementById('login-error');
   const btn = document.getElementById('btn-login');
   e.style.display = 'none';
-
   if (!u || !p) {
     e.textContent = '⚠️ Completa usuario y contraseña.';
     e.style.display = 'block'; return;
   }
-
   btn.disabled  = true;
   btn.innerHTML = '<span class="spinner"></span> Verificando...';
-
   try {
     const res  = await fetch(`${API}/api/admin/login`, {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({ usuario: u, password: p })
+      method: 'POST', headers: { 'Content-Type':'application/json' },
+      body: JSON.stringify({ usuario: u, password: p })
     });
     const data = await res.json();
     if (data.ok) {
@@ -778,7 +777,7 @@ function iniciarAdmin(usuario) {
 }
 
 function logoutAdmin() {
-  CRED = { usuario: '', password: '' };
+  CRED = { usuario:'', password:'' };
   document.getElementById('admin-app').style.display    = 'none';
   document.getElementById('login-screen').style.display = 'flex';
   document.getElementById('admin-user').value = '';
@@ -805,11 +804,11 @@ async function cargarDashboard() {
   try {
     const res  = await fetch(`${API}/api/admin/dashboard`, { headers: authHeaders() });
     const data = await res.json();
-    document.getElementById('d-total').textContent           = data.total           || 0;
-    document.getElementById('d-confirmados').textContent     = data.confirmados      || 0;
-    document.getElementById('d-pendientes-pago').textContent = data.pendientes_pago  || 0;
-    document.getElementById('d-jugados').textContent         = data.jugados          || 0;
-    document.getElementById('d-predicciones').textContent    = data.predicciones     || 0;
+    document.getElementById('d-total').textContent           = data.total          || 0;
+    document.getElementById('d-confirmados').textContent     = data.confirmados     || 0;
+    document.getElementById('d-pendientes-pago').textContent = data.pendientes_pago || 0;
+    document.getElementById('d-jugados').textContent         = data.jugados         || 0;
+    document.getElementById('d-predicciones').textContent    = data.predicciones    || 0;
     document.getElementById('d-pozo').textContent            = '$' + ((data.confirmados || 0) * 20);
   } catch(e) { console.warn('Dashboard:', e.message); }
 }
@@ -845,30 +844,19 @@ function renderParticipantes() {
   const q     = (document.getElementById('part-search')?.value || '').toLowerCase();
   const tbody = document.getElementById('tabla-participantes-body');
   let lista   = [...participantesData];
-
-  if (filtroStatusActivo === 'confirmado') {
-    lista = lista.filter(p => p.confirmado === true);
-  } else if (filtroStatusActivo === 'pendiente') {
-    lista = lista.filter(p => !p.confirmado && !p.rechazado);
-  }
-
-  if (q) {
-    lista = lista.filter(p =>
-      p.nombre?.toLowerCase().includes(q) ||
-      p.email?.toLowerCase().includes(q)  ||
-      p.pais?.toLowerCase().includes(q)
-    );
-  }
-
+  if (filtroStatusActivo === 'confirmado') lista = lista.filter(p => p.confirmado === true);
+  else if (filtroStatusActivo === 'pendiente') lista = lista.filter(p => !p.confirmado && !p.rechazado);
+  if (q) lista = lista.filter(p =>
+    p.nombre?.toLowerCase().includes(q) ||
+    p.email?.toLowerCase().includes(q)  ||
+    p.pais?.toLowerCase().includes(q)
+  );
   if (!lista.length) {
-    tbody.innerHTML = `
-      <div style="padding:40px;text-align:center;color:var(--muted)">
-        <div style="font-size:2.5rem;margin-bottom:12px">👥</div>
-        <p>No se encontraron participantes.</p>
-      </div>`;
+    tbody.innerHTML = `<div style="padding:40px;text-align:center;color:var(--muted)">
+      <div style="font-size:2.5rem;margin-bottom:12px">👥</div>
+      <p>No se encontraron participantes.</p></div>`;
     return;
   }
-
   tbody.innerHTML = lista.map(p => {
     const fecha = p.fecha_reg
       ? new Date(p.fecha_reg).toLocaleDateString('es-ES', { day:'2-digit', month:'short' })
@@ -878,17 +866,11 @@ function renderParticipantes() {
     const pSafe = JSON.stringify(p).replace(/"/g, '&quot;');
     return `
       <div class="ta-row">
-        <div>
-          <div class="ta-nombre">${p.nombre || '—'}</div>
-          <div class="ta-email">${p.email || '—'}</div>
-        </div>
-        <div>
-          <div style="font-size:0.82rem">${p.pais || '—'}</div>
-          <span class="pago-badge">${(p.metodo_pago || 'N/A').toUpperCase()}</span>
-        </div>
+        <div><div class="ta-nombre">${p.nombre||'—'}</div><div class="ta-email">${p.email||'—'}</div></div>
+        <div><div style="font-size:0.82rem">${p.pais||'—'}</div><span class="pago-badge">${(p.metodo_pago||'N/A').toUpperCase()}</span></div>
         <div style="font-size:0.8rem;color:var(--muted)">${fecha}</div>
         <div><span class="status-badge ${estadoClass}">${estadoLabel}</span></div>
-        <div style="font-size:0.78rem;color:var(--gold)">⭐ ${p.balon_oro || '—'}</div>
+        <div style="font-size:0.78rem;color:var(--gold)">⭐ ${p.balon_oro||'—'}</div>
         <div class="ta-actions">
           <button class="btn btn-ghost btn-sm" onclick='abrirModalParticipante(${pSafe})'>✏️ Editar</button>
           ${!p.confirmado && !p.rechazado
@@ -907,7 +889,7 @@ function abrirModalParticipante(p) {
   document.getElementById('modal-nombre').value  = p.nombre  || '';
   document.getElementById('modal-email').value   = p.email   || '';
   document.getElementById('modal-pais').value    = p.pais    || '';
-  document.getElementById('modal-pago').value    = (p.metodo_pago || '').toUpperCase();
+  document.getElementById('modal-pago').value    = (p.metodo_pago||'').toUpperCase();
   document.getElementById('modal-balon').value   = p.balon_oro || '—';
   document.getElementById('modal-notas').value   = p.notas   || '';
   document.getElementById('modal-estado').value  =
@@ -915,24 +897,17 @@ function abrirModalParticipante(p) {
   document.getElementById('modal-participante').classList.add('open');
 }
 
-function cerrarModal(id) {
-  document.getElementById(id).classList.remove('open');
-}
+function cerrarModal(id) { document.getElementById(id).classList.remove('open'); }
 
 async function guardarParticipante() {
   const id     = document.getElementById('modal-part-id').value;
   const estado = document.getElementById('modal-estado').value;
   const notas  = document.getElementById('modal-notas').value;
-    const nombre = document.getElementById('modal-nombre').value;
+  const nombre = document.getElementById('modal-nombre').value;
   try {
-    const res = await fetch(`${API}/api/admin/participante/${id}`, {
-      method:  'PUT',
-      headers: authHeaders(),
-      body:    JSON.stringify({
-        confirmado: estado === 'confirmado',
-        rechazado:  estado === 'rechazado',
-        notas
-      })
+    const res  = await fetch(`${API}/api/admin/participante/${id}`, {
+      method: 'PUT', headers: authHeaders(),
+      body: JSON.stringify({ confirmado: estado==='confirmado', rechazado: estado==='rechazado', notas })
     });
     const data = await res.json();
     if (!data.ok) throw new Error(data.error);
@@ -947,17 +922,14 @@ async function guardarParticipante() {
     cargarDashboard();
     showToast('✅ Participante actualizado.', 'success');
     agregarLog(`✅ ${nombre} → ${estado}`);
-  } catch(e) {
-    showToast('❌ Error al guardar: ' + e.message, 'error');
-  }
+  } catch(e) { showToast('❌ Error al guardar: ' + e.message, 'error'); }
 }
 
 async function confirmarPago(id) {
   try {
     await fetch(`${API}/api/admin/participante/${id}`, {
-      method:  'PUT',
-      headers: authHeaders(),
-      body:    JSON.stringify({ confirmado: true })
+      method: 'PUT', headers: authHeaders(),
+      body: JSON.stringify({ confirmado: true })
     });
     const idx = participantesData.findIndex(p => p.id === id);
     if (idx !== -1) participantesData[idx].confirmado = true;
@@ -965,9 +937,7 @@ async function confirmarPago(id) {
     cargarDashboard();
     showToast('✅ Pago confirmado.', 'success');
     agregarLog(`✅ Pago confirmado para ID: ${id}`);
-  } catch(e) {
-    showToast('❌ Error al confirmar pago.', 'error');
-  }
+  } catch(e) { showToast('❌ Error al confirmar pago.', 'error'); }
 }
 
 async function eliminarParticipante() {
@@ -976,8 +946,7 @@ async function eliminarParticipante() {
   if (!confirm(`¿Eliminar a ${nombre}? Esta acción no se puede deshacer.`)) return;
   try {
     await fetch(`${API}/api/admin/participante/${id}`, {
-      method:  'DELETE',
-      headers: authHeaders()
+      method: 'DELETE', headers: authHeaders()
     });
     participantesData = participantesData.filter(p => p.id !== id);
     cerrarModal('modal-participante');
@@ -985,25 +954,21 @@ async function eliminarParticipante() {
     cargarDashboard();
     showToast(`🗑️ ${nombre} eliminado.`, 'error');
     agregarLog(`🗑️ Eliminado: ${nombre}`);
-  } catch(e) {
-    showToast('❌ Error al eliminar.', 'error');
-  }
+  } catch(e) { showToast('❌ Error al eliminar.', 'error'); }
 }
 
 function exportarCSV() {
-  if (!participantesData.length) {
-    showToast('⚠️ No hay participantes para exportar.', 'error'); return;
-  }
+  if (!participantesData.length) { showToast('⚠️ No hay participantes.', 'error'); return; }
   const headers = ['Nombre','Email','País','Teléfono','Método Pago','Estado','Balón de Oro','Fecha Registro'];
   const rows = participantesData.map(p => [
-    p.nombre || '', p.email || '', p.pais || '',
-    p.telefono || '', (p.metodo_pago || '').toUpperCase(),
+    p.nombre||'', p.email||'', p.pais||'', p.telefono||'',
+    (p.metodo_pago||'').toUpperCase(),
     p.confirmado ? 'Confirmado' : p.rechazado ? 'Rechazado' : 'Pendiente',
-    p.balon_oro || '',
+    p.balon_oro||'',
     p.fecha_reg ? new Date(p.fecha_reg).toLocaleDateString('es-ES') : ''
   ]);
   const csv  = [headers, ...rows].map(r => r.map(c => `"${c}"`).join(',')).join('\n');
-  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const blob = new Blob([csv], { type:'text/csv;charset=utf-8;' });
   const url  = URL.createObjectURL(blob);
   const a    = document.createElement('a');
   a.href     = url;
@@ -1014,142 +979,7 @@ function exportarCSV() {
 }
 
 // ══════════════════════════════════════════
-// ✅ BRACKET ADMIN — EQUIPOS REALES R32
-// ══════════════════════════════════════════
-const BRACKET_ADMIN = {
-  R32: [
-    { id:'M73',  local:'Sudáfrica',            localFlag:'🇿🇦', localCode:'RSA',
-                 visitante:'Canadá',            visitFlag:'🇨🇦', visitCode:'CAN',
-                 sede:'SoFi Stadium · Los Ángeles',        fecha:'28 Jun', hora:'1:00 PM ET' },
-
-    { id:'M74',  local:'Brasil',               localFlag:'🇧🇷', localCode:'BRA',
-                 visitante:'Japón',             visitFlag:'🇯🇵', visitCode:'JPN',
-                 sede:'NRG Stadium · Houston',             fecha:'29 Jun', hora:'11:00 AM ET' },
-
-    { id:'M75',  local:'Alemania',             localFlag:'🇩🇪', localCode:'GER',
-                 visitante:'Paraguay',          visitFlag:'🇵🇾', visitCode:'PAR',
-                 sede:'Gillette Stadium · Boston',         fecha:'29 Jun', hora:'2:30 PM ET' },
-
-    { id:'M76',  local:'Países Bajos',         localFlag:'🇳🇱', localCode:'NED',
-                 visitante:'Marruecos',         visitFlag:'🇲🇦', visitCode:'MAR',
-                 sede:'Estadio BBVA · Monterrey',          fecha:'29 Jun', hora:'7:00 PM ET' },
-
-    { id:'M77',  local:'Costa de Marfil',      localFlag:'🇨🇮', localCode:'CIV',
-                 visitante:'Noruega',           visitFlag:'🇳🇴', visitCode:'NOR',
-                 sede:'AT&T Stadium · Dallas',             fecha:'30 Jun', hora:'11:00 AM ET' },
-
-    { id:'M78',  local:'Francia',              localFlag:'🇫🇷', localCode:'FRA',
-                 visitante:'Suecia',            visitFlag:'🇸🇪', visitCode:'SWE',
-                 sede:'MetLife Stadium · New York/NJ',     fecha:'30 Jun', hora:'3:00 PM ET' },
-
-    { id:'M79',  local:'México',               localFlag:'🇲🇽', localCode:'MEX',
-                 visitante:'Ecuador',           visitFlag:'🇪🇨', visitCode:'ECU',
-                 sede:'Estadio Azteca · Ciudad de México', fecha:'30 Jun', hora:'7:00 PM ET' },
-
-    { id:'M80',  local:'Inglaterra',           localFlag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿', localCode:'ENG',
-                 visitante:'RD Congo',          visitFlag:'🇨🇩', visitCode:'COD',
-                 sede:'Mercedes-Benz Stadium · Atlanta',   fecha:'1 Jul',  hora:'10:00 AM ET' },
-
-    { id:'M81',  local:'Bélgica',              localFlag:'🇧🇪', localCode:'BEL',
-                 visitante:'Senegal',           visitFlag:'🇸🇳', visitCode:'SEN',
-                 sede:'Lumen Field · Seattle',             fecha:'1 Jul',  hora:'2:00 PM ET' },
-
-    { id:'M82',  local:'Estados Unidos',       localFlag:'🇺🇸', localCode:'USA',
-                 visitante:'Bosnia-Herzegovina',visitFlag:'🇧🇦', visitCode:'BIH',
-                 sede:"Levi's Stadium · Santa Clara",      fecha:'1 Jul',  hora:'6:00 PM ET' },
-
-    { id:'M83',  local:'España',               localFlag:'🇪🇸', localCode:'ESP',
-                 visitante:'Austria',           visitFlag:'🇦🇹', visitCode:'AUT',
-                 sede:'SoFi Stadium · Los Ángeles',        fecha:'2 Jul',  hora:'1:00 PM ET' },
-
-    { id:'M84',  local:'Portugal',             localFlag:'🇵🇹', localCode:'POR',
-                 visitante:'Croacia',           visitFlag:'🇭🇷', visitCode:'CRO',
-                 sede:'BMO Field · Toronto',               fecha:'2 Jul',  hora:'5:00 PM ET' },
-
-    { id:'M85',  local:'Suiza',                localFlag:'🇨🇭', localCode:'SUI',
-                 visitante:'Argelia',           visitFlag:'🇩🇿', visitCode:'ALG',
-                 sede:'BC Place · Vancouver',              fecha:'2 Jul',  hora:'9:00 PM ET' },
-
-    { id:'M86',  local:'Australia',            localFlag:'🇦🇺', localCode:'AUS',
-                 visitante:'Egipto',            visitFlag:'🇪🇬', visitCode:'EGY',
-                 sede:'AT&T Stadium · Dallas',             fecha:'3 Jul',  hora:'12:00 PM ET' },
-
-    { id:'M87',  local:'Argentina',            localFlag:'🇦🇷', localCode:'ARG',
-                 visitante:'Cabo Verde',        visitFlag:'🇨🇻', visitCode:'CPV',
-                 sede:'Hard Rock Stadium · Miami',         fecha:'3 Jul',  hora:'4:00 PM ET' },
-
-    { id:'M88',  local:'Colombia',             localFlag:'🇨🇴', localCode:'COL',
-                 visitante:'Ghana',             visitFlag:'🇬🇭', visitCode:'GHA',
-                 sede:'Arrowhead Stadium · Kansas City',   fecha:'3 Jul',  hora:'7:30 PM ET' },
-  ],
-
-  R16: [
-    { id:'M89',  local:'Ganador M74', localFlag:'🏳️', localCode:'TBD_M74',
-                 visitante:'Ganador M77', visitFlag:'🏳️', visitCode:'TBD_M77',
-                 sede:'Lincoln Financial Field · Philadelphia', fecha:'4 Jul', hora:'3:00 PM ET' },
-    { id:'M90',  local:'Ganador M73', localFlag:'🏳️', localCode:'TBD_M73',
-                 visitante:'Ganador M75', visitFlag:'🏳️', visitCode:'TBD_M75',
-                 sede:'NRG Stadium · Houston', fecha:'4 Jul', hora:'7:00 PM ET' },
-    { id:'M91',  local:'Ganador M76', localFlag:'🏳️', localCode:'TBD_M76',
-                 visitante:'Ganador M78', visitFlag:'🏳️', visitCode:'TBD_M78',
-                 sede:'MetLife Stadium · New York/NJ', fecha:'5 Jul', hora:'3:00 PM ET' },
-    { id:'M92',  local:'Ganador M79', localFlag:'🏳️', localCode:'TBD_M79',
-                 visitante:'Ganador M80', visitFlag:'🏳️', visitCode:'TBD_M80',
-                 sede:'Estadio Azteca · Ciudad de México', fecha:'5 Jul', hora:'7:00 PM ET' },
-    { id:'M93',  local:'Ganador M83', localFlag:'🏳️', localCode:'TBD_M83',
-                 visitante:'Ganador M84', visitFlag:'🏳️', visitCode:'TBD_M84',
-                 sede:'BMO Field · Toronto', fecha:'6 Jul', hora:'3:00 PM ET' },
-    { id:'M94',  local:'Ganador M81', localFlag:'🏳️', localCode:'TBD_M81',
-                 visitante:'Ganador M82', visitFlag:'🏳️', visitCode:'TBD_M82',
-                 sede:"Levi's Stadium · Santa Clara", fecha:'6 Jul', hora:'7:00 PM ET' },
-    { id:'M95',  local:'Ganador M86', localFlag:'🏳️', localCode:'TBD_M86',
-                 visitante:'Ganador M88', visitFlag:'🏳️', visitCode:'TBD_M88',
-                 sede:'Hard Rock Stadium · Miami', fecha:'7 Jul', hora:'3:00 PM ET' },
-    { id:'M96',  local:'Ganador M85', localFlag:'🏳️', localCode:'TBD_M85',
-                 visitante:'Ganador M87', visitFlag:'🏳️', visitCode:'TBD_M87',
-                 sede:'BC Place · Vancouver', fecha:'7 Jul', hora:'7:00 PM ET' },
-  ],
-
-  QF: [
-    { id:'M97',  local:'Ganador M89', localFlag:'🏳️', localCode:'TBD_M89',
-                 visitante:'Ganador M90', visitFlag:'🏳️', visitCode:'TBD_M90',
-                 sede:'Gillette Stadium · Boston', fecha:'9 Jul', hora:'7:00 PM ET' },
-    { id:'M98',  local:'Ganador M93', localFlag:'🏳️', localCode:'TBD_M93',
-                 visitante:'Ganador M94', visitFlag:'🏳️', visitCode:'TBD_M94',
-                 sede:'SoFi Stadium · Los Ángeles', fecha:'10 Jul', hora:'7:00 PM ET' },
-    { id:'M99',  local:'Ganador M91', localFlag:'🏳️', localCode:'TBD_M91',
-                 visitante:'Ganador M92', visitFlag:'🏳️', visitCode:'TBD_M92',
-                 sede:'Hard Rock Stadium · Miami', fecha:'11 Jul', hora:'3:00 PM ET' },
-    { id:'M100', local:'Ganador M95', localFlag:'🏳️', localCode:'TBD_M95',
-                 visitante:'Ganador M96', visitFlag:'🏳️', visitCode:'TBD_M96',
-                 sede:'Arrowhead Stadium · Kansas City', fecha:'11 Jul', hora:'7:00 PM ET' },
-  ],
-
-  SF: [
-    { id:'M101', local:'Ganador M97',  localFlag:'🏳️', localCode:'TBD_M97',
-                 visitante:'Ganador M98', visitFlag:'🏳️', visitCode:'TBD_M98',
-                 sede:'AT&T Stadium · Dallas', fecha:'14 Jul', hora:'7:00 PM ET' },
-    { id:'M102', local:'Ganador M99',  localFlag:'🏳️', localCode:'TBD_M99',
-                 visitante:'Ganador M100', visitFlag:'🏳️', visitCode:'TBD_M100',
-                 sede:'Mercedes-Benz Stadium · Atlanta', fecha:'15 Jul', hora:'7:00 PM ET' },
-  ],
-
-  '3P': [
-    { id:'M103', local:'Perdedor M101', localFlag:'🏳️', localCode:'TBD_M101L',
-                 visitante:'Perdedor M102', visitFlag:'🏳️', visitCode:'TBD_M102L',
-                 sede:'Hard Rock Stadium · Miami', fecha:'18 Jul', hora:'3:00 PM ET' },
-  ],
-
-  F: [
-    { id:'M104', local:'Ganador M101', localFlag:'🏳️', localCode:'TBD_M101W',
-                 visitante:'Ganador M102', visitFlag:'🏳️', visitCode:'TBD_M102W',
-                 sede:'MetLife Stadium · East Rutherford, NJ', fecha:'19 Jul', hora:'3:00 PM ET' },
-  ]
-};
-
-
-// ══════════════════════════════════════════
-// RENDER PARTIDOS ADMIN
+// RENDER PARTIDOS ADMIN — con flagHtml()
 // ══════════════════════════════════════════
 let partidosAdminData = {};
 
@@ -1163,57 +993,50 @@ async function setRondaAdmin(ronda, el) {
 async function renderPartidosAdmin(ronda) {
   const grid = document.getElementById('partidos-admin-grid');
   grid.innerHTML = '<div style="padding:40px;text-align:center;color:var(--muted)"><div class="spinner" style="margin:0 auto 12px"></div>Cargando partidos...</div>';
-
   try {
     const res  = await fetch(`${API}/api/partidos?ronda=${ronda}`);
     const data = await res.json();
-    if (Array.isArray(data)) {
-      data.forEach(p => { partidosAdminData[p.id] = p; });
-    }
-  } catch(e) { /* sin conexión — usar datos estáticos */ }
+    if (Array.isArray(data)) data.forEach(p => { partidosAdminData[p.id] = p; });
+  } catch(e) { /* usar datos estáticos */ }
 
   const lista = BRACKET_ADMIN[ronda] || [];
-
   grid.innerHTML = lista.map(p => {
     const d           = partidosAdminData[p.id] || {};
-    const localNombre = d.local_nombre      || p.local;
-    const visitNombre = d.visitante_nombre  || p.visitante;
-    const localFlag   = d.local_bandera     || p.localFlag  || '🏳️';
-    const visitFlag   = d.visitante_bandera || p.visitFlag  || '🏳️';
-    const localCode   = d.local_code        || p.localCode  || '';
-    const visitCode   = d.visitante_code    || p.visitCode  || '';
-    const estado      = d.estado            || 'PENDIENTE';
+    const localNombre = d.local_nombre     || p.local;
+    const visitNombre = d.visitante_nombre || p.visitante;
+    const localCode   = d.local_code       || p.localCode || 'TBD';
+    const visitCode   = d.visitante_code   || p.visitCode || 'TBD';
+    const estado      = d.estado           || 'PENDIENTE';
     const ganadorCode = ganadorSeleccionado[p.id] || d.ganador_code || '';
 
-    const estadoColor = estado === 'FINALIZADO' ? 'var(--green)'
-                      : estado === 'EN_JUEGO'   ? 'var(--gold)'
+    const estadoColor = estado==='FINALIZADO' ? 'var(--green)'
+                      : estado==='EN_JUEGO'   ? 'var(--gold)'
                       : 'var(--muted)';
-
-    const localSel = ganadorCode === localCode  && localCode  ? 'selected' : '';
-    const visitSel = ganadorCode === visitCode  && visitCode  ? 'selected' : '';
+    const localSel = ganadorCode === localCode && localCode !== 'TBD' ? 'selected' : '';
+    const visitSel = ganadorCode === visitCode && visitCode !== 'TBD' ? 'selected' : '';
 
     return `
       <div class="partido-admin-card">
         <div class="pac-header">
-          <span class="pac-id">${p.id} · ${p.fecha || ''} · ${p.hora || ''}</span>
+          <span class="pac-id">${p.id} · ${p.fecha||''} · ${p.hora||''}</span>
           <span class="pac-sede">📍 ${p.sede}</span>
         </div>
         <div class="pac-body">
           <div class="pac-equipo">
-            <div class="pac-flag">${localFlag}</div>
+            ${flagHtml(localCode)}
             <div>
               <div class="pac-nombre">${localNombre}</div>
-              <div class="pac-origen" style="font-size:0.68rem;color:var(--muted)">${p.local}</div>
+              <div class="pac-origen">${p.local}</div>
             </div>
             ${d.goles_local != null
               ? `<div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;margin-left:auto;color:${estado==='FINALIZADO'?'var(--green)':'var(--muted)'}">${d.goles_local}</div>`
               : ''}
           </div>
           <div class="pac-equipo">
-            <div class="pac-flag">${visitFlag}</div>
+            ${flagHtml(visitCode)}
             <div>
               <div class="pac-nombre">${visitNombre}</div>
-              <div class="pac-origen" style="font-size:0.68rem;color:var(--muted)">${p.visitante}</div>
+              <div class="pac-origen">${p.visitante}</div>
             </div>
             ${d.goles_visitante != null
               ? `<div style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;margin-left:auto;color:${estado==='FINALIZADO'?'var(--green)':'var(--muted)'}">${d.goles_visitante}</div>`
@@ -1224,53 +1047,44 @@ async function renderPartidosAdmin(ronda) {
           <div class="pac-form-title">
             ⚙️ Cargar Resultado
             <span style="color:${estadoColor};margin-left:8px;font-weight:700">
-              ${estado === 'FINALIZADO' ? '✅ Finalizado'
-              : estado === 'EN_JUEGO'   ? '🔴 En Juego'
+              ${estado==='FINALIZADO' ? '✅ Finalizado'
+              : estado==='EN_JUEGO'   ? '🔴 En Juego'
               : '⏳ Pendiente'}
             </span>
           </div>
-
           <select class="estado-select" id="est-${p.id}">
             <option value="PENDIENTE"  ${estado==='PENDIENTE'  ?'selected':''}>⏳ Pendiente</option>
             <option value="EN_JUEGO"   ${estado==='EN_JUEGO'   ?'selected':''}>🔴 En Juego</option>
             <option value="FINALIZADO" ${estado==='FINALIZADO' ?'selected':''}>✅ Finalizado</option>
           </select>
-
           <div class="resultado-row">
             <label>Marcador</label>
             <div style="display:flex;align-items:center;gap:8px">
-              <input type="number" min="0" max="20" id="gl-${p.id}"
-                value="${d.goles_local ?? ''}" placeholder="0"/>
+              <input type="number" min="0" max="20" id="gl-${p.id}" value="${d.goles_local??''}" placeholder="0"/>
               <span class="sep">—</span>
-              <input type="number" min="0" max="20" id="gv-${p.id}"
-                value="${d.goles_visitante ?? ''}" placeholder="0"/>
+              <input type="number" min="0" max="20" id="gv-${p.id}" value="${d.goles_visitante??''}" placeholder="0"/>
             </div>
           </div>
-
           <div class="ganador-select-wrap">
             <label>Equipo Ganador</label>
             <div class="ganador-btns">
-              <button
-                class="gb-btn ${localSel}"
-                id="gw-local-${p.id}"
-                onclick="selGanadorAdmin('${p.id}','local')"
-              >${localFlag} ${localNombre}</button>
-              <button
-                class="gb-btn ${visitSel}"
-                id="gw-visit-${p.id}"
-                onclick="selGanadorAdmin('${p.id}','visit')"
-              >${visitFlag} ${visitNombre}</button>
+              <button class="gb-btn ${localSel}" id="gw-local-${p.id}"
+                onclick="selGanadorAdmin('${p.id}','local')">
+                ${flagHtml(localCode)} ${localNombre}
+              </button>
+              <button class="gb-btn ${visitSel}" id="gw-visit-${p.id}"
+                onclick="selGanadorAdmin('${p.id}','visit')">
+                ${flagHtml(visitCode)} ${visitNombre}
+              </button>
             </div>
           </div>
-
           <div class="pen-row">
             <label class="toggle">
-              <input type="checkbox" id="pen-${p.id}" ${d.fue_a_penales ? 'checked' : ''}/>
+              <input type="checkbox" id="pen-${p.id}" ${d.fue_a_penales?'checked':''}/>
               <span class="toggle-slider"></span>
             </label>
             <label for="pen-${p.id}">¿Se definió por penales?</label>
           </div>
-
           <button class="btn btn-gold" style="width:100%;padding:10px"
             onclick="guardarResultado('${p.id}','${localCode}','${visitCode}')">
             💾 Guardar Resultado
@@ -1281,20 +1095,17 @@ async function renderPartidosAdmin(ronda) {
 }
 
 // ══════════════════════════════════════════
-// SELECCIONAR GANADOR ADMIN
+// SELECCIONAR GANADOR
 // ══════════════════════════════════════════
 function selGanadorAdmin(matchId, lado) {
-  const btnL = document.getElementById('gw-local-'  + matchId);
-  const btnV = document.getElementById('gw-visit-'  + matchId);
+  const btnL = document.getElementById('gw-local-' + matchId);
+  const btnV = document.getElementById('gw-visit-' + matchId);
   if (!btnL || !btnV) return;
-
   if (lado === 'local') {
-    btnL.classList.add('selected');
-    btnV.classList.remove('selected');
+    btnL.classList.add('selected'); btnV.classList.remove('selected');
     ganadorSeleccionado[matchId] = 'local';
   } else {
-    btnV.classList.add('selected');
-    btnL.classList.remove('selected');
+    btnV.classList.add('selected'); btnL.classList.remove('selected');
     ganadorSeleccionado[matchId] = 'visit';
   }
 }
@@ -1308,14 +1119,11 @@ async function guardarResultado(matchId, localCode, visitCode) {
   const gVisit  = document.getElementById('gv-'  + matchId)?.value;
   const penales = document.getElementById('pen-' + matchId)?.checked || false;
 
-  // ✅ Resolver ganador_code desde selección + códigos reales
   let ganadorCode = null;
   const sel = ganadorSeleccionado[matchId];
-  if (sel === 'local')  ganadorCode = localCode  || partidosAdminData[matchId]?.local_code    || null;
-  if (sel === 'visit')  ganadorCode = visitCode  || partidosAdminData[matchId]?.visitante_code || null;
-  if (!sel && partidosAdminData[matchId]?.ganador_code) {
-    ganadorCode = partidosAdminData[matchId].ganador_code;
-  }
+  if (sel === 'local') ganadorCode = localCode  || partidosAdminData[matchId]?.local_code    || null;
+  if (sel === 'visit') ganadorCode = visitCode  || partidosAdminData[matchId]?.visitante_code || null;
+  if (!sel && partidosAdminData[matchId]?.ganador_code) ganadorCode = partidosAdminData[matchId].ganador_code;
 
   if (estado === 'FINALIZADO' && !ganadorCode) {
     showToast('⚠️ Selecciona el equipo ganador antes de finalizar.', 'error'); return;
@@ -1331,16 +1139,14 @@ async function guardarResultado(matchId, localCode, visitCode) {
 
   try {
     const res  = await fetch(`${API}/api/admin/partido/${matchId}`, {
-      method:  'PUT',
-      headers: authHeaders(),
-      body:    JSON.stringify(payload)
+      method: 'PUT', headers: authHeaders(), body: JSON.stringify(payload)
     });
     const data = await res.json();
     if (!data.ok) throw new Error(data.error);
     if (!partidosAdminData[matchId]) partidosAdminData[matchId] = {};
     Object.assign(partidosAdminData[matchId], payload);
-    showToast(`✅ ${matchId}: ${gLocal ?? '?'}–${gVisit ?? '?'} guardado`, 'success');
-    agregarLog(`⚽ ${matchId} → ${gLocal}-${gVisit} · Ganador: ${ganadorCode || 'N/A'} · ${estado}`);
+    showToast(`✅ ${matchId}: ${gLocal??'?'}–${gVisit??'?'} guardado`, 'success');
+    agregarLog(`⚽ ${matchId} → ${gLocal}-${gVisit} · Ganador: ${ganadorCode||'N/A'} · ${estado}`);
     renderPartidosAdmin(rondaAdminActiva);
   } catch(e) {
     showToast('❌ Error: ' + e.message, 'error');
@@ -1349,43 +1155,35 @@ async function guardarResultado(matchId, localCode, visitCode) {
 }
 
 // ══════════════════════════════════════════
-// ✅ POBLAR BRACKET — con progress bar
+// POBLAR BRACKET
 // ══════════════════════════════════════════
 async function poblarBracket() {
   if (!confirm('¿Confirmas poblar el bracket con los 16 equipos reales del R32?')) return;
-
   const btn      = document.getElementById('btn-poblar');
   const progress = document.getElementById('poblar-progress');
   const fill     = document.getElementById('poblar-progress-fill');
   const label    = document.getElementById('poblar-progress-label');
-
   btn.disabled  = true;
   btn.innerHTML = '<span class="spinner"></span> Poblando...';
   progress.classList.add('visible');
   fill.style.width = '20%';
   label.textContent = 'Enviando datos al servidor...';
-
   try {
     const res  = await fetch(`${API}/api/admin/poblar-bracket`, {
-      method:  'POST',
-      headers: authHeaders()
+      method: 'POST', headers: authHeaders()
     });
     fill.style.width = '70%';
     label.textContent = 'Procesando respuesta...';
     const data = await res.json();
     fill.style.width = '100%';
-
     if (data.ok) {
-      label.textContent = `✅ ${data.insertados || 32} partidos cargados correctamente.`;
-      showToast(`✅ Bracket poblado — ${data.insertados || 32} partidos.`, 'success');
-      agregarLog(`🏟️ Bracket poblado: ${data.insertados || 32} partidos insertados.`);
+      label.textContent = `✅ ${data.insertados||32} partidos cargados correctamente.`;
+      showToast(`✅ Bracket poblado — ${data.insertados||32} partidos.`, 'success');
+      agregarLog(`🏟️ Bracket poblado: ${data.insertados||32} partidos insertados.`);
       renderPartidosAdmin(rondaAdminActiva);
-    } else {
-      throw new Error(data.error || 'Error desconocido');
-    }
+    } else { throw new Error(data.error || 'Error desconocido'); }
   } catch(e) {
-    fill.style.width  = '100%';
-    fill.style.background = 'var(--red)';
+    fill.style.width = '100%'; fill.style.background = 'var(--red)';
     label.textContent = '❌ Error: ' + e.message;
     showToast('❌ Error al poblar bracket: ' + e.message, 'error');
     agregarLog('❌ Error poblar bracket: ' + e.message, 'err');
@@ -1394,38 +1192,31 @@ async function poblarBracket() {
     btn.innerHTML = '🏟️ Poblar Bracket con Equipos Reales';
     setTimeout(() => {
       progress.classList.remove('visible');
-      fill.style.width      = '0%';
-      fill.style.background = '';
+      fill.style.width = '0%'; fill.style.background = '';
     }, 4000);
   }
 }
 
 // ══════════════════════════════════════════
-// ✅ INICIALIZAR SISTEMA — con spinner
+// INICIALIZAR SISTEMA
 // ══════════════════════════════════════════
 async function inicializarSistema() {
   if (!confirm('¿Inicializar el sistema completo en Supabase?')) return;
-
   const btn = document.getElementById('btn-init');
   btn.disabled  = true;
   btn.innerHTML = '<span class="spinner"></span> Inicializando...';
-
   agregarLog('🔧 Iniciando inicialización del sistema...');
-
   try {
     const res  = await fetch(`${API}/api/admin/init`, {
-      method:  'POST',
-      headers: authHeaders()
+      method: 'POST', headers: authHeaders()
     });
     const data = await res.json();
     if (data.ok) {
-      showToast(`✅ Sistema inicializado — ${data.partidos || 32} partidos.`, 'success');
-      agregarLog(`🔧 Sistema inicializado: ${data.partidos || 32} partidos + awards en Supabase.`);
+      showToast(`✅ Sistema inicializado — ${data.partidos||32} partidos.`, 'success');
+      agregarLog(`🔧 Sistema inicializado: ${data.partidos||32} partidos en Supabase.`);
       renderPartidosAdmin(rondaAdminActiva);
       cargarDashboard();
-    } else {
-      throw new Error(data.error || 'Error desconocido');
-    }
+    } else { throw new Error(data.error || 'Error desconocido'); }
   } catch(e) {
     showToast('❌ Error al inicializar: ' + e.message, 'error');
     agregarLog('❌ Error inicializar: ' + e.message, 'err');
@@ -1441,11 +1232,9 @@ async function inicializarSistema() {
 async function recalcularTodo() {
   agregarLog('⚡ Iniciando recálculo completo de puntos...');
   try {
-    const res  = await fetch(`${API}/api/admin/recalcular`, {
-      method: 'POST', headers: authHeaders()
-    });
+    const res  = await fetch(`${API}/api/admin/recalcular`, { method:'POST', headers:authHeaders() });
     const data = await res.json();
-    agregarLog(`✅ Recálculo completado. ${data.procesados || 0} predicciones procesadas.`);
+    agregarLog(`✅ Recálculo completado. ${data.procesados||0} predicciones procesadas.`);
     showToast('✅ Puntos recalculados correctamente.', 'success');
   } catch(e) {
     agregarLog('❌ Error en recálculo: ' + e.message, 'err');
@@ -1458,11 +1247,9 @@ async function recalcularPartido() {
   if (!id) { showToast('⚠️ Ingresa el ID del partido (Ej: M73).', 'error'); return; }
   agregarLog(`🎯 Recalculando puntos para ${id}...`);
   try {
-    const res  = await fetch(`${API}/api/admin/recalcular/${id}`, {
-      method: 'POST', headers: authHeaders()
-    });
+    const res  = await fetch(`${API}/api/admin/recalcular/${id}`, { method:'POST', headers:authHeaders() });
     const data = await res.json();
-    agregarLog(`✅ ${id}: ${data.procesados || 0} predicciones actualizadas.`);
+    agregarLog(`✅ ${id}: ${data.procesados||0} predicciones actualizadas.`);
     showToast(`✅ ${id} recalculado.`, 'success');
   } catch(e) {
     agregarLog(`❌ Error recalculando ${id}: ` + e.message, 'err');
@@ -1475,30 +1262,22 @@ async function cargarBalonOro() {
   if (!jugador) { showToast('⚠️ Ingresa el nombre del jugador.', 'error'); return; }
   try {
     const res  = await fetch(`${API}/api/admin/balon-oro`, {
-      method:  'POST',
-      headers: authHeaders(),
-      body:    JSON.stringify({ ganador: jugador })
+      method:'POST', headers:authHeaders(), body:JSON.stringify({ ganador: jugador })
     });
     const data = await res.json();
     if (!data.ok) throw new Error(data.error);
     agregarLog(`⭐ Balón de Oro registrado: ${jugador}`);
     showToast(`⭐ Balón de Oro: ${jugador} guardado.`, 'success');
-  } catch(e) {
-    showToast('❌ Error: ' + e.message, 'error');
-  }
+  } catch(e) { showToast('❌ Error: ' + e.message, 'error'); }
 }
 
 async function actualizarRanking() {
   agregarLog('📊 Actualizando ranking...');
   try {
-    await fetch(`${API}/api/admin/ranking/actualizar`, {
-      method: 'POST', headers: authHeaders()
-    });
+    await fetch(`${API}/api/admin/ranking/actualizar`, { method:'POST', headers:authHeaders() });
     agregarLog('✅ Ranking actualizado y posiciones recalculadas.');
     showToast('📊 Ranking actualizado.', 'success');
-  } catch(e) {
-    showToast('❌ Error al actualizar ranking.', 'error');
-  }
+  } catch(e) { showToast('❌ Error al actualizar ranking.', 'error'); }
 }
 
 // ══════════════════════════════════════════
@@ -1508,27 +1287,21 @@ function generarPDF(tipo) {
   window.open(`${API}/api/pdf/${tipo}`, '_blank');
   agregarLog(`📄 PDF generado: ${tipo}`);
 }
-
 function generarPDFIndividual() {
   const email = document.getElementById('pdf-email-input').value.trim();
   if (!email) { showToast('⚠️ Ingresa el email del participante.', 'error'); return; }
   window.open(`${API}/api/pdf/quiniela?email=${encodeURIComponent(email)}`, '_blank');
   agregarLog(`📋 PDF individual: ${email}`);
 }
-
 async function enviarEmailsMasivos() {
   if (!confirm('¿Enviar PDFs por email a todos los participantes confirmados?')) return;
   agregarLog('📧 Iniciando envío masivo de emails...');
   try {
-    const res  = await fetch(`${API}/api/admin/emails/masivo`, {
-      method: 'POST', headers: authHeaders()
-    });
+    const res  = await fetch(`${API}/api/admin/emails/masivo`, { method:'POST', headers:authHeaders() });
     const data = await res.json();
-    agregarLog(`✅ Emails: ${data.enviados || 0} enviados, ${data.errores || 0} errores.`);
-    showToast(`📧 ${data.enviados || 0} emails enviados.`, 'success');
-  } catch(e) {
-    showToast('❌ Error al enviar emails.', 'error');
-  }
+    agregarLog(`✅ Emails: ${data.enviados||0} enviados, ${data.errores||0} errores.`);
+    showToast(`📧 ${data.enviados||0} emails enviados.`, 'success');
+  } catch(e) { showToast('❌ Error al enviar emails.', 'error'); }
 }
 
 // ══════════════════════════════════════════
@@ -1536,9 +1309,8 @@ async function enviarEmailsMasivos() {
 // ══════════════════════════════════════════
 function agregarLog(msg, tipo = '') {
   const box  = document.getElementById('log-box');
-  const hora = new Date().toLocaleTimeString('es-ES',
-    { hour:'2-digit', minute:'2-digit', second:'2-digit' });
-  const line       = document.createElement('span');
+  const hora = new Date().toLocaleTimeString('es-ES', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+  const line = document.createElement('span');
   line.className   = `log-line ${tipo}`;
   line.textContent = `[${hora}] ${msg}`;
   box.appendChild(line);
@@ -1550,7 +1322,7 @@ function agregarLog(msg, tipo = '') {
 // ══════════════════════════════════════════
 let toastTimer = null;
 function showToast(msg, tipo = 'success') {
-  const t     = document.getElementById('toast');
+  const t = document.getElementById('toast');
   t.textContent = msg;
   t.className   = `toast ${tipo} show`;
   if (toastTimer) clearTimeout(toastTimer);
@@ -1561,20 +1333,14 @@ function showToast(msg, tipo = 'success') {
 // EVENTOS GLOBALES
 // ══════════════════════════════════════════
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.modal-overlay.open')
-      .forEach(m => m.classList.remove('open'));
-  }
+  if (e.key === 'Escape')
+    document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open'));
 });
 document.querySelectorAll('.modal-overlay').forEach(m => {
-  m.addEventListener('click', e => {
-    if (e.target === m) m.classList.remove('open');
-  });
+  m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); });
 });
 document.getElementById('admin-pass')
-  .addEventListener('keydown', e => {
-    if (e.key === 'Enter') loginAdmin();
-  });
+  .addEventListener('keydown', e => { if (e.key === 'Enter') loginAdmin(); });
 </script>
 </body>
 </html>
