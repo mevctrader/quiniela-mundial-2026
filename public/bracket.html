@@ -20,7 +20,6 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; }
 
-    /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
       background: rgba(10,14,26,0.96); backdrop-filter: blur(12px);
@@ -43,7 +42,6 @@
     .nav-links a.cta { background: var(--gold); color: #000; font-weight: 700; }
     .nav-links a.cta:hover { background: var(--gold2); }
 
-    /* HEADER */
     .page-header {
       text-align: center; padding: 40px 24px 20px;
       background: radial-gradient(ellipse 70% 50% at 50% 0%,
@@ -55,7 +53,6 @@
     }
     .page-header p { color: var(--muted); font-size: 0.88rem; margin-top: 6px; }
 
-    /* STATS BAR */
     .stats-bar {
       display: flex; justify-content: center; gap: 0;
       max-width: 800px; margin: 0 auto 0;
@@ -70,7 +67,6 @@
     .sbar-num  { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--gold); }
     .sbar-lbl  { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
 
-    /* TABS */
     .tabs-wrap {
       display: flex; gap: 8px; flex-wrap: wrap;
       justify-content: center; padding: 24px 24px 16px;
@@ -88,7 +84,6 @@
     .tab:hover  { color: var(--text); border-color: var(--gold); }
     .tab.active { background: var(--gold); color: #000; border-color: var(--gold); }
 
-    /* RONDA PANEL */
     .ronda-panel { display: none; padding: 32px 24px; max-width: 1200px; margin: 0 auto; }
     .ronda-panel.active { display: block; }
 
@@ -113,14 +108,12 @@
     }
     .ronda-pts-pill strong { color: var(--gold); }
 
-    /* PARTIDOS GRID */
     .partidos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 16px;
     }
 
-    /* PARTIDO CARD */
     .partido-card {
       background: var(--card); border: 1px solid var(--border);
       border-radius: 16px; overflow: hidden;
@@ -149,7 +142,6 @@
     .equipo-flag   { font-size: 1.6rem; width: 36px; text-align: center; flex-shrink: 0; }
     .equipo-info   { flex: 1; }
     .equipo-nombre { font-weight: 600; font-size: 0.9rem; }
-    .equipo-origen { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
     .equipo-score  {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.8rem; min-width: 32px; text-align: center;
@@ -178,7 +170,6 @@
     .pts-badge { color: var(--muted); font-size: 0.7rem; }
     .pts-badge strong { color: var(--gold); }
 
-    /* PENALES TAG */
     .pen-tag {
       display: inline-block; margin-left: 6px;
       background: rgba(240,180,41,0.12); color: var(--gold);
@@ -188,7 +179,6 @@
       font-family: 'Inter', sans-serif;
     }
 
-    /* LOADING */
     .loading-wrap {
       display: flex; align-items: center; justify-content: center;
       padding: 60px; gap: 12px; color: var(--muted);
@@ -200,7 +190,6 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* LEYENDA */
     .leyenda {
       display: flex; gap: 20px; flex-wrap: wrap;
       justify-content: center; padding: 20px 24px 32px;
@@ -209,7 +198,6 @@
     .ley-item { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--muted); }
     .ley-dot  { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 
-    /* AUTO-REFRESH indicator */
     .refresh-bar {
       text-align: center; padding: 8px;
       font-size: 0.72rem; color: var(--muted);
@@ -217,7 +205,6 @@
     }
     .refresh-bar span { color: var(--gold); }
 
-    /* HOY badge */
     .hoy-badge {
       display: inline-block;
       background: rgba(240,180,41,0.15);
@@ -228,7 +215,6 @@
       margin-left: 6px; animation: pulse 2s infinite;
     }
 
-    /* FOOTER */
     footer {
       border-top: 1px solid var(--border);
       padding: 24px; text-align: center;
@@ -246,7 +232,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
     <img src="assets/trionda.png" alt="Logo" onerror="this.style.display='none'"/>
@@ -261,13 +246,11 @@
   </div>
 </nav>
 
-<!-- HEADER -->
 <div class="page-header">
   <h1>🏆 BRACKET OFICIAL</h1>
   <p>FIFA World Cup 2026 · Fase Eliminatoria · M73 – M104</p>
 </div>
 
-<!-- STATS BAR -->
 <div style="padding:16px 24px 0">
   <div class="stats-bar">
     <div class="sbar-item"><div class="sbar-num">32</div><div class="sbar-lbl">Partidos</div></div>
@@ -277,12 +260,10 @@
   </div>
 </div>
 
-<!-- AUTO-REFRESH -->
 <div class="refresh-bar">
   🔄 Actualización automática cada <span>60 seg</span> · Última: <span id="ultima-act">—</span>
 </div>
 
-<!-- TABS -->
 <div class="tabs-wrap">
   <button class="tab active" onclick="showRonda('r32',  this)">⚽ R32 — Dieciseisavos (16)</button>
   <button class="tab"        onclick="showRonda('r16',  this)">🔥 Octavos (8)</button>
@@ -382,7 +363,6 @@
   </div>
 </div>
 
-<!-- LEYENDA -->
 <div class="leyenda">
   <div class="ley-item"><div class="ley-dot" style="background:var(--muted)"></div> Pendiente</div>
   <div class="ley-item"><div class="ley-dot" style="background:var(--gold)"></div> En Juego</div>
@@ -395,10 +375,8 @@
 </footer>
 
 <script>
-// ✅ URL autodetectada
 const API = window.location.origin;
 
-// ✅ Puntos por ronda — PROTOCOLO OFICIAL
 const PTS_RONDA = {
   R32:  { ganador: 3,  marcador: 3, penales: 1, max: 7  },
   R16:  { ganador: 5,  marcador: 3, penales: 1, max: 9  },
@@ -409,185 +387,137 @@ const PTS_RONDA = {
 };
 
 // ══════════════════════════════════════════════════════════
-// ✅ BRACKET OFICIAL FIFA 2026 — DATOS 100% REALES
-//    Fuente: Bolavip / FIFA — Verificado 28 Jun 2026
+// ✅ FIX CRÍTICO: BANDERAS DESDE CODE — NUNCA DESDE SUPABASE
 // ══════════════════════════════════════════════════════════
+function flagFromCode(code) {
+  const flags = {
+    'RSA':'🇿🇦', 'CAN':'🇨🇦', 'BRA':'🇧🇷', 'JPN':'🇯🇵',
+    'GER':'🇩🇪', 'PAR':'🇵🇾', 'NED':'🇳🇱', 'MAR':'🇲🇦',
+    'CIV':'🇨🇮', 'NOR':'🇳🇴', 'FRA':'🇫🇷', 'SWE':'🇸🇪',
+    'MEX':'🇲🇽', 'ECU':'🇪🇨', 'ENG':'🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'COD':'🇨🇩',
+    'BEL':'🇧🇪', 'SEN':'🇸🇳', 'USA':'🇺🇸', 'BIH':'🇧🇦',
+    'ESP':'🇪🇸', 'AUT':'🇦🇹', 'POR':'🇵🇹', 'CRO':'🇭🇷',
+    'SUI':'🇨🇭', 'ALG':'🇩🇿', 'AUS':'🇦🇺', 'EGY':'🇪🇬',
+    'ARG':'🇦🇷', 'CPV':'🇨🇻', 'COL':'🇨🇴', 'GHA':'🇬🇭',
+    'TBD':'🏳️'
+  };
+  return flags[code] || '🏳️';
+}
+
 const BRACKET = {
   R32: [
-    // ── DOMINGO 28 JUN ──
-    { id:'M73', local:'Sudáfrica',          localFlag:'🇿🇦', localCode:'RSA',
-                visitante:'Canadá',          visitFlag:'🇨🇦', visitCode:'CAN',
+    { id:'M73', local:'Sudáfrica',             localCode:'RSA',
+                visitante:'Canadá',             visitCode:'CAN',
                 sede:'SoFi Stadium · Los Ángeles, CA',
                 fecha:'28 Jun', hora:'1:00 PM ET', ronda:'R32' },
-
-    // ── LUNES 29 JUN ──
-    { id:'M74', local:'Brasil',             localFlag:'🇧🇷', localCode:'BRA',
-                visitante:'Japón',           visitFlag:'🇯🇵', visitCode:'JPN',
+    { id:'M74', local:'Brasil',                localCode:'BRA',
+                visitante:'Japón',              visitCode:'JPN',
                 sede:'NRG Stadium · Houston, TX',
                 fecha:'29 Jun', hora:'11:00 AM ET', ronda:'R32' },
-
-    { id:'M75', local:'Alemania',           localFlag:'🇩🇪', localCode:'GER',
-                visitante:'Paraguay',        visitFlag:'🇵🇾', visitCode:'PAR',
+    { id:'M75', local:'Alemania',              localCode:'GER',
+                visitante:'Paraguay',           visitCode:'PAR',
                 sede:'Gillette Stadium · Boston, MA',
                 fecha:'29 Jun', hora:'2:30 PM ET', ronda:'R32' },
-
-    { id:'M76', local:'Países Bajos',       localFlag:'🇳🇱', localCode:'NED',
-                visitante:'Marruecos',       visitFlag:'🇲🇦', visitCode:'MAR',
+    { id:'M76', local:'Países Bajos',          localCode:'NED',
+                visitante:'Marruecos',          visitCode:'MAR',
                 sede:'Estadio BBVA · Monterrey, México',
                 fecha:'29 Jun', hora:'7:00 PM ET', ronda:'R32' },
-
-    // ── MARTES 30 JUN ──
-    { id:'M77', local:'Costa de Marfil',    localFlag:'🇨🇮', localCode:'CIV',
-                visitante:'Noruega',         visitFlag:'🇳🇴', visitCode:'NOR',
+    { id:'M77', local:'Costa de Marfil',       localCode:'CIV',
+                visitante:'Noruega',            visitCode:'NOR',
                 sede:'AT&T Stadium · Dallas, TX',
                 fecha:'30 Jun', hora:'11:00 AM ET', ronda:'R32' },
-
-    { id:'M78', local:'Francia',            localFlag:'🇫🇷', localCode:'FRA',
-                visitante:'Suecia',          visitFlag:'🇸🇪', visitCode:'SWE',
+    { id:'M78', local:'Francia',               localCode:'FRA',
+                visitante:'Suecia',             visitCode:'SWE',
                 sede:'MetLife Stadium · East Rutherford, NJ',
                 fecha:'30 Jun', hora:'3:00 PM ET', ronda:'R32' },
-
-    { id:'M79', local:'México',             localFlag:'🇲🇽', localCode:'MEX',
-                visitante:'Ecuador',         visitFlag:'🇪🇨', visitCode:'ECU',
+    { id:'M79', local:'México',                localCode:'MEX',
+                visitante:'Ecuador',            visitCode:'ECU',
                 sede:'Estadio Azteca · Ciudad de México',
                 fecha:'30 Jun', hora:'7:00 PM ET', ronda:'R32' },
-
-    // ── MIÉRCOLES 1 JUL ──
-    { id:'M80', local:'Inglaterra',         localFlag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿', localCode:'ENG',
-                visitante:'RD Congo',        visitFlag:'🇨🇩', visitCode:'COD',
+    { id:'M80', local:'Inglaterra',            localCode:'ENG',
+                visitante:'RD Congo',           visitCode:'COD',
                 sede:'Mercedes-Benz Stadium · Atlanta, GA',
                 fecha:'1 Jul', hora:'10:00 AM ET', ronda:'R32' },
-
-    { id:'M81', local:'Bélgica',            localFlag:'🇧🇪', localCode:'BEL',
-                visitante:'Senegal',         visitFlag:'🇸🇳', visitCode:'SEN',
+    { id:'M81', local:'Bélgica',               localCode:'BEL',
+                visitante:'Senegal',            visitCode:'SEN',
                 sede:'Lumen Field · Seattle, WA',
                 fecha:'1 Jul', hora:'2:00 PM ET', ronda:'R32' },
-
-    { id:'M82', local:'Estados Unidos',     localFlag:'🇺🇸', localCode:'USA',
-                visitante:'Bosnia-Herzegovina', visitFlag:'🇧🇦', visitCode:'BIH',
+    { id:'M82', local:'Estados Unidos',        localCode:'USA',
+                visitante:'Bosnia-Herzegovina', visitCode:'BIH',
                 sede:"Levi's Stadium · San Francisco Bay Area, CA",
                 fecha:'1 Jul', hora:'6:00 PM ET', ronda:'R32' },
-
-    // ── JUEVES 2 JUL ──
-    { id:'M83', local:'España',             localFlag:'🇪🇸', localCode:'ESP',
-                visitante:'Austria',         visitFlag:'🇦🇹', visitCode:'AUT',
+    { id:'M83', local:'España',                localCode:'ESP',
+                visitante:'Austria',            visitCode:'AUT',
                 sede:'SoFi Stadium · Los Ángeles, CA',
                 fecha:'2 Jul', hora:'1:00 PM ET', ronda:'R32' },
-
-    { id:'M84', local:'Portugal',           localFlag:'🇵🇹', localCode:'POR',
-                visitante:'Croacia',         visitFlag:'🇭🇷', visitCode:'CRO',
+    { id:'M84', local:'Portugal',              localCode:'POR',
+                visitante:'Croacia',            visitCode:'CRO',
                 sede:'BMO Field · Toronto, Canadá',
                 fecha:'2 Jul', hora:'5:00 PM ET', ronda:'R32' },
-
-    { id:'M85', local:'Suiza',              localFlag:'🇨🇭', localCode:'SUI',
-                visitante:'Argelia',         visitFlag:'🇩🇿', visitCode:'ALG',
+    { id:'M85', local:'Suiza',                 localCode:'SUI',
+                visitante:'Argelia',            visitCode:'ALG',
                 sede:'BC Place · Vancouver, Canadá',
                 fecha:'2 Jul', hora:'9:00 PM ET', ronda:'R32' },
-
-    // ── VIERNES 3 JUL ──
-    { id:'M86', local:'Australia',          localFlag:'🇦🇺', localCode:'AUS',
-                visitante:'Egipto',          visitFlag:'🇪🇬', visitCode:'EGY',
+    { id:'M86', local:'Australia',             localCode:'AUS',
+                visitante:'Egipto',             visitCode:'EGY',
                 sede:'AT&T Stadium · Dallas, TX',
                 fecha:'3 Jul', hora:'12:00 PM ET', ronda:'R32' },
-
-    { id:'M87', local:'Argentina',          localFlag:'🇦🇷', localCode:'ARG',
-                visitante:'Cabo Verde',      visitFlag:'🇨🇻', visitCode:'CPV',
+    { id:'M87', local:'Argentina',             localCode:'ARG',
+                visitante:'Cabo Verde',         visitCode:'CPV',
                 sede:'Hard Rock Stadium · Miami Gardens, FL',
                 fecha:'3 Jul', hora:'4:00 PM ET', ronda:'R32' },
-
-    { id:'M88', local:'Colombia',           localFlag:'🇨🇴', localCode:'COL',
-                visitante:'Ghana',           visitFlag:'🇬🇭', visitCode:'GHA',
+    { id:'M88', local:'Colombia',              localCode:'COL',
+                visitante:'Ghana',              visitCode:'GHA',
                 sede:'Arrowhead Stadium · Kansas City, MO',
                 fecha:'3 Jul', hora:'7:30 PM ET', ronda:'R32' },
   ],
-
   R16: [
-    { id:'M89', local:'Ganador M74', localFlag:'🏳️', localCode:'TBD',
-                visitante:'Ganador M77', visitFlag:'🏳️', visitCode:'TBD',
-                sede:'Lincoln Financial Field · Philadelphia, PA',
-                fecha:'4 Jul', hora:'3:00 PM ET', ronda:'R16' },
-    { id:'M90', local:'Ganador M73', localFlag:'🏳️', localCode:'TBD',
-                visitante:'Ganador M75', visitFlag:'🏳️', visitCode:'TBD',
-                sede:'NRG Stadium · Houston, TX',
-                fecha:'4 Jul', hora:'7:00 PM ET', ronda:'R16' },
-    { id:'M91', local:'Ganador M76', localFlag:'🏳️', localCode:'TBD',
-                visitante:'Ganador M78', visitFlag:'🏳️', visitCode:'TBD',
-                sede:'MetLife Stadium · East Rutherford, NJ',
-                fecha:'5 Jul', hora:'3:00 PM ET', ronda:'R16' },
-    { id:'M92', local:'Ganador M79', localFlag:'🏳️', localCode:'TBD',
-                visitante:'Ganador M80', visitFlag:'🏳️', visitCode:'TBD',
-                sede:'Estadio Azteca · Ciudad de México',
-                fecha:'5 Jul', hora:'7:00 PM ET', ronda:'R16' },
-    { id:'M93', local:'Ganador M83', localFlag:'🏳️', localCode:'TBD',
-                visitante:'Ganador M84', visitFlag:'🏳️', visitCode:'TBD',
-                sede:'BMO Field · Toronto, Canadá',
-                fecha:'6 Jul', hora:'3:00 PM ET', ronda:'R16' },
-    { id:'M94', local:'Ganador M81', localFlag:'🏳️', localCode:'TBD',
-                visitante:'Ganador M82', visitFlag:'🏳️', visitCode:'TBD',
-                sede:"Levi's Stadium · San Francisco Bay Area, CA",
-                fecha:'6 Jul', hora:'7:00 PM ET', ronda:'R16' },
-    { id:'M95', local:'Ganador M86', localFlag:'🏳️', localCode:'TBD',
-                visitante:'Ganador M88', visitFlag:'🏳️', visitCode:'TBD',
-                sede:'Hard Rock Stadium · Miami Gardens, FL',
-                fecha:'7 Jul', hora:'3:00 PM ET', ronda:'R16' },
-    { id:'M96', local:'Ganador M85', localFlag:'🏳️', localCode:'TBD',
-                visitante:'Ganador M87', visitFlag:'🏳️', visitCode:'TBD',
-                sede:'BC Place · Vancouver, Canadá',
-                fecha:'7 Jul', hora:'7:00 PM ET', ronda:'R16' },
+    { id:'M89', local:'Ganador M74', localCode:'TBD', visitante:'Ganador M77', visitCode:'TBD',
+                sede:'Lincoln Financial Field · Philadelphia, PA', fecha:'4 Jul', hora:'3:00 PM ET', ronda:'R16' },
+    { id:'M90', local:'Ganador M73', localCode:'TBD', visitante:'Ganador M75', visitCode:'TBD',
+                sede:'NRG Stadium · Houston, TX', fecha:'4 Jul', hora:'7:00 PM ET', ronda:'R16' },
+    { id:'M91', local:'Ganador M76', localCode:'TBD', visitante:'Ganador M78', visitCode:'TBD',
+                sede:'MetLife Stadium · East Rutherford, NJ', fecha:'5 Jul', hora:'3:00 PM ET', ronda:'R16' },
+    { id:'M92', local:'Ganador M79', localCode:'TBD', visitante:'Ganador M80', visitCode:'TBD',
+                sede:'Estadio Azteca · Ciudad de México', fecha:'5 Jul', hora:'7:00 PM ET', ronda:'R16' },
+    { id:'M93', local:'Ganador M83', localCode:'TBD', visitante:'Ganador M84', visitCode:'TBD',
+                sede:'BMO Field · Toronto, Canadá', fecha:'6 Jul', hora:'3:00 PM ET', ronda:'R16' },
+    { id:'M94', local:'Ganador M81', localCode:'TBD', visitante:'Ganador M82', visitCode:'TBD',
+                sede:"Levi's Stadium · San Francisco Bay Area, CA", fecha:'6 Jul', hora:'7:00 PM ET', ronda:'R16' },
+    { id:'M95', local:'Ganador M86', localCode:'TBD', visitante:'Ganador M88', visitCode:'TBD',
+                sede:'Hard Rock Stadium · Miami Gardens, FL', fecha:'7 Jul', hora:'3:00 PM ET', ronda:'R16' },
+    { id:'M96', local:'Ganador M85', localCode:'TBD', visitante:'Ganador M87', visitCode:'TBD',
+                sede:'BC Place · Vancouver, Canadá', fecha:'7 Jul', hora:'7:00 PM ET', ronda:'R16' },
   ],
-
   QF: [
-    { id:'M97',  local:'Ganador M89', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M90', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'Gillette Stadium · Foxborough, MA',
-                 fecha:'9 Jul', hora:'7:00 PM ET', ronda:'QF' },
-    { id:'M98',  local:'Ganador M93', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M94', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'SoFi Stadium · Inglewood, CA',
-                 fecha:'10 Jul', hora:'7:00 PM ET', ronda:'QF' },
-    { id:'M99',  local:'Ganador M91', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M92', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'Hard Rock Stadium · Miami Gardens, FL',
-                 fecha:'11 Jul', hora:'3:00 PM ET', ronda:'QF' },
-    { id:'M100', local:'Ganador M95', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M96', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'Arrowhead Stadium · Kansas City, MO',
-                 fecha:'11 Jul', hora:'7:00 PM ET', ronda:'QF' },
+    { id:'M97',  local:'Ganador M89', localCode:'TBD', visitante:'Ganador M90', visitCode:'TBD',
+                 sede:'Gillette Stadium · Foxborough, MA', fecha:'9 Jul', hora:'7:00 PM ET', ronda:'QF' },
+    { id:'M98',  local:'Ganador M93', localCode:'TBD', visitante:'Ganador M94', visitCode:'TBD',
+                 sede:'SoFi Stadium · Inglewood, CA', fecha:'10 Jul', hora:'7:00 PM ET', ronda:'QF' },
+    { id:'M99',  local:'Ganador M91', localCode:'TBD', visitante:'Ganador M92', visitCode:'TBD',
+                 sede:'Hard Rock Stadium · Miami Gardens, FL', fecha:'11 Jul', hora:'3:00 PM ET', ronda:'QF' },
+    { id:'M100', local:'Ganador M95', localCode:'TBD', visitante:'Ganador M96', visitCode:'TBD',
+                 sede:'Arrowhead Stadium · Kansas City, MO', fecha:'11 Jul', hora:'7:00 PM ET', ronda:'QF' },
   ],
-
   SF: [
-    { id:'M101', local:'Ganador M97',  localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M98', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'AT&T Stadium · Arlington, TX',
-                 fecha:'14 Jul', hora:'7:00 PM ET', ronda:'SF' },
-    { id:'M102', local:'Ganador M99',  localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M100', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'Mercedes-Benz Stadium · Atlanta, GA',
-                 fecha:'15 Jul', hora:'7:00 PM ET', ronda:'SF' },
+    { id:'M101', local:'Ganador M97',  localCode:'TBD', visitante:'Ganador M98',  visitCode:'TBD',
+                 sede:'AT&T Stadium · Arlington, TX', fecha:'14 Jul', hora:'7:00 PM ET', ronda:'SF' },
+    { id:'M102', local:'Ganador M99',  localCode:'TBD', visitante:'Ganador M100', visitCode:'TBD',
+                 sede:'Mercedes-Benz Stadium · Atlanta, GA', fecha:'15 Jul', hora:'7:00 PM ET', ronda:'SF' },
   ],
-
   '3P': [
-    { id:'M103', local:'Perdedor M101', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Perdedor M102', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'Hard Rock Stadium · Miami Gardens, FL',
-                 fecha:'18 Jul', hora:'3:00 PM ET', ronda:'3P' },
+    { id:'M103', local:'Perdedor M101', localCode:'TBD', visitante:'Perdedor M102', visitCode:'TBD',
+                 sede:'Hard Rock Stadium · Miami Gardens, FL', fecha:'18 Jul', hora:'3:00 PM ET', ronda:'3P' },
   ],
-
   F: [
-    { id:'M104', local:'Ganador M101', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M102', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'MetLife Stadium · East Rutherford, NJ',
-                 fecha:'19 Jul', hora:'3:00 PM ET', ronda:'F' },
+    { id:'M104', local:'Ganador M101', localCode:'TBD', visitante:'Ganador M102', visitCode:'TBD',
+                 sede:'MetLife Stadium · East Rutherford, NJ', fecha:'19 Jul', hora:'3:00 PM ET', ronda:'F' },
   ]
 };
 
-// ── ESTADO ──
 let apiData     = {};
 let rondaActiva = 'r32';
 
-// ══════════════════════════════════════════
-// ✅ DETECTAR SI ES HOY
-// ══════════════════════════════════════════
 function esHoy(fechaStr) {
   const hoy = new Date();
   const meses = { 'Jun':5, 'Jul':6, 'Ago':7 };
@@ -595,27 +525,33 @@ function esHoy(fechaStr) {
   if (partes.length < 2) return false;
   const dia = parseInt(partes[0]);
   const mes = meses[partes[1]];
-  if (!mes && mes !== 0) return false;
+  if (mes === undefined) return false;
   return hoy.getDate() === dia && hoy.getMonth() === mes;
 }
 
 // ══════════════════════════════════════════
-// RENDER CARD
+// ✅ RENDER CARD — BANDERAS SIEMPRE DESDE flagFromCode()
 // ══════════════════════════════════════════
 function renderCard(p) {
   const d = apiData[p.id] || {};
 
-  const localNombre = d.local_nombre      || p.local;
-  const visitNombre = d.visitante_nombre  || p.visitante;
-  const localFlag   = d.local_bandera     || p.localFlag  || '🏳️';
-  const visitFlag   = d.visitante_bandera || p.visitFlag  || '🏳️';
-  const localCode   = d.local_code        || p.localCode  || '';
-  const visitCode   = d.visitante_code    || p.visitCode  || '';
-  const estado      = d.estado            || 'PENDIENTE';
-  const ganador     = d.ganador_code      || null;
-  const penales     = d.fue_a_penales     || false;
-  const fecha       = d.fecha             ? formatFecha(d.fecha) : (p.fecha || '');
-  const hora        = d.hora              || p.hora || '';
+  // Nombres: Supabase primero, fallback al BRACKET local
+  const localNombre = d.local_nombre     || p.local;
+  const visitNombre = d.visitante_nombre || p.visitante;
+
+  // Codes: Supabase primero, fallback al BRACKET local
+  const localCode = d.local_code     || p.localCode || 'TBD';
+  const visitCode = d.visitante_code || p.visitCode || 'TBD';
+
+  // ✅ BANDERAS: SIEMPRE desde flagFromCode() — nunca desde Supabase
+  const localFlag = flagFromCode(localCode);
+  const visitFlag = flagFromCode(visitCode);
+
+  const estado   = d.estado        || 'PENDIENTE';
+  const ganador  = d.ganador_code  || null;
+  const penales  = d.fue_a_penales || false;
+  const fecha    = d.fecha ? formatFecha(d.fecha) : (p.fecha || '');
+  const hora     = d.hora  || p.hora || '';
 
   const gLocal = d.goles_local     != null ? d.goles_local     : '–';
   const gVisit = d.goles_visitante != null ? d.goles_visitante : '–';
@@ -667,9 +603,6 @@ function renderCard(p) {
     </div>`;
 }
 
-// ══════════════════════════════════════════
-// FORMATEAR FECHA ISO → "28 Jun"
-// ══════════════════════════════════════════
 function formatFecha(iso) {
   if (!iso) return '';
   try {
@@ -679,9 +612,6 @@ function formatFecha(iso) {
   } catch(e) { return iso; }
 }
 
-// ══════════════════════════════════════════
-// RENDER RONDA
-// ══════════════════════════════════════════
 function renderRonda(rondaKey, gridId) {
   const grid = document.getElementById(gridId);
   if (!grid) return;
@@ -702,9 +632,6 @@ function renderTodasLasRondas() {
   renderRonda('F',    'grid-final');
 }
 
-// ══════════════════════════════════════════
-// CARGAR DATOS DEL BACKEND
-// ══════════════════════════════════════════
 async function cargarBracket() {
   try {
     const res  = await fetch(`${API}/api/partidos`);
@@ -725,9 +652,6 @@ async function cargarBracket() {
     new Date().toLocaleTimeString('es-ES', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
 }
 
-// ══════════════════════════════════════════
-// TABS
-// ══════════════════════════════════════════
 function showRonda(ronda, el) {
   document.querySelectorAll('.ronda-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -737,9 +661,6 @@ function showRonda(ronda, el) {
   window.scrollTo({ top: 120, behavior: 'smooth' });
 }
 
-// ══════════════════════════════════════════
-// INIT + AUTO-REFRESH cada 60 seg
-// ══════════════════════════════════════════
 cargarBracket();
 setInterval(cargarBracket, 60000);
 </script>
