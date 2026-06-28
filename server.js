@@ -926,14 +926,13 @@ app.get('/api/pdf/:tipo', async (req, res) => {
       ranking.forEach((p, i) =>
         doc.fontSize(11).text(`${i+1}. ${p.nombre} (${p.pais}) — ${p.puntos_total||0} pts`)
       );
-    } else if (req.params.tipo === 'bracket') {
+        } else if (req.params.tipo === 'bracket') {
       const partidos = await db.getPartidos();
       const rondas   = ['R32','R16','QF','SF','3P','F'];
-      const nombres  
       const nombres  = {
-        R32:'Ronda de 32', R16:'Octavos de Final',
-        QF:'Cuartos de Final', SF:'Semifinales',
-        '3P':'Tercer Puesto', F:'GRAN FINAL'
+        R32: 'Ronda de 32',      R16: 'Octavos de Final',
+        QF:  'Cuartos de Final', SF:  'Semifinales',
+        '3P':'Tercer Puesto',    F:   'GRAN FINAL'
       };
       for (const r of rondas) {
         const ps = partidos.filter(p => p.ronda === r);
@@ -943,11 +942,13 @@ app.get('/api/pdf/:tipo', async (req, res) => {
           const score = p.estado === 'FINALIZADO'
             ? `${p.goles_local} - ${p.goles_visitante}${p.fue_a_penales?' (pen)':''}`
             : 'vs';
-          doc.fontSize(10).text(`  ${p.id}: ${p.local_nombre} ${score} ${p.visitante_nombre} | ${p.sede}`);
+          doc.fontSize(10).text(
+            `  ${p.id}: ${p.local_nombre} ${score} ${p.visitante_nombre} | ${p.sede}`
+          );
         });
       }
     }
-    doc.end();
+        doc.end();
   } catch(e) {
     console.error('PDF error:', e.message);
     if (!res.headersSent) res.status(500).json({ ok: false, error: e.message });
@@ -956,7 +957,6 @@ app.get('/api/pdf/:tipo', async (req, res) => {
 
 // ══════════════════════════════════════════════════════════════
 // MOTOR DE CÁLCULO DE PUNTOS
-// ✅ COLUMNAS REALES: goles_visitante_pred, puntos
 // ══════════════════════════════════════════════════════════════
 async function calcularPuntosPartido(partidoId) {
   const partido = await db.getPartido(partidoId);
@@ -982,7 +982,6 @@ async function calcularPuntosPartido(partidoId) {
       }
     }
 
-    // ✅ columna real: 'puntos'
     await db.updatePrediccion(pred.id, { puntos: pts, calculado: true });
     procesados++;
   }
@@ -1008,7 +1007,7 @@ async function recalcularRanking() {
     for (const pred of preds) {
       const partido = partidos.find(p => p.id === pred.partido_id);
       const ronda   = partido?.ronda || 'R32';
-      const pts     = pred.puntos || 0;  // ✅ columna real: 'puntos'
+      const pts     = pred.puntos || 0;
 
       porRonda[ronda] = (porRonda[ronda] || 0) + pts;
 
@@ -1075,3 +1074,4 @@ if (require.main === module) {
 
 // ✅ EXPORT PARA VERCEL
 module.exports = app;
+
