@@ -45,7 +45,7 @@
 
     .form-container { max-width: 680px; margin: 0 auto; padding: 20px 24px 80px; }
 
-    /* ✅ NUEVO — Banner urgente con countdown */
+    /* BANNER URGENTE */
     .deadline-banner {
       display: flex; align-items: center; gap: 12px;
       background: rgba(229,62,62,0.1); border: 1px solid rgba(229,62,62,0.35);
@@ -64,10 +64,8 @@
       letter-spacing: 1px;
     }
 
-    /* ✅ NUEVO — Pantalla de registro cerrado */
-    .cerrado-wrap {
-      display: none; text-align: center; padding: 60px 20px;
-    }
+    /* PANTALLA REGISTRO CERRADO */
+    .cerrado-wrap { display: none; text-align: center; padding: 60px 20px; }
     .cerrado-wrap .icon { font-size: 4rem; margin-bottom: 20px; }
     .cerrado-wrap h2 {
       font-family: 'Bebas Neue', sans-serif;
@@ -80,6 +78,7 @@
       margin: 0 auto 28px;
     }
 
+    /* STEPS */
     .steps-indicator { display: flex; align-items: center; justify-content: center; margin-bottom: 32px; }
     .step-dot { display: flex; flex-direction: column; align-items: center; gap: 6px; }
     .step-dot .dot {
@@ -117,10 +116,10 @@
       transition: border-color .2s; outline: none; width: 100%;
     }
     .field input:focus,
-    .field select:focus,
-    .field textarea:focus { border-color: var(--gold); background: rgba(240,180,41,0.04); }
+    .field select:focus { border-color: var(--gold); background: rgba(240,180,41,0.04); }
     .field select option { background: #1a2235; }
 
+    /* AWARD HIGHLIGHT */
     .award-highlight {
       display: flex; gap: 20px; align-items: flex-start;
       background: linear-gradient(135deg, rgba(240,180,41,0.08), rgba(224,123,0,0.04));
@@ -138,6 +137,7 @@
       font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
     }
 
+    /* AWARD PREVIEW */
     .award-preview {
       display: none;
       background: linear-gradient(135deg, rgba(240,180,41,0.08), rgba(240,180,41,0.04));
@@ -152,6 +152,7 @@
     .award-preview .prev-pais  { font-size: 0.78rem; color: var(--muted); }
     .award-preview .prev-pts   { margin-left: auto; font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--gold); }
 
+    /* PAGO */
     .pago-options { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
     .pago-option {
       background: rgba(255,255,255,0.03); border: 2px solid var(--border);
@@ -177,6 +178,7 @@
       background: rgba(0,0,0,0.3); padding: 8px 12px; border-radius: 8px;
     }
 
+    /* RESUMEN */
     .resumen-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 14px; padding: 20px; margin-bottom: 20px; }
     .resumen-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
     .resumen-row:last-child { border-bottom: none; }
@@ -184,6 +186,7 @@
     .resumen-row .value { font-weight: 600; }
     .resumen-row .value.gold { color: var(--gold); }
 
+    /* TÉRMINOS */
     .terminos {
       display: flex; align-items: flex-start; gap: 12px;
       font-size: 0.82rem; color: var(--muted); line-height: 1.6;
@@ -194,9 +197,9 @@
     .terminos input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--gold); margin-top: 2px; cursor: pointer; }
     .terminos label { cursor: pointer; }
 
+    /* BOTONES */
     .form-nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 8px; }
     .form-nav.right { justify-content: flex-end; }
-
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 13px 26px; border-radius: 12px;
@@ -211,6 +214,7 @@
     .btn-ghost { background: transparent; border: 1.5px solid var(--border); color: var(--muted); }
     .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
 
+    /* ERRORES */
     .error-msg {
       display: none; background: rgba(229,62,62,0.1);
       border: 1px solid rgba(229,62,62,0.3);
@@ -218,6 +222,7 @@
       font-size: 0.84rem; color: #fc8181; margin-bottom: 16px;
     }
 
+    /* ÉXITO */
     .success-wrap { display: none; text-align: center; padding: 60px 20px; }
     .success-icon { font-size: 5rem; margin-bottom: 20px; }
     .success-wrap h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; letter-spacing: 2px; color: var(--gold); margin-bottom: 12px; }
@@ -249,21 +254,24 @@
   </div>
 </nav>
 
-<!-- ✅ Header dinámico -->
 <div class="page-header">
   <h1>⚽ REGISTRO</h1>
-  <p id="header-sub">Completa tu inscripción en 3 pasos · Cierre: <strong style="color:var(--accent)">28 de junio · 2:59 PM (Caracas)</strong></p>
+  <p id="header-sub">
+    Completa tu inscripción en 3 pasos ·
+    Cierre: <strong style="color:var(--accent)">HOY 28 de junio · 2:59 PM (Caracas UTC-4)</strong>
+  </p>
 </div>
 
 <div class="form-container">
 
-  <!-- ✅ NUEVO — Pantalla registro cerrado -->
+  <!-- PANTALLA REGISTRO CERRADO -->
   <div class="cerrado-wrap" id="cerrado-wrap">
     <div class="icon">🔒</div>
     <h2>REGISTRO CERRADO</h2>
     <p>
       El período de inscripción para la Quiniela Mundial 2026 ha finalizado.<br/>
-      El registro cerró el <strong style="color:var(--text)">28 de junio a las 2:59 PM</strong> (hora Caracas).<br/><br/>
+      El registro cerró el <strong style="color:var(--text)">28 de junio a las 2:59 PM</strong>
+      (hora Caracas UTC-4).<br/><br/>
       Puedes seguir el torneo en el bracket y consultar el ranking en tiempo real.
     </p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
@@ -272,18 +280,21 @@
     </div>
   </div>
 
-  <!-- ✅ Banner urgente con countdown — solo visible si registro abierto -->
+  <!-- BANNER URGENTE — solo visible si registro abierto -->
   <div class="deadline-banner" id="deadline-banner">
     🚨
     <div>
-      <div>Cierre de registro: <strong>28 de junio · 2:59 PM (Caracas UTC-4)</strong></div>
+      <div>
+        Cierre de registro:
+        <strong>HOY 28 de junio · 2:59 PM (Caracas UTC-4)</strong>
+      </div>
       <div style="margin-top:4px;font-size:0.78rem">
         Tiempo restante: <span class="cd-inline" id="reg-cd">calculando...</span>
       </div>
     </div>
   </div>
 
-  <!-- STEPS -->
+  <!-- STEPS INDICATOR -->
   <div class="steps-indicator" id="steps">
     <div class="step-dot active" id="sdot-1">
       <div class="dot">01</div><span>Tus Datos</span>
@@ -300,7 +311,9 @@
 
   <div class="error-msg" id="error-global"></div>
 
-  <!-- PASO 1 -->
+  <!-- ══════════════════════════════════════════
+       PASO 1 — DATOS PERSONALES
+  ══════════════════════════════════════════ -->
   <div class="form-section active" id="step-1">
     <div class="section-card">
       <h2>📝 Datos Personales</h2>
@@ -344,11 +357,15 @@
       </div>
     </div>
     <div class="form-nav right">
-      <button class="btn btn-gold" onclick="irPaso2()">Siguiente → Balón de Oro</button>
+      <button class="btn btn-gold" onclick="irPaso2()">
+        Siguiente → Balón de Oro
+      </button>
     </div>
   </div>
 
-  <!-- PASO 2 -->
+  <!-- ══════════════════════════════════════════
+       PASO 2 — BALÓN DE ORO
+  ══════════════════════════════════════════ -->
   <div class="form-section" id="step-2">
     <div class="award-highlight">
       <div class="icon">⭐</div>
@@ -363,9 +380,13 @@
         <span class="award-pts-badge">⭐ 30 PUNTOS SI ACIERTAS</span>
       </div>
     </div>
+
     <div class="section-card">
       <h2>⭐ Tu Predicción</h2>
-      <p class="desc">Escribe el nombre del jugador que crees será el MVP del Mundial 2026.</p>
+      <p class="desc">
+        Escribe el nombre del jugador que crees será el MVP del Mundial 2026.
+        El país es opcional pero ayuda a identificar al jugador.
+      </p>
       <div class="field-group">
         <div class="field full">
           <label>Jugador — Balón de Oro <span class="req">*</span></label>
@@ -398,7 +419,7 @@
           </datalist>
         </div>
         <div class="field full">
-          <label>País del Jugador</label>
+          <label>País del Jugador <span style="color:var(--muted);font-weight:400">(opcional)</span></label>
           <input
             type="text" id="balon-oro-pais"
             placeholder="Ej: Francia, Argentina, Brasil..."
@@ -406,29 +427,39 @@
           />
         </div>
       </div>
+
+      <!-- PREVIEW CARD -->
       <div class="award-preview" id="award-preview">
         <span class="prev-icon">⭐</span>
         <div>
-          <div class="prev-label">Tu predicción</div>
+          <div class="prev-label">Tu predicción — no modificable</div>
           <div class="prev-name" id="preview-nombre">—</div>
           <div class="prev-pais"  id="preview-pais">—</div>
         </div>
-        <div class="prev-pts">30<br/>
-          <span style="font-family:'Inter',sans-serif;font-size:0.65rem;color:var(--muted);font-weight:400">pts</span>
+        <div class="prev-pts">
+          30<br/>
+          <span style="font-family:'Inter',sans-serif;font-size:0.65rem;
+                       color:var(--muted);font-weight:400">pts</span>
         </div>
       </div>
     </div>
+
     <div class="form-nav">
       <button class="btn btn-ghost" onclick="irPaso(1)">← Atrás</button>
       <button class="btn btn-gold"  onclick="irPaso3()">Siguiente → Pago</button>
     </div>
   </div>
 
-  <!-- PASO 3 -->
+  <!-- ══════════════════════════════════════════
+       PASO 3 — PAGO + RESUMEN
+  ══════════════════════════════════════════ -->
   <div class="form-section" id="step-3">
     <div class="section-card">
       <h2>💳 Método de Pago</h2>
-      <p class="desc">Selecciona cómo realizarás tu pago de inscripción y sigue las instrucciones.</p>
+      <p class="desc">
+        Selecciona cómo realizarás tu pago de inscripción
+        y sigue las instrucciones para completar la transferencia.
+      </p>
       <div class="pago-options">
         <div class="pago-option" id="opt-zelle" onclick="seleccionarPago('zelle', this)">
           <div class="pago-icon">🏦</div>
@@ -456,7 +487,8 @@
         <code>TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxx</code>
         <strong>💵 Monto:</strong> $20.00 USDT<br/>
         <span style="color:#fc8181;font-size:0.8rem">
-          ⚠️ Envía SOLO por red TRC20. Guarda el hash de la transacción como comprobante.
+          ⚠️ Envía SOLO por red TRC20.
+          Guarda el hash de la transacción como comprobante.
         </span>
       </div>
     </div>
@@ -465,12 +497,30 @@
       <h2>📋 Resumen de tu Registro</h2>
       <p class="desc">Verifica que todo esté correcto antes de confirmar.</p>
       <div class="resumen-card">
-        <div class="resumen-row"><span class="label">Nombre</span><span class="value" id="res-nombre">—</span></div>
-        <div class="resumen-row"><span class="label">Email</span><span class="value" id="res-email">—</span></div>
-        <div class="resumen-row"><span class="label">País</span><span class="value" id="res-pais">—</span></div>
-        <div class="resumen-row"><span class="label">⭐ Balón de Oro</span><span class="value gold" id="res-balon">—</span></div>
-        <div class="resumen-row"><span class="label">Método de Pago</span><span class="value" id="res-pago">No seleccionado</span></div>
-        <div class="resumen-row"><span class="label">Inscripción</span><span class="value gold">$20.00 USD</span></div>
+        <div class="resumen-row">
+          <span class="label">Nombre</span>
+          <span class="value" id="res-nombre">—</span>
+        </div>
+        <div class="resumen-row">
+          <span class="label">Email</span>
+          <span class="value" id="res-email">—</span>
+        </div>
+        <div class="resumen-row">
+          <span class="label">País</span>
+          <span class="value" id="res-pais">—</span>
+        </div>
+        <div class="resumen-row">
+          <span class="label">⭐ Balón de Oro</span>
+          <span class="value gold" id="res-balon">—</span>
+        </div>
+        <div class="resumen-row">
+          <span class="label">Método de Pago</span>
+          <span class="value" id="res-pago">No seleccionado</span>
+        </div>
+        <div class="resumen-row">
+          <span class="label">Inscripción</span>
+          <span class="value gold">$20.00 USD</span>
+        </div>
       </div>
 
       <div class="terminos">
@@ -487,14 +537,15 @@
 
       <div class="form-nav">
         <button class="btn btn-ghost" onclick="irPaso(2)">← Atrás</button>
-        <button class="btn btn-gold" id="btn-registrar" onclick="registrar()" disabled>
+        <button class="btn btn-gold" id="btn-registrar"
+                onclick="registrar()" disabled>
           ✅ CONFIRMAR REGISTRO
         </button>
       </div>
     </div>
   </div>
 
-  <!-- ÉXITO -->
+  <!-- PANTALLA ÉXITO -->
   <div class="success-wrap" id="success-wrap">
     <div class="success-icon">🎉</div>
     <h2>¡REGISTRO EXITOSO!</h2>
@@ -504,32 +555,35 @@
       Una vez confirmado tendrás acceso completo para ingresar
       tus predicciones en <strong style="color:var(--text)">Mi Quiniela</strong>.
     </p>
-    <a href="bracket.html" class="btn btn-gold" style="display:inline-flex;margin:0 auto">
+    <a href="bracket.html" class="btn btn-gold"
+       style="display:inline-flex;margin:0 auto">
       🏆 Ver el Bracket Oficial
     </a>
   </div>
 
-</div>
+</div><!-- /form-container -->
 
 <footer>
-  <p>Quiniela Mundial 2026 — Segunda Fase &nbsp;|&nbsp; Creado por <strong>Mario Vitale</strong></p>
-  <!-- ✅ FIX fecha footer -->
-  <p style="margin-top:6px;font-size:0.72rem">Cierre de registro: 28 de junio de 2026 · 2:59 PM (Caracas UTC-4)</p>
+  <p>Quiniela Mundial 2026 — Segunda Fase &nbsp;|&nbsp;
+     Creado por <strong>Mario Vitale</strong></p>
+  <p style="margin-top:6px;font-size:0.72rem">
+    Cierre de registro: 28 de junio de 2026 · 2:59 PM (Caracas UTC-4)
+  </p>
 </footer>
 
 <script>
   const API = window.location.origin;
 
-  // ✅ Fecha cierre CORRECTA
+  // ✅ Fecha cierre EXACTA — 28 Jun 2026 · 2:59 PM Caracas (UTC-4)
   const TARGET_REGISTRO = new Date('2026-06-28T14:59:00-04:00');
 
   let pagoSeleccionado = '';
   let currentStep      = 1;
   let registroCerrado  = false;
 
-  // ══════════════════════════════════════════════
+  // ══════════════════════════════════════════
   // INIT — verificar estado al cargar
-  // ══════════════════════════════════════════════
+  // ══════════════════════════════════════════
   (function init() {
     const now = new Date();
     if (now >= TARGET_REGISTRO) {
@@ -540,66 +594,58 @@
     }
   })();
 
-  // ══════════════════════════════════════════════
-  // MOSTRAR PANTALLA CERRADO
-  // ══════════════════════════════════════════════
-  function mostrarCerrado() {
-    registroCerrado = true;
-
-    // Ocultar todo el formulario
-    document.getElementById('deadline-banner').style.display = 'none';
-    document.getElementById('steps').style.display           = 'none';
-    document.getElementById('error-global').style.display    = 'none';
-    document.querySelectorAll('.form-section').forEach(s => s.style.display = 'none');
-
-    // Mostrar pantalla cerrado
-    document.getElementById('cerrado-wrap').style.display = 'block';
-
-    // Actualizar header
-    const sub = document.getElementById('header-sub');
-    if (sub) sub.innerHTML = '🔒 El período de registro ha <strong style="color:var(--accent)">cerrado</strong>';
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  // ══════════════════════════════════════════════
-  // COUNTDOWN CIERRE
-  // ══════════════════════════════════════════════
+  // ══════════════════════════════════════════
+  // COUNTDOWN
+  // ══════════════════════════════════════════
   function tickRegistro() {
     const el   = document.getElementById('reg-cd');
     if (!el) return;
+    const diff = TARGET_REGISTRO - new Date();
 
-    const now  = new Date();
-    const diff = TARGET_REGISTRO - now;
-
-    if (diff <= 0) {
-      mostrarCerrado();
-      return;
-    }
+    if (diff <= 0) { mostrarCerrado(); return; }
 
     const h = Math.floor(diff / 3600000);
     const m = Math.floor((diff % 3600000) / 60000);
     const s = Math.floor((diff % 60000)   / 1000);
 
-    // Urgencia visual < 30 min
-    if (diff < 30 * 60 * 1000) {
+    // Urgencia visual < 60 min
+    if (diff < 60 * 60 * 1000) {
       el.style.color    = 'var(--accent)';
       el.style.fontSize = '1.3rem';
       const banner = document.getElementById('deadline-banner');
-      if (banner) banner.style.background = 'rgba(229,62,62,0.18)';
+      if (banner) banner.style.background = 'rgba(229,62,62,0.2)';
     }
 
-    if (h > 0) {
-      el.textContent = `${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
-    } else {
-      el.textContent = `${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
-    }
+    el.textContent = h > 0
+      ? `${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`
+      : `${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
   }
 
-  // ── NAVEGACIÓN DE PASOS ──
+  // ══════════════════════════════════════════
+  // MOSTRAR PANTALLA CERRADO
+  // ══════════════════════════════════════════
+  function mostrarCerrado() {
+    registroCerrado = true;
+    ['deadline-banner','steps','error-global'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+    document.querySelectorAll('.form-section')
+      .forEach(s => s.style.display = 'none');
+    document.getElementById('cerrado-wrap').style.display = 'block';
+    const sub = document.getElementById('header-sub');
+    if (sub) sub.innerHTML =
+      '🔒 El período de registro ha <strong style="color:var(--accent)">cerrado</strong>';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ══════════════════════════════════════════
+  // NAVEGACIÓN DE PASOS
+  // ══════════════════════════════════════════
   function irPaso(n) {
     if (registroCerrado) return;
-    document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.form-section')
+      .forEach(s => s.classList.remove('active'));
     document.getElementById('step-' + n).classList.add('active');
     for (let i = 1; i <= 3; i++) {
       const dot = document.getElementById('sdot-' + i);
@@ -613,6 +659,7 @@
   }
 
   function irPaso2() {
+    if (registroCerrado) return;
     const nombre = document.getElementById('nombre').value.trim();
     const email  = document.getElementById('email').value.trim();
     const pais   = document.getElementById('pais').value;
@@ -620,40 +667,41 @@
     if (!email)               { mostrarError('Por favor ingresa tu email.'); return; }
     if (!validarEmail(email)) { mostrarError('El email no tiene un formato válido.'); return; }
     if (!pais)                { mostrarError('Por favor selecciona tu país.'); return; }
-
-    // ✅ Verificar cierre antes de avanzar
     if (new Date() >= TARGET_REGISTRO) { mostrarCerrado(); return; }
-
     ocultarError();
     irPaso(2);
   }
 
   function irPaso3() {
+    if (registroCerrado) return;
     const balon = document.getElementById('balon-oro').value.trim();
     if (!balon) {
       mostrarError('Debes ingresar tu predicción del Balón de Oro para continuar.');
       return;
     }
-
-    // ✅ Verificar cierre antes de avanzar
     if (new Date() >= TARGET_REGISTRO) { mostrarCerrado(); return; }
 
+    // ✅ Poblar resumen
+    const balonPais = document.getElementById('balon-oro-pais').value.trim();
     document.getElementById('res-nombre').textContent = document.getElementById('nombre').value.trim();
     document.getElementById('res-email').textContent  = document.getElementById('email').value.trim();
     document.getElementById('res-pais').textContent   = document.getElementById('pais').value;
-    document.getElementById('res-balon').textContent  = balon +
-      (document.getElementById('balon-oro-pais').value.trim()
-        ? ' · ' + document.getElementById('balon-oro-pais').value.trim() : '');
-    document.getElementById('res-pago').textContent =
+    document.getElementById('res-balon').textContent  = balon + (balonPais ? ' · ' + balonPais : '');
+    document.getElementById('res-pago').textContent   =
       pagoSeleccionado ? pagoSeleccionado.toUpperCase() : 'No seleccionado';
     ocultarError();
     irPaso(3);
   }
 
+  // ══════════════════════════════════════════
+  // PAGO
+  // ══════════════════════════════════════════
   function seleccionarPago(metodo, el) {
     pagoSeleccionado = metodo;
-    document.querySelectorAll('.pago-option').forEach(o => o.classList.remove('selected'));
-    document.querySelectorAll('.pago-info-box').forEach(b => b.classList.remove('visible'));
+    document.querySelectorAll('.pago-option')
+      .forEach(o => o.classList.remove('selected'));
+    document.querySelectorAll('.pago-info-box')
+      .forEach(b => b.classList.remove('visible'));
     el.classList.add('selected');
     document.getElementById('info-' + metodo).classList.add('visible');
     document.getElementById('res-pago').textContent = metodo.toUpperCase();
@@ -662,39 +710,55 @@
 
   function verificarTerminos() {
     const acepta = document.getElementById('acepto-terminos').checked;
-    const pago   = pagoSeleccionado !== '';
-    document.getElementById('btn-registrar').disabled = !(acepta && pago);
+    document.getElementById('btn-registrar').disabled = !(acepta && pagoSeleccionado);
   }
 
+  // ══════════════════════════════════════════
+  // PREVIEW BALÓN DE ORO
+  // ══════════════════════════════════════════
   function actualizarPreview() {
     const nombre  = document.getElementById('balon-oro').value.trim();
     const pais    = document.getElementById('balon-oro-pais').value.trim();
     const preview = document.getElementById('award-preview');
     if (nombre.length > 2) {
       document.getElementById('preview-nombre').textContent = nombre;
-      document.getElementById('preview-pais').textContent   = pais || 'País no especificado';
+      document.getElementById('preview-pais').textContent   =
+        pais || 'País no especificado';
       preview.classList.add('visible');
     } else {
       preview.classList.remove('visible');
     }
   }
 
+  // ══════════════════════════════════════════
+  // REGISTRAR
+  // ✅ FIX: balon_oro_pais se concatena al jugador_pred
+  //    para no romper el esquema SQL de predicciones_awards
+  // ══════════════════════════════════════════
   async function registrar() {
-    // ✅ Verificar cierre en el último momento
     if (new Date() >= TARGET_REGISTRO) { mostrarCerrado(); return; }
 
     const btn = document.getElementById('btn-registrar');
     btn.disabled    = true;
     btn.textContent = '⏳ Registrando...';
 
+    const balonNombre = document.getElementById('balon-oro').value.trim();
+    const balonPais   = document.getElementById('balon-oro-pais').value.trim();
+
+    // ✅ jugador_pred = "Nombre · País" o solo "Nombre"
+    //    Así queda todo en el campo jugador_pred de predicciones_awards
+    const jugadorPred = balonPais
+      ? `${balonNombre} (${balonPais})`
+      : balonNombre;
+
     const payload = {
-      nombre:         document.getElementById('nombre').value.trim(),
-      email:          document.getElementById('email').value.trim(),
-      pais:           document.getElementById('pais').value,
-      telefono:       document.getElementById('telefono').value.trim(),
-      metodo_pago:    pagoSeleccionado,
-      balon_oro:      document.getElementById('balon-oro').value.trim(),
-      balon_oro_pais: document.getElementById('balon-oro-pais').value.trim()
+      nombre:      document.getElementById('nombre').value.trim(),
+      email:       document.getElementById('email').value.trim(),
+      pais:        document.getElementById('pais').value,
+      telefono:    document.getElementById('telefono').value.trim(),
+      metodo_pago: pagoSeleccionado,
+      // ✅ Campo correcto para el servidor
+      balon_oro:   jugadorPred
     };
 
     try {
@@ -706,7 +770,6 @@
       const data = await res.json();
 
       if (!res.ok || !data.ok) {
-        // ✅ Si el servidor devuelve "registro cerrado" → mostrar pantalla cerrado
         if (res.status === 403) { mostrarCerrado(); return; }
         mostrarErrorPaso3(data.error || 'Ocurrió un error. Intenta nuevamente.');
         btn.disabled    = false;
@@ -714,24 +777,36 @@
         return;
       }
 
+      // ✅ Guardar email para identificar "Tú" en ranking/quiniela
+      localStorage.setItem('quiniela_email', payload.email);
       mostrarExito();
 
     } catch(err) {
-      mostrarErrorPaso3('No se pudo conectar con el servidor. Verifica tu conexión e intenta nuevamente.');
+      mostrarErrorPaso3(
+        'No se pudo conectar con el servidor. Verifica tu conexión e intenta nuevamente.'
+      );
       btn.disabled    = false;
       btn.textContent = '✅ CONFIRMAR REGISTRO';
     }
   }
 
+  // ══════════════════════════════════════════
+  // ÉXITO
+  // ══════════════════════════════════════════
   function mostrarExito() {
-    document.getElementById('steps').style.display              = 'none';
-    document.getElementById('deadline-banner').style.display    = 'none';
-    document.getElementById('error-global').style.display       = 'none';
-    document.querySelectorAll('.form-section').forEach(s => s.style.display = 'none');
-    document.getElementById('success-wrap').style.display       = 'block';
+    ['steps','deadline-banner','error-global'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+    document.querySelectorAll('.form-section')
+      .forEach(s => s.style.display = 'none');
+    document.getElementById('success-wrap').style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  // ══════════════════════════════════════════
+  // HELPERS
+  // ══════════════════════════════════════════
   function mostrarError(msg) {
     const el = document.getElementById('error-global');
     el.textContent   = '⚠️ ' + msg;
@@ -746,8 +821,8 @@
   }
 
   function ocultarError() {
-    document.getElementById('error-global').style.display  = 'none';
-    document.getElementById('error-paso3').style.display   = 'none';
+    document.getElementById('error-global').style.display = 'none';
+    document.getElementById('error-paso3').style.display  = 'none';
   }
 
   function validarEmail(email) {

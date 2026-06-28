@@ -1,1157 +1,1078 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mi Quiniela — Mundial 2026</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --bg:      #0a0e1a;
-      --card:    #111827;
-      --card2:   #151e2e;
-      --border:  #1e2d40;
-      --gold:    #f0b429;
-      --gold2:   #e07b00;
-      --text:    #f0f4f8;
-      --muted:   #6b7a99;
-      --green:   #38a169;
-      --red:     #e53e3e;
-      --blue:    #3182ce;
-      --yellow:  #d69e2e;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Quiniela — Mundial 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0a0e1a;
+    color: #e0e6f0;
+    min-height: 100vh;
+  }
 
-    /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(10,14,26,0.96); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center;
-      justify-content: space-between;
-      padding: 0 24px; height: 60px;
-    }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
-    .nav-logo img { height: 32px; }
-    .nav-logo span { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 2px; color: var(--gold); }
-    .nav-links { display: flex; gap: 6px; }
-    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.82rem; font-weight: 500; padding: 6px 14px; border-radius: 8px; transition: all .2s; }
-    .nav-links a:hover { color: var(--text); background: var(--border); }
-    .nav-links a.active { color: var(--gold); }
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, #0d1b2a 0%, #1a2a4a 50%, #0d1b2a 100%);
+    border-bottom: 2px solid #c9a227;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-logo img {
+    height: 48px;
+    border-radius: 8px;
+  }
+  .header-title h1 {
+    font-size: 1.4rem;
+    color: #c9a227;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .header-title p {
+    font-size: 0.75rem;
+    color: #8899aa;
+  }
+  .nav-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid #2a3a5a;
+    color: #8899bb;
+    transition: all 0.2s;
+  }
+  .nav-links a:hover { background: #1a2a4a; color: #c9a227; border-color: #c9a227; }
+  .nav-links a.active { background: #c9a227; color: #0a0e1a; border-color: #c9a227; }
 
-    /* LOGIN */
-    .login-screen {
-      min-height: calc(100vh - 60px);
-      display: flex; align-items: center; justify-content: center;
-      padding: 40px 24px;
-      background: radial-gradient(ellipse 70% 50% at 50% 30%, rgba(240,180,41,0.08) 0%, transparent 70%);
-    }
-    .login-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 24px; padding: 48px 40px;
-      max-width: 440px; width: 100%; text-align: center;
-    }
-    .login-icon  { font-size: 3.5rem; margin-bottom: 16px; }
-    .login-card h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 2px; margin-bottom: 8px; }
-    .login-card p  { color: var(--muted); font-size: 0.86rem; margin-bottom: 28px; line-height: 1.6; }
-    .login-field   { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; text-align: left; }
-    .login-field label { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
-    .login-field input {
-      background: rgba(255,255,255,0.04); border: 1.5px solid var(--border);
-      border-radius: 12px; padding: 14px 16px;
-      color: var(--text); font-size: 0.9rem; font-family: 'Inter', sans-serif;
-      outline: none; transition: border-color .2s; width: 100%;
-    }
-    .login-field input:focus { border-color: var(--gold); background: rgba(240,180,41,0.04); }
+  /* ── LOGIN PANEL ── */
+  .login-panel {
+    max-width: 480px;
+    margin: 60px auto;
+    background: linear-gradient(135deg, #0d1b2a, #1a2a4a);
+    border: 1px solid #2a3a5a;
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+  }
+  .login-panel .icon { font-size: 3rem; margin-bottom: 16px; }
+  .login-panel h2 { color: #c9a227; font-size: 1.5rem; margin-bottom: 8px; }
+  .login-panel p { color: #8899aa; font-size: 0.9rem; margin-bottom: 24px; }
+  .login-panel input {
+    width: 100%;
+    padding: 12px 16px;
+    background: #0a0e1a;
+    border: 1px solid #2a3a5a;
+    border-radius: 8px;
+    color: #e0e6f0;
+    font-size: 1rem;
+    margin-bottom: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .login-panel input:focus { border-color: #c9a227; }
+  .btn-gold {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #c9a227, #e8c547);
+    border: none;
+    border-radius: 8px;
+    color: #0a0e1a;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .btn-gold:hover { opacity: 0.9; }
+  .login-error {
+    color: #ff4444;
+    font-size: 0.85rem;
+    margin-top: 12px;
+    display: none;
+  }
 
-    /* BUTTONS */
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 13px 26px; border-radius: 12px;
-      font-weight: 700; font-size: 0.88rem;
-      cursor: pointer; border: none; transition: all .2s;
-      letter-spacing: 0.5px; font-family: 'Inter', sans-serif; text-decoration: none;
-    }
-    .btn-gold  { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #000; }
-    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(240,180,41,0.3); }
-    .btn-gold:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
-    .btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--muted); }
-    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  /* ── MAIN PANEL ── */
+  .main-panel { display: none; padding: 24px; max-width: 1200px; margin: 0 auto; }
 
-    .error-msg {
-      display: none; background: rgba(229,62,62,0.1);
-      border: 1px solid rgba(229,62,62,0.3);
-      border-radius: 10px; padding: 12px 16px;
-      font-size: 0.82rem; color: #fc8181; margin-bottom: 16px;
-    }
+  /* ── USER HEADER ── */
+  .user-header {
+    background: linear-gradient(135deg, #0d1b2a, #1a2a4a);
+    border: 1px solid #2a3a5a;
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .user-info h2 { color: #c9a227; font-size: 1.3rem; }
+  .user-info p { color: #8899aa; font-size: 0.85rem; margin-top: 4px; }
+  .user-stats {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .stat-box {
+    background: #0a0e1a;
+    border: 1px solid #2a3a5a;
+    border-radius: 10px;
+    padding: 12px 20px;
+    text-align: center;
+    min-width: 100px;
+  }
+  .stat-box .val {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #c9a227;
+  }
+  .stat-box .lbl {
+    font-size: 0.7rem;
+    color: #8899aa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
 
-    /* APP */
-    #app { display: none; }
+  /* ── ROUND TABS ── */
+  .round-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .round-tab {
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid #2a3a5a;
+    color: #8899bb;
+    background: transparent;
+    transition: all 0.2s;
+  }
+  .round-tab:hover { background: #1a2a4a; color: #c9a227; border-color: #c9a227; }
+  .round-tab.active { background: #c9a227; color: #0a0e1a; border-color: #c9a227; }
 
-    /* PAGE HEADER */
-    .page-header {
-      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(240,180,41,0.1) 0%, transparent 70%);
-      padding: 32px 24px 20px;
-    }
-    .header-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: center;
-      justify-content: space-between; flex-wrap: wrap; gap: 16px;
-    }
-    .header-left h1 { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 2px; }
-    .header-left p  { color: var(--muted); font-size: 0.84rem; margin-top: 4px; }
-    .header-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  /* ── MATCH GRID ── */
+  .matches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 16px;
+  }
 
-    /* STATS */
-    .stats-row {
-      max-width: 1100px; margin: 0 auto;
-      padding: 0 24px 24px;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px;
-    }
-    .stat-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; text-align: center; }
-    .stat-box .num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--gold); line-height: 1; }
-    .stat-box .num.green { color: var(--green); }
-    .stat-box .num.red   { color: var(--red); }
-    .stat-box .lbl { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+  /* ── MATCH CARD ── */
+  .match-card {
+    background: linear-gradient(135deg, #0d1b2a, #1a2a4a);
+    border: 1px solid #2a3a5a;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .match-card:hover { transform: translateY(-2px); border-color: #3a4a6a; }
+  .match-card.win { border-color: #00cc66; }
+  .match-card.loss { border-color: #ff4444; }
+  .match-card.pending { border-color: #c9a227; }
 
-    /* AWARD BANNER */
-    .award-banner { max-width: 1100px; margin: 0 auto 20px; padding: 0 24px; }
-    .award-inner {
-      display: flex; align-items: center; gap: 16px;
-      background: linear-gradient(135deg, rgba(240,180,41,0.08), rgba(224,123,0,0.04));
-      border: 1px solid rgba(240,180,41,0.25);
-      border-radius: 16px; padding: 18px 24px; flex-wrap: wrap;
-    }
-    .award-inner .ai { font-size: 2rem; flex-shrink: 0; }
-    .award-inner .at { flex: 1; min-width: 160px; }
-    .award-inner .at h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 1.5px; color: var(--gold); }
-    .award-inner .at p  { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
-    .award-inner .at p strong { color: var(--text); }
-    .award-status { padding: 6px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-    .award-status.pendiente { background: rgba(107,122,153,0.15); color: var(--muted); }
-    .award-status.ganado    { background: rgba(56,161,105,0.15);  color: var(--green); }
-    .award-status.perdido   { background: rgba(229,62,62,0.15);   color: var(--red); }
+  .card-header {
+    background: rgba(0,0,0,0.3);
+    padding: 8px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    color: #8899aa;
+  }
+  .card-header .match-id { color: #c9a227; font-weight: 700; }
+  .status-badge {
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .status-badge.win { background: #00cc6622; color: #00cc66; border: 1px solid #00cc66; }
+  .status-badge.loss { background: #ff444422; color: #ff4444; border: 1px solid #ff4444; }
+  .status-badge.pending { background: #c9a22722; color: #c9a227; border: 1px solid #c9a227; }
+  .status-badge.tbd { background: #44556622; color: #8899aa; border: 1px solid #445566; }
 
-    /* TABS */
-    .tabs-wrap {
-      max-width: 1100px; margin: 0 auto;
-      padding: 0 24px 20px;
-      display: flex; gap: 8px; flex-wrap: wrap;
-    }
-    .tab {
-      padding: 8px 18px; border-radius: 50px;
-      background: var(--card); border: 1px solid var(--border);
-      color: var(--muted); font-size: 0.8rem; font-weight: 600;
-      cursor: pointer; transition: all .2s; white-space: nowrap;
-    }
-    .tab:hover { color: var(--text); border-color: var(--gold); }
-    .tab.active { background: var(--gold); color: #000; border-color: var(--gold); }
+  .card-teams {
+    padding: 16px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .team-side {
+    flex: 1;
+    text-align: center;
+  }
+  .team-flag { font-size: 2rem; display: block; margin-bottom: 4px; }
+  .team-name { font-size: 0.8rem; font-weight: 600; color: #c8d8e8; }
+  .team-score {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #c9a227;
+    margin-top: 4px;
+  }
+  .vs-divider {
+    font-size: 0.75rem;
+    color: #445566;
+    font-weight: 700;
+    padding: 0 4px;
+    text-align: center;
+    min-width: 40px;
+  }
+  .vs-divider .score-line {
+    font-size: 1.6rem;
+    color: #e0e6f0;
+    font-weight: 700;
+    display: block;
+  }
 
-    /* RONDA */
-    .ronda-section { display: none; }
-    .ronda-section.active { display: block; }
-    .ronda-wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px 40px; }
-    .ronda-header-bar {
-      display: flex; align-items: center;
-      justify-content: space-between; flex-wrap: wrap; gap: 12px;
-      margin-bottom: 20px; padding: 16px 20px;
-      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
-    }
-    .ronda-header-bar h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 1.5px; }
-    .ronda-pts-info { font-size: 0.78rem; color: var(--muted); }
-    .ronda-pts-info strong { color: var(--gold); }
+  .card-info {
+    padding: 8px 14px 12px;
+    font-size: 0.72rem;
+    color: #8899aa;
+    border-top: 1px solid #1a2a3a;
+  }
+  .card-info span { margin-right: 12px; }
 
-    /* PRED CARD */
-    .pred-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
-    .pred-card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; transition: border-color .2s; }
-    .pred-card:hover    { border-color: rgba(240,180,41,0.3); }
-    .pred-card.acertado { border-color: rgba(56,161,105,0.4); }
-    .pred-card.fallado  { border-color: rgba(229,62,62,0.3); }
+  /* ── PREDICTION SECTION ── */
+  .prediction-section {
+    padding: 12px 14px;
+    background: rgba(201,162,39,0.05);
+    border-top: 1px solid #1a2a3a;
+  }
+  .prediction-label {
+    font-size: 0.7rem;
+    color: #8899aa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .prediction-teams {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .pred-btn {
+    flex: 1;
+    min-width: 80px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #2a3a5a;
+    background: transparent;
+    color: #8899bb;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .pred-btn:hover { border-color: #c9a227; color: #c9a227; background: rgba(201,162,39,0.1); }
+  .pred-btn.selected { background: #c9a227; color: #0a0e1a; border-color: #c9a227; }
+  .pred-btn.correct { background: #00cc66; color: #fff; border-color: #00cc66; }
+  .pred-btn.wrong { background: #ff4444; color: #fff; border-color: #ff4444; }
+  .pred-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    .pred-card-header {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 10px 16px; background: rgba(255,255,255,0.03);
-      border-bottom: 1px solid var(--border); font-size: 0.72rem;
-    }
-    .match-id-badge { font-weight: 700; color: var(--gold); }
-    .pred-estado-badge {
-      padding: 3px 10px; border-radius: 50px;
-      font-weight: 700; font-size: 0.68rem;
-      text-transform: uppercase; letter-spacing: 1px;
-    }
-    .pred-estado-badge.pendiente { background: rgba(107,122,153,0.15); color: var(--muted); }
-    .pred-estado-badge.acertado  { background: rgba(56,161,105,0.15);  color: var(--green); }
-    .pred-estado-badge.fallado   { background: rgba(229,62,62,0.15);   color: var(--red); }
+  .score-inputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .score-inputs input {
+    width: 48px;
+    padding: 6px;
+    text-align: center;
+    background: #0a0e1a;
+    border: 1px solid #2a3a5a;
+    border-radius: 6px;
+    color: #e0e6f0;
+    font-size: 1rem;
+    font-weight: 700;
+    outline: none;
+  }
+  .score-inputs input:focus { border-color: #c9a227; }
+  .score-inputs span { color: #445566; font-weight: 700; }
+  .score-inputs label { font-size: 0.72rem; color: #8899aa; }
 
-    .pred-equipos { padding: 16px; display: flex; flex-direction: column; }
-    .pred-equipo  { display: flex; align-items: center; gap: 12px; padding: 10px 0; }
-    .pred-equipo:first-child { border-bottom: 1px solid var(--border); }
-    .pred-flag { font-size: 1.5rem; width: 32px; text-align: center; flex-shrink: 0; }
-    .pred-equipo-info { flex: 1; }
-    .pred-equipo-nombre { font-weight: 600; font-size: 0.88rem; }
-    .pred-equipo-origen { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
-    .pred-score-real { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; min-width: 28px; text-align: center; color: var(--muted); }
-    .pred-score-real.ganador { color: var(--green); }
+  .save-pred-btn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 8px;
+    background: linear-gradient(135deg, #1a3a6a, #2a4a8a);
+    border: 1px solid #3a5a9a;
+    border-radius: 8px;
+    color: #c8d8f8;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .save-pred-btn:hover { background: linear-gradient(135deg, #2a4a8a, #3a5aaa); }
+  .save-pred-btn.saved { background: #00cc6622; border-color: #00cc66; color: #00cc66; }
 
-    /* PRED RESUMEN */
-    .pred-resumen {
-      display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
-      padding: 8px 16px; background: rgba(255,255,255,0.02);
-      border-top: 1px solid var(--border);
-      font-size: 0.75rem; color: var(--muted);
-    }
-    .pred-resumen .pr-item { display: flex; align-items: center; gap: 4px; }
-    .pred-resumen .pr-val  { color: var(--gold); font-weight: 700; }
+  /* ── POINTS BREAKDOWN ── */
+  .points-breakdown {
+    background: linear-gradient(135deg, #0d1b2a, #1a2a4a);
+    border: 1px solid #2a3a5a;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+  .points-breakdown h3 { color: #c9a227; margin-bottom: 16px; font-size: 1rem; }
+  .points-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+  .pt-row {
+    background: #0a0e1a;
+    border: 1px solid #1a2a3a;
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pt-row .rnd { font-size: 0.78rem; color: #8899aa; }
+  .pt-row .pts { font-size: 1rem; font-weight: 700; color: #c9a227; }
 
-    /* FORM */
-    .pred-form { padding: 14px 16px; border-top: 1px solid var(--border); background: rgba(255,255,255,0.02); }
-    .pred-form-title { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; font-weight: 600; }
+  /* ── EMPTY STATE ── */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #445566;
+  }
+  .empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
+  .empty-state p { font-size: 0.9rem; }
 
-    .ganador-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
-    .ganador-btn {
-      padding: 10px 8px; border-radius: 10px;
-      border: 1.5px solid var(--border); background: rgba(255,255,255,0.02);
-      color: var(--muted); font-size: 0.78rem; font-weight: 600;
-      cursor: pointer; transition: all .2s; text-align: center; font-family: 'Inter', sans-serif;
-    }
-    .ganador-btn:hover { border-color: var(--gold); color: var(--text); }
-    .ganador-btn.selected { border-color: var(--gold); background: rgba(240,180,41,0.1); color: var(--gold); }
-    .ganador-btn .gflag { font-size: 1.2rem; display: block; margin-bottom: 4px; }
+  /* ── DOWNLOAD BTN ── */
+  .download-bar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .btn-outline {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #c9a227;
+    background: transparent;
+    color: #c9a227;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: rgba(201,162,39,0.1); }
+  .btn-danger {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #ff4444;
+    background: transparent;
+    color: #ff4444;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-danger:hover { background: rgba(255,68,68,0.1); }
 
-    .marcador-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-    .marcador-row label { font-size: 0.72rem; color: var(--muted); font-weight: 600; white-space: nowrap; }
-    .marcador-inputs { display: flex; align-items: center; gap: 8px; flex: 1; }
-    .marcador-inputs input {
-      width: 52px; text-align: center;
-      background: rgba(255,255,255,0.04); border: 1.5px solid var(--border);
-      border-radius: 8px; padding: 8px 4px;
-      color: var(--text); font-size: 1rem; font-weight: 700;
-      font-family: 'Inter', sans-serif; outline: none; transition: border-color .2s;
-    }
-    .marcador-inputs input:focus { border-color: var(--gold); }
-    .marcador-inputs .sep { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--muted); }
+  /* ── TOAST ── */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #1a2a4a;
+    border: 1px solid #c9a227;
+    border-radius: 10px;
+    padding: 14px 20px;
+    font-size: 0.85rem;
+    color: #e0e6f0;
+    z-index: 9999;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s;
+    max-width: 300px;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast.success { border-color: #00cc66; }
+  .toast.error { border-color: #ff4444; }
 
-    .penales-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-    .penales-row label { font-size: 0.72rem; color: var(--muted); font-weight: 600; cursor: pointer; }
-    .toggle { position: relative; width: 40px; height: 22px; flex-shrink: 0; }
-    .toggle input { opacity: 0; width: 0; height: 0; }
-    .toggle-slider { position: absolute; inset: 0; background: var(--border); border-radius: 22px; cursor: pointer; transition: .3s; }
-    .toggle-slider::before { content: ''; position: absolute; width: 16px; height: 16px; border-radius: 50%; background: var(--muted); top: 3px; left: 3px; transition: .3s; }
-    .toggle input:checked + .toggle-slider { background: rgba(240,180,41,0.3); }
-    .toggle input:checked + .toggle-slider::before { transform: translateX(18px); background: var(--gold); }
-
-    .pts-ganados {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 14px; border-radius: 10px;
-      background: rgba(56,161,105,0.08); border: 1px solid rgba(56,161,105,0.2);
-      font-size: 0.8rem;
-    }
-    .pts-ganados .label { color: var(--muted); }
-    .pts-ganados .val   { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--green); }
-    .pts-ganados .val.zero { color: var(--red); }
-
-    .save-btn {
-      width: 100%; margin-top: 12px; padding: 11px; border-radius: 10px;
-      background: linear-gradient(135deg, var(--gold), var(--gold2));
-      color: #000; font-weight: 700; font-size: 0.84rem;
-      border: none; cursor: pointer; transition: all .2s; font-family: 'Inter', sans-serif;
-    }
-    .save-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(240,180,41,0.3); }
-    .save-btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none; box-shadow: none; }
-    .save-btn.saved { background: linear-gradient(135deg, var(--green), #276749); color: #fff; }
-
-    .pred-bloqueado {
-      padding: 14px 16px; border-top: 1px solid var(--border);
-      background: rgba(255,255,255,0.02);
-      font-size: 0.78rem; color: var(--muted); text-align: center;
-    }
-
-    /* PROGRESS */
-    .progress-wrap { margin-bottom: 20px; }
-    .progress-label { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--muted); margin-bottom: 6px; }
-    .progress-bar   { height: 6px; background: var(--border); border-radius: 6px; overflow: hidden; }
-    .progress-fill  { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold2)); border-radius: 6px; transition: width .5s; }
-
-    /* BANNER NO CONFIRMADO */
-    .no-confirmado-banner { max-width: 1100px; margin: 0 auto 20px; padding: 0 24px; }
-    .no-confirmado-inner {
-      display: flex; align-items: center; gap: 14px;
-      background: rgba(229,62,62,0.08); border: 1px solid rgba(229,62,62,0.25);
-      border-radius: 14px; padding: 16px 20px;
-    }
-    .no-confirmado-inner p { font-size: 0.84rem; color: #fc8181; line-height: 1.6; }
-    .no-confirmado-inner p strong { color: #fff; }
-
-    /* FOOTER */
-    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; color: var(--muted); font-size: 0.78rem; }
-    footer strong { color: var(--gold); }
-
-    /* TOAST */
-    .toast {
-      position: fixed; bottom: 24px; right: 24px;
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 14px; padding: 14px 20px;
-      font-size: 0.84rem; font-weight: 600;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-      transform: translateY(80px); opacity: 0;
-      transition: all .3s; z-index: 999; max-width: 320px;
-    }
-    .toast.show    { transform: translateY(0); opacity: 1; }
-    .toast.success { border-color: rgba(56,161,105,0.4); color: var(--green); }
-    .toast.error   { border-color: rgba(229,62,62,0.4);  color: var(--red); }
-
-    /* SPINNER */
-    .spinner { width: 20px; height: 20px; border: 3px solid var(--border); border-top-color: var(--gold); border-radius: 50%; animation: spin .8s linear infinite; display: inline-block; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    @media(max-width: 600px) {
-      .pred-grid { grid-template-columns: 1fr; }
-      .header-inner { flex-direction: column; align-items: flex-start; }
-      .stats-row { grid-template-columns: repeat(2, 1fr); }
-    }
-  </style>
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .matches-grid { grid-template-columns: 1fr; }
+    .user-stats { justify-content: center; }
+    .main-panel { padding: 16px; }
+  }
+</style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="index.html" class="nav-logo">
-    <img src="assets/trionda.png" alt="Logo" onerror="this.style.display='none'"/>
-    <span>MUNDIAL 2026</span>
-  </a>
-  <div class="nav-links">
+<!-- HEADER -->
+<div class="header">
+  <div class="header-logo">
+    <img src="assets/trionda.png" alt="Logo" onerror="this.style.display='none'">
+    <div class="header-title">
+      <h1>⚽ QUINIELA MUNDIAL 2026</h1>
+      <p>Sistema de Predicciones — Segunda Fase</p>
+    </div>
+  </div>
+  <nav class="nav-links">
     <a href="index.html">🏠 Inicio</a>
     <a href="bracket.html">🏆 Bracket</a>
-    <a href="ranking.html">📊 Ranking</a>
     <a href="quiniela.html" class="active">📋 Mi Quiniela</a>
-  </div>
-</nav>
-
-<!-- LOGIN -->
-<div id="login-screen" class="login-screen">
-  <div class="login-card">
-    <div class="login-icon">📋</div>
-    <h2>MI QUINIELA</h2>
-    <p>Ingresa tu email registrado para ver y gestionar tus predicciones del Mundial 2026.</p>
-    <div class="error-msg" id="login-error"></div>
-    <div class="login-field">
-      <label>Email Registrado</label>
-      <input
-        type="email" id="login-email"
-        placeholder="tu@email.com" autocomplete="email"
-        onkeydown="if(event.key==='Enter') acceder()"
-      />
-    </div>
-    <button class="btn btn-gold" style="width:100%;margin-top:4px" id="btn-acceder" onclick="acceder()">
-      🔍 Ver Mi Quiniela
-    </button>
-    <p style="margin-top:20px;font-size:0.78rem;color:var(--muted)">
-      ¿Aún no estás registrado?
-      <a href="registro.html" style="color:var(--gold);font-weight:600">Inscríbete aquí →</a>
-    </p>
-  </div>
+    <a href="ranking.html">🥇 Ranking</a>
+    <a href="registro.html">✍️ Registro</a>
+  </nav>
 </div>
 
-<!-- APP -->
-<div id="app">
+<!-- LOGIN PANEL -->
+<div id="loginPanel" class="login-panel">
+  <div class="icon">🔐</div>
+  <h2>Accede a tu Quiniela</h2>
+  <p>Ingresa tu correo electrónico para ver y editar tus predicciones</p>
+  <input type="email" id="emailInput" placeholder="tu@correo.com" autocomplete="email">
+  <button class="btn-gold" onclick="doLogin()">Ver Mi Quiniela →</button>
+  <div class="login-error" id="loginError">❌ Correo no encontrado. Verifica o regístrate.</div>
+</div>
 
-  <div class="page-header">
-    <div class="header-inner">
-      <div class="header-left">
-        <h1>📋 MI QUINIELA</h1>
-        <p id="user-greeting">Cargando...</p>
+<!-- MAIN PANEL -->
+<div id="mainPanel" class="main-panel">
+
+  <!-- USER HEADER -->
+  <div class="user-header">
+    <div class="user-info">
+      <h2 id="userName">👤 Cargando...</h2>
+      <p id="userEmail">—</p>
+    </div>
+    <div class="user-stats">
+      <div class="stat-box">
+        <div class="val" id="statPuntos">0</div>
+        <div class="lbl">Puntos</div>
       </div>
-      <div class="header-actions">
-        <button class="btn btn-outline" onclick="descargarPDF()">📄 Descargar PDF</button>
-        <button class="btn btn-outline" onclick="cerrarSesion()">🚪 Salir</button>
+      <div class="stat-box">
+        <div class="val" id="statAciertos">0</div>
+        <div class="lbl">Aciertos</div>
+      </div>
+      <div class="stat-box">
+        <div class="val" id="statPosicion">#—</div>
+        <div class="lbl">Posición</div>
+      </div>
+      <div class="stat-box">
+        <div class="val" id="statPendientes">0</div>
+        <div class="lbl">Pendientes</div>
       </div>
     </div>
   </div>
 
-  <!-- BANNER NO CONFIRMADO -->
-  <div class="no-confirmado-banner" id="banner-no-confirmado" style="display:none">
-    <div class="no-confirmado-inner">
-      <span style="font-size:1.8rem">⏳</span>
-      <p>
-        <strong>Tu pago está pendiente de confirmación.</strong><br/>
-        Puedes ingresar tus predicciones ahora, pero solo serán válidas
-        una vez que el administrador confirme tu pago.
-      </p>
+  <!-- DOWNLOAD BAR -->
+  <div class="download-bar">
+    <button class="btn-outline" onclick="downloadPDF()">📄 Descargar PDF</button>
+    <button class="btn-outline" onclick="refreshData()">🔄 Actualizar</button>
+    <button class="btn-danger" onclick="doLogout()">🚪 Cerrar Sesión</button>
+  </div>
+
+  <!-- POINTS BREAKDOWN -->
+  <div class="points-breakdown">
+    <h3>📊 Desglose de Puntos por Ronda</h3>
+    <div class="points-table" id="pointsTable">
+      <!-- Generado por JS -->
     </div>
   </div>
 
-  <!-- STATS -->
-  <div class="stats-row">
-    <div class="stat-box"><div class="num" id="stat-pts">0</div><div class="lbl">Puntos Totales</div></div>
-    <div class="stat-box"><div class="num green" id="stat-aciertos">0</div><div class="lbl">Aciertos</div></div>
-    <div class="stat-box"><div class="num red"   id="stat-fallos">0</div><div class="lbl">Fallos</div></div>
-    <div class="stat-box"><div class="num" id="stat-pendientes">0</div><div class="lbl">Pendientes</div></div>
-    <div class="stat-box"><div class="num" id="stat-posicion">#—</div><div class="lbl">Posición</div></div>
-    <div class="stat-box"><div class="num">353</div><div class="lbl">Pts Máximo</div></div>
+  <!-- ROUND TABS -->
+  <div class="round-tabs" id="roundTabs">
+    <button class="round-tab active" onclick="showRound('R32',this)">R32 · 16avos</button>
+    <button class="round-tab" onclick="showRound('R16',this)">R16 · Octavos</button>
+    <button class="round-tab" onclick="showRound('QF',this)">QF · Cuartos</button>
+    <button class="round-tab" onclick="showRound('SF',this)">SF · Semis</button>
+    <button class="round-tab" onclick="showRound('3P',this)">3P · Tercer Lugar</button>
+    <button class="round-tab" onclick="showRound('F',this)">F · Final</button>
   </div>
 
-  <!-- AWARD BANNER -->
-  <div class="award-banner">
-    <div class="award-inner">
-      <div class="ai">⭐</div>
-      <div class="at">
-        <h4>BALÓN DE ORO — TU PREDICCIÓN</h4>
-        <p>
-          <strong id="award-jugador">Cargando...</strong>
-          <span id="award-pais" style="color:var(--muted)"></span>
-        </p>
-        <p style="font-size:0.75rem;margin-top:4px">
-          Esta predicción no puede modificarse · Vale <strong style="color:var(--gold)">30 puntos</strong>
-        </p>
-      </div>
-      <span class="award-status pendiente" id="award-status-badge">⏳ Pendiente</span>
-    </div>
-  </div>
+  <!-- MATCHES GRID -->
+  <div class="matches-grid" id="matchesGrid"></div>
 
-  <!-- TABS -->
-  <div class="tabs-wrap">
-    <button class="tab active" onclick="showRonda('r32',  this)">⚽ Dieciseisavos</button>
-    <button class="tab"        onclick="showRonda('r16',  this)">🔥 Octavos</button>
-    <button class="tab"        onclick="showRonda('qf',   this)">⚡ Cuartos</button>
-    <button class="tab"        onclick="showRonda('sf',   this)">🏅 Semis</button>
-    <button class="tab"        onclick="showRonda('3p',   this)">🥉 3er Puesto</button>
-    <button class="tab"        onclick="showRonda('final',this)">🏆 Final</button>
-  </div>
+</div>
 
-  <!-- RONDA R32 -->
-  <div class="ronda-section active" id="sec-r32">
-    <div class="ronda-wrap">
-      <div class="ronda-header-bar">
-        <h3>⚽ DIECISEISAVOS DE FINAL</h3>
-        <div class="ronda-pts-info">Ganador <strong>3 pts</strong> · Marcador <strong>+3 pts</strong> · Penales <strong>+1 pt</strong> · Máx <strong>7 pts</strong>/partido</div>
-      </div>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Predicciones completadas</span><span id="prog-r32-label">0 / 16</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="prog-r32" style="width:0%"></div></div>
-      </div>
-      <div class="pred-grid" id="grid-pred-r32"></div>
-    </div>
-  </div>
-
-  <!-- RONDA R16 -->
-  <div class="ronda-section" id="sec-r16">
-    <div class="ronda-wrap">
-      <div class="ronda-header-bar">
-        <h3>🔥 OCTAVOS DE FINAL</h3>
-        <div class="ronda-pts-info">Ganador <strong>5 pts</strong> · Marcador <strong>+3 pts</strong> · Penales <strong>+1 pt</strong> · Máx <strong>9 pts</strong>/partido</div>
-      </div>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Predicciones completadas</span><span id="prog-r16-label">0 / 8</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="prog-r16" style="width:0%"></div></div>
-      </div>
-      <div class="pred-grid" id="grid-pred-r16"></div>
-    </div>
-  </div>
-
-  <!-- RONDA QF -->
-  <div class="ronda-section" id="sec-qf">
-    <div class="ronda-wrap">
-      <div class="ronda-header-bar">
-        <h3>⚡ CUARTOS DE FINAL</h3>
-        <div class="ronda-pts-info">Ganador <strong>8 pts</strong> · Marcador <strong>+4 pts</strong> · Penales <strong>+2 pts</strong> · Máx <strong>14 pts</strong>/partido</div>
-      </div>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Predicciones completadas</span><span id="prog-qf-label">0 / 4</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="prog-qf" style="width:0%"></div></div>
-      </div>
-      <div class="pred-grid" id="grid-pred-qf"></div>
-    </div>
-  </div>
-
-  <!-- RONDA SF -->
-  <div class="ronda-section" id="sec-sf">
-    <div class="ronda-wrap">
-      <div class="ronda-header-bar">
-        <h3>🏅 SEMIFINALES</h3>
-        <div class="ronda-pts-info">Ganador <strong>12 pts</strong> · Marcador <strong>+5 pts</strong> · Penales <strong>+2 pts</strong> · Máx <strong>19 pts</strong>/partido</div>
-      </div>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Predicciones completadas</span><span id="prog-sf-label">0 / 2</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="prog-sf" style="width:0%"></div></div>
-      </div>
-      <div class="pred-grid" id="grid-pred-sf"></div>
-    </div>
-  </div>
-
-  <!-- RONDA 3P -->
-  <div class="ronda-section" id="sec-3p">
-    <div class="ronda-wrap">
-      <div class="ronda-header-bar">
-        <h3>🥉 TERCER PUESTO</h3>
-        <div class="ronda-pts-info">Ganador <strong>8 pts</strong> · Marcador <strong>+4 pts</strong> · Penales <strong>+2 pts</strong> · Máx <strong>14 pts</strong>/partido</div>
-      </div>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Predicciones completadas</span><span id="prog-3p-label">0 / 1</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="prog-3p" style="width:0%"></div></div>
-      </div>
-      <div class="pred-grid" id="grid-pred-3p"></div>
-    </div>
-  </div>
-
-  <!-- RONDA FINAL -->
-  <div class="ronda-section" id="sec-final">
-    <div class="ronda-wrap">
-      <div class="ronda-header-bar">
-        <h3>🏆 GRAN FINAL</h3>
-        <div class="ronda-pts-info">Ganador <strong>20 pts</strong> · Marcador <strong>+8 pts</strong> · Penales <strong>+3 pts</strong> · Máx <strong>31 pts</strong>/partido</div>
-      </div>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Predicciones completadas</span><span id="prog-final-label">0 / 1</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="prog-final" style="width:0%"></div></div>
-      </div>
-      <div class="pred-grid" id="grid-pred-final"></div>
-    </div>
-  </div>
-
-</div><!-- /app -->
-
+<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<footer>
-  <p>Quiniela Mundial 2026 — Segunda Fase &nbsp;|&nbsp; Creado por <strong>Mario Vitale</strong></p>
-  <p style="margin-top:6px;font-size:0.72rem">28 Jun – 19 Jul 2026 · USA · Canadá · México</p>
-</footer>
-
 <script>
-const API = window.location.origin;
+// ══════════════════════════════════════════════════════════
+// ✅ BRACKET OFICIAL FIFA MUNDIAL 2026
+//    Datos verificados — 28 Jun 2026
+//    Fuentes: TyC Sports · El Financiero · AS · Bolavip
+// ══════════════════════════════════════════════════════════
 
-// ── PUNTOS POR RONDA
-const PTS = {
+const API = window.location.hostname === 'localhost'
+  ? 'http://localhost:3000'
+  : 'https://tu-backend.railway.app'; // ← Cambiar por URL real
+
+// ── ESTRUCTURA COMPLETA DEL BRACKET ──────────────────────
+const BRACKET = {
+
+  R32: [
+    { id:'M73',
+      local:'Sudáfrica',    localFlag:'🇿🇦', localCode:'RSA',
+      visitante:'Canadá',   visitFlag:'🇨🇦', visitCode:'CAN',
+      sede:'SoFi Stadium · Los Ángeles, CA',
+      fecha:'28 Jun', hora:'1:00 PM ET' },
+
+    { id:'M74',
+      local:'Brasil',       localFlag:'🇧🇷', localCode:'BRA',
+      visitante:'Japón',    visitFlag:'🇯🇵', visitCode:'JPN',
+      sede:'NRG Stadium · Houston, TX',
+      fecha:'29 Jun', hora:'11:00 AM ET' },
+
+    { id:'M75',
+      local:'Alemania',     localFlag:'🇩🇪', localCode:'GER',
+      visitante:'Paraguay', visitFlag:'🇵🇾', visitCode:'PAR',
+      sede:'Gillette Stadium · Boston, MA',
+      fecha:'29 Jun', hora:'2:30 PM ET' },
+
+    { id:'M76',
+      local:'Países Bajos', localFlag:'🇳🇱', localCode:'NED',
+      visitante:'Marruecos',visitFlag:'🇲🇦', visitCode:'MAR',
+      sede:'Estadio BBVA · Monterrey, México',
+      fecha:'29 Jun', hora:'7:00 PM ET' },
+
+    { id:'M77',
+      local:'Costa de Marfil', localFlag:'🇨🇮', localCode:'CIV',
+      visitante:'Noruega',     visitFlag:'🇳🇴', visitCode:'NOR',
+      sede:'AT&T Stadium · Dallas, TX',
+      fecha:'30 Jun', hora:'11:00 AM ET' },
+
+    { id:'M78',
+      local:'Francia',      localFlag:'🇫🇷', localCode:'FRA',
+      visitante:'Suecia',   visitFlag:'🇸🇪', visitCode:'SWE',
+      sede:'MetLife Stadium · East Rutherford, NJ',
+      fecha:'30 Jun', hora:'3:00 PM ET' },
+
+    { id:'M79',
+      local:'México',       localFlag:'🇲🇽', localCode:'MEX',
+      visitante:'Ecuador',  visitFlag:'🇪🇨', visitCode:'ECU',
+      sede:'Estadio Azteca · Ciudad de México',
+      fecha:'30 Jun', hora:'7:00 PM ET' },
+
+    { id:'M80',
+      local:'Inglaterra',   localFlag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿', localCode:'ENG',
+      visitante:'RD Congo', visitFlag:'🇨🇩', visitCode:'COD',
+      sede:'Mercedes-Benz Stadium · Atlanta, GA',
+      fecha:'1 Jul',  hora:'10:00 AM ET' },
+
+    { id:'M81',
+      local:'Bélgica',      localFlag:'🇧🇪', localCode:'BEL',
+      visitante:'Senegal',  visitFlag:'🇸🇳', visitCode:'SEN',
+      sede:'Lumen Field · Seattle, WA',
+      fecha:'1 Jul',  hora:'2:00 PM ET' },
+
+    { id:'M82',
+      local:'Estados Unidos',       localFlag:'🇺🇸', localCode:'USA',
+      visitante:'Bosnia-Herzegovina',visitFlag:'🇧🇦', visitCode:'BIH',
+      sede:"Levi's Stadium · Santa Clara, CA",
+      fecha:'1 Jul',  hora:'6:00 PM ET' },
+
+    { id:'M83',
+      local:'España',       localFlag:'🇪🇸', localCode:'ESP',
+      visitante:'Austria',  visitFlag:'🇦🇹', visitCode:'AUT',
+      sede:'SoFi Stadium · Los Ángeles, CA',
+      fecha:'2 Jul',  hora:'1:00 PM ET' },
+
+    { id:'M84',
+      local:'Portugal',     localFlag:'🇵🇹', localCode:'POR',
+      visitante:'Croacia',  visitFlag:'🇭🇷', visitCode:'CRO',
+      sede:'BMO Field · Toronto, Canadá',
+      fecha:'2 Jul',  hora:'5:00 PM ET' },
+
+    { id:'M85',
+      local:'Suiza',        localFlag:'🇨🇭', localCode:'SUI',
+      visitante:'Argelia',  visitFlag:'🇩🇿', visitCode:'ALG',
+      sede:'BC Place · Vancouver, Canadá',
+      fecha:'2 Jul',  hora:'9:00 PM ET' },
+
+    { id:'M86',
+      local:'Australia',    localFlag:'🇦🇺', localCode:'AUS',
+      visitante:'Egipto',   visitFlag:'🇪🇬', visitCode:'EGY',
+      sede:'AT&T Stadium · Dallas, TX',
+      fecha:'3 Jul',  hora:'12:00 PM ET' },
+
+    { id:'M87',
+      local:'Argentina',    localFlag:'🇦🇷', localCode:'ARG',
+      visitante:'Cabo Verde',visitFlag:'🇨🇻', visitCode:'CPV',
+      sede:'Hard Rock Stadium · Miami Gardens, FL',
+      fecha:'3 Jul',  hora:'4:00 PM ET' },
+
+    { id:'M88',
+      local:'Colombia',     localFlag:'🇨🇴', localCode:'COL',
+      visitante:'Ghana',    visitFlag:'🇬🇭', visitCode:'GHA',
+      sede:'Arrowhead Stadium · Kansas City, MO',
+      fecha:'3 Jul',  hora:'7:30 PM ET' },
+  ],
+
+  R16: [
+    { id:'M89',  local:'Ganador M73', localFlag:'🏳', localCode:'TBD',
+                 visitante:'Ganador M74', visitFlag:'🏳', visitCode:'TBD',
+                 sede:'Por definir', fecha:'5 Jul', hora:'TBD' },
+    { id:'M90',  local:'Ganador M75', localFlag:'🏳', localCode:'TBD',
+                 visitante:'Ganador M76', visitFlag:'🏳', visitCode:'TBD',
+                 sede:'Por definir', fecha:'5 Jul', hora:'TBD' },
+    { id:'M91',  local:'Ganador M77', localFlag:'🏳', localCode:'TBD',
+                 visitante:'Ganador M78', visitFlag:'🏳', visitCode:'TBD',
+                 sede:'Por definir', fecha:'6 Jul', hora:'TBD' },
+    { id:'M92',  local:'Ganador M79', localFlag:'🏳', localCode:'TBD',
+                 visitante:'Ganador M80', visitFlag:'🏳', visitCode:'TBD',
+                 sede:'Por definir', fecha:'6 Jul', hora:'TBD' },
+    { id:'M93',  local:'Ganador M81', localFlag:'🏳', localCode:'TBD',
+                 visitante:'Ganador M82', visitFlag:'🏳', visitCode:'TBD',
+                 sede:'Por definir', fecha:'7 Jul', hora:'TBD' },
+    { id:'M94',  local:'Ganador M83', localFlag:'🏳', localCode:'TBD',
+                 visitante:'Ganador M84', visitFlag:'🏳', visitCode:'TBD',
+                 sede:'Por definir', fecha:'7 Jul', hora:'TBD' },
+    { id:'M95',  local:'Ganador M85', localFlag:'🏳', localCode:'TBD',
+                 visitante:'Ganador M86', visitFlag:'🏳', visitCode:'TBD',
+                 sede:'Por definir', fecha:'8 Jul', hora:'TBD' },
+    { id:'M96',  local:'Ganador M87', localFlag:'🏳', localCode:'TBD',
+                 visitante:'Ganador M88', visitFlag:'🏳', visitCode:'TBD',
+                 sede:'Por definir', fecha:'8 Jul', hora:'TBD' },
+  ],
+
+  QF: [
+    { id:'M97',  local:'Ganador M89', localFlag:'🏳', localCode:'TBD',
+                 visitante:'Ganador M90', visitFlag:'🏳', visitCode:'TBD',
+                 sede:'Por definir', fecha:'11 Jul', hora:'TBD' },
+    { id:'M98',  local:'Ganador M91', localFlag:'🏳', localCode:'TBD',
+                 visitante:'Ganador M92', visitFlag:'🏳', visitCode:'TBD',
+                 sede:'Por definir', fecha:'11 Jul', hora:'TBD' },
+    { id:'M99',  local:'Ganador M93', localFlag:'🏳', localCode:'TBD',
+                 visitante:'Ganador M94', visitFlag:'🏳', visitCode:'TBD',
+                 sede:'Por definir', fecha:'12 Jul', hora:'TBD' },
+    { id:'M100', local:'Ganador M95', localFlag:'🏳', localCode:'TBD',
+                 visitante:'Ganador M96', visitFlag:'🏳', visitCode:'TBD',
+                 sede:'Por definir', fecha:'12 Jul', hora:'TBD' },
+  ],
+
+  SF: [
+    { id:'M101', local:'Ganador M97', localFlag:'🏳', localCode:'TBD',
+                 visitante:'Ganador M98', visitFlag:'🏳', visitCode:'TBD',
+                 sede:'Por definir', fecha:'15 Jul', hora:'TBD' },
+    { id:'M102', local:'Ganador M99', localFlag:'🏳', localCode:'TBD',
+                 visitante:'Ganador M100',visitFlag:'🏳', visitCode:'TBD',
+                 sede:'Por definir', fecha:'16 Jul', hora:'TBD' },
+  ],
+
+  '3P': [
+    { id:'M103', local:'Perdedor M101', localFlag:'🏳', localCode:'TBD',
+                 visitante:'Perdedor M102', visitFlag:'🏳', visitCode:'TBD',
+                 sede:'Por definir', fecha:'19 Jul', hora:'TBD' },
+  ],
+
+  F: [
+    { id:'M104', local:'Ganador M101', localFlag:'🏳', localCode:'TBD',
+                 visitante:'Ganador M102', visitFlag:'🏳', visitCode:'TBD',
+                 sede:'MetLife Stadium · East Rutherford, NJ',
+                 fecha:'19 Jul', hora:'TBD' },
+  ],
+};
+
+// ── SISTEMA DE PUNTOS ─────────────────────────────────────
+// ✅ VERIFICADO vs KB OFICIAL — Sincronizado con
+//    server.js · puntos.js · ranking.html
+const PUNTOS = {
   R32:  { ganador: 3,  marcador: 3, penales: 1, max: 7  },
   R16:  { ganador: 5,  marcador: 3, penales: 1, max: 9  },
   QF:   { ganador: 8,  marcador: 4, penales: 2, max: 14 },
   SF:   { ganador: 12, marcador: 5, penales: 2, max: 19 },
   '3P': { ganador: 8,  marcador: 4, penales: 2, max: 14 },
-  F:    { ganador: 20, marcador: 8, penales: 3, max: 31 }
+  F:    { ganador: 20, marcador: 8, penales: 3, max: 31 },
+};
+const PUNTOS_AWARD = 30;   // ⭐ Balón de Oro
+const MAX_TOTAL    = 353;  // 323 pts partidos + 30 pts award
+
+
+const ROUND_NAMES = {
+  R32: '16avos de Final',
+  R16: 'Octavos de Final',
+  QF:  'Cuartos de Final',
+  SF:  'Semifinales',
+  '3P':'Tercer Lugar',
+  F:   'Gran Final',
 };
 
-// ══════════════════════════════════════════════════════════
-// ✅ BRACKET OFICIAL FIFA 2026 — EQUIPOS REALES
-//    Actualizado: 28 Jun 2026
-// ══════════════════════════════════════════════════════════
-const BRACKET = {
-  R32: [
-    { id:'M73',  local:'Sudáfrica',       localFlag:'🇿🇦', localCode:'RSA',
-                 visitante:'Canadá',       visitFlag:'🇨🇦', visitCode:'CAN',
-                 sede:'SoFi Stadium · Inglewood, CA',
-                 fecha:'28 Jun', hora:'3:00 PM ET' },
-    { id:'M74',  local:'Alemania',         localFlag:'🇩🇪', localCode:'GER',
-                 visitante:'Paraguay',     visitFlag:'🇵🇾', visitCode:'PAR',
-                 sede:'Gillette Stadium · Foxborough, MA',
-                 fecha:'29 Jun', hora:'12:00 PM ET' },
-    { id:'M75',  local:'Países Bajos',     localFlag:'🇳🇱', localCode:'NED',
-                 visitante:'Marruecos',    visitFlag:'🇲🇦', visitCode:'MAR',
-                 sede:'Estadio BBVA · Monterrey',
-                 fecha:'29 Jun', hora:'3:00 PM ET' },
-    { id:'M76',  local:'Brasil',           localFlag:'🇧🇷', localCode:'BRA',
-                 visitante:'Japón',        visitFlag:'🇯🇵', visitCode:'JPN',
-                 sede:'NRG Stadium · Houston, TX',
-                 fecha:'29 Jun', hora:'7:00 PM ET' },
-    { id:'M77',  local:'Francia',          localFlag:'🇫🇷', localCode:'FRA',
-                 visitante:'Suecia',       visitFlag:'🇸🇪', visitCode:'SWE',
-                 sede:'MetLife Stadium · East Rutherford, NJ',
-                 fecha:'30 Jun', hora:'12:00 PM ET' },
-    { id:'M78',  local:'Costa de Marfil',  localFlag:'🇨🇮', localCode:'CIV',
-                 visitante:'Noruega',      visitFlag:'🇳🇴', visitCode:'NOR',
-                 sede:'AT&T Stadium · Arlington, TX',
-                 fecha:'30 Jun', hora:'3:00 PM ET' },
-    { id:'M79',  local:'México',           localFlag:'🇲🇽', localCode:'MEX',
-                 visitante:'Ecuador',      visitFlag:'🇪🇨', visitCode:'ECU',
-                 sede:'Estadio Azteca · Ciudad de México',
-                 fecha:'30 Jun', hora:'7:00 PM ET' },
-    { id:'M80',  local:'Inglaterra',       localFlag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿', localCode:'ENG',
-                 visitante:'DR Congo',     visitFlag:'🇨🇩', visitCode:'COD',
-                 sede:'Mercedes-Benz Stadium · Atlanta, GA',
-                 fecha:'1 Jul', hora:'12:00 PM ET' },
-    { id:'M81',  local:'Estados Unidos',   localFlag:'🇺🇸', localCode:'USA',
-                 visitante:'Bosnia-Herzegovina', visitFlag:'🇧🇦', visitCode:'BIH',
-                 sede:"Levi's Stadium · Santa Clara, CA",
-                 fecha:'1 Jul', hora:'3:00 PM ET' },
-    { id:'M82',  local:'Bélgica',          localFlag:'🇧🇪', localCode:'BEL',
-                 visitante:'Senegal',      visitFlag:'🇸🇳', visitCode:'SEN',
-                 sede:'Lumen Field · Seattle, WA',
-                 fecha:'1 Jul', hora:'7:00 PM ET' },
-    { id:'M83',  local:'Portugal',         localFlag:'🇵🇹', localCode:'POR',
-                 visitante:'Ghana',        visitFlag:'🇬🇭', visitCode:'GHA',
-                 sede:'BMO Field · Toronto, Canadá',
-                 fecha:'2 Jul', hora:'12:00 PM ET' },
-    { id:'M84',  local:'España',           localFlag:'🇪🇸', localCode:'ESP',
-                 visitante:'Austria',      visitFlag:'🇦🇹', visitCode:'AUT',
-                 sede:'SoFi Stadium · Inglewood, CA',
-                 fecha:'2 Jul', hora:'3:00 PM ET' },
-    { id:'M85',  local:'Suiza',            localFlag:'🇨🇭', localCode:'SUI',
-                 visitante:'Argelia',      visitFlag:'🇩🇿', visitCode:'ALG',
-                 sede:'BC Place · Vancouver, Canadá',
-                 fecha:'2 Jul', hora:'7:00 PM ET' },
-    { id:'M86',  local:'Argentina',        localFlag:'🇦🇷', localCode:'ARG',
-                 visitante:'Cabo Verde',   visitFlag:'🇨🇻', visitCode:'CPV',
-                 sede:'Hard Rock Stadium · Miami Gardens, FL',
-                 fecha:'3 Jul', hora:'12:00 PM ET' },
-    { id:'M87',  local:'Colombia',         localFlag:'🇨🇴', localCode:'COL',
-                 visitante:'Croacia',      visitFlag:'🇭🇷', visitCode:'CRO',
-                 sede:'Arrowhead Stadium · Kansas City, MO',
-                 fecha:'3 Jul', hora:'3:00 PM ET' },
-    { id:'M88',  local:'Australia',        localFlag:'🇦🇺', localCode:'AUS',
-                 visitante:'Egipto',       visitFlag:'🇪🇬', visitCode:'EGY',
-                 sede:'AT&T Stadium · Arlington, TX',
-                 fecha:'3 Jul', hora:'7:00 PM ET' },
-  ],
-  R16: [
-    { id:'M89', local:'Ganador M74', localFlag:'🏳️', localCode:'TBD_M74',
-                visitante:'Ganador M77', visitFlag:'🏳️', visitCode:'TBD_M77',
-                sede:'Lincoln Financial Field · Philadelphia', fecha:'4 Jul', hora:'3:00 PM ET' },
-    { id:'M90', local:'Ganador M73', localFlag:'🏳️', localCode:'TBD_M73',
-                visitante:'Ganador M75', visitFlag:'🏳️', visitCode:'TBD_M75',
-                sede:'NRG Stadium · Houston', fecha:'4 Jul', hora:'7:00 PM ET' },
-    { id:'M91', local:'Ganador M76', localFlag:'🏳️', localCode:'TBD_M76',
-                visitante:'Ganador M78', visitFlag:'🏳️', visitCode:'TBD_M78',
-                sede:'MetLife Stadium · East Rutherford', fecha:'5 Jul', hora:'3:00 PM ET' },
-    { id:'M92', local:'Ganador M79', localFlag:'🏳️', localCode:'TBD_M79',
-                visitante:'Ganador M80', visitFlag:'🏳️', visitCode:'TBD_M80',
-                sede:'Estadio Azteca · Ciudad de México', fecha:'5 Jul', hora:'7:00 PM ET' },
-    { id:'M93', local:'Ganador M83', localFlag:'🏳️', localCode:'TBD_M83',
-                visitante:'Ganador M84', visitFlag:'🏳️', visitCode:'TBD_M84',
-                sede:'BMO Field · Toronto', fecha:'6 Jul', hora:'3:00 PM ET' },
-    { id:'M94', local:'Ganador M81', localFlag:'🏳️', localCode:'TBD_M81',
-                visitante:'Ganador M82', visitFlag:'🏳️', visitCode:'TBD_M82',
-                sede:"Levi's Stadium · Santa Clara", fecha:'6 Jul', hora:'7:00 PM ET' },
-    { id:'M95', local:'Ganador M86', localFlag:'🏳️', localCode:'TBD_M86',
-                visitante:'Ganador M88', visitFlag:'🏳️', visitCode:'TBD_M88',
-                sede:'Hard Rock Stadium · Miami', fecha:'7 Jul', hora:'3:00 PM ET' },
-    { id:'M96', local:'Ganador M85', localFlag:'🏳️', localCode:'TBD_M85',
-                visitante:'Ganador M87', visitFlag:'🏳️', visitCode:'TBD_M87',
-                sede:'BC Place · Vancouver', fecha:'7 Jul', hora:'7:00 PM ET' },
-  ],
-  QF: [
-    { id:'M97',  local:'Ganador M89', localFlag:'🏳️', localCode:'TBD_M89',
-                 visitante:'Ganador M90', visitFlag:'🏳️', visitCode:'TBD_M90',
-                 sede:'Gillette Stadium · Foxborough', fecha:'9 Jul', hora:'7:00 PM ET' },
-    { id:'M98',  local:'Ganador M93', localFlag:'🏳️', localCode:'TBD_M93',
-                 visitante:'Ganador M94', visitFlag:'🏳️', visitCode:'TBD_M94',
-                 sede:'SoFi Stadium · Inglewood', fecha:'10 Jul', hora:'7:00 PM ET' },
-    { id:'M99',  local:'Ganador M91', localFlag:'🏳️', localCode:'TBD_M91',
-                 visitante:'Ganador M92', visitFlag:'🏳️', visitCode:'TBD_M92',
-                 sede:'Hard Rock Stadium · Miami', fecha:'11 Jul', hora:'3:00 PM ET' },
-    { id:'M100', local:'Ganador M95', localFlag:'🏳️', localCode:'TBD_M95',
-                 visitante:'Ganador M96', visitFlag:'🏳️', visitCode:'TBD_M96',
-                 sede:'Arrowhead Stadium · Kansas City', fecha:'11 Jul', hora:'7:00 PM ET' },
-  ],
-  SF: [
-    { id:'M101', local:'Ganador M97',  localFlag:'🏳️', localCode:'TBD_M97',
-                 visitante:'Ganador M98', visitFlag:'🏳️', visitCode:'TBD_M98',
-                 sede:'AT&T Stadium · Arlington', fecha:'14 Jul', hora:'7:00 PM ET' },
-    { id:'M102', local:'Ganador M99',  localFlag:'🏳️', localCode:'TBD_M99',
-                 visitante:'Ganador M100', visitFlag:'🏳️', visitCode:'TBD_M100',
-                 sede:'Mercedes-Benz Stadium · Atlanta', fecha:'15 Jul', hora:'7:00 PM ET' },
-  ],
-  '3P': [
-    { id:'M103', local:'Perdedor M101', localFlag:'🏳️', localCode:'TBD_M101L',
-                 visitante:'Perdedor M102', visitFlag:'🏳️', visitCode:'TBD_M102L',
-                 sede:'Hard Rock Stadium · Miami', fecha:'18 Jul', hora:'3:00 PM ET' },
-  ],
-  F: [
-    { id:'M104', local:'Ganador M101', localFlag:'🏳️', localCode:'TBD_M101W',
-                 visitante:'Ganador M102', visitFlag:'🏳️', visitCode:'TBD_M102W',
-                 sede:'MetLife Stadium · East Rutherford, NJ', fecha:'19 Jul', hora:'3:00 PM ET' },
-  ]
-};
+// ── ESTADO ────────────────────────────────────────────────
+let currentUser = null;
+let predictions = {};
+let results     = {};
+let currentRound = 'R32';
 
-// ── ESTADO GLOBAL ──
-let usuario      = null;
-let partidos     = {};
-let predicciones = {};
-let guardando    = {};
-
-// ══════════════════════════════════════════
-// LOGIN
-// ══════════════════════════════════════════
-async function acceder() {
-  const email  = document.getElementById('login-email').value.trim();
-  const errEl  = document.getElementById('login-error');
-  const btnAcc = document.getElementById('btn-acceder');
-  errEl.style.display = 'none';
-
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    errEl.textContent   = '⚠️ Ingresa un email válido.';
-    errEl.style.display = 'block';
-    return;
-  }
-
-  btnAcc.disabled  = true;
-  btnAcc.innerHTML = '<span class="spinner"></span> Buscando...';
+// ── LOGIN ─────────────────────────────────────────────────
+async function doLogin() {
+  const email = document.getElementById('emailInput').value.trim().toLowerCase();
+  if (!email) return;
 
   try {
-    const res  = await fetch(`${API}/api/participante?email=${encodeURIComponent(email)}`);
+    const res = await fetch(`${API}/api/participante/${encodeURIComponent(email)}`);
+    if (!res.ok) throw new Error('not found');
     const data = await res.json();
-
-    if (!res.ok || !data.participante) {
-      errEl.textContent   = '⚠️ ' + (data.error || 'Email no encontrado. Verifica tu email o regístrate.');
-      errEl.style.display = 'block';
-      btnAcc.disabled     = false;
-      btnAcc.innerHTML    = '🔍 Ver Mi Quiniela';
-      return;
-    }
-
-    usuario      = data.participante;
-    predicciones = data.predicciones || {};
-
-    // ✅ Indexar partidos por id (acepta array u objeto)
-    partidos = {};
-    if (Array.isArray(data.partidos)) {
-      data.partidos.forEach(p => { partidos[p.id] = p; });
-    } else if (data.partidos && typeof data.partidos === 'object') {
-      partidos = data.partidos;
-    }
-
-    localStorage.setItem('quiniela_email', email);
-    iniciarApp();
-
-  } catch(e) {
-    errEl.textContent   = '⚠️ Error de conexión. Verifica tu internet e intenta nuevamente.';
-    errEl.style.display = 'block';
-    btnAcc.disabled     = false;
-    btnAcc.innerHTML    = '🔍 Ver Mi Quiniela';
+    currentUser = data;
+    await loadUserData();
+    document.getElementById('loginPanel').style.display = 'none';
+    document.getElementById('mainPanel').style.display  = 'block';
+  } catch {
+    document.getElementById('loginError').style.display = 'block';
   }
 }
 
-// ══════════════════════════════════════════
-// INICIAR APP
-// ══════════════════════════════════════════
-function iniciarApp() {
-  document.getElementById('login-screen').style.display = 'none';
-  document.getElementById('app').style.display          = 'block';
+document.getElementById('emailInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doLogin();
+});
 
-  document.getElementById('user-greeting').textContent =
-    `👤 ${usuario.nombre} · ${usuario.pais || ''} · ${usuario.email}`;
-
-  // Award Balón de Oro
-  document.getElementById('award-jugador').textContent =
-    usuario.balon_oro || 'No registrado';
-  document.getElementById('award-pais').textContent =
-    usuario.balon_oro_pais ? ` · ${usuario.balon_oro_pais}` : '';
-
-  // Award status
-  const badge = document.getElementById('award-status-badge');
-  if (usuario.award_ganado === true) {
-    badge.className   = 'award-status ganado';
-    badge.textContent = '✅ ¡Acertaste! +30 pts';
-  } else if (usuario.award_ganado === false) {
-    badge.className   = 'award-status perdido';
-    badge.textContent = '❌ No acertaste';
-  }
-
-  // Banner pago pendiente
-  if (!usuario.confirmado) {
-    document.getElementById('banner-no-confirmado').style.display = 'block';
-  }
-
-  actualizarStats();
-
-  renderRonda('R32',  'grid-pred-r32',   'prog-r32',   'prog-r32-label',   16);
-  renderRonda('R16',  'grid-pred-r16',   'prog-r16',   'prog-r16-label',   8);
-  renderRonda('QF',   'grid-pred-qf',    'prog-qf',    'prog-qf-label',    4);
-  renderRonda('SF',   'grid-pred-sf',    'prog-sf',    'prog-sf-label',    2);
-  renderRonda('3P',   'grid-pred-3p',    'prog-3p',    'prog-3p-label',    1);
-  renderRonda('F',    'grid-pred-final', 'prog-final', 'prog-final-label', 1);
+function doLogout() {
+  currentUser = null;
+  predictions = {};
+  results     = {};
+  document.getElementById('loginPanel').style.display = 'block';
+  document.getElementById('mainPanel').style.display  = 'none';
+  document.getElementById('emailInput').value = '';
+  document.getElementById('loginError').style.display = 'none';
 }
 
-// ══════════════════════════════════════════
-// RENDER RONDA
-// ══════════════════════════════════════════
-function renderRonda(rondaKey, gridId, progId, progLabelId, total) {
-  const grid = document.getElementById(gridId);
-  if (!grid) return;
-
-  const lista = BRACKET[rondaKey];
-  let completadas = 0;
-
-  grid.innerHTML = lista.map(p => {
-    const partido = partidos[p.id] || {};
-    const pred    = predicciones[p.id] || {};
-    const estado  = partido.estado || 'PENDIENTE';
-    const bloqueado = estado === 'FINALIZADO' || estado === 'EN_JUEGO';
-
-    // ✅ Prioridad: datos reales del API → fallback: datos estáticos del BRACKET
-    const localNombre = partido.local_nombre      || p.local;
-    const visitNombre = partido.visitante_nombre  || p.visitante;
-    const localFlag   = partido.local_bandera     || p.localFlag  || '🏳️';
-    const visitFlag   = partido.visitante_bandera || p.visitFlag  || '🏳️';
-    const localCode   = partido.local_code        || p.localCode  || 'LOCAL';
-    const visitCode   = partido.visitante_code    || p.visitCode  || 'VISIT';
-    const fechaHora   = partido.fecha
-      ? `${formatFecha(partido.fecha)} · ${partido.hora || ''}`
-      : `${p.fecha || ''} · ${p.hora || ''}`;
-
-    const gLocal  = partido.goles_local     != null ? partido.goles_local     : '–';
-    const gVisit  = partido.goles_visitante != null ? partido.goles_visitante : '–';
-    const ganador = partido.ganador_code    || null;
-
-    const localGana = estado === 'FINALIZADO' && ganador === localCode;
-    const visitGana = estado === 'FINALIZADO' && ganador === visitCode;
-
-    const ptsRonda = PTS[rondaKey];
-    let ptsGanados = 0;
-    let estadoPred = 'pendiente';
-
-    if (estado === 'FINALIZADO' && pred.ganador_pred) {
-      if (pred.ganador_pred === ganador) {
-        ptsGanados += ptsRonda.ganador;
-        estadoPred  = 'acertado';
-        if (pred.goles_local_pred != null && pred.goles_vis_pred != null &&
-            parseInt(pred.goles_local_pred) === parseInt(partido.goles_local) &&
-            parseInt(pred.goles_vis_pred)   === parseInt(partido.goles_visitante)) {
-          ptsGanados += ptsRonda.marcador;
-        }
-        if (partido.fue_a_penales && pred.penales_pred) {
-          ptsGanados += ptsRonda.penales;
-        }
-      } else {
-        estadoPred = 'fallado';
-      }
-    } else if (estado === 'FINALIZADO' && !pred.ganador_pred) {
-      estadoPred = 'fallado';
-    }
-
-    if (pred.ganador_pred) completadas++;
-
-    // ✅ Mostrar resumen de predicción guardada (si existe)
-    const predResumenHtml = pred.ganador_pred && estado !== 'FINALIZADO' ? `
-      <div class="pred-resumen">
-        <div class="pr-item">🔮 Tu pick: <span class="pr-val">&nbsp;${pred.ganador_pred === localCode ? localNombre : visitNombre}</span></div>
-        ${pred.goles_local_pred != null ? `<div class="pr-item">📊 <span class="pr-val">${pred.goles_local_pred} – ${pred.goles_vis_pred ?? '?'}</span></div>` : ''}
-        ${pred.penales_pred ? `<div class="pr-item">⚽ <span class="pr-val">Penales</span></div>` : ''}
-      </div>` : '';
-
-    const ptsHtml = estado === 'FINALIZADO' ? `
-      <div class="pts-ganados" style="margin:0 16px 14px">
-        <span class="label">Puntos obtenidos</span>
-        <span class="val ${ptsGanados === 0 ? 'zero' : ''}">${ptsGanados} / ${ptsRonda.max}</span>
-      </div>` : '';
-
-    const formHtml = bloqueado ? `
-      <div class="pred-bloqueado">
-        🔒 Partido ${estado === 'EN_JUEGO' ? 'en curso' : 'finalizado'} · Predicciones cerradas
-      </div>
-      ${ptsHtml}
-    ` : `
-      ${predResumenHtml}
-      <div class="pred-form">
-        <div class="pred-form-title">🔮 Tu Predicción</div>
-        <div class="ganador-selector">
-          <button
-            class="ganador-btn ${pred.ganador_pred === localCode ? 'selected' : ''}"
-            id="btn-local-${p.id}"
-            onclick="selGanador('${p.id}','${localCode}','${rondaKey}')"
-          >
-            <span class="gflag">${localFlag}</span>${localNombre}
-          </button>
-          <button
-            class="ganador-btn ${pred.ganador_pred === visitCode ? 'selected' : ''}"
-            id="btn-visit-${p.id}"
-            onclick="selGanador('${p.id}','${visitCode}','${rondaKey}')"
-          >
-            <span class="gflag">${visitFlag}</span>${visitNombre}
-          </button>
-        </div>
-        <div class="marcador-row">
-          <label>Marcador</label>
-          <div class="marcador-inputs">
-            <input type="number" min="0" max="20" id="gl-${p.id}"
-              value="${pred.goles_local_pred ?? ''}" placeholder="0"
-              oninput="marcarCambio('${p.id}')"/>
-            <span class="sep">—</span>
-            <input type="number" min="0" max="20" id="gv-${p.id}"
-              value="${pred.goles_vis_pred ?? ''}" placeholder="0"
-              oninput="marcarCambio('${p.id}')"/>
-          </div>
-        </div>
-                <div class="penales-row">
-          <label class="toggle">
-            <input type="checkbox" id="pen-${p.id}"
-              ${pred.penales_pred ? 'checked' : ''}
-              onchange="marcarCambio('${p.id}')"/>
-            <span class="toggle-slider"></span>
-          </label>
-          <label for="pen-${p.id}">¿Va a penales? (+${ptsRonda.penales} pts si aciertas)</label>
-        </div>
-        <button
-          class="save-btn" id="save-${p.id}"
-          onclick="guardarPrediccion('${p.id}','${rondaKey}')"
-          ${!pred.ganador_pred ? 'disabled' : ''}
-        >💾 Guardar Predicción</button>
-      </div>
-    `;
-
-    return `
-      <div class="pred-card ${estadoPred}" id="card-${p.id}">
-        <div class="pred-card-header">
-          <span class="match-id-badge">${p.id} · 📍 ${p.sede}</span>
-          <span class="pred-estado-badge ${estadoPred}">
-            ${estadoPred === 'pendiente' ? '⏳ Pendiente' : ''}
-            ${estadoPred === 'acertado'  ? '✅ Acertado'  : ''}
-            ${estadoPred === 'fallado'   ? '❌ Fallado'   : ''}
-          </span>
-        </div>
-        <div class="pred-equipos">
-          <div class="pred-equipo">
-            <div class="pred-flag">${localFlag}</div>
-            <div class="pred-equipo-info">
-              <div class="pred-equipo-nombre" style="${localGana ? 'color:var(--green)' : ''}">${localNombre}</div>
-              <div class="pred-equipo-origen" style="color:var(--muted);font-size:0.68rem">${fechaHora}</div>
-            </div>
-            <div class="pred-score-real ${localGana ? 'ganador' : ''}">${gLocal}</div>
-          </div>
-          <div class="pred-equipo">
-            <div class="pred-flag">${visitFlag}</div>
-            <div class="pred-equipo-info">
-              <div class="pred-equipo-nombre" style="${visitGana ? 'color:var(--green)' : ''}">${visitNombre}</div>
-              <div class="pred-equipo-origen" style="color:var(--muted);font-size:0.68rem">${p.sede}</div>
-            </div>
-            <div class="pred-score-real ${visitGana ? 'ganador' : ''}">${gVisit}</div>
-          </div>
-        </div>
-        ${formHtml}
-      </div>`;
-
-  }).join('');
-
-  const pct = total > 0 ? Math.round((completadas / total) * 100) : 0;
-  document.getElementById(progId).style.width      = pct + '%';
-  document.getElementById(progLabelId).textContent = `${completadas} / ${total}`;
-}
-
-// ══════════════════════════════════════════
-// FORMATEAR FECHA ISO → "28 Jun"
-// ══════════════════════════════════════════
-function formatFecha(iso) {
-  if (!iso) return '';
+// ── CARGA DE DATOS ────────────────────────────────────────
+async function loadUserData() {
   try {
-    const d = new Date(iso + 'T12:00:00');
-    return d.toLocaleDateString('es-ES', { day:'numeric', month:'short' })
-            .replace('.','');
-  } catch(e) { return iso; }
-}
+    // Predicciones del usuario
+    const pRes = await fetch(`${API}/api/predicciones/${currentUser.id}`);
+    if (pRes.ok) predictions = await pRes.json();
 
-// ══════════════════════════════════════════
-// SELECCIONAR GANADOR
-// ══════════════════════════════════════════
-function selGanador(matchId, code, ronda) {
-  if (!predicciones[matchId]) predicciones[matchId] = {};
-  predicciones[matchId].ganador_pred = code;
+    // Resultados oficiales
+    const rRes = await fetch(`${API}/api/resultados`);
+    if (rRes.ok) results = await rRes.json();
 
-  const p         = BRACKET[ronda]?.find(x => x.id === matchId) || {};
-  const partido   = partidos[matchId] || {};
-  const localCode = partido.local_code    || p.localCode  || 'LOCAL';
-  const visitCode = partido.visitante_code || p.visitCode || 'VISIT';
+    // Ranking
+    const rkRes = await fetch(`${API}/api/ranking`);
+    if (rkRes.ok) {
+      const ranking = await rkRes.json();
+      const pos = ranking.findIndex(r => r.id === currentUser.id) + 1;
+      document.getElementById('statPosicion').textContent = pos > 0 ? `#${pos}` : '#—';
+    }
 
-  const btnL = document.getElementById('btn-local-'  + matchId);
-  const btnV = document.getElementById('btn-visit-'  + matchId);
-  if (btnL) btnL.classList.toggle('selected', code === localCode);
-  if (btnV) btnV.classList.toggle('selected', code === visitCode);
-
-  const saveBtn = document.getElementById('save-' + matchId);
-  if (saveBtn) saveBtn.disabled = false;
-}
-
-// ══════════════════════════════════════════
-// MARCAR CAMBIO
-// ══════════════════════════════════════════
-function marcarCambio(matchId) {
-  const saveBtn = document.getElementById('save-' + matchId);
-  if (saveBtn && predicciones[matchId]?.ganador_pred) {
-    saveBtn.disabled = false;
+    updateUI();
+  } catch (e) {
+    console.error('Error cargando datos:', e);
+    // Modo offline: mostrar bracket vacío
+    updateUI();
   }
 }
 
-// ══════════════════════════════════════════
-// GUARDAR PREDICCIÓN
-// ══════════════════════════════════════════
-async function guardarPrediccion(matchId, ronda) {
-  if (guardando[matchId]) return;
+// ── ACTUALIZAR UI ─────────────────────────────────────────
+function updateUI() {
+  // Header usuario
+  document.getElementById('userName').textContent  = `👤 ${currentUser?.nombre || 'Usuario'}`;
+  document.getElementById('userEmail').textContent = currentUser?.email || '';
 
-  const pred = predicciones[matchId] || {};
-  if (!pred.ganador_pred) {
-    showToast('⚠️ Selecciona un ganador primero.', 'error');
+  // Calcular stats
+  let totalPuntos = 0, aciertos = 0, pendientes = 0;
+  const puntosRonda = {};
+
+  Object.keys(BRACKET).forEach(ronda => {
+    puntosRonda[ronda] = 0;
+    BRACKET[ronda].forEach(match => {
+      const pred = predictions[match.id];
+      const res  = results[match.id];
+      if (!pred) { pendientes++; return; }
+      if (!res || res.estado !== 'FINALIZADO') { pendientes++; return; }
+
+      let pts = 0;
+      if (pred.ganador === res.ganador_code) {
+        pts += PUNTOS[ronda].ganador;
+        aciertos++;
+        if (pred.goles_local    === res.goles_local &&
+            pred.goles_visitante === res.goles_visitante) {
+          pts += PUNTOS[ronda].marcador;
+        }
+        if (res.fue_a_penales && pred.penales === true) {
+          pts += PUNTOS[ronda].penales;
+        }
+      }
+      totalPuntos       += pts;
+      puntosRonda[ronda]+= pts;
+    });
+  });
+
+  document.getElementById('statPuntos').textContent    = totalPuntos;
+  document.getElementById('statAciertos').textContent  = aciertos;
+  document.getElementById('statPendientes').textContent= pendientes;
+
+  // Desglose puntos
+  const ptTable = document.getElementById('pointsTable');
+  ptTable.innerHTML = Object.keys(PUNTOS).map(r => `
+    <div class="pt-row">
+      <span class="rnd">${ROUND_NAMES[r]}</span>
+      <span class="pts">${puntosRonda[r] || 0} pts</span>
+    </div>
+  `).join('');
+
+  // Renderizar ronda actual
+  renderRound(currentRound);
+}
+
+// ── CAMBIAR RONDA ─────────────────────────────────────────
+function showRound(ronda, btn) {
+  currentRound = ronda;
+  document.querySelectorAll('.round-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderRound(ronda);
+}
+
+// ── RENDERIZAR RONDA ──────────────────────────────────────
+function renderRound(ronda) {
+  const grid    = document.getElementById('matchesGrid');
+  const matches = BRACKET[ronda] || [];
+  const isClosed = isPastDeadline();
+
+  if (!matches.length) {
+    grid.innerHTML = `<div class="empty-state"><div class="icon">🏆</div><p>No hay partidos en esta ronda.</p></div>`;
     return;
   }
 
-  const glEl  = document.getElementById('gl-'  + matchId);
-  const gvEl  = document.getElementById('gv-'  + matchId);
-  const penEl = document.getElementById('pen-' + matchId);
+  grid.innerHTML = matches.map(match => buildMatchCard(match, ronda, isClosed)).join('');
+}
 
-  const glVal = glEl  && glEl.value  !== '' ? parseInt(glEl.value)  : null;
-  const gvVal = gvEl  && gvEl.value  !== '' ? parseInt(gvEl.value)  : null;
+// ── CONSTRUIR TARJETA ─────────────────────────────────────
+function buildMatchCard(match, ronda, isClosed) {
+  const pred   = predictions[match.id] || {};
+  const res    = results[match.id]     || {};
+  const ended  = res.estado === 'FINALIZADO';
+
+  // Estado de la predicción
+  let cardClass = 'match-card';
+  let badgeHtml = '';
+
+  if (ended && pred.ganador) {
+    if (pred.ganador === res.ganador_code) {
+      cardClass += ' win';
+      badgeHtml  = '<span class="status-badge win">✅ Acertado</span>';
+    } else {
+      cardClass += ' loss';
+      badgeHtml  = '<span class="status-badge loss">❌ Fallado</span>';
+    }
+  } else if (pred.ganador) {
+    cardClass += ' pending';
+    badgeHtml  = '<span class="status-badge pending">⏳ Pendiente</span>';
+  } else {
+    badgeHtml = '<span class="status-badge tbd">Sin predicción</span>';
+  }
+
+  // Score real
+  let scoreHtml = '<span style="color:#445566">vs</span>';
+  if (ended) {
+    const pen = res.fue_a_penales
+      ? `<div style="font-size:0.65rem;color:#8899aa">(${res.penales_local}-${res.penales_visitante} pen)</div>`
+      : '';
+    scoreHtml = `<span class="score-line">${res.goles_local ?? '?'} - ${res.goles_visitante ?? '?'}</span>${pen}`;
+  }
+
+  // Botones predicción
+  const localCode = match.localCode;
+  const visitCode = match.visitCode;
+  const isTBD     = localCode === 'TBD' || visitCode === 'TBD';
+  const disabled  = isClosed || ended || isTBD ? 'disabled' : '';
+
+  const localSel  = pred.ganador === localCode  ? (ended ? (pred.ganador === res.ganador_code ? 'correct' : 'wrong') : 'selected') : '';
+  const visitSel  = pred.ganador === visitCode  ? (ended ? (pred.ganador === res.ganador_code ? 'correct' : 'wrong') : 'selected') : '';
+
+  const scoreInputs = (!isClosed && !ended && !isTBD) ? `
+    <div class="score-inputs">
+      <label>Marcador:</label>
+      <input type="number" min="0" max="20" id="sl_${match.id}"
+             value="${pred.goles_local ?? ''}" placeholder="0">
+      <span>-</span>
+      <input type="number" min="0" max="20" id="sv_${match.id}"
+             value="${pred.goles_visitante ?? ''}" placeholder="0">
+      <label style="margin-left:8px">
+        <input type="checkbox" id="sp_${match.id}" ${pred.penales ? 'checked' : ''}>
+        Pen.
+      </label>
+    </div>
+  ` : '';
+
+  const saveBtn = (!isClosed && !ended && !isTBD) ? `
+    <button class="save-pred-btn" id="sb_${match.id}"
+            onclick="savePrediction('${match.id}','${localCode}','${visitCode}','${ronda}')">
+      💾 Guardar Predicción
+    </button>
+  ` : '';
+
+  return `
+    <div class="${cardClass}" id="card_${match.id}">
+      <div class="card-header">
+        <span class="match-id">${match.id}</span>
+        <span style="color:#8899aa">${match.fecha} · ${match.hora}</span>
+        ${badgeHtml}
+      </div>
+      <div class="card-teams">
+        <div class="team-side">
+          <span class="team-flag">${match.localFlag}</span>
+          <div class="team-name">${match.local}</div>
+          ${ended ? `<div class="team-score">${res.goles_local ?? ''}</div>` : ''}
+        </div>
+        <div class="vs-divider">${scoreHtml}</div>
+        <div class="team-side">
+          <span class="team-flag">${match.visitFlag}</span>
+          <div class="team-name">${match.visitante}</div>
+          ${ended ? `<div class="team-score">${res.goles_visitante ?? ''}</div>` : ''}
+        </div>
+      </div>
+      <div class="card-info">
+        <span>🏟️ ${match.sede}</span>
+      </div>
+      <div class="prediction-section">
+        <div class="prediction-label">Tu predicción — Ganador</div>
+        <div class="prediction-teams">
+          <button class="pred-btn ${localSel}" ${disabled}
+                  id="pb_${match.id}_local"
+                  onclick="selectWinner('${match.id}','${localCode}','${visitCode}')">
+            ${match.localFlag} ${match.local}
+          </button>
+          <button class="pred-btn ${visitSel}" ${disabled}
+                  id="pb_${match.id}_visit"
+                  onclick="selectWinner('${match.id}','${visitCode}','${localCode}')">
+            ${match.visitFlag} ${match.visitante}
+          </button>
+        </div>
+        ${scoreInputs}
+        ${saveBtn}
+      </div>
+    </div>
+  `;
+}
+
+// ── SELECCIONAR GANADOR ───────────────────────────────────
+function selectWinner(matchId, winnerCode, loserCode) {
+  if (!predictions[matchId]) predictions[matchId] = {};
+  predictions[matchId].ganador = winnerCode;
+
+  // Actualizar botones visualmente
+  const match = findMatch(matchId);
+  if (!match) return;
+
+  const isLocal = winnerCode === match.localCode;
+  const btnLocal = document.getElementById(`pb_${matchId}_local`);
+  const btnVisit = document.getElementById(`pb_${matchId}_visit`);
+  if (btnLocal) { btnLocal.classList.toggle('selected', isLocal);  }
+  if (btnVisit) { btnVisit.classList.toggle('selected', !isLocal); }
+}
+
+// ── GUARDAR PREDICCIÓN ────────────────────────────────────
+async function savePrediction(matchId, localCode, visitCode, ronda) {
+  const pred = predictions[matchId] || {};
+  if (!pred.ganador) {
+    showToast('⚠️ Selecciona un ganador primero', 'error');
+    return;
+  }
+
+  const slEl = document.getElementById(`sl_${matchId}`);
+  const svEl = document.getElementById(`sv_${matchId}`);
+  const spEl = document.getElementById(`sp_${matchId}`);
 
   const payload = {
-    partido_id:       matchId,
-    ganador_pred:     pred.ganador_pred,
-    goles_local_pred: glVal >= 0 ? glVal : null,
-    goles_vis_pred:   gvVal >= 0 ? gvVal : null,
-    penales_pred:     penEl ? penEl.checked : false,
-    email:            usuario.email
+    participante_id: currentUser.id,
+    partido_id:      matchId,
+    ronda:           ronda,
+    ganador:         pred.ganador,
+    goles_local:     slEl ? parseInt(slEl.value) || null : null,
+    goles_visitante: svEl ? parseInt(svEl.value) || null : null,
+    penales:         spEl ? spEl.checked : false,
   };
 
-  // Actualizar estado local inmediatamente
-  predicciones[matchId] = { ...predicciones[matchId], ...payload };
-
-  const saveBtn = document.getElementById('save-' + matchId);
-  if (saveBtn) {
-    guardando[matchId]  = true;
-    saveBtn.textContent = '⏳ Guardando...';
-    saveBtn.disabled    = true;
-  }
-
   try {
-    const res  = await fetch(`${API}/api/prediccion`, {
-      method:  'POST',
+    const res = await fetch(`${API}/api/prediccion`, {
+      method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify(payload)
+      body: JSON.stringify(payload),
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Error al guardar');
+    if (!res.ok) throw new Error();
 
-    if (saveBtn) {
-      saveBtn.textContent = '✅ Guardado';
-      saveBtn.classList.add('saved');
+    predictions[matchId] = { ...pred, ...payload };
+
+    const btn = document.getElementById(`sb_${matchId}`);
+    if (btn) {
+      btn.textContent = '✅ Guardado';
+      btn.classList.add('saved');
       setTimeout(() => {
-        if (saveBtn) {
-          saveBtn.textContent = '💾 Guardar Predicción';
-          saveBtn.classList.remove('saved');
-          saveBtn.disabled    = false;
-        }
-        guardando[matchId] = false;
+        btn.textContent = '💾 Guardar Predicción';
+        btn.classList.remove('saved');
       }, 2000);
     }
-
-    showToast(`✅ ${matchId} guardado correctamente`, 'success');
-    actualizarStats();
-
-  } catch(e) {
-    if (saveBtn) {
-      saveBtn.textContent = '💾 Guardar Predicción';
-      saveBtn.disabled    = false;
-    }
-    guardando[matchId] = false;
-    showToast('❌ Error al guardar: ' + e.message, 'error');
+    showToast('✅ Predicción guardada', 'success');
+  } catch {
+    showToast('❌ Error al guardar. Intenta de nuevo.', 'error');
   }
 }
 
-// ══════════════════════════════════════════
-// ACTUALIZAR STATS
-// ══════════════════════════════════════════
-function actualizarStats() {
-  let pts = 0, aciertos = 0, fallos = 0, pendientes = 0;
-
-  // ✅ Recorrer TODOS los partidos del bracket
-  Object.values(BRACKET).flat().forEach(p => {
-    const partido  = partidos[p.id]      || {};
-    const pred     = predicciones[p.id]  || {};
-    const estado   = partido.estado      || 'PENDIENTE';
-    const ronda    = partido.ronda       || p.ronda || 'R32';
-    const ptsRonda = PTS[ronda]          || PTS['R32'];
-
-    if (estado === 'FINALIZADO') {
-      if (pred.ganador_pred) {
-        if (pred.ganador_pred === partido.ganador_code) {
-          let p2 = ptsRonda.ganador;
-          if (pred.goles_local_pred != null && pred.goles_vis_pred != null &&
-              parseInt(pred.goles_local_pred) === parseInt(partido.goles_local) &&
-              parseInt(pred.goles_vis_pred)   === parseInt(partido.goles_visitante)) {
-            p2 += ptsRonda.marcador;
-          }
-          if (partido.fue_a_penales && pred.penales_pred) p2 += ptsRonda.penales;
-          pts += p2;
-          aciertos++;
-        } else {
-          fallos++;
-        }
-      } else {
-        fallos++; // Partido finalizado sin predicción = fallo
-      }
-    } else {
-      if (pred.ganador_pred) pendientes++; // Tiene predicción pero partido no jugado
-      else pendientes++;                   // Sin predicción y partido pendiente
-    }
-  });
-
-  document.getElementById('stat-pts').textContent        = pts;
-  document.getElementById('stat-aciertos').textContent   = aciertos;
-  document.getElementById('stat-fallos').textContent     = fallos;
-  document.getElementById('stat-pendientes').textContent = pendientes;
-  document.getElementById('stat-posicion').textContent   =
-    usuario?.posicion ? '#' + usuario.posicion : '#—';
-}
-
-// ══════════════════════════════════════════
-// TABS
-// ══════════════════════════════════════════
-function showRonda(ronda, el) {
-  document.querySelectorAll('.ronda-section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('sec-' + ronda).classList.add('active');
-  if (el) el.classList.add('active');
-  window.scrollTo({ top: 120, behavior: 'smooth' });
-}
-
-// ══════════════════════════════════════════
-// PDF
-// ══════════════════════════════════════════
-function descargarPDF() {
-  if (!usuario) return;
-  window.open(`${API}/api/pdf/quiniela?email=${encodeURIComponent(usuario.email)}`, '_blank');
-}
-
-// ══════════════════════════════════════════
-// CERRAR SESIÓN
-// ══════════════════════════════════════════
-function cerrarSesion() {
-  usuario      = null;
-  predicciones = {};
-  partidos     = {};
-  guardando    = {};
-
-  document.getElementById('app').style.display          = 'none';
-  document.getElementById('login-screen').style.display = 'flex';
-  document.getElementById('login-email').value          = '';
-  document.getElementById('login-error').style.display  = 'none';
-  document.getElementById('banner-no-confirmado').style.display = 'none';
-
-  const btnAcc = document.getElementById('btn-acceder');
-  if (btnAcc) {
-    btnAcc.disabled  = false;
-    btnAcc.innerHTML = '🔍 Ver Mi Quiniela';
+// ── HELPERS ───────────────────────────────────────────────
+function findMatch(id) {
+  for (const ronda of Object.values(BRACKET)) {
+    const m = ronda.find(x => x.id === id);
+    if (m) return m;
   }
-
-  showToast('👋 Sesión cerrada correctamente.', 'success');
+  return null;
 }
 
-// ══════════════════════════════════════════
-// TOAST
-// ══════════════════════════════════════════
-let toastTimer = null;
-function showToast(msg, tipo = 'success') {
-  const t     = document.getElementById('toast');
+function isPastDeadline() {
+  // Cierre de predicciones: 27 Jun 2026 23:59 ET
+  return new Date() > new Date('2026-06-27T23:59:00-05:00');
+}
+
+async function refreshData() {
+  showToast('🔄 Actualizando datos...', '');
+  await loadUserData();
+  showToast('✅ Datos actualizados', 'success');
+}
+
+async function downloadPDF() {
+  if (!currentUser) return;
+  try {
+    const res = await fetch(`${API}/api/pdf/quiniela/${currentUser.id}`);
+    if (!res.ok) throw new Error();
+    const blob = await res.blob();
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = `quiniela_${currentUser.nombre.replace(/\s/g,'_')}.pdf`;
+    a.click();
+    URL.revokeObjectURL(url);
+  } catch {
+    showToast('❌ Error al generar PDF', 'error');
+  }
+}
+
+function showToast(msg, type = '') {
+  const t = document.getElementById('toast');
   t.textContent = msg;
-  t.className   = `toast ${tipo} show`;
-  if (toastTimer) clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
+  t.className   = `toast ${type} show`;
+  setTimeout(() => t.classList.remove('show'), 3000);
 }
-
-// ══════════════════════════════════════════
-// ENTER EN LOGIN
-// ══════════════════════════════════════════
-document.getElementById('login-email')
-  .addEventListener('keydown', e => {
-    if (e.key === 'Enter') acceder();
-  });
 </script>
 </body>
 </html>
-

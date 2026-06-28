@@ -46,8 +46,8 @@ const BRACKET_DATOS = [
   // ─────────────────────────────────────────────────────────
   {
     id: 'M73', ronda: 'R32',
-    sede: 'SoFi Stadium · Inglewood, CA',
-    fecha: '2026-06-28', hora: '15:00',
+    sede: 'SoFi Stadium · Los Ángeles, CA',
+    fecha: '2026-06-28', hora: '13:00',
     local_nombre: 'Sudáfrica',       local_code: 'RSA', local_bandera: '🇿🇦',
     visitante_nombre: 'Canadá',      visitante_code: 'CAN', visitante_bandera: '🇨🇦',
     estado: 'PENDIENTE',
@@ -55,46 +55,46 @@ const BRACKET_DATOS = [
   },
   {
     id: 'M74', ronda: 'R32',
-    sede: 'Gillette Stadium · Foxborough, MA',
-    fecha: '2026-06-29', hora: '12:00',
-    local_nombre: 'Alemania',        local_code: 'GER', local_bandera: '🇩🇪',
-    visitante_nombre: 'Paraguay',    visitante_code: 'PAR', visitante_bandera: '🇵🇾',
-    estado: 'PENDIENTE',
-    goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
-  },
-  {
-    id: 'M75', ronda: 'R32',
-    sede: 'Estadio BBVA · Monterrey, México',
-    fecha: '2026-06-29', hora: '15:00',
-    local_nombre: 'Países Bajos',    local_code: 'NED', local_bandera: '🇳🇱',
-    visitante_nombre: 'Marruecos',   visitante_code: 'MAR', visitante_bandera: '🇲🇦',
-    estado: 'PENDIENTE',
-    goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
-  },
-  {
-    id: 'M76', ronda: 'R32',
     sede: 'NRG Stadium · Houston, TX',
-    fecha: '2026-06-29', hora: '19:00',
+    fecha: '2026-06-29', hora: '11:00',
     local_nombre: 'Brasil',          local_code: 'BRA', local_bandera: '🇧🇷',
     visitante_nombre: 'Japón',       visitante_code: 'JPN', visitante_bandera: '🇯🇵',
     estado: 'PENDIENTE',
     goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
   },
   {
+    id: 'M75', ronda: 'R32',
+    sede: 'Gillette Stadium · Boston, MA',
+    fecha: '2026-06-29', hora: '14:30',
+    local_nombre: 'Alemania',        local_code: 'GER', local_bandera: '🇩🇪',
+    visitante_nombre: 'Paraguay',    visitante_code: 'PAR', visitante_bandera: '🇵🇾',
+    estado: 'PENDIENTE',
+    goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
+  },
+  {
+    id: 'M76', ronda: 'R32',
+    sede: 'Estadio BBVA · Monterrey, México',
+    fecha: '2026-06-29', hora: '19:00',
+    local_nombre: 'Países Bajos',    local_code: 'NED', local_bandera: '🇳🇱',
+    visitante_nombre: 'Marruecos',   visitante_code: 'MAR', visitante_bandera: '🇲🇦',
+    estado: 'PENDIENTE',
+    goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
+  },
+  {
     id: 'M77', ronda: 'R32',
-    sede: 'MetLife Stadium · East Rutherford, NJ',
-    fecha: '2026-06-30', hora: '12:00',
-    local_nombre: 'Francia',         local_code: 'FRA', local_bandera: '🇫🇷',
-    visitante_nombre: 'Suecia',      visitante_code: 'SWE', visitante_bandera: '🇸🇪',
+    sede: 'AT&T Stadium · Dallas, TX',
+    fecha: '2026-06-30', hora: '11:00',
+    local_nombre: 'Costa de Marfil', local_code: 'CIV', local_bandera: '🇨🇮',
+    visitante_nombre: 'Noruega',     visitante_code: 'NOR', visitante_bandera: '🇳🇴',
     estado: 'PENDIENTE',
     goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
   },
   {
     id: 'M78', ronda: 'R32',
-    sede: 'AT&T Stadium · Arlington, TX',
+    sede: 'MetLife Stadium · East Rutherford, NJ',
     fecha: '2026-06-30', hora: '15:00',
-    local_nombre: 'Costa de Marfil', local_code: 'CIV', local_bandera: '🇨🇮',
-    visitante_nombre: 'Noruega',     visitante_code: 'NOR', visitante_bandera: '🇳🇴',
+    local_nombre: 'Francia',         local_code: 'FRA', local_bandera: '🇫🇷',
+    visitante_nombre: 'Suecia',      visitante_code: 'SWE', visitante_bandera: '🇸🇪',
     estado: 'PENDIENTE',
     goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
   },
@@ -110,52 +110,52 @@ const BRACKET_DATOS = [
   {
     id: 'M80', ronda: 'R32',
     sede: 'Mercedes-Benz Stadium · Atlanta, GA',
-    fecha: '2026-07-01', hora: '12:00',
+    fecha: '2026-07-01', hora: '10:00',
     local_nombre: 'Inglaterra',      local_code: 'ENG', local_bandera: '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
-    visitante_nombre: 'DR Congo',    visitante_code: 'COD', visitante_bandera: '🇨🇩',
+    visitante_nombre: 'RD Congo',    visitante_code: 'COD', visitante_bandera: '🇨🇩',
     estado: 'PENDIENTE',
     goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
   },
   {
     id: 'M81', ronda: 'R32',
-    sede: "Levi's Stadium · Santa Clara, CA",
-    fecha: '2026-07-01', hora: '15:00',
-    local_nombre: 'Estados Unidos',  local_code: 'USA', local_bandera: '🇺🇸',
-    visitante_nombre: 'Bosnia-Herzegovina', visitante_code: 'BIH', visitante_bandera: '🇧🇦',
-    estado: 'PENDIENTE',
-    goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
-  },
-  {
-    id: 'M82', ronda: 'R32',
     sede: 'Lumen Field · Seattle, WA',
-    fecha: '2026-07-01', hora: '19:00',
+    fecha: '2026-07-01', hora: '14:00',
     local_nombre: 'Bélgica',         local_code: 'BEL', local_bandera: '🇧🇪',
     visitante_nombre: 'Senegal',     visitante_code: 'SEN', visitante_bandera: '🇸🇳',
     estado: 'PENDIENTE',
     goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
   },
   {
-    id: 'M83', ronda: 'R32',
-    sede: 'BMO Field · Toronto, Canadá',
-    fecha: '2026-07-02', hora: '12:00',
-    local_nombre: 'Portugal',        local_code: 'POR', local_bandera: '🇵🇹',
-    visitante_nombre: 'Ghana',       visitante_code: 'GHA', visitante_bandera: '🇬🇭',
+    id: 'M82', ronda: 'R32',
+    sede: "Levi's Stadium · San Francisco Bay Area, CA",
+    fecha: '2026-07-01', hora: '18:00',
+    local_nombre: 'Estados Unidos',  local_code: 'USA', local_bandera: '🇺🇸',
+    visitante_nombre: 'Bosnia-Herzegovina', visitante_code: 'BIH', visitante_bandera: '🇧🇦',
     estado: 'PENDIENTE',
     goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
   },
   {
-    id: 'M84', ronda: 'R32',
-    sede: 'SoFi Stadium · Inglewood, CA',
-    fecha: '2026-07-02', hora: '15:00',
+    id: 'M83', ronda: 'R32',
+    sede: 'SoFi Stadium · Los Ángeles, CA',
+    fecha: '2026-07-02', hora: '13:00',
     local_nombre: 'España',          local_code: 'ESP', local_bandera: '🇪🇸',
     visitante_nombre: 'Austria',     visitante_code: 'AUT', visitante_bandera: '🇦🇹',
     estado: 'PENDIENTE',
     goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
   },
   {
+    id: 'M84', ronda: 'R32',
+    sede: 'BMO Field · Toronto, Canadá',
+    fecha: '2026-07-02', hora: '17:00',
+    local_nombre: 'Portugal',        local_code: 'POR', local_bandera: '🇵🇹',
+    visitante_nombre: 'Croacia',     visitante_code: 'CRO', visitante_bandera: '🇭🇷',
+    estado: 'PENDIENTE',
+    goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
+  },
+  {
     id: 'M85', ronda: 'R32',
     sede: 'BC Place · Vancouver, Canadá',
-    fecha: '2026-07-02', hora: '19:00',
+    fecha: '2026-07-02', hora: '21:00',
     local_nombre: 'Suiza',           local_code: 'SUI', local_bandera: '🇨🇭',
     visitante_nombre: 'Argelia',     visitante_code: 'ALG', visitante_bandera: '🇩🇿',
     estado: 'PENDIENTE',
@@ -163,28 +163,28 @@ const BRACKET_DATOS = [
   },
   {
     id: 'M86', ronda: 'R32',
-    sede: 'Hard Rock Stadium · Miami Gardens, FL',
+    sede: 'AT&T Stadium · Dallas, TX',
     fecha: '2026-07-03', hora: '12:00',
+    local_nombre: 'Australia',       local_code: 'AUS', local_bandera: '🇦🇺',
+    visitante_nombre: 'Egipto',      visitante_code: 'EGY', visitante_bandera: '🇪🇬',
+    estado: 'PENDIENTE',
+    goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
+  },
+  {
+    id: 'M87', ronda: 'R32',
+    sede: 'Hard Rock Stadium · Miami Gardens, FL',
+    fecha: '2026-07-03', hora: '16:00',
     local_nombre: 'Argentina',       local_code: 'ARG', local_bandera: '🇦🇷',
     visitante_nombre: 'Cabo Verde',  visitante_code: 'CPV', visitante_bandera: '🇨🇻',
     estado: 'PENDIENTE',
     goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
   },
   {
-    id: 'M87', ronda: 'R32',
-    sede: 'Arrowhead Stadium · Kansas City, MO',
-    fecha: '2026-07-03', hora: '15:00',
-    local_nombre: 'Colombia',        local_code: 'COL', local_bandera: '🇨🇴',
-    visitante_nombre: 'Croacia',     visitante_code: 'CRO', visitante_bandera: '🇭🇷',
-    estado: 'PENDIENTE',
-    goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
-  },
-  {
     id: 'M88', ronda: 'R32',
-    sede: 'AT&T Stadium · Arlington, TX',
-    fecha: '2026-07-03', hora: '19:00',
-    local_nombre: 'Australia',       local_code: 'AUS', local_bandera: '🇦🇺',
-    visitante_nombre: 'Egipto',      visitante_code: 'EGY', visitante_bandera: '🇪🇬',
+    sede: 'Arrowhead Stadium · Kansas City, MO',
+    fecha: '2026-07-03', hora: '19:30',
+    local_nombre: 'Colombia',        local_code: 'COL', local_bandera: '🇨🇴',
+    visitante_nombre: 'Ghana',       visitante_code: 'GHA', visitante_bandera: '🇬🇭',
     estado: 'PENDIENTE',
     goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null
   },
@@ -239,7 +239,7 @@ const BRACKET_DATOS = [
   },
   {
     id: 'M94', ronda: 'R16',
-    sede: "Levi's Stadium · Santa Clara, CA",
+    sede: "Levi's Stadium · San Francisco Bay Area, CA",
     fecha: '2026-07-06', hora: '19:00',
     local_nombre: 'Ganador M81',     local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Ganador M82', visitante_code: 'TBD', visitante_bandera: '🏳️',

@@ -250,10 +250,15 @@
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 12px;
     }
-    .desglose-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; text-align: center; }
+    .desglose-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px; text-align: center;
+    }
     .desglose-card .ronda-name { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
     .desglose-card .ronda-pts  { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--gold); }
     .desglose-card .ronda-max  { font-size: 0.68rem; color: var(--muted); margin-top: 4px; }
+    /* ✅ Detalle de puntos por partido */
+    .desglose-card .ronda-det  { font-size: 0.62rem; color: var(--muted); margin-top: 6px; line-height: 1.6; }
 
     /* LOADING */
     .loading-wrap { display: flex; align-items: center; justify-content: center; padding: 60px; gap: 12px; color: var(--muted); }
@@ -336,7 +341,11 @@
     <div class="gstat"><div class="num" id="g-pendientes">—</div><div class="lbl">Pendientes</div></div>
     <div class="gstat"><div class="num" id="g-lider-pts">—</div><div class="lbl">Pts Líder</div></div>
     <div class="gstat"><div class="num" id="g-promedio">—</div><div class="lbl">Promedio</div></div>
-    <div class="gstat"><div class="num">353</div><div class="lbl">Pts Máximo</div></div>
+    <!-- ✅ CORREGIDO: 353 pts = 323 partidos + 30 Balón de Oro -->
+    <div class="gstat" style="border-color:rgba(240,180,41,0.3)">
+      <div class="num" style="color:var(--gold)">353</div>
+      <div class="lbl">Pts Máximo</div>
+    </div>
   </div>
 
   <!-- PODIO -->
@@ -352,7 +361,6 @@
       <span class="si">🔍</span>
       <input type="text" id="search-input" placeholder="Buscar participante..." oninput="filtrar()"/>
     </div>
-    <!-- ✅ Tabs completos incluyendo 3P y Final -->
     <div class="filter-tabs">
       <button class="ftab active" onclick="setFiltro('todos', this)">Todos</button>
       <button class="ftab"        onclick="setFiltro('top10', this)">Top 10</button>
@@ -387,46 +395,86 @@
   <!-- PAGINACIÓN -->
   <div class="paginacion" id="paginacion"></div>
 
-  <!-- DESGLOSE POR RONDA -->
+  <!-- ✅ DESGLOSE POR RONDA — Valores corregidos según KB oficial -->
   <div class="desglose-section">
     <div class="desglose-title">📋 PUNTOS DEL LÍDER POR RONDA</div>
     <div class="desglose-grid">
+
+      <!-- R32: 7 pts/partido × 16 = 112 | ganador:3 + marcador:3 + penales:1 -->
       <div class="desglose-card">
         <div class="ronda-name">⚽ Dieciseisavos</div>
         <div class="ronda-pts" id="pts-r32">0</div>
-        <div class="ronda-max">Máx: 112 pts</div>
+        <div class="ronda-max">Máx: 112 pts · 16 partidos</div>
+        <div class="ronda-det">🥅 Ganador: 3 pts<br>📊 Marcador: +3 pts<br>🎯 Penales: +1 pt</div>
       </div>
+
+      <!-- R16: 9 pts/partido × 8 = 72 | ganador:5 + marcador:3 + penales:1 -->
       <div class="desglose-card">
         <div class="ronda-name">🔥 Octavos</div>
         <div class="ronda-pts" id="pts-r16">0</div>
-        <div class="ronda-max">Máx: 72 pts</div>
+        <div class="ronda-max">Máx: 72 pts · 8 partidos</div>
+        <div class="ronda-det">🥅 Ganador: 5 pts<br>📊 Marcador: +3 pts<br>🎯 Penales: +1 pt</div>
       </div>
+
+      <!-- QF: 14 pts/partido × 4 = 56 | ganador:8 + marcador:4 + penales:2 -->
       <div class="desglose-card">
         <div class="ronda-name">⚡ Cuartos</div>
         <div class="ronda-pts" id="pts-qf">0</div>
-        <div class="ronda-max">Máx: 56 pts</div>
+        <div class="ronda-max">Máx: 56 pts · 4 partidos</div>
+        <div class="ronda-det">🥅 Ganador: 8 pts<br>📊 Marcador: +4 pts<br>🎯 Penales: +2 pts</div>
       </div>
+
+      <!-- SF: 19 pts/partido × 2 = 38 | ganador:12 + marcador:5 + penales:2 -->
       <div class="desglose-card">
         <div class="ronda-name">🏅 Semis</div>
         <div class="ronda-pts" id="pts-sf">0</div>
-        <div class="ronda-max">Máx: 38 pts</div>
+        <div class="ronda-max">Máx: 38 pts · 2 partidos</div>
+        <div class="ronda-det">🥅 Ganador: 12 pts<br>📊 Marcador: +5 pts<br>🎯 Penales: +2 pts</div>
       </div>
+
+      <!-- 3P: 14 pts/partido × 1 = 14 | ganador:8 + marcador:4 + penales:2 -->
       <div class="desglose-card">
         <div class="ronda-name">🥉 3er Puesto</div>
         <div class="ronda-pts" id="pts-3p">0</div>
-        <div class="ronda-max">Máx: 14 pts</div>
+        <div class="ronda-max">Máx: 14 pts · 1 partido</div>
+        <div class="ronda-det">🥅 Ganador: 8 pts<br>📊 Marcador: +4 pts<br>🎯 Penales: +2 pts</div>
       </div>
+
+      <!-- F: 31 pts/partido × 1 = 31 | ganador:20 + marcador:8 + penales:3 -->
       <div class="desglose-card">
         <div class="ronda-name">🏆 Final</div>
         <div class="ronda-pts" id="pts-final">0</div>
-        <div class="ronda-max">Máx: 31 pts</div>
+        <div class="ronda-max">Máx: 31 pts · 1 partido</div>
+        <div class="ronda-det">🥅 Ganador: 20 pts<br>📊 Marcador: +8 pts<br>🎯 Penales: +3 pts</div>
       </div>
+
+      <!-- AWARD: Balón de Oro = 30 pts (acierta o no) -->
       <div class="desglose-card" style="border-color:rgba(240,180,41,0.3)">
         <div class="ronda-name">⭐ Balón de Oro</div>
         <div class="ronda-pts" style="color:var(--gold)" id="pts-award">0</div>
-        <div class="ronda-max">Máx: 30 pts</div>
+        <div class="ronda-max">Máx: 30 pts · 1 award</div>
+        <div class="ronda-det">⭐ Acierta = 30 pts<br>❌ Falla = 0 pts<br>📌 Se predice al registrarse</div>
+      </div>
+
+    </div>
+
+    <!-- ✅ TOTAL MÁXIMO VISIBLE -->
+    <div style="margin-top:16px; background:var(--card); border:1px solid rgba(240,180,41,0.3);
+                border-radius:14px; padding:16px 24px;
+                display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <div>
+        <div style="font-size:0.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:1px;">
+          Total Máximo Posible del Torneo
+        </div>
+        <div style="font-size:0.78rem; color:var(--muted); margin-top:4px;">
+          323 pts (partidos) + 30 pts (Balón de Oro)
+        </div>
+      </div>
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:2.4rem; color:var(--gold);">
+        353 PTS
       </div>
     </div>
+
   </div>
 
 </div><!-- /main-wrap -->
@@ -439,6 +487,22 @@
 </footer>
 
 <script>
+  // ══════════════════════════════════════════════════════
+  // ✅ SISTEMA DE PUNTOS OFICIAL — KB VERIFICADA
+  //    Sincronizado con server.js · puntos.js · quiniela.html
+  // ══════════════════════════════════════════════════════
+  const PUNTOS_POR_RONDA = {
+    R32:  { ganador: 3,  marcador: 3, penales: 1, max: 7  },
+    R16:  { ganador: 5,  marcador: 3, penales: 1, max: 9  },
+    QF:   { ganador: 8,  marcador: 4, penales: 2, max: 14 },
+    SF:   { ganador: 12, marcador: 5, penales: 2, max: 19 },
+    '3P': { ganador: 8,  marcador: 4, penales: 2, max: 14 },
+    F:    { ganador: 20, marcador: 8, penales: 3, max: 31 },
+  };
+  const PUNTOS_AWARD   = 30;
+  const MAX_PARTIDOS   = 323; // suma de todos los máximos
+  const MAX_TOTAL      = 353; // 323 + 30
+
   const API        = window.location.origin;
   const POR_PAGINA = 20;
 
@@ -447,7 +511,6 @@
   let paginaActual          = 1;
   let filtroActivo          = 'todos';
 
-  // ✅ Releer en cada render para capturar login posterior en quiniela.html
   function getEmailYo() {
     return localStorage.getItem('quiniela_email') || '';
   }
@@ -458,6 +521,7 @@
   async function cargarRanking() {
     try {
       const res  = await fetch(`${API}/api/ranking`);
+      if (!res.ok) throw new Error('API error');
       const data = await res.json();
 
       todosLosParticipantes = data.ranking         || [];
@@ -475,7 +539,9 @@
     renderPodio();
 
     document.getElementById('ultima-act').textContent =
-      new Date().toLocaleTimeString('es-ES', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+      new Date().toLocaleTimeString('es-ES', {
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
   }
 
   // ══════════════════════════════════════════
@@ -503,7 +569,7 @@
   }
 
   // ══════════════════════════════════════════
-  // ✅ PODIO — maneja 1, 2 o 3 participantes
+  // PODIO
   // ══════════════════════════════════════════
   function renderPodio() {
     const wrap = document.getElementById('podio-wrap');
@@ -511,27 +577,26 @@
 
     if (!top3.length) {
       wrap.innerHTML = `
-        <div style="text-align:center;color:var(--muted);padding:40px;font-size:0.88rem;width:100%">
+        <div style="text-align:center;color:var(--muted);padding:40px;
+                    font-size:0.88rem;width:100%">
           🏆 El podio se mostrará cuando haya partidos jugados.
         </div>`;
       return;
     }
 
-    // Orden visual del podio: 2° izq · 1° centro · 3° der
-    // Con menos de 3, ajustar dinámicamente
     let items = [];
     if (top3.length === 1) {
-      items = [{ p: top3[0], cls: 'p1', alt: 90, med: '🥇', pos: 1 }];
+      items = [{ p: top3[0], cls: 'p1', alt: 90, med: '🥇' }];
     } else if (top3.length === 2) {
       items = [
-        { p: top3[1], cls: 'p2', alt: 70, med: '🥈', pos: 2 },
-        { p: top3[0], cls: 'p1', alt: 90, med: '🥇', pos: 1 }
+        { p: top3[1], cls: 'p2', alt: 70, med: '🥈' },
+        { p: top3[0], cls: 'p1', alt: 90, med: '🥇' },
       ];
     } else {
       items = [
-        { p: top3[1], cls: 'p2', alt: 70, med: '🥈', pos: 2 },
-        { p: top3[0], cls: 'p1', alt: 90, med: '🥇', pos: 1 },
-        { p: top3[2], cls: 'p3', alt: 55, med: '🥉', pos: 3 }
+        { p: top3[1], cls: 'p2', alt: 70, med: '🥈' },
+        { p: top3[0], cls: 'p1', alt: 90, med: '🥇' },
+        { p: top3[2], cls: 'p3', alt: 55, med: '🥉' },
       ];
     }
 
@@ -565,14 +630,13 @@
     const q = (document.getElementById('search-input')?.value || '').toLowerCase().trim();
     let lista = [...todosLosParticipantes];
 
-    // ✅ Filtros por ronda — mapeo correcto de keys del API
     const keyMap = {
       r32:   'pts_r32',
       r16:   'pts_r16',
       qf:    'pts_qf',
       sf:    'pts_sf',
       '3p':  'pts_3p',
-      final: 'pts_final'
+      final: 'pts_final',
     };
 
     if (filtroActivo === 'top10') {
@@ -600,8 +664,8 @@
   // RENDER TABLA
   // ══════════════════════════════════════════
   function renderTabla() {
-    const tbody  = document.getElementById('tabla-body');
-    const emailYo = getEmailYo(); // ✅ Releer en cada render
+    const tbody   = document.getElementById('tabla-body');
+    const emailYo = getEmailYo();
 
     if (!filtrados.length) {
       tbody.innerHTML = `
@@ -632,7 +696,7 @@
                      : posReal === 3 ? 'top3'
                      : esYo ? 'yo' : '';
 
-      // ✅ Award: true=ganó / false=perdió / null=pendiente
+      // ✅ award_ganado: true=✅ / false=❌ / null o undefined=⏳
       const awardHtml = p.award_ganado === true  ? '✅'
                       : p.award_ganado === false ? '❌'
                       : '⏳';
@@ -678,7 +742,8 @@
         ${paginaActual === 1 ? 'disabled' : ''}>← Anterior</button>`;
 
     for (let i = 1; i <= total; i++) {
-      if (i === 1 || i === total || (i >= paginaActual - 1 && i <= paginaActual + 1)) {
+      if (i === 1 || i === total ||
+          (i >= paginaActual - 1 && i <= paginaActual + 1)) {
         html += `<button class="pag-btn ${i === paginaActual ? 'active' : ''}"
           onclick="irPagina(${i})">${i}</button>`;
       } else if (i === paginaActual - 2 || i === paginaActual + 2) {
