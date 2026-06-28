@@ -45,13 +45,40 @@
 
     .form-container { max-width: 680px; margin: 0 auto; padding: 20px 24px 80px; }
 
+    /* ✅ NUEVO — Banner urgente con countdown */
     .deadline-banner {
       display: flex; align-items: center; gap: 12px;
-      background: rgba(229,62,62,0.08); border: 1px solid rgba(229,62,62,0.25);
+      background: rgba(229,62,62,0.1); border: 1px solid rgba(229,62,62,0.35);
       border-radius: 12px; padding: 14px 18px;
       font-size: 0.84rem; margin-bottom: 28px; color: #fc8181;
+      animation: pulse-border 2s infinite;
+    }
+    @keyframes pulse-border {
+      0%,100% { border-color: rgba(229,62,62,0.35); }
+      50%      { border-color: rgba(229,62,62,0.8); }
     }
     .deadline-banner strong { color: #fff; }
+    .deadline-banner .cd-inline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem; color: var(--accent);
+      letter-spacing: 1px;
+    }
+
+    /* ✅ NUEVO — Pantalla de registro cerrado */
+    .cerrado-wrap {
+      display: none; text-align: center; padding: 60px 20px;
+    }
+    .cerrado-wrap .icon { font-size: 4rem; margin-bottom: 20px; }
+    .cerrado-wrap h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem; letter-spacing: 2px;
+      color: var(--accent); margin-bottom: 12px;
+    }
+    .cerrado-wrap p {
+      color: var(--muted); font-size: 0.9rem;
+      line-height: 1.8; max-width: 440px;
+      margin: 0 auto 28px;
+    }
 
     .steps-indicator { display: flex; align-items: center; justify-content: center; margin-bottom: 32px; }
     .step-dot { display: flex; flex-direction: column; align-items: center; gap: 6px; }
@@ -222,19 +249,41 @@
   </div>
 </nav>
 
+<!-- ✅ Header dinámico -->
 <div class="page-header">
   <h1>⚽ REGISTRO</h1>
-  <p>Completa tu inscripción en 3 pasos · Fecha límite: 27 de junio 2026</p>
+  <p id="header-sub">Completa tu inscripción en 3 pasos · Cierre: <strong style="color:var(--accent)">28 de junio · 2:59 PM (Caracas)</strong></p>
 </div>
 
 <div class="form-container">
 
-  <div class="deadline-banner">
-    ⏰
-    <div>Fecha límite de registro: <strong>27 de junio de 2026 · 23:59 hrs</strong><br/>
-    Después de esta fecha no se aceptan nuevas inscripciones.</div>
+  <!-- ✅ NUEVO — Pantalla registro cerrado -->
+  <div class="cerrado-wrap" id="cerrado-wrap">
+    <div class="icon">🔒</div>
+    <h2>REGISTRO CERRADO</h2>
+    <p>
+      El período de inscripción para la Quiniela Mundial 2026 ha finalizado.<br/>
+      El registro cerró el <strong style="color:var(--text)">28 de junio a las 2:59 PM</strong> (hora Caracas).<br/><br/>
+      Puedes seguir el torneo en el bracket y consultar el ranking en tiempo real.
+    </p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="bracket.html" class="btn btn-gold">🏆 Ver Bracket</a>
+      <a href="ranking.html" class="btn btn-ghost">📊 Ver Ranking</a>
+    </div>
   </div>
 
+  <!-- ✅ Banner urgente con countdown — solo visible si registro abierto -->
+  <div class="deadline-banner" id="deadline-banner">
+    🚨
+    <div>
+      <div>Cierre de registro: <strong>28 de junio · 2:59 PM (Caracas UTC-4)</strong></div>
+      <div style="margin-top:4px;font-size:0.78rem">
+        Tiempo restante: <span class="cd-inline" id="reg-cd">calculando...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEPS -->
   <div class="steps-indicator" id="steps">
     <div class="step-dot active" id="sdot-1">
       <div class="dot">01</div><span>Tus Datos</span>
@@ -453,7 +502,7 @@
       Tu registro ha sido recibido correctamente.<br/>
       Un administrador confirmará tu pago en las próximas horas.<br/>
       Una vez confirmado tendrás acceso completo para ingresar
-      tus predicciones antes del <strong style="color:var(--text)">27 de junio · 23:59 hrs</strong>.
+      tus predicciones en <strong style="color:var(--text)">Mi Quiniela</strong>.
     </p>
     <a href="bracket.html" class="btn btn-gold" style="display:inline-flex;margin:0 auto">
       🏆 Ver el Bracket Oficial
@@ -464,24 +513,98 @@
 
 <footer>
   <p>Quiniela Mundial 2026 — Segunda Fase &nbsp;|&nbsp; Creado por <strong>Mario Vitale</strong></p>
-  <p style="margin-top:6px;font-size:0.72rem">Fecha límite de registro: 27 de junio de 2026 · 23:59 hrs</p>
+  <!-- ✅ FIX fecha footer -->
+  <p style="margin-top:6px;font-size:0.72rem">Cierre de registro: 28 de junio de 2026 · 2:59 PM (Caracas UTC-4)</p>
 </footer>
 
 <script>
-  // ✅ FIX — URL real autodetectada
   const API = window.location.origin;
+
+  // ✅ Fecha cierre CORRECTA
+  const TARGET_REGISTRO = new Date('2026-06-28T14:59:00-04:00');
 
   let pagoSeleccionado = '';
   let currentStep      = 1;
+  let registroCerrado  = false;
+
+  // ══════════════════════════════════════════════
+  // INIT — verificar estado al cargar
+  // ══════════════════════════════════════════════
+  (function init() {
+    const now = new Date();
+    if (now >= TARGET_REGISTRO) {
+      mostrarCerrado();
+    } else {
+      tickRegistro();
+      setInterval(tickRegistro, 1000);
+    }
+  })();
+
+  // ══════════════════════════════════════════════
+  // MOSTRAR PANTALLA CERRADO
+  // ══════════════════════════════════════════════
+  function mostrarCerrado() {
+    registroCerrado = true;
+
+    // Ocultar todo el formulario
+    document.getElementById('deadline-banner').style.display = 'none';
+    document.getElementById('steps').style.display           = 'none';
+    document.getElementById('error-global').style.display    = 'none';
+    document.querySelectorAll('.form-section').forEach(s => s.style.display = 'none');
+
+    // Mostrar pantalla cerrado
+    document.getElementById('cerrado-wrap').style.display = 'block';
+
+    // Actualizar header
+    const sub = document.getElementById('header-sub');
+    if (sub) sub.innerHTML = '🔒 El período de registro ha <strong style="color:var(--accent)">cerrado</strong>';
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ══════════════════════════════════════════════
+  // COUNTDOWN CIERRE
+  // ══════════════════════════════════════════════
+  function tickRegistro() {
+    const el   = document.getElementById('reg-cd');
+    if (!el) return;
+
+    const now  = new Date();
+    const diff = TARGET_REGISTRO - now;
+
+    if (diff <= 0) {
+      mostrarCerrado();
+      return;
+    }
+
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000)   / 1000);
+
+    // Urgencia visual < 30 min
+    if (diff < 30 * 60 * 1000) {
+      el.style.color    = 'var(--accent)';
+      el.style.fontSize = '1.3rem';
+      const banner = document.getElementById('deadline-banner');
+      if (banner) banner.style.background = 'rgba(229,62,62,0.18)';
+    }
+
+    if (h > 0) {
+      el.textContent = `${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+    } else {
+      el.textContent = `${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+    }
+  }
 
   // ── NAVEGACIÓN DE PASOS ──
   function irPaso(n) {
+    if (registroCerrado) return;
     document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
     document.getElementById('step-' + n).classList.add('active');
     for (let i = 1; i <= 3; i++) {
       const dot = document.getElementById('sdot-' + i);
       dot.classList.remove('active', 'done');
-      if (i < n)  dot.classList.add('done');
+      if (i < n)   dot.classList.add('done');
       if (i === n) dot.classList.add('active');
     }
     currentStep = n;
@@ -489,7 +612,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // ── PASO 1 → 2 ──
   function irPaso2() {
     const nombre = document.getElementById('nombre').value.trim();
     const email  = document.getElementById('email').value.trim();
@@ -498,30 +620,36 @@
     if (!email)               { mostrarError('Por favor ingresa tu email.'); return; }
     if (!validarEmail(email)) { mostrarError('El email no tiene un formato válido.'); return; }
     if (!pais)                { mostrarError('Por favor selecciona tu país.'); return; }
+
+    // ✅ Verificar cierre antes de avanzar
+    if (new Date() >= TARGET_REGISTRO) { mostrarCerrado(); return; }
+
     ocultarError();
     irPaso(2);
   }
 
-  // ── PASO 2 → 3 ──
   function irPaso3() {
     const balon = document.getElementById('balon-oro').value.trim();
     if (!balon) {
       mostrarError('Debes ingresar tu predicción del Balón de Oro para continuar.');
       return;
     }
+
+    // ✅ Verificar cierre antes de avanzar
+    if (new Date() >= TARGET_REGISTRO) { mostrarCerrado(); return; }
+
     document.getElementById('res-nombre').textContent = document.getElementById('nombre').value.trim();
     document.getElementById('res-email').textContent  = document.getElementById('email').value.trim();
     document.getElementById('res-pais').textContent   = document.getElementById('pais').value;
     document.getElementById('res-balon').textContent  = balon +
       (document.getElementById('balon-oro-pais').value.trim()
         ? ' · ' + document.getElementById('balon-oro-pais').value.trim() : '');
-    document.getElementById('res-pago').textContent   =
+    document.getElementById('res-pago').textContent =
       pagoSeleccionado ? pagoSeleccionado.toUpperCase() : 'No seleccionado';
     ocultarError();
     irPaso(3);
   }
 
-  // ── SELECCIONAR PAGO ──
   function seleccionarPago(metodo, el) {
     pagoSeleccionado = metodo;
     document.querySelectorAll('.pago-option').forEach(o => o.classList.remove('selected'));
@@ -532,14 +660,12 @@
     verificarTerminos();
   }
 
-  // ── VERIFICAR TÉRMINOS ──
   function verificarTerminos() {
     const acepta = document.getElementById('acepto-terminos').checked;
     const pago   = pagoSeleccionado !== '';
     document.getElementById('btn-registrar').disabled = !(acepta && pago);
   }
 
-  // ── PREVIEW BALÓN DE ORO ──
   function actualizarPreview() {
     const nombre  = document.getElementById('balon-oro').value.trim();
     const pais    = document.getElementById('balon-oro-pais').value.trim();
@@ -553,8 +679,10 @@
     }
   }
 
-  // ── REGISTRAR ──
   async function registrar() {
+    // ✅ Verificar cierre en el último momento
+    if (new Date() >= TARGET_REGISTRO) { mostrarCerrado(); return; }
+
     const btn = document.getElementById('btn-registrar');
     btn.disabled    = true;
     btn.textContent = '⏳ Registrando...';
@@ -578,14 +706,14 @@
       const data = await res.json();
 
       if (!res.ok || !data.ok) {
-        // ✅ FIX — muestra el error real del servidor
+        // ✅ Si el servidor devuelve "registro cerrado" → mostrar pantalla cerrado
+        if (res.status === 403) { mostrarCerrado(); return; }
         mostrarErrorPaso3(data.error || 'Ocurrió un error. Intenta nuevamente.');
         btn.disabled    = false;
         btn.textContent = '✅ CONFIRMAR REGISTRO';
         return;
       }
 
-      // ✅ ÉXITO REAL
       mostrarExito();
 
     } catch(err) {
@@ -595,17 +723,15 @@
     }
   }
 
-  // ── MOSTRAR ÉXITO ──
   function mostrarExito() {
     document.getElementById('steps').style.display              = 'none';
-    document.querySelector('.deadline-banner').style.display    = 'none';
+    document.getElementById('deadline-banner').style.display    = 'none';
     document.getElementById('error-global').style.display       = 'none';
     document.querySelectorAll('.form-section').forEach(s => s.style.display = 'none');
     document.getElementById('success-wrap').style.display       = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // ── HELPERS ──
   function mostrarError(msg) {
     const el = document.getElementById('error-global');
     el.textContent   = '⚠️ ' + msg;

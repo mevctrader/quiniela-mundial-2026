@@ -293,6 +293,8 @@
       .tabla-row .cell:nth-child(5) { display: none; }
       .global-stats { grid-template-columns: repeat(2,1fr); }
       .podio-wrap   { gap: 6px; }
+      .filter-tabs  { gap: 4px; }
+      .ftab         { padding: 6px 10px; font-size: 0.72rem; }
     }
   </style>
 </head>
@@ -334,7 +336,6 @@
     <div class="gstat"><div class="num" id="g-pendientes">—</div><div class="lbl">Pendientes</div></div>
     <div class="gstat"><div class="num" id="g-lider-pts">—</div><div class="lbl">Pts Líder</div></div>
     <div class="gstat"><div class="num" id="g-promedio">—</div><div class="lbl">Promedio</div></div>
-    <!-- ✅ FIX — 353 pts máximo correcto -->
     <div class="gstat"><div class="num">353</div><div class="lbl">Pts Máximo</div></div>
   </div>
 
@@ -351,6 +352,7 @@
       <span class="si">🔍</span>
       <input type="text" id="search-input" placeholder="Buscar participante..." oninput="filtrar()"/>
     </div>
+    <!-- ✅ Tabs completos incluyendo 3P y Final -->
     <div class="filter-tabs">
       <button class="ftab active" onclick="setFiltro('todos', this)">Todos</button>
       <button class="ftab"        onclick="setFiltro('top10', this)">Top 10</button>
@@ -358,6 +360,8 @@
       <button class="ftab"        onclick="setFiltro('r16',   this)">R16</button>
       <button class="ftab"        onclick="setFiltro('qf',    this)">QF</button>
       <button class="ftab"        onclick="setFiltro('sf',    this)">SF</button>
+      <button class="ftab"        onclick="setFiltro('3p',    this)">3P</button>
+      <button class="ftab"        onclick="setFiltro('final', this)">Final</button>
     </div>
     <button class="btn-pdf" onclick="descargarPDF()">📄 PDF Ranking</button>
   </div>
@@ -385,12 +389,11 @@
 
   <!-- DESGLOSE POR RONDA -->
   <div class="desglose-section">
-    <div class="desglose-title">📋 PUNTOS MÁXIMOS POR RONDA</div>
+    <div class="desglose-title">📋 PUNTOS DEL LÍDER POR RONDA</div>
     <div class="desglose-grid">
       <div class="desglose-card">
         <div class="ronda-name">⚽ Dieciseisavos</div>
         <div class="ronda-pts" id="pts-r32">0</div>
-        <!-- ✅ FIX máximos correctos -->
         <div class="ronda-max">Máx: 112 pts</div>
       </div>
       <div class="desglose-card">
@@ -436,7 +439,6 @@
 </footer>
 
 <script>
-  // ✅ FIX #1 — URL real autodetectada
   const API        = window.location.origin;
   const POR_PAGINA = 20;
 
@@ -445,8 +447,10 @@
   let paginaActual          = 1;
   let filtroActivo          = 'todos';
 
-  // ✅ FIX #2 — leer email del localStorage (guardado en quiniela.html)
-  let emailYo = localStorage.getItem('quiniela_email') || '';
+  // ✅ Releer en cada render para capturar login posterior en quiniela.html
+  function getEmailYo() {
+    return localStorage.getItem('quiniela_email') || '';
+  }
 
   // ══════════════════════════════════════════
   // CARGAR RANKING
@@ -456,12 +460,11 @@
       const res  = await fetch(`${API}/api/ranking`);
       const data = await res.json();
 
-      todosLosParticipantes = data.ranking  || [];
-      actualizarStatsGlobales(data.stats    || {});
-      actualizarDesglose(data.desglose_lider || {});
+      todosLosParticipantes = data.ranking         || [];
+      actualizarStatsGlobales(data.stats           || {});
+      actualizarDesglose(data.desglose_lider       || {});
 
     } catch(e) {
-      // ✅ FIX #3 — sin datos reales → tabla vacía con mensaje
       todosLosParticipantes = [];
       actualizarStatsGlobales({});
       actualizarDesglose({});
@@ -471,7 +474,6 @@
     aplicarFiltro();
     renderPodio();
 
-    // Timestamp
     document.getElementById('ultima-act').textContent =
       new Date().toLocaleTimeString('es-ES', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
   }
@@ -501,7 +503,7 @@
   }
 
   // ══════════════════════════════════════════
-  // PODIO TOP 3
+  // ✅ PODIO — maneja 1, 2 o 3 participantes
   // ══════════════════════════════════════════
   function renderPodio() {
     const wrap = document.getElementById('podio-wrap');
@@ -509,24 +511,31 @@
 
     if (!top3.length) {
       wrap.innerHTML = `
-        <div style="text-align:center;color:var(--muted);padding:40px;font-size:0.88rem">
+        <div style="text-align:center;color:var(--muted);padding:40px;font-size:0.88rem;width:100%">
           🏆 El podio se mostrará cuando haya partidos jugados.
         </div>`;
       return;
     }
 
-    // Orden visual: 2° · 1° · 3°
-    const orden   = top3.length >= 3 ? [top3[1], top3[0], top3[2]]
-                  : top3.length === 2 ? [top3[1], top3[0]]
-                  : [top3[0]];
-    const clases  = ['p2','p1','p3'];
-    const alturas = [70, 90, 55];
-    const medallas = ['🥈','🥇','🥉'];
+    // Orden visual del podio: 2° izq · 1° centro · 3° der
+    // Con menos de 3, ajustar dinámicamente
+    let items = [];
+    if (top3.length === 1) {
+      items = [{ p: top3[0], cls: 'p1', alt: 90, med: '🥇', pos: 1 }];
+    } else if (top3.length === 2) {
+      items = [
+        { p: top3[1], cls: 'p2', alt: 70, med: '🥈', pos: 2 },
+        { p: top3[0], cls: 'p1', alt: 90, med: '🥇', pos: 1 }
+      ];
+    } else {
+      items = [
+        { p: top3[1], cls: 'p2', alt: 70, med: '🥈', pos: 2 },
+        { p: top3[0], cls: 'p1', alt: 90, med: '🥇', pos: 1 },
+        { p: top3[2], cls: 'p3', alt: 55, med: '🥉', pos: 3 }
+      ];
+    }
 
-    wrap.innerHTML = orden.map((p, i) => {
-      const cls = clases[i]  || 'p1';
-      const alt = alturas[i] || 70;
-      const med = medallas[i]|| '🏅';
+    wrap.innerHTML = items.map(({ p, cls, alt, med }) => {
       const ini = p.nombre ? p.nombre.charAt(0).toUpperCase() : '?';
       return `
         <div class="podio-item ${cls}">
@@ -556,10 +565,20 @@
     const q = (document.getElementById('search-input')?.value || '').toLowerCase().trim();
     let lista = [...todosLosParticipantes];
 
+    // ✅ Filtros por ronda — mapeo correcto de keys del API
+    const keyMap = {
+      r32:   'pts_r32',
+      r16:   'pts_r16',
+      qf:    'pts_qf',
+      sf:    'pts_sf',
+      '3p':  'pts_3p',
+      final: 'pts_final'
+    };
+
     if (filtroActivo === 'top10') {
       lista = lista.slice(0, 10);
-    } else if (['r32','r16','qf','sf'].includes(filtroActivo)) {
-      const key = 'pts_' + filtroActivo;
+    } else if (keyMap[filtroActivo]) {
+      const key = keyMap[filtroActivo];
       lista = lista.slice().sort((a, b) => (b[key] || 0) - (a[key] || 0));
     }
 
@@ -581,7 +600,8 @@
   // RENDER TABLA
   // ══════════════════════════════════════════
   function renderTabla() {
-    const tbody = document.getElementById('tabla-body');
+    const tbody  = document.getElementById('tabla-body');
+    const emailYo = getEmailYo(); // ✅ Releer en cada render
 
     if (!filtrados.length) {
       tbody.innerHTML = `
@@ -612,7 +632,7 @@
                      : posReal === 3 ? 'top3'
                      : esYo ? 'yo' : '';
 
-      // ✅ FIX #4 — award con 3 estados correctos
+      // ✅ Award: true=ganó / false=perdió / null=pendiente
       const awardHtml = p.award_ganado === true  ? '✅'
                       : p.award_ganado === false ? '❌'
                       : '⏳';

@@ -57,6 +57,10 @@
     .nav-links a:hover { color: var(--text); background: var(--border); }
     .nav-links a.cta { background: var(--gold); color: #000; font-weight: 700; }
     .nav-links a.cta:hover { background: var(--gold2); }
+    .nav-links a.cta.locked {
+      background: var(--border); color: var(--muted);
+      pointer-events: none; opacity: 0.5;
+    }
 
     /* ── HERO ── */
     .hero {
@@ -88,6 +92,21 @@
       font-size: 0.78rem; font-weight: 600;
       color: var(--gold); letter-spacing: 1.5px;
       text-transform: uppercase; margin-bottom: 20px;
+    }
+    /* ✅ NUEVO — badge LIVE pulsante */
+    .live-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(229,62,62,0.15);
+      border: 1px solid rgba(229,62,62,0.4);
+      border-radius: 50px; padding: 6px 18px;
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--accent); letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 20px;
+      animation: pulse-red 1.5s infinite;
+    }
+    @keyframes pulse-red {
+      0%,100% { box-shadow: 0 0 0 0 rgba(229,62,62,0.3); }
+      50%      { box-shadow: 0 0 0 8px rgba(229,62,62,0); }
     }
     .hero h1 {
       font-family: 'Bebas Neue', sans-serif;
@@ -121,6 +140,10 @@
       background: transparent; border: 1.5px solid var(--border); color: var(--text);
     }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .btn-locked {
+      background: var(--border); color: var(--muted);
+      pointer-events: none; opacity: 0.5; cursor: not-allowed;
+    }
 
     /* ── COUNTDOWN ── */
     .countdown-wrap {
@@ -145,6 +168,31 @@
       text-align: center; margin-bottom: 12px;
       text-transform: uppercase; letter-spacing: 1px;
     }
+
+    /* ✅ NUEVO — Próximo partido card */
+    .proximo-card {
+      background: var(--card);
+      border: 1px solid rgba(240,180,41,0.3);
+      border-radius: 16px; padding: 16px 28px;
+      display: flex; align-items: center; gap: 20px;
+      flex-wrap: wrap; justify-content: center;
+      margin-bottom: 16px; max-width: 520px;
+    }
+    .proximo-equipo {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 4px; min-width: 80px;
+    }
+    .proximo-flag  { font-size: 2.2rem; }
+    .proximo-name  { font-size: 0.78rem; font-weight: 600; text-align: center; }
+    .proximo-vs    {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem; color: var(--muted);
+    }
+    .proximo-meta  {
+      font-size: 0.7rem; color: var(--muted);
+      text-align: center; margin-top: 4px;
+    }
+    .proximo-meta strong { color: var(--gold); }
 
     /* ── STATS BAR ── */
     .stats-bar {
@@ -264,13 +312,18 @@
     /* ── DEADLINE BANNER ── */
     .deadline-banner {
       background: linear-gradient(135deg,
-        rgba(229,62,62,0.12), rgba(229,62,62,0.06));
-      border: 1px solid rgba(229,62,62,0.35);
+        rgba(229,62,62,0.15), rgba(229,62,62,0.08));
+      border: 1px solid rgba(229,62,62,0.45);
       border-radius: 16px; padding: 18px 28px;
       display: flex; align-items: center;
       justify-content: center; gap: 14px;
       flex-wrap: wrap; text-align: center;
       max-width: 700px; margin: 0 auto 40px;
+      animation: pulse-border 2s infinite;
+    }
+    @keyframes pulse-border {
+      0%,100% { border-color: rgba(229,62,62,0.45); }
+      50%      { border-color: rgba(229,62,62,0.9); }
     }
     .deadline-banner .dl-icon { font-size: 1.6rem; }
     .deadline-banner .dl-text { font-size: 0.9rem; color: var(--text); }
@@ -312,6 +365,7 @@
       .stat-item    { border-right: none; border-bottom: 1px solid var(--border); }
       .award-section { flex-direction: column; text-align: center; }
       .nav-links a:not(.cta) { display: none; }
+      .proximo-card { padding: 14px 16px; gap: 12px; }
     }
   </style>
 </head>
@@ -327,32 +381,62 @@
     <a href="bracket.html">🏆 Bracket</a>
     <a href="ranking.html">📊 Ranking</a>
     <a href="quiniela.html">📋 Mi Quiniela</a>
-    <a href="registro.html" class="cta">⚽ Participar</a>
+    <!-- ✅ El botón se bloquea automáticamente via JS si el registro cerró -->
+    <a href="registro.html" class="cta" id="nav-registro-btn">⚽ Participar</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-ball">⚽</div>
-  <div class="hero-badge">🏆 Segunda Fase · 32 Equipos</div>
+
+  <!-- ✅ Badge dinámico: LIVE si ya empezó, cuenta regresiva si no -->
+  <div id="hero-badge" class="hero-badge">🏆 Segunda Fase · 32 Equipos</div>
+
   <h1>QUINIELA<br/>MUNDIAL 2026</h1>
   <p class="hero-sub">
     Predice los <strong>32 partidos</strong> de la fase eliminatoria.<br/>
     Desde Dieciseisavos hasta la Gran Final en Nueva York.
   </p>
+
   <div class="hero-btns">
-    <a href="registro.html" class="btn btn-gold">⚽ Participar Ahora</a>
-    <a href="bracket.html"  class="btn btn-outline">🏆 Ver Bracket</a>
+    <a href="bracket.html" class="btn btn-gold" id="hero-bracket-btn">🏆 Ver Bracket</a>
+    <a href="quiniela.html" class="btn btn-outline">📋 Mi Quiniela</a>
   </div>
 
-  <p class="cd-title">⏰ Inicio de la Fase Eliminatoria</p>
-  <div class="countdown-wrap">
-    <div class="cd-box"><div class="cd-num" id="cd-d">00</div><div class="cd-label">Días</div></div>
-    <div class="cd-box"><div class="cd-num" id="cd-h">00</div><div class="cd-label">Horas</div></div>
-    <div class="cd-box"><div class="cd-num" id="cd-m">00</div><div class="cd-label">Min</div></div>
-    <div class="cd-box"><div class="cd-num" id="cd-s">00</div><div class="cd-label">Seg</div></div>
+  <!-- ✅ Sección dinámica: countdown o "próximo partido" -->
+  <div id="cd-section">
+    <p class="cd-title" id="cd-title-text">⏰ Primer Partido — M73 Sudáfrica vs Canadá</p>
+    <div class="countdown-wrap" id="cd-wrap">
+      <div class="cd-box"><div class="cd-num" id="cd-d">00</div><div class="cd-label">Días</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-h">00</div><div class="cd-label">Horas</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-m">00</div><div class="cd-label">Min</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-s">00</div><div class="cd-label">Seg</div></div>
+    </div>
+    <p id="cd-msg" style="font-size:0.78rem;color:var(--muted);margin-top:10px"></p>
   </div>
-  <p id="cd-msg" style="font-size:0.78rem;color:var(--muted);margin-top:10px"></p>
+
+  <!-- ✅ NUEVO — Card "Próximo Partido" visible cuando ya empezó la fase -->
+  <div id="proximo-wrap" style="display:none">
+    <p class="cd-title">🔴 FASE ELIMINATORIA EN CURSO</p>
+    <div class="proximo-card">
+      <div class="proximo-equipo">
+        <div class="proximo-flag">🇿🇦</div>
+        <div class="proximo-name">Sudáfrica</div>
+      </div>
+      <div>
+        <div class="proximo-vs">VS</div>
+        <div class="proximo-meta"><strong>M73 · HOY</strong><br/>3:00 PM ET · SoFi Stadium</div>
+      </div>
+      <div class="proximo-equipo">
+        <div class="proximo-flag">🇨🇦</div>
+        <div class="proximo-name">Canadá</div>
+      </div>
+    </div>
+    <a href="bracket.html" class="btn btn-outline" style="margin-top:8px">
+      🏆 Ver todos los partidos
+    </a>
+  </div>
 </div>
 
 <!-- STATS BAR -->
@@ -367,7 +451,8 @@
       <div class="stat-label">Partidos</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">7</div>
+      <!-- ✅ FIX: 6 rondas, no 7 -->
+      <div class="stat-num">6</div>
       <div class="stat-label">Rondas</div>
     </div>
     <div class="stat-item">
@@ -387,7 +472,6 @@
   <div class="section-sub">Más difícil la ronda, más puntos en juego</div>
 
   <div class="puntos-grid">
-
     <div class="ronda-card">
       <div class="ronda-header">
         <div class="ronda-name">⚽ Dieciseisavos</div>
@@ -453,7 +537,6 @@
       <div class="pts-row"><span class="label">Penales</span><span class="val gold">+3 pts</span></div>
       <div class="pts-max">Máx partido: <strong>31 pts</strong></div>
     </div>
-
   </div>
 
   <!-- AWARD -->
@@ -500,8 +583,10 @@
       <div class="step-icon">📝</div>
       <div class="step-num">PASO 01</div>
       <div class="step-title">Regístrate</div>
-      <!-- ✅ FIX — fecha correcta cierre de registro -->
-      <div class="step-desc">Completa el formulario, elige tu Balón de Oro y confirma el pago antes del <strong style="color:var(--gold)">28 de junio a las 2:59 PM</strong> (hora Caracas).</div>
+      <div class="step-desc" id="paso1-desc">
+        Completa el formulario, elige tu Balón de Oro y confirma el pago antes del
+        <strong style="color:var(--gold)">28 de junio a las 2:59 PM</strong> (hora Caracas).
+      </div>
     </div>
     <div class="step-card">
       <div class="step-icon">🔮</div>
@@ -526,31 +611,32 @@
 
 <!-- CTA FINAL -->
 <section>
-  <div class="cta-section">
-    <h2>¿LISTO PARA COMPETIR?</h2>
-    <p>Regístrate antes del cierre y asegura tu lugar en la quiniela más grande del Mundial 2026.</p>
+  <div class="cta-section" id="cta-section">
+    <h2 id="cta-title">¿LISTO PARA COMPETIR?</h2>
+    <p id="cta-desc">Regístrate antes del cierre y asegura tu lugar en la quiniela más grande del Mundial 2026.</p>
 
-    <!-- ✅ FIX — fecha y hora correcta -->
-    <div class="deadline-pill">
+    <div class="deadline-pill" id="deadline-pill">
       ⏰ Cierre de registro: 28 de junio · 2:59 PM (Caracas UTC-4)
     </div>
     <br/>
 
-    <!-- ✅ NUEVO — Banner de cuenta regresiva al cierre de registro -->
-    <div class="deadline-banner">
+    <!-- ✅ Banner cuenta regresiva al cierre -->
+    <div class="deadline-banner" id="deadline-banner">
       <div class="dl-icon">🚨</div>
       <div>
         <div class="dl-text">
-          <strong>¡El registro cierra pronto!</strong>
+          <strong>¡El registro cierra HOY!</strong>
         </div>
         <div class="dl-sub">
-          Tiempo restante para registrarse:
-          <span id="reg-countdown" style="color:var(--accent);font-weight:700"></span>
+          Tiempo restante:
+          <span id="reg-countdown" style="color:var(--accent);font-weight:700;font-size:1rem"></span>
         </div>
       </div>
     </div>
 
-    <a href="registro.html" class="btn btn-gold" style="font-size:1rem;padding:16px 36px">
+    <a href="registro.html" class="btn btn-gold"
+       style="font-size:1rem;padding:16px 36px"
+       id="cta-registro-btn">
       ⚽ REGISTRARME AHORA
     </a>
   </div>
@@ -562,75 +648,184 @@
 </footer>
 
 <script>
-  // ══════════════════════════════════════════════
-  // COUNTDOWN — Primer partido: 28 Jun · 15:00 ET
-  // ══════════════════════════════════════════════
-  const TARGET_PARTIDO = new Date('2026-06-28T15:00:00-04:00');
+// ══════════════════════════════════════════════════════════
+// FECHAS CLAVE
+// ══════════════════════════════════════════════════════════
+// M73 — Primer partido: 28 Jun 2026 · 15:00 ET (= 19:00 UTC)
+const TARGET_PARTIDO   = new Date('2026-06-28T15:00:00-04:00');
+// Cierre de registro: 28 Jun 2026 · 14:59 Caracas (UTC-4)
+const TARGET_REGISTRO  = new Date('2026-06-28T14:59:00-04:00');
 
-  function tickPartido() {
-    const now  = new Date();
-    const diff = TARGET_PARTIDO - now;
+// ══════════════════════════════════════════════════════════
+// ESTADO GLOBAL
+// ══════════════════════════════════════════════════════════
+let registroCerrado  = false;
+let faseComenzada    = false;
 
-    if (diff <= 0) {
-      ['cd-d','cd-h','cd-m','cd-s'].forEach(id => {
-        document.getElementById(id).textContent = '00';
-      });
-      const msg = document.getElementById('cd-msg');
-      if (msg) msg.textContent = '🔴 ¡La fase eliminatoria ya comenzó!';
-      return;
-    }
+// ══════════════════════════════════════════════════════════
+// BLOQUEAR REGISTRO (UI)
+// ══════════════════════════════════════════════════════════
+function bloquearRegistro() {
+  if (registroCerrado) return;
+  registroCerrado = true;
 
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000)  / 60000);
-    const s = Math.floor((diff % 60000)    / 1000);
-
-    document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
-    document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
-    document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
-    document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+  // Nav btn
+  const navBtn = document.getElementById('nav-registro-btn');
+  if (navBtn) {
+    navBtn.textContent      = '🔒 Cerrado';
+    navBtn.classList.add('locked');
+    navBtn.removeAttribute('href');
   }
 
-  // ══════════════════════════════════════════════
-  // COUNTDOWN CIERRE DE REGISTRO
-  // 28 Jun 2026 · 14:59 UTC-4 (Caracas)
-  // = 2026-06-28T14:59:00-04:00
-  // ══════════════════════════════════════════════
-  const TARGET_REGISTRO = new Date('2026-06-28T14:59:00-04:00');
-
-  function tickRegistro() {
-    const el   = document.getElementById('reg-countdown');
-    if (!el) return;
-
-    const now  = new Date();
-    const diff = TARGET_REGISTRO - now;
-
-    if (diff <= 0) {
-      el.textContent = '¡Registro cerrado!';
-      // Ocultar botón de registro si ya cerró
-      document.querySelectorAll('a[href="registro.html"]').forEach(btn => {
-        btn.style.opacity = '0.4';
-        btn.style.pointerEvents = 'none';
-        btn.textContent = '🔒 Registro cerrado';
-      });
-      return;
-    }
-
-    const h = Math.floor(diff / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000)   / 1000);
-
-    if (h > 0) {
-      el.textContent = `${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
-    } else {
-      el.textContent = `${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
-    }
+  // CTA btn
+  const ctaBtn = document.getElementById('cta-registro-btn');
+  if (ctaBtn) {
+    ctaBtn.textContent        = '🔒 Registro Cerrado';
+    ctaBtn.classList.remove('btn-gold');
+    ctaBtn.classList.add('btn-locked');
+    ctaBtn.removeAttribute('href');
   }
 
+  // Banner
+  const banner = document.getElementById('deadline-banner');
+  if (banner) {
+    banner.style.background = 'rgba(107,122,153,0.1)';
+    banner.style.borderColor = 'rgba(107,122,153,0.3)';
+    banner.style.animation   = 'none';
+  }
+
+  // Pill
+  const pill = document.getElementById('deadline-pill');
+  if (pill) {
+    pill.style.background  = 'rgba(107,122,153,0.1)';
+    pill.style.borderColor = 'rgba(107,122,153,0.3)';
+    pill.style.color       = 'var(--muted)';
+    pill.textContent       = '🔒 Registro cerrado · 28 Jun · 2:59 PM';
+  }
+
+  // CTA section
+  const ctaTitle = document.getElementById('cta-title');
+  const ctaDesc  = document.getElementById('cta-desc');
+  if (ctaTitle) ctaTitle.textContent = '¡LA QUINIELA YA ESTÁ EN JUEGO!';
+  if (ctaDesc)  ctaDesc.textContent  = 'El registro está cerrado. Sigue el bracket y el ranking en tiempo real.';
+
+  // Paso 1
+  const paso1 = document.getElementById('paso1-desc');
+  if (paso1) {
+    paso1.innerHTML = '⛔ El período de registro ha <strong style="color:var(--accent)">cerrado</strong>. Sigue el torneo en el bracket.';
+  }
+
+  // Countdown reg
+  const regEl = document.getElementById('reg-countdown');
+  if (regEl) regEl.textContent = '¡Registro cerrado!';
+}
+
+// ══════════════════════════════════════════════════════════
+// ACTIVAR MODO "FASE EN CURSO"
+// ══════════════════════════════════════════════════════════
+function activarFaseEnCurso() {
+  if (faseComenzada) return;
+  faseComenzada = true;
+
+  // Badge hero → LIVE
+  const badge = document.getElementById('hero-badge');
+  if (badge) {
+    badge.className   = 'live-badge';
+    badge.textContent = '🔴 LIVE — Fase Eliminatoria en Curso';
+  }
+
+  // Ocultar countdown, mostrar próximo partido
+  const cdSection = document.getElementById('cd-section');
+  const proxWrap  = document.getElementById('proximo-wrap');
+  if (cdSection) cdSection.style.display = 'none';
+  if (proxWrap)  proxWrap.style.display  = 'block';
+
+  // Botón hero → bracket
+  const heroBtn = document.getElementById('hero-bracket-btn');
+  if (heroBtn) {
+    heroBtn.textContent = '🏆 Ver Bracket en Vivo';
+  }
+}
+
+// ══════════════════════════════════════════════════════════
+// COUNTDOWN — Primer partido M73
+// ══════════════════════════════════════════════════════════
+function tickPartido() {
+  const now  = new Date();
+  const diff = TARGET_PARTIDO - now;
+
+  if (diff <= 0) {
+    activarFaseEnCurso();
+    return;
+  }
+
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000)  / 60000);
+  const s = Math.floor((diff % 60000)    / 1000);
+
+  const cdD = document.getElementById('cd-d');
+  const cdH = document.getElementById('cd-h');
+  const cdM = document.getElementById('cd-m');
+  const cdS = document.getElementById('cd-s');
+  if (cdD) cdD.textContent = String(d).padStart(2,'0');
+  if (cdH) cdH.textContent = String(h).padStart(2,'0');
+  if (cdM) cdM.textContent = String(m).padStart(2,'0');
+  if (cdS) cdS.textContent = String(s).padStart(2,'0');
+}
+
+// ══════════════════════════════════════════════════════════
+// COUNTDOWN — Cierre de registro
+// ══════════════════════════════════════════════════════════
+function tickRegistro() {
+  const el   = document.getElementById('reg-countdown');
+  if (!el) return;
+
+  const now  = new Date();
+  const diff = TARGET_REGISTRO - now;
+
+  if (diff <= 0) {
+    bloquearRegistro();
+    return;
+  }
+
+  const h = Math.floor(diff / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000)   / 1000);
+
+  // ✅ Urgencia visual cuando quedan < 30 min
+  if (diff < 30 * 60 * 1000) {
+    el.style.color    = 'var(--accent)';
+    el.style.fontSize = '1.2rem';
+    const banner = document.getElementById('deadline-banner');
+    if (banner) banner.style.borderColor = 'rgba(229,62,62,0.9)';
+  }
+
+  if (h > 0) {
+    el.textContent = `${h}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+  } else {
+    el.textContent = `${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+  }
+}
+
+// ══════════════════════════════════════════════════════════
+// INIT — Verificar estado al cargar
+// ══════════════════════════════════════════════════════════
+(function init() {
+  const now = new Date();
+
+  // ¿Ya cerró el registro?
+  if (now >= TARGET_REGISTRO) bloquearRegistro();
+
+  // ¿Ya empezó la fase?
+  if (now >= TARGET_PARTIDO) activarFaseEnCurso();
+
+  // Ticks
   tickPartido();
   tickRegistro();
   setInterval(tickPartido,  1000);
   setInterval(tickRegistro, 1000);
+})();
 </script>
 </body>
 </html>
