@@ -29,131 +29,163 @@ const DB = {
 };
 
 const BRACKET_DATOS = [
-  { id: 'M73', ronda: 'R32', sede: 'SoFi Stadium · Los Ángeles, CA', fecha: '2026-06-28', hora: '13:00',
+  { id: 'M73', ronda: 'R32', sede: 'SoFi Stadium · Los Ángeles, CA',
+    fecha: '2026-06-28', hora: '13:00',
     local_nombre: 'Sudáfrica', local_code: 'RSA', local_bandera: '🇿🇦',
     visitante_nombre: 'Canadá', visitante_code: 'CAN', visitante_bandera: '🇨🇦',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M74', ronda: 'R32', sede: 'NRG Stadium · Houston, TX', fecha: '2026-06-29', hora: '11:00',
+  { id: 'M74', ronda: 'R32', sede: 'NRG Stadium · Houston, TX',
+    fecha: '2026-06-29', hora: '11:00',
     local_nombre: 'Brasil', local_code: 'BRA', local_bandera: '🇧🇷',
     visitante_nombre: 'Japón', visitante_code: 'JPN', visitante_bandera: '🇯🇵',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M75', ronda: 'R32', sede: 'Gillette Stadium · Boston, MA', fecha: '2026-06-29', hora: '14:30',
+  { id: 'M75', ronda: 'R32', sede: 'Gillette Stadium · Boston, MA',
+    fecha: '2026-06-29', hora: '14:30',
     local_nombre: 'Alemania', local_code: 'GER', local_bandera: '🇩🇪',
     visitante_nombre: 'Paraguay', visitante_code: 'PAR', visitante_bandera: '🇵🇾',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M76', ronda: 'R32', sede: 'Estadio BBVA · Monterrey, México', fecha: '2026-06-29', hora: '19:00',
+  { id: 'M76', ronda: 'R32', sede: 'Estadio BBVA · Monterrey, México',
+    fecha: '2026-06-29', hora: '19:00',
     local_nombre: 'Países Bajos', local_code: 'NED', local_bandera: '🇳🇱',
     visitante_nombre: 'Marruecos', visitante_code: 'MAR', visitante_bandera: '🇲🇦',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M77', ronda: 'R32', sede: 'AT&T Stadium · Dallas, TX', fecha: '2026-06-30', hora: '11:00',
+  { id: 'M77', ronda: 'R32', sede: 'AT&T Stadium · Dallas, TX',
+    fecha: '2026-06-30', hora: '11:00',
     local_nombre: 'Costa de Marfil', local_code: 'CIV', local_bandera: '🇨🇮',
     visitante_nombre: 'Noruega', visitante_code: 'NOR', visitante_bandera: '🇳🇴',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M78', ronda: 'R32', sede: 'MetLife Stadium · East Rutherford, NJ', fecha: '2026-06-30', hora: '15:00',
+  { id: 'M78', ronda: 'R32', sede: 'MetLife Stadium · East Rutherford, NJ',
+    fecha: '2026-06-30', hora: '15:00',
     local_nombre: 'Francia', local_code: 'FRA', local_bandera: '🇫🇷',
     visitante_nombre: 'Suecia', visitante_code: 'SWE', visitante_bandera: '🇸🇪',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M79', ronda: 'R32', sede: 'Estadio Azteca · Ciudad de México', fecha: '2026-06-30', hora: '19:00',
+  { id: 'M79', ronda: 'R32', sede: 'Estadio Azteca · Ciudad de México',
+    fecha: '2026-06-30', hora: '19:00',
     local_nombre: 'México', local_code: 'MEX', local_bandera: '🇲🇽',
     visitante_nombre: 'Ecuador', visitante_code: 'ECU', visitante_bandera: '🇪🇨',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M80', ronda: 'R32', sede: 'Mercedes-Benz Stadium · Atlanta, GA', fecha: '2026-07-01', hora: '10:00',
+  { id: 'M80', ronda: 'R32', sede: 'Mercedes-Benz Stadium · Atlanta, GA',
+    fecha: '2026-07-01', hora: '10:00',
     local_nombre: 'Inglaterra', local_code: 'ENG', local_bandera: '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
     visitante_nombre: 'RD Congo', visitante_code: 'COD', visitante_bandera: '🇨🇩',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M81', ronda: 'R32', sede: 'Lumen Field · Seattle, WA', fecha: '2026-07-01', hora: '14:00',
+  { id: 'M81', ronda: 'R32', sede: 'Lumen Field · Seattle, WA',
+    fecha: '2026-07-01', hora: '14:00',
     local_nombre: 'Bélgica', local_code: 'BEL', local_bandera: '🇧🇪',
     visitante_nombre: 'Senegal', visitante_code: 'SEN', visitante_bandera: '🇸🇳',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M82', ronda: 'R32', sede: "Levi's Stadium · San Francisco Bay Area, CA", fecha: '2026-07-01', hora: '18:00',
+  { id: 'M82', ronda: 'R32', sede: "Levi's Stadium · San Francisco Bay Area, CA",
+    fecha: '2026-07-01', hora: '18:00',
     local_nombre: 'Estados Unidos', local_code: 'USA', local_bandera: '🇺🇸',
     visitante_nombre: 'Bosnia-Herzegovina', visitante_code: 'BIH', visitante_bandera: '🇧🇦',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M83', ronda: 'R32', sede: 'SoFi Stadium · Los Ángeles, CA', fecha: '2026-07-02', hora: '13:00',
+  { id: 'M83', ronda: 'R32', sede: 'SoFi Stadium · Los Ángeles, CA',
+    fecha: '2026-07-02', hora: '13:00',
     local_nombre: 'España', local_code: 'ESP', local_bandera: '🇪🇸',
     visitante_nombre: 'Austria', visitante_code: 'AUT', visitante_bandera: '🇦🇹',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M84', ronda: 'R32', sede: 'BMO Field · Toronto, Canadá', fecha: '2026-07-02', hora: '17:00',
+  { id: 'M84', ronda: 'R32', sede: 'BMO Field · Toronto, Canadá',
+    fecha: '2026-07-02', hora: '17:00',
     local_nombre: 'Portugal', local_code: 'POR', local_bandera: '🇵🇹',
     visitante_nombre: 'Croacia', visitante_code: 'CRO', visitante_bandera: '🇭🇷',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M85', ronda: 'R32', sede: 'BC Place · Vancouver, Canadá', fecha: '2026-07-02', hora: '21:00',
+  { id: 'M85', ronda: 'R32', sede: 'BC Place · Vancouver, Canadá',
+    fecha: '2026-07-02', hora: '21:00',
     local_nombre: 'Suiza', local_code: 'SUI', local_bandera: '🇨🇭',
     visitante_nombre: 'Argelia', visitante_code: 'ALG', visitante_bandera: '🇩🇿',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M86', ronda: 'R32', sede: 'AT&T Stadium · Dallas, TX', fecha: '2026-07-03', hora: '12:00',
+  { id: 'M86', ronda: 'R32', sede: 'AT&T Stadium · Dallas, TX',
+    fecha: '2026-07-03', hora: '12:00',
     local_nombre: 'Australia', local_code: 'AUS', local_bandera: '🇦🇺',
     visitante_nombre: 'Egipto', visitante_code: 'EGY', visitante_bandera: '🇪🇬',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M87', ronda: 'R32', sede: 'Hard Rock Stadium · Miami Gardens, FL', fecha: '2026-07-03', hora: '16:00',
+  { id: 'M87', ronda: 'R32', sede: 'Hard Rock Stadium · Miami Gardens, FL',
+    fecha: '2026-07-03', hora: '16:00',
     local_nombre: 'Argentina', local_code: 'ARG', local_bandera: '🇦🇷',
     visitante_nombre: 'Cabo Verde', visitante_code: 'CPV', visitante_bandera: '🇨🇻',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M88', ronda: 'R32', sede: 'Arrowhead Stadium · Kansas City, MO', fecha: '2026-07-03', hora: '19:30',
+  { id: 'M88', ronda: 'R32', sede: 'Arrowhead Stadium · Kansas City, MO',
+    fecha: '2026-07-03', hora: '19:30',
     local_nombre: 'Colombia', local_code: 'COL', local_bandera: '🇨🇴',
     visitante_nombre: 'Ghana', visitante_code: 'GHA', visitante_bandera: '🇬🇭',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M89', ronda: 'R16', sede: 'Lincoln Financial Field · Philadelphia, PA', fecha: '2026-07-04', hora: '15:00',
+  { id: 'M89', ronda: 'R16', sede: 'Lincoln Financial Field · Philadelphia, PA',
+    fecha: '2026-07-04', hora: '15:00',
     local_nombre: 'Ganador M74', local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Ganador M77', visitante_code: 'TBD', visitante_bandera: '🏳️',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M90', ronda: 'R16', sede: 'NRG Stadium · Houston, TX', fecha: '2026-07-04', hora: '19:00',
+  { id: 'M90', ronda: 'R16', sede: 'NRG Stadium · Houston, TX',
+    fecha: '2026-07-04', hora: '19:00',
     local_nombre: 'Ganador M73', local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Ganador M75', visitante_code: 'TBD', visitante_bandera: '🏳️',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M91', ronda: 'R16', sede: 'MetLife Stadium · East Rutherford, NJ', fecha: '2026-07-05', hora: '15:00',
+  { id: 'M91', ronda: 'R16', sede: 'MetLife Stadium · East Rutherford, NJ',
+    fecha: '2026-07-05', hora: '15:00',
     local_nombre: 'Ganador M76', local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Ganador M78', visitante_code: 'TBD', visitante_bandera: '🏳️',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M92', ronda: 'R16', sede: 'Estadio Azteca · Ciudad de México', fecha: '2026-07-05', hora: '19:00',
+  { id: 'M92', ronda: 'R16', sede: 'Estadio Azteca · Ciudad de México',
+    fecha: '2026-07-05', hora: '19:00',
     local_nombre: 'Ganador M79', local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Ganador M80', visitante_code: 'TBD', visitante_bandera: '🏳️',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M93', ronda: 'R16', sede: 'BMO Field · Toronto, Canadá', fecha: '2026-07-06', hora: '15:00',
+  { id: 'M93', ronda: 'R16', sede: 'BMO Field · Toronto, Canadá',
+    fecha: '2026-07-06', hora: '15:00',
     local_nombre: 'Ganador M83', local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Ganador M84', visitante_code: 'TBD', visitante_bandera: '🏳️',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M94', ronda: 'R16', sede: "Levi's Stadium · San Francisco Bay Area, CA", fecha: '2026-07-06', hora: '19:00',
+  { id: 'M94', ronda: 'R16', sede: "Levi's Stadium · San Francisco Bay Area, CA",
+    fecha: '2026-07-06', hora: '19:00',
     local_nombre: 'Ganador M81', local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Ganador M82', visitante_code: 'TBD', visitante_bandera: '🏳️',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M95', ronda: 'R16', sede: 'Hard Rock Stadium · Miami Gardens, FL', fecha: '2026-07-07', hora: '15:00',
+  { id: 'M95', ronda: 'R16', sede: 'Hard Rock Stadium · Miami Gardens, FL',
+    fecha: '2026-07-07', hora: '15:00',
     local_nombre: 'Ganador M86', local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Ganador M88', visitante_code: 'TBD', visitante_bandera: '🏳️',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M96', ronda: 'R16', sede: 'BC Place · Vancouver, Canadá', fecha: '2026-07-07', hora: '19:00',
+  { id: 'M96', ronda: 'R16', sede: 'BC Place · Vancouver, Canadá',
+    fecha: '2026-07-07', hora: '19:00',
     local_nombre: 'Ganador M85', local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Ganador M87', visitante_code: 'TBD', visitante_bandera: '🏳️',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M97', ronda: 'QF', sede: 'Gillette Stadium · Foxborough, MA', fecha: '2026-07-09', hora: '19:00',
+  { id: 'M97', ronda: 'QF', sede: 'Gillette Stadium · Foxborough, MA',
+    fecha: '2026-07-09', hora: '19:00',
     local_nombre: 'Ganador M89', local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Ganador M90', visitante_code: 'TBD', visitante_bandera: '🏳️',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M98', ronda: 'QF', sede: 'SoFi Stadium · Inglewood, CA', fecha: '2026-07-10', hora: '19:00',
+  { id: 'M98', ronda: 'QF', sede: 'SoFi Stadium · Inglewood, CA',
+    fecha: '2026-07-10', hora: '19:00',
     local_nombre: 'Ganador M93', local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Ganador M94', visitante_code: 'TBD', visitante_bandera: '🏳️',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M99', ronda: 'QF', sede: 'Hard Rock Stadium · Miami Gardens, FL', fecha: '2026-07-11', hora: '15:00',
+  { id: 'M99', ronda: 'QF', sede: 'Hard Rock Stadium · Miami Gardens, FL',
+    fecha: '2026-07-11', hora: '15:00',
     local_nombre: 'Ganador M91', local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Ganador M92', visitante_code: 'TBD', visitante_bandera: '🏳️',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M100', ronda: 'QF', sede: 'Arrowhead Stadium · Kansas City, MO', fecha: '2026-07-11', hora: '19:00',
+  { id: 'M100', ronda: 'QF', sede: 'Arrowhead Stadium · Kansas City, MO',
+    fecha: '2026-07-11', hora: '19:00',
     local_nombre: 'Ganador M95', local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Ganador M96', visitante_code: 'TBD', visitante_bandera: '🏳️',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M101', ronda: 'SF', sede: 'AT&T Stadium · Arlington, TX', fecha: '2026-07-14', hora: '19:00',
+  { id: 'M101', ronda: 'SF', sede: 'AT&T Stadium · Arlington, TX',
+    fecha: '2026-07-14', hora: '19:00',
     local_nombre: 'Ganador M97', local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Ganador M98', visitante_code: 'TBD', visitante_bandera: '🏳️',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M102', ronda: 'SF', sede: 'Mercedes-Benz Stadium · Atlanta, GA', fecha: '2026-07-15', hora: '19:00',
+  { id: 'M102', ronda: 'SF', sede: 'Mercedes-Benz Stadium · Atlanta, GA',
+    fecha: '2026-07-15', hora: '19:00',
     local_nombre: 'Ganador M99', local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Ganador M100', visitante_code: 'TBD', visitante_bandera: '🏳️',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M103', ronda: '3P', sede: 'Hard Rock Stadium · Miami Gardens, FL', fecha: '2026-07-18', hora: '15:00',
+  { id: 'M103', ronda: '3P', sede: 'Hard Rock Stadium · Miami Gardens, FL',
+    fecha: '2026-07-18', hora: '15:00',
     local_nombre: 'Perdedor M101', local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Perdedor M102', visitante_code: 'TBD', visitante_bandera: '🏳️',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null },
-  { id: 'M104', ronda: 'F', sede: 'MetLife Stadium · East Rutherford, NJ', fecha: '2026-07-19', hora: '15:00',
+  { id: 'M104', ronda: 'F', sede: 'MetLife Stadium · East Rutherford, NJ',
+    fecha: '2026-07-19', hora: '15:00',
     local_nombre: 'Ganador M101', local_code: 'TBD', local_bandera: '🏳️',
     visitante_nombre: 'Ganador M102', visitante_code: 'TBD', visitante_bandera: '🏳️',
     estado: 'PENDIENTE', goles_local: null, goles_visitante: null, fue_a_penales: false, ganador_code: null }
@@ -421,9 +453,10 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, max: 500,
+  windowMs:     15 * 60 * 1000,
+  max:          500,
   keyGenerator: (req) => req.ip || req.headers['x-forwarded-for'] || 'unknown',
-  message: { ok: false, error: 'Demasiadas solicitudes. Intenta más tarde.' }
+  message:      { ok: false, error: 'Demasiadas solicitudes. Intenta más tarde.' }
 });
 app.use('/api/', limiter);
 
@@ -446,9 +479,12 @@ function authAdmin(req, res, next) {
 
 app.get('/api/health', (req, res) => {
   res.json({
-    ok: true, sistema: 'Quiniela Mundial 2026 — Segunda Fase',
-    autor: 'Mario Vitale', modo: MODO_LOCAL ? 'local' : 'produccion',
-    bracket: 'OFICIAL 28-JUN-2026', timestamp: new Date().toISOString()
+    ok: true,
+    sistema:   'Quiniela Mundial 2026 — Segunda Fase',
+    autor:     'Mario Vitale',
+    modo:      MODO_LOCAL ? 'local' : 'produccion',
+    bracket:   'OFICIAL 28-JUN-2026',
+    timestamp: new Date().toISOString()
   });
 });
 
@@ -476,18 +512,19 @@ app.get('/api/resultados', async (req, res) => {
   } catch(e) { res.status(500).json({ ok: false, error: e.message }); }
 });
 
+// ✅ COLUMNAS REALES: ganador_pred, goles_local_pred, goles_visitante_pred, penales_pred, puntos
 app.get('/api/predicciones/:id', async (req, res) => {
   try {
     const preds = await db.getPrediccionesByParticipante(req.params.id);
     const map   = {};
     preds.forEach(p => {
       map[p.partido_id] = {
-        ganador:         p.ganador_pred         || null,
-        goles_local:     p.goles_local_pred     ?? null,
-        goles_visitante: p.goles_vis_pred       ?? null,
-        penales:         p.penales_pred         ?? false,
-        puntos:          p.puntos_obtenidos     || 0,
-        calculado:       p.calculado            || false
+        ganador:         p.ganador_pred          || null,
+        goles_local:     p.goles_local_pred      ?? null,
+        goles_visitante: p.goles_visitante_pred  ?? null,
+        penales:         p.penales_pred          ?? false,
+        puntos:          p.puntos                || 0,
+        calculado:       p.calculado             || false
       };
     });
     res.json(map);
@@ -508,8 +545,13 @@ app.get('/api/ranking', async (req, res) => {
       ranking,
       stats: { participantes: ranking.length, jugados, pendientes, lider_pts: liderPts, promedio },
       desglose_lider: {
-        r32: lider.pts_r32||0, r16: lider.pts_r16||0, qf: lider.pts_qf||0,
-        sf: lider.pts_sf||0, '3p': lider.pts_3p||0, final: lider.pts_final||0, award: lider.pts_award||0
+        r32:   lider.pts_r32   || 0,
+        r16:   lider.pts_r16   || 0,
+        qf:    lider.pts_qf    || 0,
+        sf:    lider.pts_sf    || 0,
+        '3p':  lider.pts_3p    || 0,
+        final: lider.pts_final || 0,
+        award: lider.pts_award || 0
       }
     });
   } catch(e) { res.status(500).json({ ok: false, error: e.message }); }
@@ -526,15 +568,16 @@ app.get('/api/participante/:email?', async (req, res) => {
     const partidos = await db.getPartidos();
     const award    = await db.getPredAward(part.id);
 
+    // ✅ COLUMNAS REALES de predicciones_elim
     const predsMap = {};
     preds.forEach(p => {
       predsMap[p.partido_id] = {
-        ganador:         p.ganador_pred     || null,
-        goles_local:     p.goles_local_pred ?? null,
-        goles_visitante: p.goles_vis_pred   ?? null,
-        penales:         p.penales_pred     ?? false,
-        puntos:          p.puntos_obtenidos || 0,
-        calculado:       p.calculado        || false
+        ganador:         p.ganador_pred         || null,
+        goles_local:     p.goles_local_pred     ?? null,
+        goles_visitante: p.goles_visitante_pred ?? null,
+        penales:         p.penales_pred         ?? false,
+        puntos:          p.puntos               || 0,
+        calculado:       p.calculado            || false
       };
     });
 
@@ -542,8 +585,11 @@ app.get('/api/participante/:email?', async (req, res) => {
     partidos.forEach(p => { partidosMap[p.id] = p; });
 
     res.json({
-      id: part.id, nombre: part.nombre, email: part.email,
-      pais: part.pais, telefono: part.telefono || null,
+      id:           part.id,
+      nombre:       part.nombre,
+      email:        part.email,
+      pais:         part.pais,
+      telefono:     part.telefono     || null,
       confirmado:   part.confirmado   || false,
       puntos_total: part.puntos_total || 0,
       pts_r32:      part.pts_r32      || 0,
@@ -582,16 +628,21 @@ app.post('/api/registro', async (req, res) => {
       return res.status(409).json({ ok: false, error: 'Este email ya está registrado.' });
 
     const nuevo = await db.addParticipante({
-      nombre: nombre.trim(), email: emailLower, pais: pais.trim(),
-      telefono: telefono?.trim() || null, metodo_pago,
-      balon_oro: balon_oro.trim(),
+      nombre:         nombre.trim(),
+      email:          emailLower,
+      pais:           pais.trim(),
+      telefono:       telefono?.trim()       || null,
+      metodo_pago,
+      balon_oro:      balon_oro.trim(),
       balon_oro_pais: balon_oro_pais?.trim() || null,
-      confirmado: false
+      confirmado:     false
     });
 
     await db.upsertPredAward({
-      participante_id: nuevo.id, award_id: 'BALON_ORO',
-      prediccion: balon_oro.trim(), puntos: 0
+      participante_id: nuevo.id,
+      award_id:        'BALON_ORO',
+      prediccion:      balon_oro.trim(),
+      puntos:          0
     });
 
     res.json({ ok: true, participante_id: nuevo.id, email: emailLower });
@@ -599,22 +650,27 @@ app.post('/api/registro', async (req, res) => {
 });
 
 // ══════════════════════════════════════════════════════════════
-// ✅ FIX CRÍTICO — GUARDAR PREDICCIÓN SIN CAMPO 'ronda'
-// La tabla predicciones_elim NO tiene columna 'ronda'
+// ✅ GUARDAR PREDICCIÓN — COLUMNAS REALES VERIFICADAS
+// predicciones_elim: id, participante_id, participante_email,
+//   partido_id, ganador_pred, goles_local_pred,
+//   goles_visitante_pred, penales_pred, puntos, calculado, fecha_pred
 // ══════════════════════════════════════════════════════════════
 app.post('/api/prediccion', async (req, res) => {
   const {
-    partido_id, participante_id, email,
-    ganador, ganador_pred,
-    goles_local, goles_local_pred,
-    goles_visitante, goles_vis_pred,
-    penales, penales_pred
+    partido_id,
+    participante_id,
+    email,
+    ganador,         ganador_pred,
+    goles_local,     goles_local_pred,
+    goles_visitante, goles_visitante_pred,
+    penales,         penales_pred
   } = req.body;
 
-  const ganadorFinal = ganador     || ganador_pred     || null;
-  const golesLoc     = goles_local ?? goles_local_pred ?? null;
-  const golesVis     = goles_visitante ?? goles_vis_pred ?? null;
-  const penalesFinal = penales     ?? penales_pred      ?? false;
+  // Normalizar — acepta cualquier variante del frontend
+  const ganadorFinal = ganador      || ganador_pred           || null;
+  const golesLoc     = goles_local  ?? goles_local_pred       ?? null;
+  const golesVis     = goles_visitante ?? goles_visitante_pred ?? null;
+  const penalesFinal = penales      ?? penales_pred            ?? false;
 
   if (!partido_id || !ganadorFinal)
     return res.status(400).json({ ok: false, error: 'partido_id y ganador son requeridos.' });
@@ -633,15 +689,16 @@ app.post('/api/prediccion', async (req, res) => {
     if (partido?.estado === 'FINALIZADO')
       return res.status(403).json({ ok: false, error: 'El partido ya finalizó.' });
 
-    // ✅ FIX: SIN campo 'ronda' — no existe en predicciones_elim
+    // ✅ SOLO columnas que existen en predicciones_elim
     await db.upsertPrediccion({
       participante_id:      part.id,
+      participante_email:   part.email,
       partido_id,
       ganador_pred:         ganadorFinal,
       goles_local_pred:     golesLoc,
-      goles_vis_pred:       golesVis,       // ✅ nombre correcto de columna
+      goles_visitante_pred: golesVis,
       penales_pred:         penalesFinal,
-      puntos_obtenidos:     0,              // ✅ nombre correcto de columna
+      puntos:               0,
       calculado:            false,
       fecha_pred:           new Date().toISOString()
     });
@@ -737,7 +794,7 @@ app.post('/api/admin/poblar-bracket', authAdmin, async (req, res) => {
         .from('partidos_elim').upsert(BRACKET_DATOS, { onConflict: 'id' });
       if (error) throw error;
     }
-    res.json({ ok: true, insertados: BRACKET_DATOS.length });
+    res.json({ ok: true, insertados: BRACKET_DATOS.length, bracket: 'OFICIAL 28-JUN-2026' });
   } catch(e) { res.status(500).json({ ok: false, error: e.message }); }
 });
 
@@ -752,7 +809,8 @@ app.post('/api/admin/init', authAdmin, async (req, res) => {
     if (e1) throw e1;
     const { error: e2 } = await supabase
       .from('awards_elim')
-      .upsert([{ id: 'BALON_ORO', nombre: 'Balón de Oro', puntos: 30, ganador: null }], { onConflict: 'id' });
+      .upsert([{ id: 'BALON_ORO', nombre: 'Balón de Oro', puntos: 30, ganador: null }],
+              { onConflict: 'id' });
     if (e2) throw e2;
     res.json({ ok: true, msg: 'Supabase inicializado', partidos: BRACKET_DATOS.length });
   } catch(e) { res.status(500).json({ ok: false, error: e.message }); }
@@ -837,11 +895,11 @@ app.get('/api/pdf/quiniela/:id', async (req, res) => {
       doc.moveDown(0.5).fontSize(13).text(`── ${nombres[r]} ──`, { underline: true });
       ps.forEach(p => {
         const pred = preds.find(x => x.partido_id === p.id);
-        const resultado   = p.estado === 'FINALIZADO'
+        const resultado  = p.estado === 'FINALIZADO'
           ? `Real: ${p.goles_local}-${p.goles_visitante}${p.fue_a_penales?' (pen)':''}`
           : 'Pendiente';
-        const prediccion  = pred
-          ? `Pred: ${pred.ganador_pred} · ${pred.goles_local_pred??'?'}-${pred.goles_vis_pred??'?'}${pred.penales_pred?' (pen)':''} · ${pred.puntos_obtenidos||0} pts`
+        const prediccion = pred
+          ? `Pred: ${pred.ganador_pred} · ${pred.goles_local_pred??'?'}-${pred.goles_visitante_pred??'?'}${pred.penales_pred?' (pen)':''} · ${pred.puntos||0} pts`
           : 'Sin predicción';
         doc.fontSize(9).text(`  ${p.id}: ${p.local_nombre} vs ${p.visitante_nombre} | ${resultado} | ${prediccion}`);
       });
@@ -871,7 +929,12 @@ app.get('/api/pdf/:tipo', async (req, res) => {
     } else if (req.params.tipo === 'bracket') {
       const partidos = await db.getPartidos();
       const rondas   = ['R32','R16','QF','SF','3P','F'];
-      const nombres  = { R32:'Ronda de 32', R16:'Octavos', QF:'Cuartos', SF:'Semis', '3P':'Tercer Puesto', F:'GRAN FINAL' };
+      const nombres  
+      const nombres  = {
+        R32:'Ronda de 32', R16:'Octavos de Final',
+        QF:'Cuartos de Final', SF:'Semifinales',
+        '3P':'Tercer Puesto', F:'GRAN FINAL'
+      };
       for (const r of rondas) {
         const ps = partidos.filter(p => p.ronda === r);
         if (!ps.length) continue;
@@ -880,7 +943,7 @@ app.get('/api/pdf/:tipo', async (req, res) => {
           const score = p.estado === 'FINALIZADO'
             ? `${p.goles_local} - ${p.goles_visitante}${p.fue_a_penales?' (pen)':''}`
             : 'vs';
-                    doc.fontSize(10).text(`  ${p.id}: ${p.local_nombre} ${score} ${p.visitante_nombre} | ${p.sede}`);
+          doc.fontSize(10).text(`  ${p.id}: ${p.local_nombre} ${score} ${p.visitante_nombre} | ${p.sede}`);
         });
       }
     }
@@ -893,6 +956,7 @@ app.get('/api/pdf/:tipo', async (req, res) => {
 
 // ══════════════════════════════════════════════════════════════
 // MOTOR DE CÁLCULO DE PUNTOS
+// ✅ COLUMNAS REALES: goles_visitante_pred, puntos
 // ══════════════════════════════════════════════════════════════
 async function calcularPuntosPartido(partidoId) {
   const partido = await db.getPartido(partidoId);
@@ -904,19 +968,25 @@ async function calcularPuntosPartido(partidoId) {
 
   for (const pred of preds) {
     let pts = 0;
+
     if (pred.ganador_pred === partido.ganador_code) {
       pts += ptsRonda.ganador;
-      if (pred.goles_local_pred === partido.goles_local &&
-          pred.goles_vis_pred   === partido.goles_visitante) {
+
+      if (pred.goles_local_pred     === partido.goles_local &&
+          pred.goles_visitante_pred === partido.goles_visitante) {
         pts += ptsRonda.marcador;
       }
+
       if (partido.fue_a_penales && pred.penales_pred) {
         pts += ptsRonda.penales;
       }
     }
-    await db.updatePrediccion(pred.id, { puntos_obtenidos: pts, calculado: true });
+
+    // ✅ columna real: 'puntos'
+    await db.updatePrediccion(pred.id, { puntos: pts, calculado: true });
     procesados++;
   }
+
   return procesados;
 }
 
@@ -938,8 +1008,10 @@ async function recalcularRanking() {
     for (const pred of preds) {
       const partido = partidos.find(p => p.id === pred.partido_id);
       const ronda   = partido?.ronda || 'R32';
-      const pts     = pred.puntos_obtenidos || 0;
+      const pts     = pred.puntos || 0;  // ✅ columna real: 'puntos'
+
       porRonda[ronda] = (porRonda[ronda] || 0) + pts;
+
       if (pred.calculado && pts > 0) aciertos++;
       else if (pred.calculado)       fallos++;
       else                           pendientes++;
@@ -957,7 +1029,9 @@ async function recalcularRanking() {
       pts_3p:       porRonda['3P'],
       pts_final:    porRonda['F'],
       pts_award:    ptsAward,
-      aciertos, fallos, pendientes
+      aciertos,
+      fallos,
+      pendientes
     });
   }
 
@@ -983,7 +1057,7 @@ app.use((err, req, res, next) => {
 });
 
 // ══════════════════════════════════════════════════════════════
-// ARRANQUE
+// ARRANQUE — Compatible Vercel + Node tradicional
 // ══════════════════════════════════════════════════════════════
 if (require.main === module) {
   app.listen(PORT, () => {
@@ -993,10 +1067,11 @@ if (require.main === module) {
     console.log(`  🚀  Puerto  : ${PORT}`);
     console.log(`  🔧  Modo    : ${MODO_LOCAL ? 'LOCAL (memoria)' : 'PRODUCCIÓN (Supabase)'}`);
     console.log('  📋  Bracket : OFICIAL 28-JUN-2026 ✅');
+    console.log('  🏟️  R32     : M73–M88 con equipos reales');
     console.log('  ✅  Acceso  : Inmediato sin esperar pago');
     console.log('══════════════════════════════════════════════════════\n');
   });
 }
 
+// ✅ EXPORT PARA VERCEL
 module.exports = app;
-
