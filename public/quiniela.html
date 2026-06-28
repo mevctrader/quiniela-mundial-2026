@@ -12,17 +12,12 @@
     color: #e0e6f0;
     min-height: 100vh;
   }
-
-  /* ── HEADER ── */
   .header {
     background: linear-gradient(135deg, #0d1b2a 0%, #1a2a4a 50%, #0d1b2a 100%);
     border-bottom: 2px solid #c9a227;
     padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
+    display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 12px;
   }
   .header-logo { display: flex; align-items: center; gap: 12px; }
   .header-logo img { height: 48px; border-radius: 8px; }
@@ -37,7 +32,6 @@
   .nav-links a:hover  { background: #1a2a4a; color: #c9a227; border-color: #c9a227; }
   .nav-links a.active { background: #c9a227; color: #0a0e1a; border-color: #c9a227; }
 
-  /* ── LOGIN PANEL ── */
   .login-panel {
     max-width: 480px; margin: 60px auto;
     background: linear-gradient(135deg, #0d1b2a, #1a2a4a);
@@ -54,18 +48,14 @@
     margin-bottom: 16px; outline: none; transition: border-color 0.2s;
   }
   .login-panel input:focus { border-color: #c9a227; }
-
-  /* ✅ NUEVO — banner acceso inmediato en login */
   .login-access-note {
     background: rgba(56,161,105,0.1);
     border: 1px solid rgba(56,161,105,0.3);
     border-radius: 10px; padding: 12px 16px;
     font-size: 0.8rem; color: #68d391;
-    margin-bottom: 16px; text-align: left;
-    line-height: 1.6;
+    margin-bottom: 16px; text-align: left; line-height: 1.6;
   }
   .login-access-note strong { color: #9ae6b4; }
-
   .btn-gold {
     width: 100%; padding: 12px;
     background: linear-gradient(135deg, #c9a227, #e8c547);
@@ -74,59 +64,41 @@
     cursor: pointer; transition: opacity 0.2s;
   }
   .btn-gold:hover { opacity: 0.9; }
-  .login-error {
-    color: #ff4444; font-size: 0.85rem;
-    margin-top: 12px; display: none;
-  }
-
-  /* ✅ NUEVO — link a registro */
-  .login-registro-link {
-    margin-top: 16px; font-size: 0.82rem; color: #8899aa;
-  }
-  .login-registro-link a {
-    color: #c9a227; text-decoration: none; font-weight: 600;
-  }
+  .login-error { color: #ff4444; font-size: 0.85rem; margin-top: 12px; display: none; }
+  .login-registro-link { margin-top: 16px; font-size: 0.82rem; color: #8899aa; }
+  .login-registro-link a { color: #c9a227; text-decoration: none; font-weight: 600; }
   .login-registro-link a:hover { text-decoration: underline; }
 
-  /* ── MAIN PANEL ── */
   .main-panel { display: none; padding: 24px; max-width: 1200px; margin: 0 auto; }
 
-  /* ✅ NUEVO — banner pago pendiente */
   .pago-pendiente-banner {
     display: none;
     background: rgba(214,158,46,0.1);
     border: 1px solid rgba(214,158,46,0.35);
-    border-radius: 12px; padding: 14px 20px;
-    margin-bottom: 20px;
-    display: flex; align-items: center; gap: 12px;
-    font-size: 0.84rem; color: #f6e05e;
+    border-radius: 12px; padding: 14px 20px; margin-bottom: 20px;
+    align-items: center; gap: 12px; font-size: 0.84rem; color: #f6e05e;
   }
   .pago-pendiente-banner.visible { display: flex; }
   .pago-pendiente-banner .ppb-icon { font-size: 1.4rem; flex-shrink: 0; }
   .pago-pendiente-banner .ppb-text { line-height: 1.6; }
   .pago-pendiente-banner .ppb-text strong { color: #fefcbf; }
 
-  /* ── USER HEADER ── */
   .user-header {
     background: linear-gradient(135deg, #0d1b2a, #1a2a4a);
     border: 1px solid #2a3a5a; border-radius: 12px;
-    padding: 20px 24px;
-    display: flex; align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap; gap: 16px; margin-bottom: 20px;
+    padding: 20px 24px; display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;
   }
   .user-info h2 { color: #c9a227; font-size: 1.3rem; }
   .user-info p  { color: #8899aa; font-size: 0.85rem; margin-top: 4px; }
   .user-stats   { display: flex; gap: 16px; flex-wrap: wrap; }
   .stat-box {
     background: #0a0e1a; border: 1px solid #2a3a5a;
-    border-radius: 10px; padding: 12px 20px;
-    text-align: center; min-width: 100px;
+    border-radius: 10px; padding: 12px 20px; text-align: center; min-width: 100px;
   }
   .stat-box .val { font-size: 1.8rem; font-weight: 700; color: #c9a227; }
   .stat-box .lbl { font-size: 0.7rem; color: #8899aa; text-transform: uppercase; letter-spacing: 0.5px; }
 
-  /* ── ROUND TABS ── */
   .round-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
   .round-tab {
     padding: 8px 18px; border-radius: 20px; font-size: 0.82rem;
@@ -136,23 +108,20 @@
   .round-tab:hover  { background: #1a2a4a; color: #c9a227; border-color: #c9a227; }
   .round-tab.active { background: #c9a227; color: #0a0e1a; border-color: #c9a227; }
 
-  /* ── MATCH GRID ── */
   .matches-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: 16px;
   }
-
-  /* ── MATCH CARD ── */
   .match-card {
     background: linear-gradient(135deg, #0d1b2a, #1a2a4a);
     border: 1px solid #2a3a5a; border-radius: 12px;
     overflow: hidden; transition: transform 0.2s, border-color 0.2s;
   }
-  .match-card:hover  { transform: translateY(-2px); border-color: #3a4a6a; }
-  .match-card.win    { border-color: #00cc66; }
-  .match-card.loss   { border-color: #ff4444; }
-  .match-card.pending{ border-color: #c9a227; }
+  .match-card:hover   { transform: translateY(-2px); border-color: #3a4a6a; }
+  .match-card.win     { border-color: #00cc66; }
+  .match-card.loss    { border-color: #ff4444; }
+  .match-card.pending { border-color: #c9a227; }
 
   .card-header {
     background: rgba(0,0,0,0.3); padding: 8px 14px;
@@ -170,31 +139,24 @@
   .status-badge.tbd     { background: #44556622; color: #8899aa; border: 1px solid #445566; }
 
   .card-teams {
-    padding: 16px 14px; display: flex;
-    align-items: center; gap: 8px;
+    padding: 16px 14px; display: flex; align-items: center; gap: 8px;
   }
-  .team-side   { flex: 1; text-align: center; }
-  .team-flag   { font-size: 2rem; display: block; margin-bottom: 4px; }
-  .team-name   { font-size: 0.8rem; font-weight: 600; color: #c8d8e8; }
-  .team-score  { font-size: 1.4rem; font-weight: 700; color: #c9a227; margin-top: 4px; }
-  .vs-divider  {
+  .team-side  { flex: 1; text-align: center; }
+  .team-flag  { font-size: 2rem; display: block; margin-bottom: 4px; }
+  .team-name  { font-size: 0.8rem; font-weight: 600; color: #c8d8e8; }
+  .team-score { font-size: 1.4rem; font-weight: 700; color: #c9a227; margin-top: 4px; }
+  .vs-divider {
     font-size: 0.75rem; color: #445566; font-weight: 700;
     padding: 0 4px; text-align: center; min-width: 40px;
   }
-  .vs-divider .score-line {
-    font-size: 1.6rem; color: #e0e6f0;
-    font-weight: 700; display: block;
-  }
+  .vs-divider .score-line { font-size: 1.6rem; color: #e0e6f0; font-weight: 700; display: block; }
 
   .card-info {
     padding: 8px 14px 12px; font-size: 0.72rem;
     color: #8899aa; border-top: 1px solid #1a2a3a;
   }
-
-  /* ── PREDICTION SECTION ── */
   .prediction-section {
-    padding: 12px 14px;
-    background: rgba(201,162,39,0.05);
+    padding: 12px 14px; background: rgba(201,162,39,0.05);
     border-top: 1px solid #1a2a3a;
   }
   .prediction-label {
@@ -215,15 +177,11 @@
   .pred-btn.wrong    { background: #ff4444; color: #fff; border-color: #ff4444; }
   .pred-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-  .score-inputs {
-    display: flex; align-items: center;
-    gap: 8px; margin-top: 10px;
-  }
+  .score-inputs { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
   .score-inputs input {
     width: 48px; padding: 6px; text-align: center;
     background: #0a0e1a; border: 1px solid #2a3a5a;
-    border-radius: 6px; color: #e0e6f0;
-    font-size: 1rem; font-weight: 700; outline: none;
+    border-radius: 6px; color: #e0e6f0; font-size: 1rem; font-weight: 700; outline: none;
   }
   .score-inputs input:focus { border-color: #c9a227; }
   .score-inputs span  { color: #445566; font-weight: 700; }
@@ -239,7 +197,6 @@
   .save-pred-btn:hover { background: linear-gradient(135deg, #2a4a8a, #3a5aaa); }
   .save-pred-btn.saved { background: #00cc6622; border-color: #00cc66; color: #00cc66; }
 
-  /* ── POINTS BREAKDOWN ── */
   .points-breakdown {
     background: linear-gradient(135deg, #0d1b2a, #1a2a4a);
     border: 1px solid #2a3a5a; border-radius: 12px;
@@ -247,9 +204,7 @@
   }
   .points-breakdown h3 { color: #c9a227; margin-bottom: 16px; font-size: 1rem; }
   .points-table {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 12px;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px;
   }
   .pt-row {
     background: #0a0e1a; border: 1px solid #1a2a3a;
@@ -259,29 +214,24 @@
   .pt-row .rnd { font-size: 0.78rem; color: #8899aa; }
   .pt-row .pts { font-size: 1rem; font-weight: 700; color: #c9a227; }
 
-  /* ── EMPTY STATE ── */
   .empty-state { text-align: center; padding: 60px 20px; color: #445566; }
   .empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
   .empty-state p { font-size: 0.9rem; }
 
-  /* ── DOWNLOAD BAR ── */
   .download-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
   .btn-outline {
-    padding: 10px 20px; border-radius: 8px;
-    border: 1px solid #c9a227; background: transparent;
-    color: #c9a227; font-size: 0.85rem; font-weight: 600;
+    padding: 10px 20px; border-radius: 8px; border: 1px solid #c9a227;
+    background: transparent; color: #c9a227; font-size: 0.85rem; font-weight: 600;
     cursor: pointer; transition: all 0.2s;
   }
   .btn-outline:hover { background: rgba(201,162,39,0.1); }
   .btn-danger {
-    padding: 10px 20px; border-radius: 8px;
-    border: 1px solid #ff4444; background: transparent;
-    color: #ff4444; font-size: 0.85rem; font-weight: 600;
+    padding: 10px 20px; border-radius: 8px; border: 1px solid #ff4444;
+    background: transparent; color: #ff4444; font-size: 0.85rem; font-weight: 600;
     cursor: pointer; transition: all 0.2s;
   }
   .btn-danger:hover { background: rgba(255,68,68,0.1); }
 
-  /* ── TOAST ── */
   .toast {
     position: fixed; bottom: 24px; right: 24px;
     background: #1a2a4a; border: 1px solid #c9a227;
@@ -294,30 +244,27 @@
   .toast.success { border-color: #00cc66; }
   .toast.error   { border-color: #ff4444; }
 
-  /* ── LOADING ── */
   .loading-overlay {
     display: none; position: fixed; inset: 0;
-    background: rgba(10,14,26,0.85);
-    z-index: 999; align-items: center; justify-content: center;
+    background: rgba(10,14,26,0.85); z-index: 999;
+    align-items: center; justify-content: center;
     flex-direction: column; gap: 16px;
   }
   .loading-overlay.visible { display: flex; }
   .spinner {
     width: 40px; height: 40px;
     border: 4px solid rgba(201,162,39,0.2);
-    border-top-color: #c9a227;
-    border-radius: 50%;
+    border-top-color: #c9a227; border-radius: 50%;
     animation: spin 0.7s linear infinite;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
   .loading-overlay p { color: #c9a227; font-size: 0.9rem; }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
-    .matches-grid  { grid-template-columns: 1fr; }
-    .user-stats    { justify-content: center; }
-    .main-panel    { padding: 16px; }
-    .download-bar  { flex-direction: column; }
+    .matches-grid { grid-template-columns: 1fr; }
+    .user-stats   { justify-content: center; }
+    .main-panel   { padding: 16px; }
+    .download-bar { flex-direction: column; }
   }
 </style>
 </head>
@@ -346,29 +293,19 @@
   <div class="icon">📋</div>
   <h2>Accede a tu Quiniela</h2>
   <p>Ingresa tu correo electrónico para ver y editar tus predicciones</p>
-
-  <!-- ✅ NUEVO — nota acceso inmediato -->
   <div class="login-access-note">
     ✅ <strong>Acceso inmediato tras el registro.</strong><br/>
     No necesitas esperar confirmación de pago para predecir.
     Solo ingresa tu email registrado.
   </div>
-
-  <input type="email" id="emailInput"
-         placeholder="tu@correo.com" autocomplete="email">
-  <button class="btn-gold" onclick="doLogin()">
-    Ver Mi Quiniela →
-  </button>
+  <input type="email" id="emailInput" placeholder="tu@correo.com" autocomplete="email">
+  <button class="btn-gold" onclick="doLogin()">Ver Mi Quiniela →</button>
   <div class="login-error" id="loginError">
     ❌ Correo no encontrado.
-    <a href="registro.html" style="color:#c9a227;font-weight:700">
-      ¿Aún no te registraste?
-    </a>
+    <a href="registro.html" style="color:#c9a227;font-weight:700">¿Aún no te registraste?</a>
   </div>
-
   <div class="login-registro-link">
-    ¿Primera vez?
-    <a href="registro.html">Regístrate aquí →</a>
+    ¿Primera vez? <a href="registro.html">Regístrate aquí →</a>
   </div>
 </div>
 
@@ -381,7 +318,6 @@
 <!-- MAIN PANEL -->
 <div id="mainPanel" class="main-panel">
 
-  <!-- ✅ BANNER PAGO PENDIENTE — solo si no está confirmado -->
   <div class="pago-pendiente-banner" id="pagoPendienteBanner">
     <div class="ppb-icon">⏳</div>
     <div class="ppb-text">
@@ -392,46 +328,30 @@
     </div>
   </div>
 
-  <!-- USER HEADER -->
   <div class="user-header">
     <div class="user-info">
       <h2 id="userName">👤 Cargando...</h2>
       <p id="userEmail">—</p>
     </div>
     <div class="user-stats">
-      <div class="stat-box">
-        <div class="val" id="statPuntos">0</div>
-        <div class="lbl">Puntos</div>
-      </div>
-      <div class="stat-box">
-        <div class="val" id="statAciertos">0</div>
-        <div class="lbl">Aciertos</div>
-      </div>
-      <div class="stat-box">
-        <div class="val" id="statPosicion">#—</div>
-        <div class="lbl">Posición</div>
-      </div>
-      <div class="stat-box">
-        <div class="val" id="statPendientes">0</div>
-        <div class="lbl">Pendientes</div>
-      </div>
+      <div class="stat-box"><div class="val" id="statPuntos">0</div><div class="lbl">Puntos</div></div>
+      <div class="stat-box"><div class="val" id="statAciertos">0</div><div class="lbl">Aciertos</div></div>
+      <div class="stat-box"><div class="val" id="statPosicion">#—</div><div class="lbl">Posición</div></div>
+      <div class="stat-box"><div class="val" id="statPendientes">0</div><div class="lbl">Pendientes</div></div>
     </div>
   </div>
 
-  <!-- DOWNLOAD BAR -->
   <div class="download-bar">
     <button class="btn-outline" onclick="downloadPDF()">📄 Descargar PDF</button>
     <button class="btn-outline" onclick="refreshData()">🔄 Actualizar</button>
     <button class="btn-danger"  onclick="doLogout()">🚪 Cerrar Sesión</button>
   </div>
 
-  <!-- POINTS BREAKDOWN -->
   <div class="points-breakdown">
     <h3>📊 Desglose de Puntos por Ronda</h3>
     <div class="points-table" id="pointsTable"></div>
   </div>
 
-  <!-- ROUND TABS -->
   <div class="round-tabs" id="roundTabs">
     <button class="round-tab active" onclick="showRound('R32',this)">R32 · 16avos</button>
     <button class="round-tab" onclick="showRound('R16',this)">R16 · Octavos</button>
@@ -441,9 +361,7 @@
     <button class="round-tab" onclick="showRound('F',this)">F · Final</button>
   </div>
 
-  <!-- MATCHES GRID -->
   <div class="matches-grid" id="matchesGrid"></div>
-
 </div>
 
 <!-- TOAST -->
@@ -453,176 +371,89 @@
 const API = window.location.origin;
 
 // ══════════════════════════════════════════════════════════
-// BRACKET OFICIAL FIFA MUNDIAL 2026
+// BRACKET ESTÁTICO (fallback si el server no responde)
 // ══════════════════════════════════════════════════════════
 const BRACKET = {
   R32: [
-    { id:'M73',  local:'Sudáfrica',    localFlag:'🇿🇦', localCode:'RSA',
-                 visitante:'Canadá',   visitFlag:'🇨🇦', visitCode:'CAN',
-                 sede:'SoFi Stadium · Los Ángeles, CA',
-                 fecha:'28 Jun', hora:'1:00 PM ET' },
-    { id:'M74',  local:'Brasil',       localFlag:'🇧🇷', localCode:'BRA',
-                 visitante:'Japón',    visitFlag:'🇯🇵', visitCode:'JPN',
-                 sede:'NRG Stadium · Houston, TX',
-                 fecha:'29 Jun', hora:'11:00 AM ET' },
-    { id:'M75',  local:'Alemania',     localFlag:'🇩🇪', localCode:'GER',
-                 visitante:'Paraguay', visitFlag:'🇵🇾', visitCode:'PAR',
-                 sede:'Gillette Stadium · Boston, MA',
-                 fecha:'29 Jun', hora:'2:30 PM ET' },
-    { id:'M76',  local:'Países Bajos', localFlag:'🇳🇱', localCode:'NED',
-                 visitante:'Marruecos',visitFlag:'🇲🇦', visitCode:'MAR',
-                 sede:'Estadio BBVA · Monterrey, México',
-                 fecha:'29 Jun', hora:'7:00 PM ET' },
-    { id:'M77',  local:'Costa de Marfil', localFlag:'🇨🇮', localCode:'CIV',
-                 visitante:'Noruega',     visitFlag:'🇳🇴', visitCode:'NOR',
-                 sede:'AT&T Stadium · Dallas, TX',
-                 fecha:'30 Jun', hora:'11:00 AM ET' },
-    { id:'M78',  local:'Francia',      localFlag:'🇫🇷', localCode:'FRA',
-                 visitante:'Suecia',   visitFlag:'🇸🇪', visitCode:'SWE',
-                 sede:'MetLife Stadium · East Rutherford, NJ',
-                 fecha:'30 Jun', hora:'3:00 PM ET' },
-    { id:'M79',  local:'México',       localFlag:'🇲🇽', localCode:'MEX',
-                 visitante:'Ecuador',  visitFlag:'🇪🇨', visitCode:'ECU',
-                 sede:'Estadio Azteca · Ciudad de México',
-                 fecha:'30 Jun', hora:'7:00 PM ET' },
-    { id:'M80',  local:'Inglaterra',   localFlag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿', localCode:'ENG',
-                 visitante:'RD Congo', visitFlag:'🇨🇩', visitCode:'COD',
-                 sede:'Mercedes-Benz Stadium · Atlanta, GA',
-                 fecha:'1 Jul',  hora:'10:00 AM ET' },
-    { id:'M81',  local:'Bélgica',      localFlag:'🇧🇪', localCode:'BEL',
-                 visitante:'Senegal',  visitFlag:'🇸🇳', visitCode:'SEN',
-                 sede:'Lumen Field · Seattle, WA',
-                 fecha:'1 Jul',  hora:'2:00 PM ET' },
-    { id:'M82',  local:'Estados Unidos',        localFlag:'🇺🇸', localCode:'USA',
-                 visitante:'Bosnia-Herzegovina', visitFlag:'🇧🇦', visitCode:'BIH',
-                 sede:"Levi's Stadium · Santa Clara, CA",
-                 fecha:'1 Jul',  hora:'6:00 PM ET' },
-    { id:'M83',  local:'España',       localFlag:'🇪🇸', localCode:'ESP',
-                 visitante:'Austria',  visitFlag:'🇦🇹', visitCode:'AUT',
-                 sede:'SoFi Stadium · Los Ángeles, CA',
-                 fecha:'2 Jul',  hora:'1:00 PM ET' },
-    { id:'M84',  local:'Portugal',     localFlag:'🇵🇹', localCode:'POR',
-                 visitante:'Croacia',  visitFlag:'🇭🇷', visitCode:'CRO',
-                 sede:'BMO Field · Toronto, Canadá',
-                 fecha:'2 Jul',  hora:'5:00 PM ET' },
-    { id:'M85',  local:'Suiza',        localFlag:'🇨🇭', localCode:'SUI',
-                 visitante:'Argelia',  visitFlag:'🇩🇿', visitCode:'ALG',
-                 sede:'BC Place · Vancouver, Canadá',
-                 fecha:'2 Jul',  hora:'9:00 PM ET' },
-    { id:'M86',  local:'Australia',    localFlag:'🇦🇺', localCode:'AUS',
-                 visitante:'Egipto',   visitFlag:'🇪🇬', visitCode:'EGY',
-                 sede:'AT&T Stadium · Dallas, TX',
-                 fecha:'3 Jul',  hora:'12:00 PM ET' },
-    { id:'M87',  local:'Argentina',    localFlag:'🇦🇷', localCode:'ARG',
-                 visitante:'Cabo Verde',visitFlag:'🇨🇻', visitCode:'CPV',
-                 sede:'Hard Rock Stadium · Miami Gardens, FL',
-                 fecha:'3 Jul',  hora:'4:00 PM ET' },
-    { id:'M88',  local:'Colombia',     localFlag:'🇨🇴', localCode:'COL',
-                 visitante:'Ghana',    visitFlag:'🇬🇭', visitCode:'GHA',
-                 sede:'Arrowhead Stadium · Kansas City, MO',
-                 fecha:'3 Jul',  hora:'7:30 PM ET' },
+    { id:'M73',  local:'Sudáfrica',       localFlag:'🇿🇦', localCode:'RSA', visitante:'Canadá',            visitFlag:'🇨🇦', visitCode:'CAN', sede:'SoFi Stadium · Los Ángeles, CA',            fecha:'28 Jun', hora:'1:00 PM ET' },
+    { id:'M74',  local:'Brasil',          localFlag:'🇧🇷', localCode:'BRA', visitante:'Japón',             visitFlag:'🇯🇵', visitCode:'JPN', sede:'NRG Stadium · Houston, TX',                 fecha:'29 Jun', hora:'11:00 AM ET' },
+    { id:'M75',  local:'Alemania',        localFlag:'🇩🇪', localCode:'GER', visitante:'Paraguay',          visitFlag:'🇵🇾', visitCode:'PAR', sede:'Gillette Stadium · Boston, MA',             fecha:'29 Jun', hora:'2:30 PM ET' },
+    { id:'M76',  local:'Países Bajos',    localFlag:'🇳🇱', localCode:'NED', visitante:'Marruecos',         visitFlag:'🇲🇦', visitCode:'MAR', sede:'Estadio BBVA · Monterrey, México',          fecha:'29 Jun', hora:'7:00 PM ET' },
+    { id:'M77',  local:'Costa de Marfil', localFlag:'🇨🇮', localCode:'CIV', visitante:'Noruega',           visitFlag:'🇳🇴', visitCode:'NOR', sede:'AT&T Stadium · Dallas, TX',                 fecha:'30 Jun', hora:'11:00 AM ET' },
+    { id:'M78',  local:'Francia',         localFlag:'🇫🇷', localCode:'FRA', visitante:'Suecia',            visitFlag:'🇸🇪', visitCode:'SWE', sede:'MetLife Stadium · East Rutherford, NJ',    fecha:'30 Jun', hora:'3:00 PM ET' },
+    { id:'M79',  local:'México',          localFlag:'🇲🇽', localCode:'MEX', visitante:'Ecuador',           visitFlag:'🇪🇨', visitCode:'ECU', sede:'Estadio Azteca · Ciudad de México',         fecha:'30 Jun', hora:'7:00 PM ET' },
+    { id:'M80',  local:'Inglaterra',      localFlag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿', localCode:'ENG', visitante:'RD Congo',          visitFlag:'🇨🇩', visitCode:'COD', sede:'Mercedes-Benz Stadium · Atlanta, GA',      fecha:'1 Jul',  hora:'10:00 AM ET' },
+    { id:'M81',  local:'Bélgica',         localFlag:'🇧🇪', localCode:'BEL', visitante:'Senegal',           visitFlag:'🇸🇳', visitCode:'SEN', sede:'Lumen Field · Seattle, WA',                 fecha:'1 Jul',  hora:'2:00 PM ET' },
+    { id:'M82',  local:'Estados Unidos',  localFlag:'🇺🇸', localCode:'USA', visitante:'Bosnia-Herzegovina',visitFlag:'🇧🇦', visitCode:'BIH', sede:"Levi's Stadium · Santa Clara, CA",          fecha:'1 Jul',  hora:'6:00 PM ET' },
+    { id:'M83',  local:'España',          localFlag:'🇪🇸', localCode:'ESP', visitante:'Austria',           visitFlag:'🇦🇹', visitCode:'AUT', sede:'SoFi Stadium · Los Ángeles, CA',            fecha:'2 Jul',  hora:'1:00 PM ET' },
+    { id:'M84',  local:'Portugal',        localFlag:'🇵🇹', localCode:'POR', visitante:'Croacia',           visitFlag:'🇭🇷', visitCode:'CRO', sede:'BMO Field · Toronto, Canadá',               fecha:'2 Jul',  hora:'5:00 PM ET' },
+    { id:'M85',  local:'Suiza',           localFlag:'🇨🇭', localCode:'SUI', visitante:'Argelia',           visitFlag:'🇩🇿', visitCode:'ALG', sede:'BC Place · Vancouver, Canadá',              fecha:'2 Jul',  hora:'9:00 PM ET' },
+    { id:'M86',  local:'Australia',       localFlag:'🇦🇺', localCode:'AUS', visitante:'Egipto',            visitFlag:'🇪🇬', visitCode:'EGY', sede:'AT&T Stadium · Dallas, TX',                 fecha:'3 Jul',  hora:'12:00 PM ET' },
+    { id:'M87',  local:'Argentina',       localFlag:'🇦🇷', localCode:'ARG', visitante:'Cabo Verde',        visitFlag:'🇨🇻', visitCode:'CPV', sede:'Hard Rock Stadium · Miami Gardens, FL',     fecha:'3 Jul',  hora:'4:00 PM ET' },
+    { id:'M88',  local:'Colombia',        localFlag:'🇨🇴', localCode:'COL', visitante:'Ghana',             visitFlag:'🇬🇭', visitCode:'GHA', sede:'Arrowhead Stadium · Kansas City, MO',       fecha:'3 Jul',  hora:'7:30 PM ET' },
   ],
   R16: [
-    { id:'M89',  local:'Ganador M74', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M77', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'Lincoln Financial Field · Philadelphia', fecha:'4 Jul', hora:'3:00 PM ET' },
-    { id:'M90',  local:'Ganador M73', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M75', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'NRG Stadium · Houston', fecha:'4 Jul', hora:'7:00 PM ET' },
-    { id:'M91',  local:'Ganador M76', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M78', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'MetLife Stadium · New York/NJ', fecha:'5 Jul', hora:'3:00 PM ET' },
-    { id:'M92',  local:'Ganador M79', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M80', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'Estadio Azteca · Ciudad de México', fecha:'5 Jul', hora:'7:00 PM ET' },
-    { id:'M93',  local:'Ganador M83', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M84', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'BMO Field · Toronto', fecha:'6 Jul', hora:'3:00 PM ET' },
-    { id:'M94',  local:'Ganador M81', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M82', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:"Levi's Stadium · Santa Clara", fecha:'6 Jul', hora:'7:00 PM ET' },
-    { id:'M95',  local:'Ganador M86', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M88', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'Hard Rock Stadium · Miami', fecha:'7 Jul', hora:'3:00 PM ET' },
-    { id:'M96',  local:'Ganador M85', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M87', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'BC Place · Vancouver', fecha:'7 Jul', hora:'7:00 PM ET' },
+    { id:'M89',  local:'Ganador M74', localFlag:'🏳️', localCode:'TBD', visitante:'Ganador M77', visitFlag:'🏳️', visitCode:'TBD', sede:'Lincoln Financial Field · Philadelphia', fecha:'4 Jul', hora:'3:00 PM ET' },
+    { id:'M90',  local:'Ganador M73', localFlag:'🏳️', localCode:'TBD', visitante:'Ganador M75', visitFlag:'🏳️', visitCode:'TBD', sede:'NRG Stadium · Houston',                 fecha:'4 Jul', hora:'7:00 PM ET' },
+    { id:'M91',  local:'Ganador M76', localFlag:'🏳️', localCode:'TBD', visitante:'Ganador M78', visitFlag:'🏳️', visitCode:'TBD', sede:'MetLife Stadium · New York/NJ',         fecha:'5 Jul', hora:'3:00 PM ET' },
+    { id:'M92',  local:'Ganador M79', localFlag:'🏳️', localCode:'TBD', visitante:'Ganador M80', visitFlag:'🏳️', visitCode:'TBD', sede:'Estadio Azteca · Ciudad de México',     fecha:'5 Jul', hora:'7:00 PM ET' },
+    { id:'M93',  local:'Ganador M83', localFlag:'🏳️', localCode:'TBD', visitante:'Ganador M84', visitFlag:'🏳️', visitCode:'TBD', sede:'BMO Field · Toronto',                   fecha:'6 Jul', hora:'3:00 PM ET' },
+    { id:'M94',  local:'Ganador M81', localFlag:'🏳️', localCode:'TBD', visitante:'Ganador M82', visitFlag:'🏳️', visitCode:'TBD', sede:"Levi's Stadium · Santa Clara",          fecha:'6 Jul', hora:'7:00 PM ET' },
+    { id:'M95',  local:'Ganador M86', localFlag:'🏳️', localCode:'TBD', visitante:'Ganador M88', visitFlag:'🏳️', visitCode:'TBD', sede:'Hard Rock Stadium · Miami',             fecha:'7 Jul', hora:'3:00 PM ET' },
+    { id:'M96',  local:'Ganador M85', localFlag:'🏳️', localCode:'TBD', visitante:'Ganador M87', visitFlag:'🏳️', visitCode:'TBD', sede:'BC Place · Vancouver',                  fecha:'7 Jul', hora:'7:00 PM ET' },
   ],
   QF: [
-    { id:'M97',  local:'Ganador M89', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M90', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'Gillette Stadium · Boston', fecha:'9 Jul', hora:'7:00 PM ET' },
-    { id:'M98',  local:'Ganador M93', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M94', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'SoFi Stadium · Los Ángeles', fecha:'10 Jul', hora:'7:00 PM ET' },
-    { id:'M99',  local:'Ganador M91', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M92', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'Hard Rock Stadium · Miami', fecha:'11 Jul', hora:'3:00 PM ET' },
-    { id:'M100', local:'Ganador M95', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M96', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'Arrowhead Stadium · Kansas City', fecha:'11 Jul', hora:'7:00 PM ET' },
+    { id:'M97',  local:'Ganador M89', localFlag:'🏳️', localCode:'TBD', visitante:'Ganador M90', visitFlag:'🏳️', visitCode:'TBD', sede:'Gillette Stadium · Boston',        fecha:'9 Jul',  hora:'7:00 PM ET' },
+    { id:'M98',  local:'Ganador M93', localFlag:'🏳️', localCode:'TBD', visitante:'Ganador M94', visitFlag:'🏳️', visitCode:'TBD', sede:'SoFi Stadium · Los Ángeles',       fecha:'10 Jul', hora:'7:00 PM ET' },
+    { id:'M99',  local:'Ganador M91', localFlag:'🏳️', localCode:'TBD', visitante:'Ganador M92', visitFlag:'🏳️', visitCode:'TBD', sede:'Hard Rock Stadium · Miami',        fecha:'11 Jul', hora:'3:00 PM ET' },
+    { id:'M100', local:'Ganador M95', localFlag:'🏳️', localCode:'TBD', visitante:'Ganador M96', visitFlag:'🏳️', visitCode:'TBD', sede:'Arrowhead Stadium · Kansas City',  fecha:'11 Jul', hora:'7:00 PM ET' },
   ],
   SF: [
-    { id:'M101', local:'Ganador M97',  localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M98',  visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'AT&T Stadium · Dallas', fecha:'14 Jul', hora:'7:00 PM ET' },
-    { id:'M102', local:'Ganador M99',  localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M100', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'Mercedes-Benz Stadium · Atlanta', fecha:'15 Jul', hora:'7:00 PM ET' },
+    { id:'M101', local:'Ganador M97',  localFlag:'🏳️', localCode:'TBD', visitante:'Ganador M98',  visitFlag:'🏳️', visitCode:'TBD', sede:'AT&T Stadium · Dallas',              fecha:'14 Jul', hora:'7:00 PM ET' },
+    { id:'M102', local:'Ganador M99',  localFlag:'🏳️', localCode:'TBD', visitante:'Ganador M100', visitFlag:'🏳️', visitCode:'TBD', sede:'Mercedes-Benz Stadium · Atlanta',    fecha:'15 Jul', hora:'7:00 PM ET' },
   ],
   '3P': [
-    { id:'M103', local:'Perdedor M101', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Perdedor M102', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'Hard Rock Stadium · Miami', fecha:'18 Jul', hora:'3:00 PM ET' },
+    { id:'M103', local:'Perdedor M101', localFlag:'🏳️', localCode:'TBD', visitante:'Perdedor M102', visitFlag:'🏳️', visitCode:'TBD', sede:'Hard Rock Stadium · Miami', fecha:'18 Jul', hora:'3:00 PM ET' },
   ],
   F: [
-    { id:'M104', local:'Ganador M101', localFlag:'🏳️', localCode:'TBD',
-                 visitante:'Ganador M102', visitFlag:'🏳️', visitCode:'TBD',
-                 sede:'MetLife Stadium · East Rutherford, NJ',
-                 fecha:'19 Jul', hora:'3:00 PM ET' },
+    { id:'M104', local:'Ganador M101', localFlag:'🏳️', localCode:'TBD', visitante:'Ganador M102', visitFlag:'🏳️', visitCode:'TBD', sede:'MetLife Stadium · East Rutherford, NJ', fecha:'19 Jul', hora:'3:00 PM ET' },
   ],
 };
 
-// ── SISTEMA DE PUNTOS ─────────────────────────────────────
 const PUNTOS = {
-  R32:  { ganador: 3,  marcador: 3, penales: 1, max: 7  },
-  R16:  { ganador: 5,  marcador: 3, penales: 1, max: 9  },
-  QF:   { ganador: 8,  marcador: 4, penales: 2, max: 14 },
-  SF:   { ganador: 12, marcador: 5, penales: 2, max: 19 },
-  '3P': { ganador: 8,  marcador: 4, penales: 2, max: 14 },
-  F:    { ganador: 20, marcador: 8, penales: 3, max: 31 },
+  R32:  { ganador: 3,  marcador: 3, penales: 1 },
+  R16:  { ganador: 5,  marcador: 3, penales: 1 },
+  QF:   { ganador: 8,  marcador: 4, penales: 2 },
+  SF:   { ganador: 12, marcador: 5, penales: 2 },
+  '3P': { ganador: 8,  marcador: 4, penales: 2 },
+  F:    { ganador: 20, marcador: 8, penales: 3 },
 };
 
 const ROUND_NAMES = {
-  R32: '16avos de Final', R16: 'Octavos de Final',
-  QF:  'Cuartos de Final', SF: 'Semifinales',
-  '3P':'Tercer Lugar',     F:  'Gran Final',
+  R32:'16avos de Final', R16:'Octavos de Final', QF:'Cuartos de Final',
+  SF:'Semifinales', '3P':'Tercer Lugar', F:'Gran Final',
 };
 
 // ── ESTADO ────────────────────────────────────────────────
 let currentUser  = null;
-let predictions  = {};
-let results      = {};
+let predictions  = {};  // { M73: { ganador, goles_local, goles_visitante, penales } }
+let partidosData = {};  // { M73: { ...datos del server incluyendo banderas reales } }
 let currentRound = 'R32';
 
 // ══════════════════════════════════════════
-// ✅ AUTO-LOGIN — desde URL ?email= o localStorage
+// AUTO-LOGIN
 // ══════════════════════════════════════════
 (function autoLogin() {
   const params     = new URLSearchParams(window.location.search);
   const emailParam = params.get('email');
   if (emailParam) {
     document.getElementById('emailInput').value = emailParam;
-    // Limpiar URL sin recargar
     window.history.replaceState({}, '', window.location.pathname);
     doLogin();
     return;
   }
-  // Pre-llenar desde localStorage (no auto-login silencioso)
   const emailSaved = localStorage.getItem('quiniela_email');
-  if (emailSaved) {
-    document.getElementById('emailInput').value = emailSaved;
-  }
+  if (emailSaved) document.getElementById('emailInput').value = emailSaved;
 })();
 
 // ── LOGIN ─────────────────────────────────────────────────
@@ -634,29 +465,31 @@ async function doLogin() {
   document.getElementById('loginError').style.display = 'none';
 
   try {
+    // ✅ RUTA CORRECTA según server.js: GET /api/participante/:email
     const res = await fetch(`${API}/api/participante/${encodeURIComponent(email)}`);
     if (!res.ok) throw new Error('not found');
     const data = await res.json();
 
-    // ✅ Aceptar cualquier participante registrado
-    // sin importar si confirmado === true o false
     currentUser = data;
     localStorage.setItem('quiniela_email', email);
 
-    await loadUserData();
+    // ✅ El server ya devuelve predicciones y partidos en el mismo response
+    // Aprovechar esos datos para no hacer llamadas extra
+    if (data.predicciones) predictions  = data.predicciones;
+    if (data.partidos)     partidosData = data.partidos;
+
+    // Cargar ranking por separado
+    await loadRanking();
 
     document.getElementById('loginPanel').style.display = 'none';
     document.getElementById('mainPanel').style.display  = 'block';
 
-    // ✅ Mostrar banner pago pendiente si no está confirmado
     const banner = document.getElementById('pagoPendienteBanner');
     if (banner) {
-      if (!currentUser.confirmado) {
-        banner.classList.add('visible');
-      } else {
-        banner.classList.remove('visible');
-      }
+      banner.classList.toggle('visible', !currentUser.confirmado);
     }
+
+    updateUI();
 
   } catch {
     document.getElementById('loginError').style.display = 'block';
@@ -670,9 +503,9 @@ document.getElementById('emailInput').addEventListener('keydown', e => {
 });
 
 function doLogout() {
-  currentUser = null;
-  predictions = {};
-  results     = {};
+  currentUser  = null;
+  predictions  = {};
+  partidosData = {};
   localStorage.removeItem('quiniela_email');
   document.getElementById('loginPanel').style.display = 'block';
   document.getElementById('mainPanel').style.display  = 'none';
@@ -681,81 +514,65 @@ function doLogout() {
   document.getElementById('pagoPendienteBanner').classList.remove('visible');
 }
 
-// ── CARGA DE DATOS ────────────────────────────────────────
-async function loadUserData() {
+// ── CARGAR RANKING ────────────────────────────────────────
+async function loadRanking() {
   try {
-    // Predicciones del usuario
-    const pRes = await fetch(`${API}/api/predicciones/${currentUser.id}`);
-    if (pRes.ok) predictions = await pRes.json();
-
-    // Resultados oficiales
-    const rRes = await fetch(`${API}/api/resultados`);
-    if (rRes.ok) results = await rRes.json();
-
-    // Ranking
+    // ✅ RUTA CORRECTA: GET /api/ranking
     const rkRes = await fetch(`${API}/api/ranking`);
     if (rkRes.ok) {
-      const ranking = await rkRes.json();
-      const pos = ranking.findIndex(r => r.id === currentUser.id) + 1;
-      document.getElementById('statPosicion').textContent =
-        pos > 0 ? `#${pos}` : '#—';
+      const data = await rkRes.json();
+      const ranking = data.ranking || data;
+      const pos = Array.isArray(ranking)
+        ? ranking.findIndex(r => r.id === currentUser.id) + 1
+        : 0;
+      document.getElementById('statPosicion').textContent = pos > 0 ? `#${pos}` : '#—';
     }
+  } catch(e) {
+    console.warn('Ranking no disponible:', e.message);
+  }
+}
 
+// ── CARGA COMPLETA (refresh) ──────────────────────────────
+async function loadUserData() {
+  try {
+    // ✅ RUTA CORRECTA: GET /api/participante/:email
+    // Trae predicciones y partidos en un solo call
+    const res = await fetch(`${API}/api/participante/${encodeURIComponent(currentUser.email)}`);
+    if (res.ok) {
+      const data = await res.json();
+      currentUser  = data;
+      if (data.predicciones) predictions  = data.predicciones;
+      if (data.partidos)     partidosData = data.partidos;
+    }
+    await loadRanking();
     updateUI();
-  } catch (e) {
-    console.warn('Error cargando datos:', e);
-    updateUI(); // Modo offline: mostrar bracket vacío
+  } catch(e) {
+    console.warn('Error recargando datos:', e.message);
+    updateUI();
   }
 }
 
 // ── ACTUALIZAR UI ─────────────────────────────────────────
 function updateUI() {
-  document.getElementById('userName').textContent  =
-    `👤 ${currentUser?.nombre || 'Usuario'}`;
-  document.getElementById('userEmail').textContent =
-    currentUser?.email || '';
+  document.getElementById('userName').textContent  = `👤 ${currentUser?.nombre || 'Usuario'}`;
+  document.getElementById('userEmail').textContent = currentUser?.email || '';
 
-  let totalPuntos = 0, aciertos = 0, pendientes = 0;
-  const puntosRonda = {};
+  // Usar puntos ya calculados por el server si existen
+  document.getElementById('statPuntos').textContent   = currentUser?.puntos_total || 0;
+  document.getElementById('statAciertos').textContent = currentUser?.aciertos     || 0;
 
-  Object.keys(BRACKET).forEach(ronda => {
-    puntosRonda[ronda] = 0;
-    BRACKET[ronda].forEach(match => {
-      const pred = predictions[match.id];
-      const res  = results[match.id];
-      if (!pred) { pendientes++; return; }
-      if (!res || res.estado !== 'FINALIZADO') { pendientes++; return; }
-
-      let pts = 0;
-      if (pred.ganador === res.ganador_code) {
-        pts += PUNTOS[ronda].ganador;
-        aciertos++;
-        if (pred.goles_local     === res.goles_local &&
-            pred.goles_visitante === res.goles_visitante) {
-          pts += PUNTOS[ronda].marcador;
-        }
-        if (res.fue_a_penales && pred.penales === true) {
-          pts += PUNTOS[ronda].penales;
-        }
-      }
-      totalPuntos        += pts;
-      puntosRonda[ronda] += pts;
-    });
-  });
-
-  document.getElementById('statPuntos').textContent    = totalPuntos;
-  document.getElementById('statAciertos').textContent  = aciertos;
-  document.getElementById('statPendientes').textContent= pendientes;
-
-  // Desglose puntos
+  // Desglose por ronda
   const ptTable = document.getElementById('pointsTable');
-  ptTable.innerHTML = Object.keys(PUNTOS).map(r => `
-    <div class="pt-row">
+  ptTable.innerHTML = Object.keys(PUNTOS).map(r => {
+    const key = r === '3P' ? 'pts_3p' : r === 'F' ? 'pts_final' : `pts_${r.toLowerCase()}`;
+    const pts = currentUser?.[key] || 0;
+    return `<div class="pt-row">
       <span class="rnd">${ROUND_NAMES[r]}</span>
-      <span class="pts">${puntosRonda[r] || 0} pts</span>
-    </div>
-  `).join('');
+      <span class="pts">${pts} pts</span>
+    </div>`;
+  }).join('');
 
+  updatePendientesCount();
   renderRound(currentRound);
 }
 
@@ -771,38 +588,37 @@ function showRound(ronda, btn) {
 function renderRound(ronda) {
   const grid    = document.getElementById('matchesGrid');
   const matches = BRACKET[ronda] || [];
-
   if (!matches.length) {
-    grid.innerHTML = `<div class="empty-state">
-      <div class="icon">🏆</div>
-      <p>No hay partidos en esta ronda.</p>
-    </div>`;
+    grid.innerHTML = `<div class="empty-state"><div class="icon">🏆</div><p>No hay partidos en esta ronda.</p></div>`;
     return;
   }
-
-  grid.innerHTML = matches.map(match =>
-    buildMatchCard(match, ronda)
-  ).join('');
+  grid.innerHTML = matches.map(m => buildMatchCard(m, ronda)).join('');
 }
 
 // ── CONSTRUIR TARJETA ─────────────────────────────────────
 function buildMatchCard(match, ronda) {
-  const pred  = predictions[match.id] || {};
-  const res   = results[match.id]     || {};
-  const ended = res.estado === 'FINALIZADO';
-  const isTBD = match.localCode === 'TBD' || match.visitCode === 'TBD';
+  const pred    = predictions[match.id] || {};
+  // ✅ FIX BANDERAS: usar datos reales del server si existen
+  const srv     = partidosData[match.id] || {};
+  const ended   = srv.estado === 'FINALIZADO';
 
-  // ✅ SOLO se bloquea si el partido ya terminó o es TBD
-  // NO se bloquea por fecha ni por pago pendiente
+  // Datos con fallback al bracket estático
+  const localCode  = srv.local_code       || match.localCode;
+  const visitCode  = srv.visitante_code   || match.visitCode;
+  const localFlag  = srv.local_bandera    || match.localFlag;
+  const visitFlag  = srv.visitante_bandera || match.visitFlag;
+  const localName  = srv.local_nombre     || match.local;
+  const visitName  = srv.visitante_nombre  || match.visitante;
+  const isTBD      = localCode === 'TBD' || visitCode === 'TBD';
+
   const locked   = ended || isTBD;
   const disabled = locked ? 'disabled' : '';
 
-  // Estado de la predicción
+  // Badge
   let cardClass = 'match-card';
   let badgeHtml = '';
-
   if (ended && pred.ganador) {
-    if (pred.ganador === res.ganador_code) {
+    if (pred.ganador === srv.ganador_code) {
       cardClass += ' win';
       badgeHtml  = '<span class="status-badge win">✅ Acertado</span>';
     } else {
@@ -821,43 +637,26 @@ function buildMatchCard(match, ronda) {
   // Score real
   let scoreHtml = '<span style="color:#445566">vs</span>';
   if (ended) {
-    const pen = res.fue_a_penales
-      ? `<div style="font-size:0.65rem;color:#8899aa">(pen.)</div>`
-      : '';
-    scoreHtml = `<span class="score-line">
-      ${res.goles_local ?? '?'} - ${res.goles_visitante ?? '?'}
-    </span>${pen}`;
+    const pen = srv.fue_a_penales
+      ? `<div style="font-size:0.65rem;color:#8899aa">(pen.)</div>` : '';
+    scoreHtml = `<span class="score-line">${srv.goles_local ?? '?'} - ${srv.goles_visitante ?? '?'}</span>${pen}`;
   }
 
-  // Clases botones ganador
-  const localSel = pred.ganador === match.localCode
-    ? (ended
-        ? (pred.ganador === res.ganador_code ? 'correct' : 'wrong')
-        : 'selected')
-    : '';
-  const visitSel = pred.ganador === match.visitCode
-    ? (ended
-        ? (pred.ganador === res.ganador_code ? 'correct' : 'wrong')
-        : 'selected')
-    : '';
+  // Clases botones
+  const localSel = pred.ganador === localCode
+    ? (ended ? (pred.ganador === srv.ganador_code ? 'correct' : 'wrong') : 'selected') : '';
+  const visitSel = pred.ganador === visitCode
+    ? (ended ? (pred.ganador === srv.ganador_code ? 'correct' : 'wrong') : 'selected') : '';
 
-  // Inputs de marcador — solo si no bloqueado
+  // Inputs marcador
   const scoreInputs = !locked ? `
     <div class="score-inputs">
       <label>Marcador:</label>
-      <input type="number" min="0" max="20"
-             id="sl_${match.id}"
-             value="${pred.goles_local ?? ''}"
-             placeholder="0"/>
+      <input type="number" min="0" max="20" id="sl_${match.id}" value="${pred.goles_local ?? ''}" placeholder="0"/>
       <span>-</span>
-      <input type="number" min="0" max="20"
-             id="sv_${match.id}"
-             value="${pred.goles_visitante ?? ''}"
-             placeholder="0"/>
+      <input type="number" min="0" max="20" id="sv_${match.id}" value="${pred.goles_visitante ?? ''}" placeholder="0"/>
       <label style="margin-left:8px">
-        <input type="checkbox"
-               id="sp_${match.id}"
-               ${pred.penales ? 'checked' : ''}/>
+        <input type="checkbox" id="sp_${match.id}" ${pred.penales ? 'checked' : ''}/>
         Pen.
       </label>
     </div>
@@ -869,9 +668,8 @@ function buildMatchCard(match, ronda) {
   ` : '');
 
   const saveBtn = !locked ? `
-    <button class="save-pred-btn"
-            id="sb_${match.id}"
-            onclick="savePrediction('${match.id}','${match.localCode}','${match.visitCode}','${ronda}')">
+    <button class="save-pred-btn" id="sb_${match.id}"
+            onclick="savePrediction('${match.id}','${localCode}','${visitCode}','${ronda}')">
       💾 Guardar Predicción
     </button>
   ` : '';
@@ -885,34 +683,30 @@ function buildMatchCard(match, ronda) {
       </div>
       <div class="card-teams">
         <div class="team-side">
-          <span class="team-flag">${match.localFlag}</span>
-          <div class="team-name">${match.local}</div>
-          ${ended ? `<div class="team-score">${res.goles_local ?? ''}</div>` : ''}
+          <span class="team-flag">${localFlag}</span>
+          <div class="team-name">${localName}</div>
+          ${ended ? `<div class="team-score">${srv.goles_local ?? ''}</div>` : ''}
         </div>
         <div class="vs-divider">${scoreHtml}</div>
         <div class="team-side">
-          <span class="team-flag">${match.visitFlag}</span>
-          <div class="team-name">${match.visitante}</div>
-          ${ended ? `<div class="team-score">${res.goles_visitante ?? ''}</div>` : ''}
+          <span class="team-flag">${visitFlag}</span>
+          <div class="team-name">${visitName}</div>
+          ${ended ? `<div class="team-score">${srv.goles_visitante ?? ''}</div>` : ''}
         </div>
       </div>
-      <div class="card-info">
-        <span>🏟️ ${match.sede}</span>
-      </div>
+      <div class="card-info"><span>🏟️ ${match.sede}</span></div>
       <div class="prediction-section">
         <div class="prediction-label">
           ${locked && !ended ? '🔒 Equipo por definir' : '🔮 Tu predicción — Ganador'}
         </div>
         <div class="prediction-teams">
-          <button class="pred-btn ${localSel}" ${disabled}
-                  id="pb_${match.id}_local"
-                  onclick="selectWinner('${match.id}','${match.localCode}','${match.visitCode}','${ronda}')">
-            ${match.localFlag} ${match.local}
+          <button class="pred-btn ${localSel}" ${disabled} id="pb_${match.id}_local"
+                  onclick="selectWinner('${match.id}','${localCode}','${visitCode}')">
+            ${localFlag} ${localName}
           </button>
-          <button class="pred-btn ${visitSel}" ${disabled}
-                  id="pb_${match.id}_visit"
-                  onclick="selectWinner('${match.id}','${match.visitCode}','${match.localCode}','${ronda}')">
-            ${match.visitFlag} ${match.visitante}
+          <button class="pred-btn ${visitSel}" ${disabled} id="pb_${match.id}_visit"
+                  onclick="selectWinner('${match.id}','${visitCode}','${localCode}')">
+            ${visitFlag} ${visitName}
           </button>
         </div>
         ${scoreInputs}
@@ -923,22 +717,28 @@ function buildMatchCard(match, ronda) {
 }
 
 // ── SELECCIONAR GANADOR ───────────────────────────────────
-function selectWinner(matchId, winnerCode, loserCode, ronda) {
+function selectWinner(matchId, winnerCode, loserCode) {
   if (!predictions[matchId]) predictions[matchId] = {};
   predictions[matchId].ganador = winnerCode;
 
-  const match = findMatch(matchId);
-  if (!match) return;
+  const srv       = partidosData[matchId] || {};
+  const match     = findMatch(matchId);
+  const localCode = srv.local_code || match?.localCode;
+  const isLocal   = winnerCode === localCode;
 
-  const isLocal = winnerCode === match.localCode;
-  const btnL    = document.getElementById(`pb_${matchId}_local`);
-  const btnV    = document.getElementById(`pb_${matchId}_visit`);
+  const btnL = document.getElementById(`pb_${matchId}_local`);
+  const btnV = document.getElementById(`pb_${matchId}_visit`);
   if (btnL) btnL.classList.toggle('selected',  isLocal);
   if (btnV) btnV.classList.toggle('selected', !isLocal);
 }
 
 // ── GUARDAR PREDICCIÓN ────────────────────────────────────
 async function savePrediction(matchId, localCode, visitCode, ronda) {
+  if (!currentUser?.id) {
+    showToast('❌ Sesión expirada. Recarga la página.', 'error');
+    return;
+  }
+
   const pred = predictions[matchId] || {};
   if (!pred.ganador) {
     showToast('⚠️ Selecciona un ganador primero', 'error');
@@ -949,28 +749,41 @@ async function savePrediction(matchId, localCode, visitCode, ronda) {
   const svEl = document.getElementById(`sv_${matchId}`);
   const spEl = document.getElementById(`sp_${matchId}`);
 
+  // ✅ PAYLOAD con los campos que acepta server.js POST /api/prediccion
+  // El server acepta AMBOS formatos (con y sin _pred) gracias a la normalización
   const payload = {
-    participante_id: currentUser.id,
-    partido_id:      matchId,
+    participante_id:  currentUser.id,
+    partido_id:       matchId,
     ronda,
-    ganador:         pred.ganador,
-    goles_local:     slEl ? (parseInt(slEl.value) >= 0 ? parseInt(slEl.value) : null) : null,
-    goles_visitante: svEl ? (parseInt(svEl.value) >= 0 ? parseInt(svEl.value) : null) : null,
-    penales:         spEl ? spEl.checked : false,
+    ganador_pred:     pred.ganador,
+    goles_local_pred: slEl && slEl.value !== '' ? parseInt(slEl.value) : 0,
+    goles_vis_pred:   svEl && svEl.value !== '' ? parseInt(svEl.value) : 0,
+    penales_pred:     spEl ? spEl.checked : false,
   };
 
   const btn = document.getElementById(`sb_${matchId}`);
   if (btn) { btn.disabled = true; btn.textContent = '⏳ Guardando...'; }
 
   try {
+    // ✅ RUTA CORRECTA según server.js: POST /api/prediccion (singular)
     const res = await fetch(`${API}/api/prediccion`, {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify(payload),
     });
-    if (!res.ok) throw new Error();
 
-    predictions[matchId] = { ...pred, ...payload };
+    if (!res.ok) {
+      const errData = await res.json().catch(() => ({}));
+      throw new Error(errData.error || `HTTP ${res.status}`);
+    }
+
+    // Actualizar estado local
+    predictions[matchId] = {
+      ganador:         payload.ganador_pred,
+      goles_local:     payload.goles_local_pred,
+      goles_visitante: payload.goles_vis_pred,
+      penales:         payload.penales_pred,
+    };
 
     if (btn) {
       btn.textContent = '✅ Guardado';
@@ -983,49 +796,32 @@ async function savePrediction(matchId, localCode, visitCode, ronda) {
     }
     showToast('✅ Predicción guardada', 'success');
 
-    // Actualizar badge de la card
     const card = document.getElementById(`card_${matchId}`);
     if (card) {
       const badge = card.querySelector('.status-badge');
-      if (badge) {
-        badge.className   = 'status-badge pending';
-        badge.textContent = '⏳ Guardado';
-      }
+      if (badge) { badge.className = 'status-badge pending'; badge.textContent = '⏳ Guardado'; }
+      card.classList.remove('loss');
       card.classList.add('pending');
     }
 
-    // Actualizar contador pendientes
     updatePendientesCount();
 
-  } catch {
-    showToast('❌ Error al guardar. Intenta de nuevo.', 'error');
-    if (btn) {
-      btn.disabled    = false;
-      btn.textContent = '💾 Guardar Predicción';
-    }
+  } catch(err) {
+    console.error('Error guardando predicción:', err.message);
+    showToast(`❌ ${err.message || 'Error al guardar. Intenta de nuevo.'}`, 'error');
+    if (btn) { btn.disabled = false; btn.textContent = '💾 Guardar Predicción'; }
   }
 }
 
-// ── ACTUALIZAR CONTADOR PENDIENTES ────────────────────────
+// ── CONTADOR PENDIENTES ───────────────────────────────────
 function updatePendientesCount() {
-  let pendientes = 0;
-  Object.keys(BRACKET).forEach(ronda => {
-    BRACKET[ronda].forEach(match => {
-      if (match.localCode === 'TBD') return;
-      const pred = predictions[match.id];
-      const res  = results[match.id];
-      if (!pred?.ganador) pendientes++;
-      else if (res?.estado === 'FINALIZADO') return;
-      else pendientes++;
-    });
-  });
-  // Solo contar los que faltan predecir (sin resultado aún)
   let sinPred = 0;
   Object.keys(BRACKET).forEach(ronda => {
     BRACKET[ronda].forEach(match => {
-      if (match.localCode === 'TBD') return;
-      const pred = predictions[match.id];
-      if (!pred?.ganador) sinPred++;
+      const srv       = partidosData[match.id] || {};
+      const localCode = srv.local_code || match.localCode;
+      if (localCode === 'TBD') return;
+      if (!predictions[match.id]?.ganador) sinPred++;
     });
   });
   document.getElementById('statPendientes').textContent = sinPred;
@@ -1051,13 +847,14 @@ async function refreshData() {
 async function downloadPDF() {
   if (!currentUser) return;
   try {
+    // ✅ RUTA CORRECTA: GET /api/pdf/quiniela/:id
     const res = await fetch(`${API}/api/pdf/quiniela/${currentUser.id}`);
     if (!res.ok) throw new Error();
     const blob = await res.blob();
     const url  = URL.createObjectURL(blob);
     const a    = document.createElement('a');
     a.href     = url;
-    a.download = `quiniela_${currentUser.nombre.replace(/\s/g,'_')}.pdf`;
+    a.download = `quiniela_${(currentUser.nombre || 'participante').replace(/\s/g,'_')}.pdf`;
     a.click();
     URL.revokeObjectURL(url);
   } catch {
@@ -1066,8 +863,7 @@ async function downloadPDF() {
 }
 
 function showLoading(visible) {
-  const el = document.getElementById('loadingOverlay');
-  if (el) el.classList.toggle('visible', visible);
+  document.getElementById('loadingOverlay').classList.toggle('visible', visible);
 }
 
 function showToast(msg, type = '') {
